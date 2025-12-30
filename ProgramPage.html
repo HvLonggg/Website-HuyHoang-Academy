@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chương Trình Học | Huy Hoàng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --brand: linear-gradient(90deg, #006699, #00b3b3); /* Green gradient matching previous page */
+      --accent: #ffd166;
+      --bg: #f0f4f8; /* Lighter, more vibrant background */
+      --text: #2b2d42;
+      --muted: #555;
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,.12);
+      --radius: 16px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{text-decoration:none;color:inherit}
+
+    /* ===== HEADER (fixed + hide-on-scroll) ===== */
+    header#main-header{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:1000;
+      background: var(--brand); /* Updated to match footer and previous page */
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:20px 48px;
+      box-shadow:0 3px 10px rgba(0,0,0,.12);
+      transform:translateY(0);
+      transition:transform .45s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease); /* Smoother transitions */
+    }
+    header#main-header.hide{transform:translateY(-100%)}
+    .logo a{
+      color:var(--accent);
+      font-size:1.6rem;
+      font-weight:700;
+      letter-spacing:.5px;
+      transition:color .3s var(--ease); /* Smooth color transition on hover */
+    }
+    .logo a:hover{color:#ffdc6d} /* Slightly brighter hover effect */
+    nav ul{list-style:none;display:flex;gap:26px;flex-wrap:wrap}
+    nav a{
+      color:#fff;
+      font-weight:600;
+      opacity:.95;
+      transition:opacity .3s var(--ease), color .3s var(--ease); /* Smoother transitions */
+    }
+    nav a:hover{
+      color:var(--accent);
+      opacity:1;
+      transform:scale(1.05); /* Subtle scale effect for liveliness */
+    }
+
+    /* Push body content below fixed header */
+    main{padding-top:92px}
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      border-radius:0 0 28px 28px;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35)),
+        url('images/hero-study.jpg') center/cover no-repeat;
+      min-height:340px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      box-shadow:var(--shadow);
+      transition:transform .5s var(--ease); /* Smooth transition for potential hover effects */
+    }
+    .hero .inner{
+      max-width:980px;
+      padding:56px 20px;
+      animation:fadeUp .8s var(--ease) both .05s;
+    }
+    .hero h1{font-size:2.4rem;margin-bottom:10px}
+    .hero p{opacity:.95;max-width:820px;margin:0 auto}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+    /* ===== SECTION INTRO ===== */
+    .section{
+      max-width:1200px;
+      margin:40px auto;
+      padding:0 20px;
+      transition:opacity .4s var(--ease); /* Smooth fade for section changes */
+    }
+    .section .intro{
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 32px;
+      color:var(--muted);
+    }
+
+    /* ===== PROGRAM GRID ===== */
+    .grid{
+      display:grid;
+      gap:28px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+      transition:transform .35s var(--ease), box-shadow .35s var(--ease), opacity .3s var(--ease); /* Enhanced transitions */
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 32px rgba(0,0,0,.16);
+    }
+    .card-img{
+      height:180px;
+      background:#e9ecef;
+      overflow:hidden;
+    }
+    .card-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1);
+      transition:transform .6s var(--ease);
+    }
+    .card:hover .card-img img{transform:scale(1.06)}
+    .card-body{padding:18px 18px 20px}
+    .card h3{font-size:1.1rem;margin-bottom:8px}
+    .meta{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+    .card p{color:#444;font-size:.95rem}
+    .btn{
+      display:inline-block;
+      margin-top:14px;
+      background:var(--accent);
+      color:#333;
+      font-weight:700;
+      padding:10px 16px;
+      border-radius:999px;
+      transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), color .25s var(--ease); /* Smoother button transitions */
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      background:#ffb703;
+      box-shadow:0 8px 18px rgba(0,0,0,.12);
+      color:#222; /* Slightly darker text for contrast */
+    }
+
+    /* ===== HIGHLIGHTS / USP ===== */
+    .usp{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      margin-top:18px;
+      transition:opacity .4s var(--ease); /* Smooth fade effect */
+    }
+    .usp-item{
+      background:#fff;
+      border-radius:14px;
+      padding:18px;
+      box-shadow:0 4px 14px rgba(0,0,0,.06);
+      transition:transform .3s var(--ease), box-shadow .3s var(--ease); /* Smooth hover effect */
+    }
+    .usp-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 20px rgba(0,0,0,.1);
+    }
+    .usp-item b{color:#1f2937}
+
+    /* ===== CTA STRIP ===== */
+    .cta{
+      margin:52px auto 24px;
+      background:linear-gradient(90deg, #6e6f75, #7b7c82);
+      color:#fff;
+      border-radius:18px;
+      padding:26px;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease); /* Smooth hover effect */
+    }
+    .cta:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+    .cta h3{font-size:1.25rem}
+    .cta .btn{
+      background:#fff;
+      color:#222;
+      transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease); /* Smoother button transitions */
+    }
+    .cta .btn:hover{
+      background:var(--accent);
+      color:#222;
+      transform:translateY(-1px);
+      box-shadow:0 6px 15px rgba(0,0,0,.1);
+    }
+
+    /* ===== FORM ===== */
+    .form{
+      background:#fff;
+      border-radius:16px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease); /* Smooth hover effect */
+    }
+    .form:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 35px rgba(0,0,0,.15);
+    }
+    .form h3{margin-bottom:10px}
+    .form .row{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .form label{font-weight:600;font-size:.92rem}
+    .form input,.form select,.form textarea{
+      width:100%;
+      border:1px solid #e2e8f0;
+      border-radius:10px;
+      padding:11px 12px;
+      margin-top:8px;
+      font-family:inherit;
+      outline:none;
+      transition:border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease); /* Enhanced input transitions */
+    }
+    .form textarea{min-height:110px;resize:vertical}
+    .form input:focus,.form select:focus,.form textarea:focus{
+      border-color:#a0aec0;
+      box-shadow:0 0 0 3px rgba(160,174,192,.2);
+      transform:scale(1.01); /* Subtle focus effect */
+    }
+    .form .actions{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .note{font-size:.9rem;color:var(--muted)}
+
+    /* ===== FAQ ===== */
+    .faq{margin-top:34px}
+    .accordion{
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 4px 16px rgba(0,0,0,.08);
+      transition:transform .4s var(--ease); /* Smooth hover effect */
+    }
+    .accordion:hover{transform:translateY(-3px)}
+    .acc-item + .acc-item{border-top:1px solid #eee}
+    .acc-head{
+      background:#fff;
+      padding:16px 18px;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-weight:600;
+      transition:background .3s var(--ease), color .3s var(--ease); /* Smooth hover effect */
+    }
+    .acc-head:hover{background:#f8fafc}
+    .acc-head span{transition:transform .25s var(--ease)}
+    .acc-body{
+      background:#fff;
+      padding:0 18px;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s var(--ease), padding .35s var(--ease);
+    }
+    .acc-item.active .acc-body{
+      padding:14px 18px;
+      max-height:260px;
+    }
+    .acc-item.active .acc-head span{transform:rotate(45deg)}
+
+    /* ===== FOOTER ===== */
+    footer{
+      background: var(--brand); /* Updated to match header and previous page */
+      color:#fff;
+      margin-top:56px;
+      padding:48px 20px 30px;
+      transition:background .4s var(--ease); /* Smooth transition for potential dynamic changes */
+    }
+    .footer-content{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      gap:28px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      align-items:flex-start;
+    }
+    .footer-content h4{
+      color:var(--accent);
+      font-size:1.1rem;
+      margin-bottom:14px;
+      padding-bottom:6px;
+      border-bottom:2px solid rgba(255,255,255,.15);
+      transition:color .3s var(--ease); /* Smooth color transition */
+    }
+    .footer-content h4:hover{color:#ffdc6d} /* Brighter hover effect */
+    .footer-content p,.footer-content a{
+      color:#e9ecef;
+      display:block;
+      font-size:.95rem;
+      margin-bottom:8px;
+      transition:color .3s var(--ease), transform .3s var(--ease); /* Smoother transitions */
+    }
+    .footer-content a:hover{
+      color:var(--accent);
+      transform:translateX(4px); /* Subtle movement for liveliness */
+    }
+    .contact a{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      transition:transform .3s var(--ease); /* Smooth hover effect */
+    }
+    .contact a:hover{transform:translateX(4px)}
+    .quick-links .link-columns{display:flex;align-items:flex-start}
+    .quick-links .link-col{display:flex;flex-direction:column;gap:8px}
+    .quick-links .divider{width:1px;background:rgba(255,255,255,.25);margin:0 16px}
+    .footer-bottom{
+      text-align:center;
+      margin-top:28px;
+      font-size:.9rem;
+      color:#d1d5db;
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:16px;
+      transition:transform .4s var(--ease); /* Smooth hover effect */
+    }
+    .footer-bottom:hover{transform:translateY(-2px)}
+
+    /* ===== UTIL ===== */
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-block;
+      background:#fff;
+      color:#111;
+      border-radius:999px;
+      padding:6px 10px;
+      font-weight:700;
+      transition:transform .3s var(--ease); /* Smooth hover effect */
+    }
+    .pill:hover{transform:scale(1.05)}
+
+    /* ===== MODAL ===== */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:2000;
+      transition:opacity .4s var(--ease); /* Smooth fade in/out */
+    }
+    .modal.open{display:flex}
+    .modal-card{
+      max-width:860px;
+      width:100%;
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+      animation:pop .25s var(--ease);
+      transition:transform .4s var(--ease); /* Smooth transition */
+    }
+    .modal-card:hover{transform:scale(1.02)}
+    @keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+    .modal-head{
+      padding:16px 18px;
+      background:#f8fafc;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      transition:background .3s var(--ease); /* Smooth hover effect */
+    }
+    .modal-head:hover{background:#f0f4f8}
+    .modal-head h3{font-size:1.15rem}
+    .modal-close{
+      border:0;
+      background:transparent;
+      font-size:22px;
+      cursor:pointer;
+      line-height:1;
+      transition:transform .3s var(--ease); /* Smooth hover effect */
+    }
+    .modal-close:hover{transform:rotate(90deg)}
+    .modal-body{padding:18px}
+    .modal-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .list{margin:0;padding-left:18px}
+    .list li{margin:6px 0}
+
+    /* Small */
+    @media (max-width:480px){
+      header#main-header{padding:16px 18px}
+      .hero h1{font-size:1.9rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="main-header">
+  <div class="logo"><a href="index.html" aria-label="Về trang chủ">Huy Hoàng</a></div>
+  <nav aria-label="Điều hướng chính">
+    <ul>
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="about_us.html">Giới thiệu</a></li>
+      <li><a href="Affiliate_Partner.html">Đối tác</a></li>
+      <li><a href="programs.html" style="color: var(--accent)">Chương trình học</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero" role="banner" aria-label="Chương trình học">
+    <div class="inner">
+      <span class="pill">Programs 2025</span>
+      <h1>Chương Trình Học – Lộ trình rõ ràng, kết quả bền vững</h1>
+      <p class="muted">Được thiết kế cùng các trường đối tác tại Đài Loan & quốc tế, chú trọng ngoại ngữ, chuyên môn và kỹ năng hội nhập toàn cầu.</p>
+    </div>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section class="section">
+    <p class="intro">
+      Tại Huy Hoàng, mỗi chương trình là một lộ trình “từ A–Z” gồm định hướng, rèn luyện ngoại ngữ, học thuật và kỹ năng nghề nghiệp.
+      Học viên được đồng hành 1–1 trong suốt quá trình: tư vấn chọn ngành, chuẩn bị hồ sơ, săn học bổng, luyện phỏng vấn và kết nối thực tập.
+    </p>
+
+    <!-- ===== PROGRAM GRID ===== -->
+    <div class="grid" id="program-grid">
+      <!-- 1 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-chinese.jpg" alt="Tiếng Trung dự bị"/></div>
+        <div class="card-body">
+          <h3>Tiếng Trung – Dự bị Đại học (Đài Loan)</h3>
+          <div class="meta">6–12 tháng • Mục tiêu TOCFL 2–3 • Nhập học kỳ 9/2</div>
+          <p>Học tiếng Trung học thuật + văn hoá – nền tảng vững chắc để vào đại học tại Đài Loan.</p>
+          <a href="#" class="btn" data-modal="m1">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-english.jpg" alt="Tiếng Anh học thuật"/></div>
+        <div class="card-body">
+          <h3>Tiếng Anh – Du học Mỹ/Canada</h3>
+          <div class="meta">3–9 tháng • IELTS 5.5–7.0 • Foundation/Pathway</div>
+          <p>Lộ trình Academic English + kỹ năng học thuật chuẩn quốc tế cho bậc CĐ/ĐH.</p>
+          <a href="#" class="btn" data-modal="m2">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-it.jpg" alt="CNTT"/></div>
+        <div class="card-body">
+          <h3>Kỹ thuật & CNTT – Đài Loan</h3>
+          <div class="meta">3–4 năm • Thực tập doanh nghiệp • Cơ hội việc làm</div>
+          <p>Chuyên ngành CS, AI, IoT, Data. Học cùng lab, dự án doanh nghiệp & mentor industry.</p>
+          <a href="#" class="btn" data-modal="m3">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-hospitality.jpg" alt="Du lịch - Khách sạn"/></div>
+        <div class="card-body">
+          <h3>Du lịch & Khách sạn – Đài Loan</h3>
+          <div class="meta">2–4 năm • Thực hành tại khách sạn 4–5★ • Lương thực tập</div>
+          <p>Học nghiệp vụ quốc tế, chuẩn hoá ngoại ngữ & dịch vụ, thực tập hưởng lương.</p>
+          <a href="#" class="btn" data-modal="m4">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 5 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-business.jpg" alt="Kinh doanh - Marketing"/></div>
+        <div class="card-body">
+          <h3>Kinh doanh & Marketing – Đài Loan</h3>
+          <div class="meta">3–4 năm • Dự án thực tế • Liên kết doanh nghiệp</div>
+          <p>Marketing số, thương mại điện tử, chuỗi cung ứng – bám sát nhu cầu tuyển dụng.</p>
+          <a href="#" class="btn" data-modal="m5">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 6 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-design.jpg" alt="Thiết kế - Truyền thông số"/></div>
+        <div class="card-body">
+          <h3>Thiết kế & Truyền thông số</h3>
+          <div class="meta">2–4 năm • Portfolio • Sản phẩm thực tế</div>
+          <p>UI/UX, Motion, 3D, Branding – học qua dự án studio & cố vấn từ chuyên gia.</p>
+          <a href="#" class="btn" data-modal="m6">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 7 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-nursing.jpg" alt="Điều dưỡng"/></div>
+        <div class="card-body">
+          <h3>Điều dưỡng & Chăm sóc sức khoẻ</h3>
+          <div class="meta">3–4 năm • Lâm sàng • Cơ hội việc làm cao</div>
+          <p>Chương trình đạt chuẩn, thực hành bệnh viện đối tác & hỗ trợ thi chứng chỉ.</p>
+          <a href="#" class="btn" data-modal="m7">Xem chi tiết</a>
+        </div>
+      </article>
+      <!-- 8 -->
+      <article class="card">
+        <div class="card-img"><img src="images/program-master.jpg" alt="Thạc sĩ Quốc tế"/></div>
+        <div class="card-body">
+          <h3>Thạc sĩ Quốc tế (Kỹ thuật/Kinh tế)</h3>
+          <div class="meta">1–2 năm • Học bổng 30–100% • Nghiên cứu/Industry</div>
+          <p>Song hành research & industry. Hỗ trợ săn học bổng + đề cương nghiên cứu.</p>
+          <a href="#" class="btn" data-modal="m8">Xem chi tiết</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- ===== USP ===== -->
+    <div class="usp">
+      <div class="usp-item"><b>Tư vấn 1–1:</b> Chọn ngành, lộ trình, hồ sơ cá nhân hoá.</div>
+      <div class="usp-item"><b>Học bổng:</b> Lộ trình điểm số + kỹ năng săn học bổng hiệu quả.</div>
+      <div class="usp-item"><b>Thực tập:</b> Kết nối doanh nghiệp, cơ hội làm việc sau tốt nghiệp.</div>
+      <div class="usp-item"><b>Hậu du học:</b> Cộng đồng cựu du học sinh, mentor nghề nghiệp.</div>
+    </div>
+
+    <!-- ===== CTA STRIP ===== -->
+    <div class="cta" aria-label="Đăng ký tư vấn">
+      <h3>Không biết chương trình nào phù hợp? Để chúng tôi đề xuất lộ trình tốt nhất cho bạn.</h3>
+      <a href="#form-dang-ky" class="btn">Đăng ký tư vấn miễn phí</a>
+    </div>
+
+    <!-- ===== FORM ===== -->
+    <div class="form" id="form-dang-ky">
+      <h3>Đăng ký tư vấn</h3>
+      <p class="muted" style="margin-bottom:12px">Điền thông tin dưới đây, đội ngũ Huy Hoàng sẽ liên hệ trong 24h.</p>
+      <form id="adviceForm" novalidate>
+        <div class="row">
+          <div>
+            <label for="fullname">Họ và tên</label>
+            <input id="fullname" name="fullname" type="text" placeholder="Nguyễn Văn A" required>
+          </div>
+          <div>
+            <label for="phone">Số điện thoại</label>
+            <input id="phone" name="phone" type="tel" placeholder="0989 723 000" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="ban@domain.com" required>
+          </div>
+          <div>
+            <label for="program">Chương trình quan tâm</label>
+            <select id="program" name="program" required>
+              <option value="">— Chọn —</option>
+              <option>Tiếng Trung – Dự bị Đại học</option>
+              <option>Tiếng Anh – Du học Mỹ/Canada</option>
+              <option>Kỹ thuật & CNTT – Đài Loan</option>
+              <option>Du lịch & Khách sạn – Đài Loan</option>
+              <option>Kinh doanh & Marketing – Đài Loan</option>
+              <option>Thiết kế & Truyền thông số</option>
+              <option>Điều dưỡng & Chăm sóc sức khoẻ</option>
+              <option>Thạc sĩ Quốc tế</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <label for="message">Nhu cầu cụ thể</label>
+          <textarea id="message" name="message" placeholder="Ví dụ: muốn săn học bổng ngành CNTT kỳ 9/2025..."></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn">Gửi đăng ký</button>
+          <span class="note">Bằng việc gửi, bạn đồng ý với chính sách bảo mật của chúng tôi.</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- ===== FAQ ===== -->
+    <div class="faq">
+      <h3 style="margin:14px 0 10px">Câu hỏi thường gặp</h3>
+      <div class="accordion" id="faq">
+        <div class="acc-item">
+          <div class="acc-head">Yêu cầu đầu vào chung là gì? <span>＋</span></div>
+          <div class="acc-body"><p>Tuỳ chương trình: bằng THPT/GPA, năng lực ngoại ngữ (TOCFL/IELTS), CV & mục tiêu học tập. Chúng tôi sẽ đánh giá hồ sơ và gợi ý lộ trình phù hợp.</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">Có học bổng không và làm sao để đạt? <span>＋</span></div>
+          <div class="acc-body"><p>Có. Học bổng 30–100% tuỳ trường/ngành. Cần điểm số, ngoại ngữ, thành tích/portfolio. Trung tâm hỗ trợ chuẩn bị hồ sơ & phỏng vấn.</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">Thực tập & cơ hội việc làm sau tốt nghiệp? <span>＋</span></div>
+          <div class="acc-body"><p>Nhiều chương trình có thực tập doanh nghiệp, đặc biệt ngành CNTT, Du lịch – Khách sạn, Kinh doanh. Tỷ lệ ở lại làm việc cao nếu đáp ứng yêu cầu.</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">Trung tâm hỗ trợ những gì? <span>＋</span></div>
+          <div class="acc-body"><p>Tư vấn 1–1, định hướng ngành, lộ trình ngoại ngữ, chuẩn bị hồ sơ – visa, luyện phỏng vấn, sắp xếp ký túc xá, đón – ổn định ban đầu tại trường.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== MODALS (chi tiết 8 chương trình) ===== -->
+<div class="modal" id="m1" role="dialog" aria-modal="true" aria-labelledby="m1-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m1-title">Tiếng Trung – Dự bị Đại học (Đài Loan)</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Mục tiêu</h4>
+          <ul class="list">
+            <li>Đạt TOCFL 2–3, làm chủ tiếng Trung học thuật.</li>
+            <li>Làm quen văn hoá – kỹ năng sống & học tập tại Đài Loan.</li>
+          </ul>
+          <h4>Đối tượng</h4>
+          <ul class="list"><li>HS/SV dự định vào CĐ/ĐH tại Đài Loan.</li></ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4>
+          <p>6–12 tháng (tuỳ trình độ đầu vào).</p>
+          <h4>Học phí & Học bổng</h4>
+          <p>~1,800–2,500 USD/kỳ. Học bổng ngôn ngữ theo thành tích.</p>
+          <h4>Yêu cầu</h4>
+          <ul class="list">
+            <li>Tốt nghiệp THPT; phỏng vấn đánh giá động lực học.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Vào thẳng các khoa theo nguyện vọng (tuỳ trường).</li>
+            <li>Năng lực tự học, thích nghi & hồ sơ học bổng tốt hơn.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m2" role="dialog" aria-modal="true" aria-labelledby="m2-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m2-title">Tiếng Anh – Du học Mỹ/Canada</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Mục tiêu</h4>
+          <ul class="list">
+            <li>IELTS 5.5–7.0/TOEFL iBT tương đương.</li>
+            <li>Kỹ năng Academic (essay, research, presentation).</li>
+          </ul>
+          <h4>Đối tượng</h4>
+          <ul class="list"><li>Sinh viên hướng CĐ/ĐH/PG tại Mỹ/Canada.</li></ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4>
+          <p>3–9 tháng theo đầu vào.</p>
+          <h4>Chi phí</h4>
+          <p>Tuỳ trung tâm/đối tác; có gói kết hợp Pathway/Foundation.</p>
+          <h4>Yêu cầu</h4>
+          <p>Bằng THPT, kiểm tra xếp lớp tiếng Anh.</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Đủ chuẩn nhập học + miễn một số học phần dự bị.</li>
+            <li>Tự tin hòa nhập lớp học quốc tế.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m3" role="dialog" aria-modal="true" aria-labelledby="m3-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m3-title">Kỹ thuật & CNTT – Đài Loan</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Chuyên ngành</h4>
+          <ul class="list">
+            <li>Khoa học máy tính, AI/ML, IoT, Data, EE.</li>
+            <li>Dự án lab + mentor doanh nghiệp.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4><p>3–4 năm (tuỳ bậc CĐ/ĐH).</p>
+          <h4>Học bổng</h4><p>30–100% theo GPA, ngoại ngữ, thành tích.</p>
+          <h4>Yêu cầu</h4><p>THPT, TOCFL/IELTS, portfolio/dự án (nếu có).</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Thực tập hưởng lương; cơ hội làm việc sau tốt nghiệp.</li>
+            <li>Năng lực kỹ thuật + kinh nghiệm dự án thực.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m4" role="dialog" aria-modal="true" aria-labelledby="m4-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m4-title">Du lịch & Khách sạn – Đài Loan</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Nội dung</h4>
+          <ul class="list">
+            <li>Nghiệp vụ khách sạn/nhà hàng, dịch vụ, ngoại ngữ.</li>
+            <li>Thực tập tại khách sạn 4–5★, có lương.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4><p>2–4 năm.</p>
+          <h4>Chi phí</h4><p>Học phí ưu đãi theo đối tác; hỗ trợ ký túc xá.</p>
+          <h4>Yêu cầu</h4><p>THPT; giao tiếp cơ bản; phỏng vấn động lực.</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Kỹ năng nghiệp vụ quốc tế; tăng cơ hội việc làm.</li>
+            <li>Mạng lưới doanh nghiệp dịch vụ – du lịch.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m5" role="dialog" aria-modal="true" aria-labelledby="m5-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m5-title">Kinh doanh & Marketing – Đài Loan</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Trọng tâm</h4>
+          <ul class="list">
+            <li>Marketing số, eCommerce, Supply Chain, Analytics.</li>
+            <li>Dự án với doanh nghiệp; case competition.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4><p>3–4 năm.</p>
+          <h4>Học bổng</h4><p>Theo GPA/ngoại ngữ/hoạt động.</p>
+          <h4>Yêu cầu</h4><p>THPT; TOCFL/IELTS; bài luận/portfolio (nếu có).</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Năng lực marketing & phân tích; tư duy dữ liệu.</li>
+            <li>Cơ hội thực tập – tuyển dụng từ đối tác.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m6" role="dialog" aria-modal="true" aria-labelledby="m6-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m6-title">Thiết kế & Truyền thông số</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Lộ trình</h4>
+          <ul class="list">
+            <li>UI/UX, Motion, 3D, Branding, Content.</li>
+            <li>Studio project – xây dựng portfolio chất lượng.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4><p>2–4 năm.</p>
+          <h4>Thi tuyển</h4><p>Portfolio/bài test năng khiếu (tuỳ trường).</p>
+          <h4>Yêu cầu</h4><p>THPT; nền tảng phần mềm thiết kế là lợi thế.</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Portfolio cạnh tranh; kỹ năng làm việc với khách hàng.</li>
+            <li>Liên kết studio/agency cho thực tập & việc làm.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m7" role="dialog" aria-modal="true" aria-labelledby="m7-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m7-title">Điều dưỡng & Chăm sóc sức khoẻ</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Nội dung</h4>
+          <ul class="list">
+            <li>Lý thuyết + thực hành lâm sàng tại bệnh viện đối tác.</li>
+            <li>Kỹ năng nghề nghiệp & giao tiếp chuyên môn.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4><p>3–4 năm.</p>
+          <h4>Chứng chỉ</h4><p>Hỗ trợ ôn – thi chứng chỉ hành nghề (tuỳ quốc gia).</p>
+          <h4>Yêu cầu</h4><p>THPT; sức khoẻ tốt; ngoại ngữ theo quy định.</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Tỷ lệ tuyển dụng cao tại bệnh viện/viện dưỡng lão.</li>
+            <li>Thu nhập ổn định & lộ trình thăng tiến.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m8" role="dialog" aria-modal="true" aria-labelledby="m8-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="m8-title">Thạc sĩ Quốc tế (Kỹ thuật/Kinh tế)</h3>
+      <button class="modal-close" data-close>&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <h4>Định hướng</h4>
+          <ul class="list">
+            <li>Research-based hoặc Industry-based.</li>
+            <li>Đề cương nghiên cứu & tìm giáo sư hướng dẫn.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Thời lượng</h4><p>1–2 năm.</p>
+          <h4>Học bổng</h4><p>30–100%: học phí, trợ cấp RA/TA (tuỳ lab).</p>
+          <h4>Yêu cầu</h4><p>Bằng ĐH, GPA, ngoại ngữ, SOP, thư giới thiệu.</p>
+        </div>
+        <div>
+          <h4>Kết quả</h4>
+          <ul class="list">
+            <li>Cơ hội nghiên cứu – công bố; vị trí việc làm thu nhập cao.</li>
+            <li>Mạng lưới học thuật & doanh nghiệp quốc tế.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-content">
+    <div>
+      <h4>Về chúng tôi</h4>
+      <p>Huy Hoàng Study Abroad – đồng hành kiến tạo lộ trình du học tối ưu tại Đài Loan & quốc tế, chú trọng kết quả và trải nghiệm của học viên.</p>
+    </div>
+
+    <div class="contact">
+      <h4>Liên hệ</h4>
+      <p><a href="https://www.google.com/maps?q=Số+6B7+khu+đô+thị+Mỹ+Đình+1,+Từ+Liêm,+Hà+Nội" target="_blank" rel="noopener">📍 Số 6B7 khu đô thị Mỹ Đình 1, Từ Liêm, Hà Nội</a></p>
+      <p><a href="tel:0989723000">📞 0989723000</a></p>
+      <p><a href="mailto:huyhoangvn.ht@gmail.com">✉️ huyhoangvn.ht@gmail.com</a></p>
+    </div>
+
+    <div class="quick-links">
+      <h4>Liên kết nhanh</h4>
+      <div class="link-columns">
+        <div class="link-col">
+          <a href="index.html">Trang chủ</a>
+          <a href="about_us.html">Giới thiệu</a>
+        </div>
+        <div class="divider"></div>
+        <div class="link-col">
+          <a href="Affiliate_Partner.html">Đối tác</a>
+          <a href="contact.html">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="background: var(--brand);" data-aos="fade-up">
+    © 2025 Huy Hoàng Study Abroad Center — Đồng hành cùng ước mơ du học của bạn.
+  </div>
+</footer>
+
+
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Header hide/show on scroll
+  (function(){
+    let last=0; const header=document.getElementById('main-header');
+    window.addEventListener('scroll',()=>{
+      const cur=window.pageYOffset||document.documentElement.scrollTop;
+      if(cur>last && cur>60){header.classList.add('hide');}
+      else{header.classList.remove('hide');}
+      last=cur<=0?0:cur;
+    }, {passive:true});
+  })();
+
+  // Modal open/close
+  document.querySelectorAll('[data-modal]').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      const id=btn.getAttribute('data-modal');
+      const m=document.getElementById(id);
+      if(m){ m.classList.add('open'); document.body.style.overflow='hidden'; }
+    });
+  });
+  document.querySelectorAll('[data-close]').forEach(x=>{
+    x.addEventListener('click',()=>{
+      const modal=x.closest('.modal'); modal.classList.remove('open'); document.body.style.overflow='';
+    });
+  });
+  document.querySelectorAll('.modal').forEach(m=>{
+    m.addEventListener('click',e=>{
+      if(e.target===m){ m.classList.remove('open'); document.body.style.overflow=''; }
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.acc-item .acc-head').forEach(h=>{
+    h.addEventListener('click',()=>{
+      const item=h.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+
+  // Simple form validation demo
+  const form=document.getElementById('adviceForm');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const fd=new FormData(form);
+    const required=['fullname','phone','email','program'];
+    for(const k of required){
+      if(!fd.get(k)){ alert('Vui lòng điền đầy đủ thông tin bắt buộc.'); return; }
+    }
+    alert('Gửi đăng ký thành công! Chúng tôi sẽ liên hệ sớm nhất.');
+    form.reset();
+  });
+</script>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tư vấn chọn ngành du học Đài Loan 2025. Phân tích xu hướng việc làm, mức lương ngành Bán dẫn, Quản trị, Ngôn ngữ. Định hướng nghề nghiệp chuẩn xác.">
+    <title>Định Hướng Chọn Ngành | Huy Hoang Edu - Kiến Tạo Sự Nghiệp</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. CORE VARIABLES & SETUP
+           ========================================= */
+        :root {
+            --primary: #006699;
+            --primary-dark: #004d73;
+            --teal: #00b3b3;
+            --teal-light: #e0f7f7;
+            --orange: #f9a11b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            --gradient-warm: linear-gradient(45deg, #f9a11b, #ff7e5f);
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.1);
+            --radius-lg: 20px;
+        }
+
+        body { font-family: 'Roboto', sans-serif; color: #334155; overflow-x: hidden; background: #fff; line-height: 1.6; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* Loader */
+        #loader {
+            position: fixed; inset: 0; background: #fff; z-index: 99999;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+        }
+        .loader-icon { font-size: 3rem; color: var(--orange); animation: bounce 1s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* =========================================
+           2. HEADER (Synced with Consulting Page)
+           ========================================= */
+        .top-header { background: var(--dark); color: #cbd5e1; font-size: 0.85rem; padding: 10px 0; }
+        .top-header a { color: #cbd5e1; text-decoration: none; transition: 0.3s; margin-left: 20px; }
+        .top-header a:hover { color: var(--orange); }
+
+        .navbar {
+            padding: 15px 0; transition: all 0.4s ease; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .navbar.scrolled { padding: 10px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #fff; }
+        
+        .navbar-brand { gap: 10px; }
+        .logo-icon {
+            width: 42px; height: 42px; 
+            background: var(--gradient-brand); 
+            color: white; border-radius: 10px; 
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 22px;
+            box-shadow: 0 4px 10px rgba(0, 102, 153, 0.3);
+        }
+        .logo-text-group { line-height: 1; display: flex; flex-direction: column; justify-content: center; }
+        .logo-main { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; margin-bottom: 2px; }
+        .logo-sub { font-size: 0.65rem; font-weight: 600; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; }
+
+        .nav-link {
+            font-weight: 600; color: #475569 !important; margin: 0 5px; padding: 8px 16px !important;
+            border-radius: 30px; transition: 0.3s; font-size: 0.95rem;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary) !important; background: var(--teal-light); }
+        
+        .btn-consult {
+            background: var(--gradient-brand); color: #fff !important; padding: 10px 25px !important;
+            border-radius: 50px; box-shadow: 0 4px 15px rgba(0, 179, 179, 0.3);
+            font-weight: 600; font-size: 0.9rem; transition: transform 0.3s;
+        }
+        .btn-consult:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 179, 179, 0.4); }
+
+        /* =========================================
+           3. HERO SECTION (Career Theme)
+           ========================================= */
+        .hero-career {
+            position: relative; height: 80vh; min-height: 600px;
+            background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            display: flex; align-items: center; overflow: hidden;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%);
+        }
+        .career-badge {
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 20px; border-radius: 50px; color: var(--orange); font-weight: 600;
+            margin-bottom: 20px; display: inline-block; backdrop-filter: blur(5px);
+        }
+        .hero-title { font-size: 3.5rem; color: white; margin-bottom: 20px; line-height: 1.2; }
+        
+        /* Floating Icons */
+        .float-icon {
+            position: absolute; width: 80px; height: 80px; background: white;
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 6s infinite ease-in-out;
+        }
+        .icon-chip { top: 20%; right: 10%; color: var(--orange); animation-delay: 0s; } /* Bán dẫn */
+        .icon-chart { bottom: 20%; right: 20%; color: var(--teal); animation-delay: 2s; } /* Kinh tế */
+        .icon-global { top: 30%; right: 30%; color: var(--primary); animation-delay: 1s; } /* Ngôn ngữ */
+        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* =========================================
+           4. WHY IT MATTERS
+           ========================================= */
+        .reality-section { padding: 80px 0; background: #fff; }
+        .stat-card {
+            text-align: center; padding: 30px; border-radius: var(--radius-lg);
+            background: var(--light); transition: 0.3s; height: 100%;
+        }
+        .stat-card:hover { transform: translateY(-10px); background: #fff; box-shadow: var(--shadow-card); }
+        .stat-num { font-size: 3rem; font-weight: 800; color: var(--orange); line-height: 1; }
+        
+        /* =========================================
+           5. HOT MAJORS (Interactive Cards)
+           ========================================= */
+        .majors-section { padding: 100px 0; background: #f0f9ff; }
+        .major-card {
+            background: white; border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-card); transition: 0.4s; position: relative;
+            height: 420px; group; cursor: pointer;
+        }
+        .major-img {
+            height: 200px; width: 100%; object-fit: cover; transition: 0.4s;
+        }
+        .major-content { padding: 25px; position: relative; background: white; height: 100%; transition: 0.4s; }
+        .major-icon {
+            width: 60px; height: 60px; background: var(--gradient-brand); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; position: absolute; top: -30px; right: 25px;
+            box-shadow: 0 5px 15px rgba(0, 102, 153, 0.3);
+        }
+        
+        /* Hover Effect: Slide up content */
+        .major-card:hover .major-content { transform: translateY(-100px); }
+        .major-card:hover .major-img { filter: brightness(0.7); }
+        .major-details {
+            opacity: 0; transform: translateY(20px); transition: 0.4s;
+            margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;
+        }
+        .major-card:hover .major-details { opacity: 1; transform: translateY(0); }
+        
+        /* =========================================
+           6. HOLLAND CODE TEST (Mini)
+           ========================================= */
+        .career-test-section {
+            background: var(--dark); color: white; padding: 100px 0; position: relative; overflow: hidden;
+        }
+        .holland-circle {
+            width: 150px; height: 150px; border-radius: 50%;
+            background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            margin: 0 auto; transition: 0.3s; cursor: pointer;
+        }
+        .holland-circle:hover, .holland-circle.active {
+            background: var(--orange); border-color: var(--orange); transform: scale(1.1); box-shadow: 0 0 30px rgba(249, 161, 27, 0.4);
+        }
+        .holland-icon { font-size: 2rem; margin-bottom: 10px; }
+        
+        /* =========================================
+           7. SALARY CHART (CSS Only)
+           ========================================= */
+        .trend-section { padding: 80px 0; background: white; }
+        .chart-bar-wrapper { margin-bottom: 25px; }
+        .chart-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
+        .progress { height: 25px; border-radius: 15px; background: #e2e8f0; overflow: hidden; }
+        .progress-bar {
+            background: var(--gradient-brand); text-align: right; padding-right: 15px;
+            font-weight: bold; line-height: 25px; animation: grow 2s ease-out forwards; width: 0;
+        }
+        @keyframes grow { from { width: 0; } }
+
+        /* =========================================
+           8. FOOTER PREMIUM (Copy from Final)
+           ========================================= */
+        footer {
+            background: #020617; color: #f1f5f9; padding-top: 80px;
+            font-size: 0.95rem; font-weight: 300;
+        }
+        .footer-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 1.4rem; letter-spacing: -0.5px; }
+        .footer-title {
+            color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 25px;
+            position: relative; padding-bottom: 12px; letter-spacing: 0.5px;
+        }
+        .footer-title::after {
+            content: ''; position: absolute; bottom: 0; left: 0; 
+            width: 40px; height: 3px; background: var(--orange); border-radius: 2px;
+        }
+        .footer-links a {
+            display: block; color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 12px; transition: 0.3s; text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: var(--orange); padding-left: 8px; text-shadow: 0 0 10px rgba(249, 161, 27, 0.4);
+        }
+        .social-circle {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex; justify-content: center; align-items: center;
+            color: #fff; margin-right: 12px; transition: 0.3s;
+        }
+        .social-circle:hover { background: var(--orange); border-color: var(--orange); transform: translateY(-5px); }
+        .newsletter-input {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+            color: #fff; padding: 12px; border-radius: 8px 0 0 8px;
+        }
+        .btn-newsletter { border-radius: 0 8px 8px 0; background: var(--orange); color: white; border: none; padding: 0 20px; transition: 0.3s; }
+        .contact-list li { margin-bottom: 15px; color: rgba(255,255,255,0.8); display: flex; align-items: start; }
+        .contact-list i { color: var(--orange); margin-right: 15px; margin-top: 5px; }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-title { font-size: 2.5rem; }
+            .major-card { height: auto; }
+            .major-card:hover .major-content { transform: none; }
+            .major-details { opacity: 1; transform: none; display: block; }
+            .holland-circle { width: 100px; height: 100px; font-size: 0.8rem; margin-bottom: 20px; }
+            .holland-icon { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <i class="fas fa-compass loader-icon"></i>
+<img src="../images/LOGO.jpg"
+     alt="Logo Huy Hoang"
+     class="mt-3"
+     style="height:40px; letter-spacing:2px;">       
+      <p class="text-muted small">Định hướng tương lai...</p>
+    </div>
+
+    <div class="top-header d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <span><i class="fas fa-map-marker-alt me-2 text-warning"></i> 6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, HN</span>
+                <span class="mx-3 text-secondary">|</span>
+                <span><i class="fas fa-phone-alt me-2 text-warning"></i> 0989.723.000</span>
+            </div>
+            <div>
+                <a href="#"><i class="fas fa-book me-1"></i> Cẩm nang chọn ngành</a>
+                <a href="#"><i class="fas fa-users me-1"></i> Cộng đồng du học sinh</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <img src="../images/LOGO.jpg"
+         alt="Huy Hoang Education"
+         style="
+            height:68px;
+            width:68px;
+            border-radius:70%;
+            object-fit:cover;
+         ">
+</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Chương trình</a>
+                        <ul class="dropdown-menu border-0 shadow-lg p-3 rounded-3 mt-2">
+                            <li><a class="dropdown-item py-2 rounded" href="scholarship1+4.html">Hệ 1+4</a></li>
+                            <li><a class="dropdown-item py-2 rounded" href="Taiwan full scholarship.html">Học bổng Toàn phần</a></li>
+                            <li><a class="dropdown-item py-2 rounded" href="work-study scholarship.html">Hệ Vừa học vừa làm</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="study abroad consulting.html">Tư vấn Du học</a></li>
+                    <li class="nav-item"><a class="nav-link active text-primary" href="#">Chọn Ngành HOT</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#test" class="btn-consult">Trắc Nghiệm Nghề</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-career">
+        <div class="hero-overlay"></div>
+        
+        <div class="float-icon icon-chip d-none d-md-flex"><i class="fas fa-microchip"></i></div>
+        <div class="float-icon icon-chart d-none d-md-flex"><i class="fas fa-chart-line"></i></div>
+        <div class="float-icon icon-global d-none d-md-flex"><i class="fas fa-globe-asia"></i></div>
+
+        <div class="container position-relative z-2">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="career-badge"><i class="fas fa-compass me-2"></i>LA BÀN SỰ NGHIỆP 2025</div>
+                    <h1 class="hero-title fw-bold">Chọn Đúng Ngành <br> <span class="text-warning">Thành Công Trong Tầm Tay</span></h1>
+                    <p class="lead text-light opacity-75 mb-4 pe-lg-5">
+                        Đừng chọn ngành chỉ vì "Hot". Hãy chọn ngành vì nó phù hợp với bạn và xu hướng thế giới. 
+                        Đài Loan là cái nôi của công nghệ Bán dẫn và Quản trị chuỗi cung ứng toàn cầu.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#hot-majors" class="btn btn-warning btn-lg rounded-pill fw-bold px-5 shadow">Khám Phá Các Ngành</a>
+                        <a href="#salary" class="btn btn-outline-light btn-lg rounded-pill fw-bold px-4">Xu Hướng Lương</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reality-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h5 class="text-secondary text-uppercase fw-bold letter-spacing-2">Thực tế đáng báo động</h5>
+                    <h2 class="display-6 fw-bold text-dark mb-4">60% Sinh Viên Ra Trường <br> <span class="text-danger">Làm Trái Ngành</span></h2>
+                    <p class="text-muted">Việc chọn sai ngành không chỉ lãng phí 4 năm thanh xuân và tài chính của gia đình, mà còn khiến bạn mất đi động lực phấn đấu. Tại Huy Hoàng Edu, chúng tôi dùng dữ liệu thực tế để định hướng cho bạn.</p>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <i class="fas fa-user-injured fs-1 text-secondary mb-3"></i>
+                                <div class="stat-num">70%</div>
+                                <p class="small text-muted fw-bold">Sinh viên muốn chọn lại ngành nếu được</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card" style="background: #fff3cd;">
+                                <i class="fas fa-coins fs-1 text-warning mb-3"></i>
+                                <div class="stat-num">2X</div>
+                                <p class="small text-muted fw-bold">Thu nhập chênh lệch giữa ngành Hot và thường</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <i class="fas fa-briefcase fs-1 text-primary mb-3"></i>
+                                <div class="stat-num">95%</div>
+                                <p class="small text-muted fw-bold">Du học sinh ngành Kỹ thuật có việc ngay</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hot-majors" class="majors-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold text-uppercase small">Đài Loan đào tạo gì tốt nhất?</span>
+                <h2 class="fw-bold display-6">Top 4 Ngành "Mũi Nhọn" Tại Đài Loan</h2>
+                <p class="text-muted">Cơ hội việc làm rộng mở và mức lương khởi điểm cao</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="major-card">
+                        <img src="https://images.unsplash.com/photo-1555664424-778a69022365?q=80&w=2070&auto=format&fit=crop" class="major-img" alt="Semiconductor">
+                        <div class="major-content">
+                            <div class="major-icon"><i class="fas fa-microchip"></i></div>
+                            <h4 class="fw-bold mt-4">Công Nghệ Bán Dẫn</h4>
+                            <p class="text-muted small">Đài Loan chiếm 60% thị phần chip toàn cầu (TSMC). Nhu cầu nhân lực cực lớn.</p>
+                            <div class="major-details">
+                                <ul class="list-unstyled small text-secondary">
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i> <strong>Lương:</strong> 45.000+ NTD/tháng</li>
+                                    <li class="mb-2"><i class="fas fa-university text-primary me-2"></i> <strong>Trường:</strong> NYCU, NTHU, NCKU</li>
+                                    <li><i class="fas fa-check text-warning me-2"></i> <strong>Học bổng:</strong> Rất nhiều</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="major-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" class="major-img" alt="Business">
+                        <div class="major-content">
+                            <div class="major-icon"><i class="fas fa-chart-pie"></i></div>
+                            <h4 class="fw-bold mt-4">Quản Trị Kinh Doanh</h4>
+                            <p class="text-muted small">Đào tạo MBA chuẩn Mỹ. Cơ hội làm việc tại các tập đoàn đa quốc gia.</p>
+                            <div class="major-details">
+                                <ul class="list-unstyled small text-secondary">
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i> <strong>Lương:</strong> 35.000+ NTD/tháng</li>
+                                    <li class="mb-2"><i class="fas fa-university text-primary me-2"></i> <strong>Trường:</strong> NTU, NCCU, Yuan Ze</li>
+                                    <li><i class="fas fa-check text-warning me-2"></i> <strong>Đặc điểm:</strong> Đào tạo 100% tiếng Anh</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="major-card">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop" class="major-img" alt="Tourism">
+                        <div class="major-content">
+                            <div class="major-icon"><i class="fas fa-hotel"></i></div>
+                            <h4 class="fw-bold mt-4">Du Lịch & Khách Sạn</h4>
+                            <p class="text-muted small">Ngành công nghiệp không khói phát triển mạnh. Thực tập hưởng lương cao.</p>
+                            <div class="major-details">
+                                <ul class="list-unstyled small text-secondary">
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i> <strong>Lương:</strong> 32.000+ NTD/tháng</li>
+                                    <li class="mb-2"><i class="fas fa-university text-primary me-2"></i> <strong>Trường:</strong> NKUHT, Ming Chuan</li>
+                                    <li><i class="fas fa-check text-warning me-2"></i> <strong>Hệ:</strong> Vừa học vừa làm rất hot</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="major-card">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=2130&auto=format&fit=crop" class="major-img" alt="Language">
+                        <div class="major-content">
+                            <div class="major-icon"><i class="fas fa-language"></i></div>
+                            <h4 class="fw-bold mt-4">Ngôn Ngữ Trung</h4>
+                            <p class="text-muted small">Cánh cửa giao thương với thế giới Hoa ngữ. Nghề biên phiên dịch, giáo dục.</p>
+                            <div class="major-details">
+                                <ul class="list-unstyled small text-secondary">
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i> <strong>Lương:</strong> 30.000 - 60.000 NTD</li>
+                                    <li class="mb-2"><i class="fas fa-university text-primary me-2"></i> <strong>Trường:</strong> NTNU, TKU</li>
+                                    <li><i class="fas fa-check text-warning me-2"></i> <strong>Lợi thế:</strong> Dễ xin việc khi về VN</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="test" class="career-test-section">
+        <div style="position: absolute; width: 400px; height: 400px; background: var(--teal); border-radius: 50%; top: -100px; right: -100px; opacity: 0.1; filter: blur(60px);"></div>
+        
+        <div class="container position-relative z-2">
+            <div class="text-center mb-5">
+                <h5 class="text-warning fw-bold text-uppercase">Trắc nghiệm nhanh</h5>
+                <h2 class="fw-bold display-5 text-white">Bạn Phù Hợp Với Nhóm Ngành Nào?</h2>
+                <p class="text-white-50">Chọn nhóm tính cách mô tả đúng nhất về bạn (Holland Code)</p>
+            </div>
+
+            <div class="row g-4 justify-content-center text-center">
+                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="holland-circle" onclick="showResult('R')">
+                        <i class="fas fa-tools holland-icon"></i>
+                        <div class="fw-bold">Kỹ Thuật</div>
+                        <small class="d-none d-md-block opacity-75">Thích máy móc</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="holland-circle" onclick="showResult('I')">
+                        <i class="fas fa-microscope holland-icon"></i>
+                        <div class="fw-bold">Nghiên Cứu</div>
+                        <small class="d-none d-md-block opacity-75">Thích tư duy</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="holland-circle" onclick="showResult('A')">
+                        <i class="fas fa-palette holland-icon"></i>
+                        <div class="fw-bold">Sáng Tạo</div>
+                        <small class="d-none d-md-block opacity-75">Thích cái đẹp</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="holland-circle" onclick="showResult('S')">
+                        <i class="fas fa-hands-helping holland-icon"></i>
+                        <div class="fw-bold">Xã Hội</div>
+                        <small class="d-none d-md-block opacity-75">Thích giúp đỡ</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="holland-circle" onclick="showResult('E')">
+                        <i class="fas fa-briefcase holland-icon"></i>
+                        <div class="fw-bold">Quản Lý</div>
+                        <small class="d-none d-md-block opacity-75">Thích lãnh đạo</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="holland-circle" onclick="showResult('C')">
+                        <i class="fas fa-file-invoice holland-icon"></i>
+                        <div class="fw-bold">Chi Tiết</div>
+                        <small class="d-none d-md-block opacity-75">Thích ngăn nắp</small>
+                    </div>
+                </div>
+            </div>
+
+            <div id="testResult" class="bg-white text-dark p-4 rounded-3 mt-5 shadow-lg mx-auto" style="max-width: 700px; display: none;">
+                <h4 class="text-primary fw-bold" id="resultTitle"></h4>
+                <p id="resultDesc"></p>
+                <hr>
+                <div class="fw-bold text-secondary">Ngành học gợi ý tại Đài Loan:</div>
+                <div id="resultMajors" class="mt-2 text-dark fw-bold"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="salary" class="trend-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h5 class="text-secondary fw-bold text-uppercase">Dữ liệu thị trường</h5>
+                    <h2 class="fw-bold mb-4">Mức Lương Khởi Điểm <br> <span class="text-primary">Trung Bình 2024</span></h2>
+                    <p class="text-muted">Theo thống kê của Bộ Lao động Đài Loan, sinh viên tốt nghiệp các ngành kỹ thuật và ngôn ngữ có mức lương tăng trưởng nhanh nhất.</p>
+                    <a href="#booking" class="btn btn-primary rounded-pill px-4 mt-3">Tư vấn chọn trường ngay</a>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">
+                            <span>Kỹ sư Bán dẫn / IT</span>
+                            <span class="text-primary">45.000 - 55.000 NTD</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%">90%</div>
+                        </div>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">
+                            <span>Tài chính / Ngân hàng</span>
+                            <span class="text-primary">38.000 - 45.000 NTD</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 75%">75%</div>
+                        </div>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">
+                            <span>Marketing / Truyền thông</span>
+                            <span class="text-primary">32.000 - 38.000 NTD</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%">60%</div>
+                        </div>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">
+                            <span>Dịch vụ / Du lịch</span>
+                            <span class="text-primary">30.000 - 35.000 NTD</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 55%">55%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-5" style="background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop') center/cover fixed;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white p-5 rounded-4 shadow-lg text-center position-relative" data-aos="zoom-in">
+                        <div class="position-absolute top-0 start-50 translate-middle bg-warning text-dark fw-bold px-4 py-2 rounded-pill shadow-sm">
+                            MIỄN PHÍ TƯ VẤN 100%
+                        </div>
+                        <h2 class="fw-bold text-primary mt-3 mb-3">Đăng Ký Định Hướng Nghề Nghiệp</h2>
+                        <p class="text-muted mb-4">Để lại thông tin, chuyên gia của Huy Hoàng Edu sẽ giúp bạn phân tích năng lực và chọn ngành học phù hợp nhất.</p>
+                        
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control bg-light p-3 border-0 rounded-3" placeholder="Họ và tên">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control bg-light p-3 border-0 rounded-3" placeholder="Số điện thoại">
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-select bg-light p-3 border-0 rounded-3">
+                                        <option>Bạn đang phân vân ngành nào?</option>
+                                        <option>Nhóm ngành Kỹ thuật</option>
+                                        <option>Nhóm ngành Kinh tế</option>
+                                        <option>Nhóm ngành Ngôn ngữ</option>
+                                        <option>Chưa xác định</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3 fw-bold rounded-3 fs-5 shadow-sm">NHẬN LỘ TRÌNH NGAY</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo-text mb-3">HUY HOANG EDU</div>
+                    <p class="mb-4 text-white-50 small" style="line-height: 1.8;">
+                        Công ty tư vấn du học uy tín hàng đầu Việt Nam. Chúng tôi cam kết mang lại tương lai rạng ngời cho thế hệ trẻ thông qua con đường giáo dục quốc tế chất lượng cao.
+                    </p>
+                    <div class="d-flex mb-4">
+                        <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Về Chúng Tôi</h5>
+                    <div class="footer-links">
+                        <a href="#">Câu chuyện thương hiệu</a>
+                        <a href="#">Đội ngũ chuyên gia</a>
+                        <a href="#">Đối tác chiến lược</a>
+                        <a href="#">Thư viện hình ảnh</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Dịch Vụ</h5>
+                    <div class="footer-links">
+                        <a href="#">Săn học bổng toàn phần</a>
+                        <a href="#">Visa du học & Thăm thân</a>
+                        <a href="#">Đào tạo tiếng Trung</a>
+                        <a href="#">Vé máy bay & KTX</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Liên Hệ</h5>
+                    <ul class="list-unstyled contact-list small">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Số 6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, Hà Nội</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span>0989.723.000 (Zalo 24/7)</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>huyhoangvn.ht@gmail.com</span></li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control newsletter-input" placeholder="Email của bạn...">
+                            <button class="btn btn-newsletter"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center py-4 mt-5 border-top border-white border-opacity-10" style="background: rgba(0,0,0,0.2);">
+            <p class="mb-0 small text-white-50">© 2025 Huy Hoang Education. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="btn btn-warning position-fixed bottom-0 end-0 m-4 p-3 rounded-circle shadow-lg text-white" id="backToTop" style="display: none; z-index: 1000;"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        // Init
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+            AOS.init({ duration: 800, once: true });
+        });
+
+        // Sticky Navbar
+        const navbar = document.querySelector('.navbar');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTop.style.display = 'block';
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Simple Holland Code Logic
+        function showResult(type) {
+            const box = document.getElementById('testResult');
+            const title = document.getElementById('resultTitle');
+            const desc = document.getElementById('resultDesc');
+            const majors = document.getElementById('resultMajors');
+            
+            box.style.display = 'block';
+            box.classList.add('animate__animated', 'animate__fadeInUp');
+
+            if(type === 'R') {
+                title.innerText = "Bạn thuộc nhóm KỸ THUẬT (Realistic)";
+                desc.innerText = "Bạn thực tế, thích làm việc với máy móc, công cụ và các vật thể cụ thể.";
+                majors.innerText = "Công nghệ thông tin, Cơ khí, Điện tử, Kiến trúc, Xây dựng.";
+            } else if(type === 'I') {
+                title.innerText = "Bạn thuộc nhóm NGHIÊN CỨU (Investigative)";
+                desc.innerText = "Bạn thích quan sát, tìm tòi, phân tích và giải quyết các vấn đề.";
+                majors.innerText = "Khoa học máy tính, Y dược, Công nghệ sinh học, Kinh tế học.";
+            } else if(type === 'A') {
+                title.innerText = "Bạn thuộc nhóm NGHỆ THUẬT (Artistic)";
+                desc.innerText = "Bạn giàu trí tưởng tượng, sáng tạo và thích tự do.";
+                majors.innerText = "Thiết kế đồ họa, Truyền thông đa phương tiện, Kiến trúc, Ngôn ngữ.";
+            } else if(type === 'S') {
+                title.innerText = "Bạn thuộc nhóm XÃ HỘI (Social)";
+                desc.innerText = "Bạn thích làm việc với con người, giúp đỡ và truyền đạt thông tin.";
+                majors.innerText = "Sư phạm, Du lịch khách sạn, Tâm lý học, Điều dưỡng.";
+            } else if(type === 'E') {
+                title.innerText = "Bạn thuộc nhóm QUẢN LÝ (Enterprising)";
+                desc.innerText = "Bạn mạnh mẽ, thích lãnh đạo và thuyết phục người khác.";
+                majors.innerText = "Quản trị kinh doanh, Marketing, Thương mại quốc tế, Luật.";
+            } else if(type === 'C') {
+                title.innerText = "Bạn thuộc nhóm NGHIỆP VỤ (Conventional)";
+                desc.innerText = "Bạn thích sự ngăn nắp, làm việc với số liệu và quy trình rõ ràng.";
+                majors.innerText = "Kế toán, Tài chính ngân hàng, Thư viện, Quản trị văn phòng.";
+            }
+            
+            // Scroll to result
+            box.scrollIntoView({behavior: "smooth", block: "center"});
+        }
+    </script>
+</body>
+</html>

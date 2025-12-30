@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DU HỌC HUY HOÀNG</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> -->
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <!-- <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet" /> -->
+
+  <style>
+    html {
+    font-size: 15px; /* 👈 chỉnh ở đây: 100% trình duyệt vẫn vừa */
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #004a9f;
+      background-color: white;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      transition: top 0.3s ease-in-out;
+      background-color: white;
+      /* Đảm bảo nền trắng */
+    }
+
+    .navbar.hidden {
+      top: -100px;
+      /* Ẩn khỏi màn hình */
+    }
+
+    .dropdown-menu .dropdown-item {
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .search-box {
+      position: absolute;
+      top: 120%;
+      left: -110px;
+      width: 300px;
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      padding: 0;
+      z-index: 999;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Input */
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px 16px;
+      font-size: 15px;
+      outline: none;
+      border-radius: 0;
+      background-color: transparent;
+      color: #333;
+    }
+
+    /* Nút tìm kiếm */
+    .search-submit {
+      background-color: transparent;
+      color: #004b93;
+      border: none;
+      border-left: 1px solid #e0e6ed;
+      /* ✅ Đường chia nhẹ */
+      padding: 12px 16px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.3s ease, transform 0.2s ease;
+      height: 100%;
+    }
+
+    /* Icon trong nút */
+    .search-submit i {
+      font-size: 20px;
+    }
+
+    /* Hover icon */
+    .search-submit:hover {
+      background-color: #f2f7fd;
+    }
+
+    .search-submit:hover i {
+      color: #0066cc;
+      transform: scale(1.1);
+    }
+
+
+
+    .contact-icons {
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .contact-icons a {
+      display: inline-block;
+      animation: shake 0.5s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    .contact-icons.scrolled {
+      opacity: 0.3;
+    }
+
+    .thumbnail {
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.1);
+    }
+
+    .contact-icons a img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-icons {
+      transition: transform 0.2s ease;
+    }
+
+
+    /* Keyframes rung kiểu chuông đổ */
+    @keyframes shake-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      10% {
+        transform: rotate(15deg);
+      }
+
+      20% {
+        transform: rotate(-12deg);
+      }
+
+      30% {
+        transform: rotate(10deg);
+      }
+
+      40% {
+        transform: rotate(-8deg);
+      }
+
+      50% {
+        transform: rotate(6deg);
+      }
+
+      60% {
+        transform: rotate(-4deg);
+      }
+
+      70% {
+        transform: rotate(2deg);
+      }
+
+      80% {
+        transform: rotate(-1deg);
+      }
+
+      90% {
+        transform: rotate(0.5deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .contact-icons a img:hover {
+      transform: scale(1.1);
+    }
+
+    .contact-icons img {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+    }
+
+
+    .dropdown-menu .dropdown-item:hover,
+    .dropdown-menu .dropdown-item:focus,
+    .dropdown-menu .dropdown-item.active {
+      background-color: #f37021;
+      /* Cam chủ đạo */
+      color: #fff;
+    }
+
+    /* Hover màu cam đậm cho menu */
+    .navbar-nav .nav-link {
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #f9a11b !important;
+    }
+
+    .brand-color {
+      color: #f9a11b;
+    }
+
+    .brand-bg {
+      background-color: #f3f9fc;
+    }
+
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    /* Nút ĐĂNG KÝ TƯ VẤN */
+    .btn-dang-ky {
+      background-color: #28a745 !important;
+      /* nền xanh lá cây */
+      border-color: #28a745 !important;
+      color: white !important;
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+
+    /* Hover → chuyển sang vàng */
+    .btn-dang-ky:hover {
+      background-color: #ffc107 !important;
+      /* nền vàng */
+      border-color: #ffc107 !important;
+      color: white !important;
+      transform: scale(1.05);
+      /* phóng nhẹ */
+    }
+
+    /* Khi click → rung nhẹ */
+    .btn-dang-ky:active {
+      animation: shake 0.2s;
+      transform: scale(0.98);
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-1px);
+      }
+
+      50% {
+        transform: translateX(1px);
+      }
+
+      75% {
+        transform: translateX(-1px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+
+    .study-plan-section {
+      background-color: #e8f0fa;
+      /* nền đậm hơn so với bg-light */
+    }
+
+    /* Cả hai nút có hiệu ứng phóng to nhẹ và mượt khi hover */
+    .btn-ho-so,
+    .btn-tu-van {
+      transition: all 0.3s ease;
+      /* hiệu ứng mượt */
+      transform: scale(1);
+      /* trạng thái ban đầu */
+    }
+
+    /* Khi hover, cả hai nút đều phóng to */
+    .btn-ho-so:hover,
+    .btn-tu-van:hover {
+      transform: scale(1.05);
+      /* phóng to nhẹ khi hover */
+    }
+
+    /* Nút "Tôi muốn được tư vấn" giữ màu mặc định của Bootstrap (xanh dương) */
+
+    /* Nút "Hồ sơ thành công" có màu nền xanh lá cây */
+    .btn-ho-so {
+      background-color: #28a745;
+      /* xanh lá */
+      border-color: #28a745;
+      color: white;
+    }
+
+    /* Hover: chuyển thành màu cam */
+    .btn-ho-so:hover {
+      background-color: #f9a11b !important;
+      /* cam */
+      border-color: #f9a11b !important;
+      color: white !important;
+    }
+
+
+    .image-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+      border-radius: 10px;
+    }
+
+    .image-box:hover img {
+      transform: scale(1.08);
+    }
+
+    .image-box-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    .school-name-overlay {
+      margin-top: 8px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .mt-extra {
+      margin-top: 100px;
+      /* ← Tăng ở đây */
+    }
+
+    /* Tùy chỉnh bảng học bổng */
+    .scholarship-table {
+      font-size: 0.85rem;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .scholarship-table thead {
+      background-color: #f1f5f9;
+      color: #495057;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .scholarship-table th,
+    .scholarship-table td {
+      padding: 0.75rem 0.5rem;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .scholarship-table td:first-child {
+      font-weight: 600;
+      color: #0B4C8C;
+    }
+
+    .scholarship-table tbody tr:hover {
+      background-color: #f8f9fa;
+      transition: background-color 0.3s ease;
+    }
+
+
+    /* Nút Apply */
+    .scholarship-table .btn {
+      transition: all 0.25s ease;
+      font-size: 0.75rem;
+    }
+
+    .scholarship-table .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0.25rem rgba(40, 167, 69, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .scholarship-table {
+        font-size: 0.75rem;
+      }
+
+      .scholarship-table th,
+      .scholarship-table td {
+        padding: 0.5rem;
+      }
+
+      .scholarship-table .btn {
+        padding: 0.35rem 0.75rem;
+      }
+    }
+
+    /* footer */
+    .footer-custom {
+      background: #717a85;
+      color: #ecf0f1;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-custom h5,
+    .footer-custom h6 {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .footer-custom p,
+    .footer-custom a {
+      color: #dcdde1;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-custom a.footer-link {
+      text-decoration: none;
+      display: block;
+      padding: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    .footer-custom a.footer-link:hover {
+      color: #f9a11b;
+      padding-left: 6px;
+    }
+
+    .footer-custom .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+      background-color: #fff;
+      padding: 4px;
+    }
+
+    .footer-custom .copyright-bar {
+      background: rgba(11, 32, 152, 0.5);
+      /* box-shadow: 0 0 0.25rem rgba(45, 34, 148, 0.5); */
+      color: #f1f1f1;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 0;
+      /* giảm chiều cao */
+      user-select: none;
+      /* không cho copy */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .footer-custom .footer-logo {
+        margin-bottom: 10px;
+      }
+
+      footer-custom a.footer-link {
+        text-decoration: none;
+        color: #dcdde1;
+        transition: all 0.3s ease;
+      }
+
+      .footer-custom a.footer-link:hover {
+        color: #f9a11b;
+        text-decoration: underline;
+      }
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.9s ease-in-out;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 550px;
+      background-size: cover;
+      /* Ảnh phủ kín khung */
+      background-repeat: no-repeat;
+      background-position: center;
+      /* Căn giữa ảnh */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="border-bottom py-1 bg-white">
+    <div class="container d-flex justify-content-between align-items-center small fw-semibold">
+      <div>
+        Hà Nội: <span class="text-primary">098.972.3000</span> – HẢI
+        DƯƠNG: <span class="text-primary">096.456.1122</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+
+        <a href="#" class="text-primary text-decoration-none">Tin
+          tức</a> |
+        <a href="#" class="text-primary text-decoration-none">Sự
+          kiện</a> |
+        <a href="#" class="text-primary text-decoration-none">Tuyển
+          dụng</a> |
+        <a href="Commitment page.html" class="text-primary text-decoration-none">Về chúng tôi</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md border-bottom py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="#" class="d-flex align-items-center text-decoration-none">
+        <img src="../images/LOGO.jpg" alt="Logo Huy Hoàng" style="
+         width: 75px;
+         height: 75px;
+         object-fit: contain;
+         border-radius: 50%; /* Bo tròn mềm mại */
+         box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Viền sáng xanh dương nhạt */
+         background-color: white; /* Làm nổi logo nếu nền trong suốt */
+         padding: 4px; /* Tạo khoảng đệm nhẹ */
+       ">
+        <div class="ms-3">
+          <div class="fs-4 fw-bold">
+            <span class="brand-color">HUY</span> <span class="text-primary">HOÀNG</span>
+          </div>
+          <div class="small text-primary">Chắp cánh ước mơ</div>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+        <ul class="navbar-nav me-3 gap-3 fw-semibold small">
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="index.html"><i class="fas fa-home"></i>
+              HOME</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-primary" href="#" id="gioiThieuDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              GIỚI THIỆU
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="gioiThieuDropdown">
+              <li><a class="dropdown-item" href="about_us.html">Về Huy
+                  Hoàng</a></li>
+
+              <li><a class="dropdown-item" href="staff.html">Đội ngũ tư
+                  vấn</a></li>
+              <li><a class="dropdown-item" href="Affiliate_Partner.html">Đối tác &
+                  Trường liên kết</a></li>
+              <li><a class="dropdown-item" href="Commitment page.html">Cam kết đồng
+                  hành</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-primary" href="#" id="duHocDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              DU HỌC
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="duHocDropdown">
+              <li><a class="dropdown-item" href="about_taiwan.html">Giới
+                  thiệu về Đài Loan</a></li>
+              <li><a class="dropdown-item" href="Affiliate_Partner.html">Danh
+                  sách trường</a></li>
+              <li><a class="dropdown-item" href="ProgramPage.html">Chương trình học tại
+                  Đài Loan</a></li>
+              <li><a class="dropdown-item" href="study_abroad_condititions.html">Điều
+                  kiện du học</a></li>
+              <li><a class="dropdown-item" href="Registration procedure.html">Thủ tục
+                  đăng ký</a></li>
+              <li><a class="dropdown-item" href="visa.html">Visa & giấy
+                  tờ</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-primary" href="#" id="hocBongDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              HỌC BỔNG
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="hocBongDropdown">
+              <li><a class="dropdown-item" href="scholarship1+4.html">Chương
+                  trình học bổng 1+4 </a></li>
+              <li><a class="dropdown-item" href="work-study scholarship.html">Chương
+                  trình học bổng hệ vhvl</a></li>
+              <li><a class="dropdown-item" href="Taiwan full scholarship.html">Học bổng toàn
+                  phần</a></li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-primary" href="#" id="gocTuVanDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              TƯ VẤN DỊCH VỤ
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="gocTuVanDropdown">
+              <li><a class="dropdown-item" href="Industry selection consulting.html">Định hướng nghề nghiệp</a></li>
+              <li><a class="dropdown-item" href="study abroad consulting.html">Thông tin dịch vụ</a></li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link text-primary" href="../user/contact.html">LIÊN HỆ</a></li>
+
+          <div class="search-container position-relative d-inline-block">
+            <!-- Nút icon kính lúp -->
+            <button id="search-btn" class="btn btn-link p-0 text-primary fs-4" aria-label="Tìm kiếm">
+              <i class="fas fa-search"></i>
+            </button>
+
+            <!-- Ô tìm kiếm -->
+            <div id="search-box" class="search-box d-none">
+              <input type="text" id="search-input" class="form-control" placeholder="Nhập từ khóa..." />
+              <button class="btn search-submit" aria-label="Tìm">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <script>
+            const searchBtn = document.getElementById('search-btn');
+            const searchBox = document.getElementById('search-box');
+            const searchInput = document.getElementById('search-input');
+
+            // Toggle hiện/ẩn thanh tìm kiếm
+            searchBtn.addEventListener('click', function (e) {
+              e.stopPropagation();
+              const isHidden = searchBox.classList.contains('d-none');
+              searchBox.classList.toggle('d-none', !isHidden);
+              if (isHidden) {
+                searchInput.focus();
+              }
+            });
+
+            // Ẩn khi click bên ngoài
+            document.addEventListener('click', function (e) {
+              if (!searchBox.contains(e.target) && !searchBtn.contains(e.target)) {
+                searchBox.classList.add('d-none');
+              }
+            });
+
+            // Ngăn sự kiện ẩn khi click trong ô
+            searchBox.addEventListener('click', function (e) {
+              e.stopPropagation();
+            });
+
+          </script>
+
+        </ul>
+        <a href="register-consultation.html" class="btn btn-dang-ky fw-semibold px-4">ĐĂNG KÝ TƯ
+          VẤN</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+      const currentScrollPos = window.pageYOffset;
+
+      if (prevScrollPos > currentScrollPos) {
+        // Cuộn lên => Hiện navbar
+        navbar.classList.remove('hidden');
+      } else {
+        // Cuộn xuống => Ẩn navbar
+        navbar.classList.add('hidden');
+      }
+
+      prevScrollPos = currentScrollPos;
+    });
+  </script>
+
+  <div class="contact-icons">
+    <a href="tel:0989723000" target="_blank">
+      <img src="../images/whatsapp-48.png" alt="WhatsApp">
+    </a>
+    <a href="https://www.facebook.com/messages/t/100850988083090" target="_blank">
+      <img src="../images/messenger_logo.png" alt="Messenger">
+    </a>
+  </div>
+  <script>
+    document.addEventListener("scroll", function () {
+      const contactIcons = document.querySelector(".contact-icons");
+
+      if (!contactIcons.classList.contains("scrolled")) {
+        contactIcons.classList.add("scrolled");
+      }
+
+      // Reset animation nếu tiếp tục cuộn
+      clearTimeout(contactIcons.timer);
+      contactIcons.timer = setTimeout(() => {
+        contactIcons.classList.remove("scrolled");
+      }, 1000);
+    });
+  </script>
+
+  <!-- Slider -->
+  <div class="container mt-4 position-relative">
+    <div id="slider" class="position-relative overflow-hidden rounded-3" style="height: 550px;">
+      <div class="slides">
+        <div class="slide" style="background-image: url('../images/SLIDE4.jpg');"></div> <!-- Clone cuối -->
+        <div class="slide" style="background-image: url('../images/SLIDE1.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/SLIDE2.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/SLIDE3.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/SLIDE4.jpg');"></div>
+        <div class="slide" style="background-image: url('../images/SLIDE1.jpg');"></div> <!-- Clone đầu -->
+      </div>
+
+
+      <!-- Nút điều hướng -->
+      <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y opacity-75 slider-btn" id="prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y opacity-75 slider-btn" id="next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const slideItems = document.querySelectorAll('.slide');
+    const totalSlides = slideItems.length;
+
+    let index = 1; // Bắt đầu từ ảnh thật đầu tiên
+    let slideInterval = setInterval(nextSlide, 4000); // Delay 4 giây
+
+    slides.style.transform = `translateX(${-index * 100}%)`;
+
+    function showSlide() {
+      slides.style.transition = 'transform 0.9s ease-in-out';
+      slides.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    function nextSlide() {
+      index++;
+      showSlide();
+    }
+
+    function prevSlide() {
+      index--;
+      showSlide();
+    }
+
+    slides.addEventListener('transitionend', () => {
+      // Nếu đến clone cuối → nhảy về ảnh đầu thật
+      if (index === totalSlides - 1) {
+        slides.style.transition = 'none';
+        index = 1;
+        slides.style.transform = `translateX(${-index * 100}%)`;
+      }
+      // Nếu đến clone đầu → nhảy về ảnh cuối thật
+      if (index === 0) {
+        slides.style.transition = 'none';
+        index = totalSlides - 2;
+        slides.style.transform = `translateX(${-index * 100}%)`;
+      }
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      nextSlide();
+      resetInterval();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      prevSlide();
+      resetInterval();
+    });
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+  </script>
+
+
+  <!-- Section: Tại sao chọn taiwan -->
+  <section class="container py-5">
+    <h2 class="text-center text-primary fw-bold fs-2 mb-5">TẠI SAO CHỌN
+      DU HỌC ĐÀI LOAN?</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="text-center p-4 rounded-3 brand-bg h-100">
+          <div
+            class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4"
+            style="width: 80px; height: 80px;">
+            <i class="fas fa-plane fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-primary">GẦN VIỆT NAM</h5>
+          <p>Chỉ mất khoảng 3 tiếng bay từ Việt Nam sang Đài Loan. Gần gũi về
+            vị trí địa lý, văn hóa tương đồng, thuận tiện cho phụ huynh thăm
+            con và kết hợp du lịch.</p>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-center p-4 rounded-3 brand-bg h-100">
+          <div
+            class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4"
+            style="width: 80px; height: 80px;">
+            <i class="fas fa-hourglass-half fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-primary">THỜI GIAN HỌC NGẮN</h5>
+          <p>Có thể tốt nghiệp cử nhân khi 19 tuổi. Chương trình
+            học tối ưu, linh hoạt.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-center p-4 rounded-3 brand-bg h-100">
+          <div
+            class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4"
+            style="width: 80px; height: 80px;">
+            <i class="fas fa-university fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-primary">NỀN GIÁO DỤC</h5>
+          <p>Chất lượng giáo dục hàng đầu châu Á, thu hút nhiều du
+            học sinh khu vực.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-center p-4 rounded-3 brand-bg h-100">
+          <div
+            class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4"
+            style="width: 80px; height: 80px;">
+            <i class="fas fa-user-graduate fs-3"></i>
+          </div>
+          <h5 class="fw-bold text-primary">BẰNG CẤP TOÀN CẦU</h5>
+          <p>Bằng cấp quốc tế, được công nhận rộng rãi, tăng cơ
+            hội việc làm toàn cầu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Chi phí & điều kiện du học Đài Loan -->
+  <section class="container py-5">
+    <h2 class="text-center text-primary fw-bold fs-2 mb-5">CHI PHÍ VÀ ĐIỀU
+      KIỆN DU HỌC ĐÀI LOAN</h2>
+    <div class="row g-4">
+      <!-- Chi phí -->
+      <div class="col-md-6">
+        <div class="p-4 rounded-3" style="background-color: #e7f4ff;">
+          <h5 class="fw-bold text-primary mb-3">CHI PHÍ DU HỌC ĐÀI LOAN</h5>
+          <p class="small fst-italic text-muted">
+            (*) Chi phí du học Đài Loan có thể thay đổi tùy theo trường công
+            hay tư, khu vực sinh sống, ngành học và mức sinh hoạt cá nhân.
+          </p>
+          <p class="fw-semibold mb-1 small">Học phí:</p>
+          <ul class="small ps-3 mb-3">
+            <li>Trường công lập: 30 – 60 triệu VND/năm</li>
+            <li>Trường tư thục: 60 – 120 triệu VND/năm</li>
+            <li>Các ngành đặc biệt (Y, Dược...): Có thể cao hơn</li>
+          </ul>
+          <p class="fw-semibold mb-1 small">Sinh hoạt phí:</p>
+          <p class="small mb-2">5 – 8 triệu VND/tháng (tùy thành phố)</p>
+          <p class="fw-semibold mb-1 small">Ký túc xá / Nhà ở:</p>
+          <p class="small mb-2">1 – 2 triệu VND/tháng (ký túc xá), 2 – 4 triệu
+            VND/tháng (thuê ngoài)</p>
+          <p class="fw-semibold mb-1 small">Bảo hiểm & lệ phí khác:</p>
+          <p class="small mb-2">~ 3 triệu VND/năm</p>
+          <p class="small">
+            Nhiều trường hỗ trợ học bổng bán phần hoặc toàn phần giúp giảm
+            gánh nặng tài chính cho sinh viên quốc tế.
+          </p>
+        </div>
+      </div>
+
+      <!-- Điều kiện -->
+      <div class="col-md-6">
+        <div class="p-4 rounded-3" style="background-color: #e7f4ff;">
+          <h5 class="fw-bold text-primary mb-3">ĐIỀU KIỆN ĐẦU VÀO DU HỌC ĐÀI
+            LOAN</h5>
+          <p class="small mb-3">
+            Du học Đài Loan có yêu cầu linh hoạt và phù hợp với đa dạng đối
+            tượng học sinh Việt Nam. Một số chương trình có thể học hoàn toàn
+            bằng tiếng Anh hoặc tiếng Trung.
+          </p>
+
+          <p class="fw-semibold small mb-1">Hệ đại học:</p>
+          <ul class="small ps-3 mb-3">
+            <li>Tốt nghiệp THPT</li>
+            <li>Điểm trung bình lớp 12 từ 6.5 trở lên</li>
+            <li>Yêu cầu tiếng Trung TOCFL cấp 2 hoặc IELTS 5.5 trở lên</li>
+          </ul>
+
+          <p class="fw-semibold small mb-1">Hệ sau đại học:</p>
+          <ul class="small ps-3 mb-3">
+            <li>Tốt nghiệp đại học</li>
+            <li>Có đề cương nghiên cứu (với hệ Thạc sĩ nghiên cứu)</li>
+            <li>Yêu cầu TOCFL cấp 3 trở lên hoặc IELTS 6.0+</li>
+          </ul>
+
+          <p class="fw-semibold small mb-1">Học bổng:</p>
+          <ul class="small ps-3">
+            <li>Hồ sơ học lực tốt, thư giới thiệu, kế hoạch học tập rõ
+              ràng</li>
+            <li>Nhiều học bổng chính phủ, học bổng trường và doanh nghiệp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Kế hoạch du học -->
+
+  <h2 class="text-center text-primary fw-bold fs-2 mt-5 mb-5">KẾ HOẠCH DU HỌC
+    ĐÀI LOAN</h2>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <section class="study-plan-section" style="background-color:#fff; padding:40px 0;">
+    <div class="container-lg px-4" style="max-width:1100px;">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="../images/KHHT.jpg" class="img-fluid rounded shadow" style="margin-left: -40px;"
+            alt="Kế hoạch du học">
+
+        </div>
+        <div class="col-md-6">
+          <p class="text-center fs-4 fw-semibold mb-1">Bạn đang lên kế hoạch
+            du học Đài Loan?</p>
+          <p>
+            Huy Hoàng đồng hành cùng bạn từ bước chuẩn bị hồ sơ, chọn trường,
+            xin học bổng đến khi đặt chân tới giảng đường đại học.
+          </p>
+
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Tư
+              vấn chọn ngành và trường phù hợp</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Hỗ
+              trợ làm hộ chiếu, hồ sơ chi tiết</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Hỗ
+              trợ free ktx, lớp học với trang thiết bị hiện đại</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Hỗ
+              trợ xin học bổng & visa</li>
+          </ul>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="contact.html" class="btn btn-primary px-4 btn-tu-van">
+              <i class="bi bi-chat-dots me-1"></i> Tôi muốn được tư vấn
+            </a>
+            <a href="#ho-so-thanh-cong" class="btn btn-outline-success px-4 btn-ho-so">
+              <i class="bi bi-folder-check me-1"></i> Xem hồ sơ thành công
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAM KẾT VỚI SINH VIÊN -->
+  <h2 class="text-center text-primary fw-bold fs-2 mb-7 mt-5">
+    ĐỒNG HÀNH CÙNG DU HỌC SINH ĐÀI LOAN
+  </h2>
+  <section style="background-color: #fff;">
+    <div class="container-lg px-4" style="max-width:1350px;">
+      <div class="row align-items-center">
+
+        <!-- Cột trái: Ảnh các trường -->
+        <div class="col-md-6 mb-4">
+          <div class="row g-3">
+            <!-- Ảnh 1 -->
+            <div class="col-6" style="margin-top: 50px;">
+              <a href="https://taiwandiary.vn/dai-hoc-khkt-ngo-phung-wufeng-university/" class="image-box-link">
+                <div class="image-box small-box">
+                  <img src="../images/dai-hoc-ngo-phung-3-1.jpg" alt="WuFeng University"
+                    class="img-fluid rounded shadow-sm hover-zoom">
+                  <div class="school-name-overlay">WuFeng University - WFU</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Ảnh 2 -->
+            <div class="col-6" style="margin-top: 90px;">
+              <a href="https://taiwandiary.vn/dai-hoc-cong-nghe-trung-quoc-china-university-of-technology-cute/"
+                class="image-box-link">
+                <div class="image-box tall-box">
+                  <img src="../images/dai-hoc-cong-nghe-trung-quoc-6.jpg" alt="China University of Technology"
+                    class="img-fluid rounded shadow-sm hover-zoom">
+                  <div class="school-name-overlay">China University of Technology</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Ảnh 3 -->
+            <div class="col-6" style="margin-top: -90px;">
+              <a href="https://taiwandiary.vn/dai-hoc-cong-nghe-nam-khai/" class="image-box-link">
+                <div class="image-box tall-box">
+                  <img src="../images/namkhai1.jpeg" alt="Nan Kai University of Technology"
+                    class="img-fluid rounded shadow-sm hover-zoom">
+                  <div class="school-name-overlay">Nan Kai University of Technology (NKUT)</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Ảnh 4 -->
+            <div class="col-6">
+              <a href="https://taiwandiary.vn/tim-hieu-ve-dai-hoc-con-son-dai-loan/" class="image-box-link">
+                <div class="image-box small-box">
+                  <img src="../images/kunsan.jpeg" alt="Kun Shan University"
+                    class="img-fluid rounded shadow-sm hover-zoom">
+                  <div class="school-name-overlay">Kun Shan University</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột phải: Cam kết -->
+        <div class="col-md-6">
+          <div
+            style="background:#efdfc2; padding: 40px 50px; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); text-align: center;">
+
+            <h3 class="fw-bold mb-4" style="color: #ff9800; letter-spacing: 1px; text-transform: uppercase;">
+              <i class="fas fa-star"></i> Cam kết với sinh viên <i class="fas fa-star"></i>
+            </h3>
+
+            <p class="mb-3 text-dark" style="font-size: 17px; line-height: 1.7;">
+              <i class="fas fa-university text-warning me-2"></i>
+              <strong>Hợp tác với hơn 30 trường đại học hàng đầu Đài Loan</strong> như NTU, NYCU, NTHU, NCKU… giúp bạn
+              dễ dàng chọn được ngôi trường phù hợp với năng lực và mục tiêu.
+            </p>
+
+            <p class="mb-3 text-dark" style="font-size: 17px; line-height: 1.7;">
+              <i class="fas fa-user-graduate text-primary me-2"></i>
+              <strong>Kinh nghiệm hỗ trợ hơn 1.000 sinh viên</strong> đạt học bổng chính phủ, bán phần hoặc toàn phần,
+              tăng cơ hội học tập quốc tế với chi phí tối ưu.
+            </p>
+
+            <p class="mb-3 text-dark" style="font-size: 17px; line-height: 1.7; color: #d84315;">
+              <i class="fas fa-tags me-2"></i>
+              <strong>Chi phí dịch vụ chỉ 1.500 - 2.000 USD</strong> – thấp hơn nhiều so với mức 3.000 - 4.500 USD ở các
+              đơn vị khác.
+            </p>
+
+            <p class="mb-3 text-dark" style="font-size: 17px; line-height: 1.7;">
+              <i class="fas fa-headset text-success me-2"></i>
+              <strong>Hỗ trợ 24/7</strong> từ khâu tư vấn, chuẩn bị hồ sơ, xin visa, đến khi ổn định học tập tại Đài
+              Loan.
+            </p>
+
+            <p class="text-dark" style="font-size: 17px; line-height: 1.7;">
+              <i class="fas fa-handshake text-success me-2"></i>
+              <strong>Không ép buộc – Không lợi nhuận – Cam kết vì sinh viên!</strong> Mục tiêu của chúng tôi là giúp
+              bạn chạm tới ước mơ du học một cách dễ dàng và an toàn nhất.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CSS thêm hiệu ứng hover -->
+  <style>
+    .hover-zoom {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .hover-zoom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .school-name-overlay {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .image-box {
+      position: relative;
+      overflow: hidden;
+    }
+  </style>
+
+
+
+  <!-- Học bổng du học Đài Loan -->
+  <div class="container my-4">
+    <section class="mt-extra">
+      <h2 class="text-center text-primary fw-bold fs-2 mb-5">
+        HỌC BỔNG DU HỌC ĐÀI LOAN
+      </h2>
+    </section>
+
+    <div class="table-responsive" style="max-width: 100%; margin: 0 auto;">
+      <table class="table table-bordered table-sm align-middle scholarship-table" style="font-size: 0.8rem;">
+        <thead class="table-light text-secondary">
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Trường</th>
+            <th scope="col">Tên học bổng</th>
+            <th scope="col">Cấp học</th>
+            <th scope="col">Hỗ trợ</th>
+            <th scope="col">Điều kiện chính</th>
+            <th scope="col">Apply</th>
+          </tr>
+        </thead>
+        <tbody>
+  <tr>
+    <td>1</td>
+    <td>ĐH Quốc lập Đài Loan (NTU)</td>
+    <td>MOE Taiwan Scholarship</td>
+    <td>Cử nhân, ThS, TS</td>
+    <td><i class="fas fa-check text-success me-1"></i>Học phí + 15.000 TWD/tháng</td>
+    <td>Thành tích học tập tốt</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>2</td>
+    <td>ĐH Quốc lập Thanh Hoa (NTHU)</td>
+    <td>Outstanding Int'l Scholarship</td>
+    <td>Cử nhân, Thạc sĩ</td>
+    <td><i class="fas fa-check text-success me-1"></i>100% học phí</td>
+    <td>Học lực tốt, hồ sơ nổi bật</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>3</td>
+    <td>ĐH Quốc lập Thành Công (NCKU)</td>
+    <td>NCKU Int’l Scholarship</td>
+    <td>Cử nhân, ThS, TS</td>
+    <td><i class="fas fa-check text-success me-1"></i>Học phí + sinh hoạt phí</td>
+    <td>KQ học tập & phỏng vấn</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>4</td>
+    <td>ĐH Quốc lập Giao thông (NYCU)</td>
+    <td>Graduate Int’l Scholarship</td>
+    <td>Thạc sĩ, Tiến sĩ</td>
+    <td><i class="fas fa-check text-success me-1"></i>Học phí + trợ cấp nghiên cứu</td>
+    <td>GPA cao, có đề cương</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>5</td>
+    <td>ĐH Quốc lập Trung ương (NCU)</td>
+    <td>NCU Scholarship</td>
+    <td>Thạc sĩ, Tiến sĩ</td>
+    <td><i class="fas fa-check text-success me-1"></i>Học phí + hỗ trợ nhà ở</td>
+    <td>GPA tốt, thư GT & KHHT</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>6</td>
+    <td>ĐH KH và CN Đài Loan (NTUST)</td>
+    <td>NTUST Grad Scholarship</td>
+    <td>Thạc sĩ, Tiến sĩ</td>
+    <td><i class="fas fa-check text-success me-1"></i>Học phí + trợ cấp đến 15.000 TWD</td>
+    <td>IELTS 6.0+, GPA ≥ 7.5</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>7</td>
+    <td>ĐH KH&CN Cao Hùng (NKUST)</td>
+    <td>NKUST Int’l Scholarship</td>
+    <td>Cử nhân, Thạc sĩ, TS</td>
+    <td><i class="fas fa-check text-success me-1"></i>Miễn học phí + trợ cấp</td>
+    <td>Học lực & HĐ ngoại khóa</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>8</td>
+    <td>ĐH Dương Minh Giao Thông (NYCU)</td>
+    <td>Grad Student Scholarship</td>
+    <td>Thạc sĩ, Tiến sĩ</td>
+    <td><i class="fas fa-check text-success me-1"></i>Học phí + tài trợ nghiên cứu</td>
+    <td>Phù hợp ngành & KH học</td>
+    <td>
+      <button class="btn btn-success btn-sm rounded-pill px-3"
+              onclick="window.location.href='Registration procedure.html'">
+        Apply
+      </button>
+    </td>
+  </tr>
+</tbody>
+
+      </table>
+    </div>
+  </div>
+  l
+  <!-- Footer -->
+  <footer class="footer-custom text-white pt-5 pb-4" style="background: linear-gradient(90deg,#006699,#00b3b3);" data-aos="fade-up">
+    <div class="container-fluid px-5">
+      <div class="row gy-4 justify-content-between">
+
+        <!-- Logo và mô tả -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="d-flex align-items-center mb-3">
+            <img src="../images/LOGO.jpg" alt="Logo Huy Hoàng" class="footer-logo me-2">
+            HUY HOÀNG
+          </h5>
+          <p class="small">
+            Trung tâm tư vấn du học Đài Loan uy tín, đồng hành cùng bạn trên
+            hành trình chinh phục ước mơ tri thức.
+          </p>
+        </div>
+
+        <!-- Liên kết nhanh -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="text-uppercase fw-bold mb-3">Liên kết</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="footer-link">Trang chủ</a></li>
+            <li><a href="#" class="footer-link">Chương trình học</a></li>
+            <li><a href="#" class="footer-link">Học bổng</a></li>
+            <li><a href="contact.html" class="footer-link">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <!-- Liên hệ -->
+        <div class="col-lg-4 col-md-6">
+          <h6 class="text-uppercase fw-bold mb-3">Thông tin liên hệ</h6>
+          <p class="small mb-2">
+            <i class="bi bi-geo-alt-fill me-2"></i>
+            <a href="https://www.google.com/maps?q=Số+6B7+KĐT+Mỹ+Đình+1,+Cầu+Diễn,+Nam+Từ+Liêm,+Hà+Nội" target="_blank"
+              class="footer-link d-inline">
+              Số 6B7 KĐT Mỹ Đình 1, P. Cầu Diễn, Q. Nam Từ Liêm, Hà Nội
+            </a>
+          </p>
+          <p class="small mb-2">
+            <i class="bi bi-envelope-fill me-2"></i>
+            <a href="mailto:huyhoangvn.ht@gmail.com" class="footer-link d-inline">huyhoangvn.ht@gmail.com</a>
+          </p>
+          <p class="small">
+            <i class="bi bi-telephone-fill me-2"></i>
+            <a href="tel:0989723000" class="footer-link d-inline">0989723000</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <!-- <div class="text-center py-3 mt-4 copyright-bar">
+      <span>© 2025 <strong>Huy Hoàng Edu</strong> – Đã đăng ký bản
+        quyền.</span>
+    </div> -->
+
+  </footer>
+
+  <!-- Bootstrap Icons CDN (nếu dùng icon) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
