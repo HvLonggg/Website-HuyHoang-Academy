@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thủ tục đăng ký du học Đài Loan</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff, #ffffff);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, #006699, #00b3b3);
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header .navbar-brand {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #fff !important;
+        }
+
+        header .nav-link {
+            color: #f8f9fa !important;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color .3s;
+        }
+
+        header .nav-link:hover {
+            color: #ffdd57 !important;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            margin: 30px auto;
+            max-width: 950px;
+        }
+
+        .progress-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .progress-step::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #ccc;
+            border: 2px solid #999;
+            z-index: 2;
+            transition: all .4s ease;
+        }
+
+        .progress-step.active::before,
+        .progress-step.completed::before {
+            background: #00b3b3;
+            border-color: #00b3b3;
+        }
+
+        .progress-step span {
+            display: block;
+            margin-top: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            height: 3px;
+            background: #00b3b3;
+            z-index: 1;
+            transition: width .5s ease;
+        }
+
+        /* Panels */
+        .panel {
+            display: none;
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            animation: fadeSlide .6s ease;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Buttons */
+        .btn-custom {
+            background: linear-gradient(45deg, #00b3b3, #009999);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            transition: all .3s ease;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(45deg, #009999, #006699);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Upload */
+        .file-upload {
+            border: 2px dashed #00b3b3;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all .3s ease;
+        }
+
+        .file-upload:hover {
+            background: #f0fafa;
+            cursor: pointer;
+        }
+
+        .file-upload i {
+            font-size: 2rem;
+            color: #00b3b3;
+        }
+
+         .benefits-section {
+    background: linear-gradient(135deg, #f9fbfd, #eef3f7);
+    position: relative;
+  }
+
+.text-gradient {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Nền parallax */
+.parallax-bg {
+  background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b') no-repeat center center/cover;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+.reasons-section {
+  position: relative;
+  z-index: 1;
+}
+.reasons-section::before {
+  content: "";
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(255,255,255,0.85);
+  z-index: 1;
+}
+.reasons-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+/* Card hover */
+.reason-card {
+  transition: transform .4s ease, box-shadow .4s ease;
+  border-radius: 15px;
+}
+.reason-card:hover {
+  transform: translateY(-10px) scale(1.05) rotateX(5deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.reason-card:hover .icon-circle {
+  transform: rotate(15deg) scale(1.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            <a class="navbar-brand" href="#">Huy Hoàng Edu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Thủ tục</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Học bổng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Title -->
+    <div class="container text-center my-4" data-aos="fade-down">
+        <h2 class="fw-bold">Thủ tục đăng ký du học Đài Loan</h2>
+        <p class="text-muted">Hoàn thành các bước dưới đây để gửi hồ sơ du học</p>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="container progress-container d-flex justify-content-between position-relative">
+        <div class="progress-line" id="progressLine"></div>
+        <div class="progress-step active" data-step="1"><span>Thông tin cá nhân</span></div>
+        <div class="progress-step" data-step="2"><span>Học vấn & Chương trình</span></div>
+        <div class="progress-step" data-step="3"><span>Hồ sơ tải lên</span></div>
+        <div class="progress-step" data-step="4"><span>Xác nhận</span></div>
+    </div>
+
+    <!-- Form -->
+    <div class="container">
+        <form id="registrationForm" novalidate>
+            <!-- Panel 1 -->
+            <div class="panel active" data-panel="1" data-aos="fade-up">
+                <h4 class="mb-3">1. Thông tin cá nhân</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Họ và tên *</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày sinh *</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Số điện thoại *</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Địa chỉ thường trú *</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mt-4 text-end">
+                    <button type="button" class="btn-custom" id="to2">Tiếp theo <i
+                            class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Panel 2 -->
+            <div class="panel" data-panel="2" data-aos="fade-up">
+                <h4 class="mb-3">2. Học vấn & Chọn chương trình</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Trình độ học vấn *</label>
+                        <select class="form-select" required>
+                            <option value="">-- Chọn trình độ --</option>
+                            <option>THPT</option>
+                            <option>Cao đẳng</option>
+                            <option>Đại học</option>
+                            <option>Sau đại học</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngành dự định học *</label>
+                        <select class="form-select" required>
+                            <option value="" selected disabled>-- Chọn ngành --</option>
+                            <option>Công nghệ thông tin</option>
+                            <option>Kinh tế</option>
+                            <option>Điện tử - Viễn thông</option>
+                            <option>Y khoa</option>
+                            <option>Ngôn ngữ Trung</option>
+                            <option>Quản trị kinh doanh</option>
+                            <option>Kỹ thuật</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Trường dự định nộp</label>
+                        <input type="text" class="form-control" placeholder="Ví dụ: ĐH Quốc gia Đài Loan">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngôn ngữ mong muốn *</label>
+                        <select class="form-select" required>
+                            <option value="">-- Chọn ngôn ngữ --</option>
+                            <option>Tiếng Trung</option>
+                            <option>Tiếng Anh</option>
+                            <option>Song ngữ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="back1"><i class="bi bi-arrow-left"></i>
+                        Trở lại</button>
+                    <button type="button" class="btn-custom" id="to3">Tiếp theo <i
+                            class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Panel 3 -->
+            <div class="panel" data-panel="3" data-aos="fade-up">
+                <h4 class="mb-3">3. Hồ sơ tải lên</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Học bạ / Bằng tốt nghiệp *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Chứng chỉ ngoại ngữ *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Hộ chiếu *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Ảnh thẻ *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="back2"><i class="bi bi-arrow-left"></i>
+                        Trở lại</button>
+                    <button type="button" class="btn-custom" id="to4">Tiếp theo <i
+                            class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Panel 4 -->
+            <div class="panel" data-panel="4" data-aos="fade-up">
+                <h4 class="mb-3">4. Xác nhận & Gửi hồ sơ</h4>
+                <p>Vui lòng kiểm tra lại thông tin trước khi gửi. Sau khi gửi, chúng tôi sẽ liên hệ qua Email/SĐT để tư
+                    vấn chi tiết.</p>
+                <div class="form-check my-3">
+                    <input class="form-check-input" type="checkbox" id="agree" required>
+                    <label class="form-check-label" for="agree">Tôi cam kết thông tin trên là chính xác.</label>
+                </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="back3"><i class="bi bi-arrow-left"></i>
+                        Trở lại</button>
+                    <button type="submit" class="btn-custom">Gửi hồ sơ <i class="bi bi-check-circle"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal thông báo -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <i class="bi bi-check-circle-fill text-success display-3"></i>
+                <h5 class="mt-3">Hồ sơ đã gửi thành công!</h5>
+                <p>Chúng tôi sẽ liên hệ qua Email/SĐT trong thời gian sớm nhất.</p>
+                <button class="btn btn-custom mt-2" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        const steps = document.querySelectorAll(".progress-step");
+        const panels = document.querySelectorAll(".panel");
+        const progressLine = document.getElementById("progressLine");
+        let current = 1;
+
+        function updateStep(n) {
+            panels.forEach(p => p.classList.remove("active"));
+            document.querySelector(`.panel[data-panel="${n}"]`).classList.add("active");
+
+            steps.forEach((s, i) => {
+                s.classList.remove("active", "completed");
+                if (i + 1 < n) s.classList.add("completed");
+                if (i + 1 === n) s.classList.add("active");
+            });
+
+            const percent = ((n - 1) / (steps.length - 1)) * 100;
+            progressLine.style.width = percent + "%";
+            current = n;
+        }
+
+        function validatePanel(n) {
+            const panel = document.querySelector(`.panel[data-panel="${n}"]`);
+            const inputs = panel.querySelectorAll("input, select");
+            for (let input of inputs) {
+                if (input.hasAttribute("required") && !input.value) {
+                    input.classList.add("is-invalid");
+                    return false;
+                } else {
+                    input.classList.remove("is-invalid");
+                }
+            }
+            return true;
+        }
+
+        document.getElementById("to2").onclick = () => { if (validatePanel(1)) updateStep(2); };
+        document.getElementById("to3").onclick = () => { if (validatePanel(2)) updateStep(3); };
+        document.getElementById("to4").onclick = () => { if (validatePanel(3)) updateStep(4); };
+
+        document.getElementById("back1").onclick = () => updateStep(1);
+        document.getElementById("back2").onclick = () => updateStep(2);
+        document.getElementById("back3").onclick = () => updateStep(3);
+
+        document.getElementById("registrationForm").onsubmit = e => {
+            e.preventDefault();
+            if (!validatePanel(4)) return;
+
+            const modal = new bootstrap.Modal(document.getElementById("successModal"));
+            modal.show();
+
+            modal._element.addEventListener("hidden.bs.modal", () => {
+                updateStep(1);
+                e.target.reset();
+            }, { once: true });
+        };
+    </script>
+
+<!-- Lý do chọn tư vấn du học -->
+<section class="reasons-section py-5 position-relative overflow-hidden">
+  <!-- Hiệu ứng nền parallax -->
+  <div class="parallax-bg"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-gradient">Quyền lợi khi đăng ký du học tại Huy Hoàng?</h2>
+      <p class="text-muted">Chúng tôi mang đến hành trình học tập trọn vẹn và khác biệt</p>
+    </div>
+    
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h5 class="fw-bold">Học bổng đa dạng</h5>
+            <p class="small text-muted">Cơ hội nhận học bổng giá trị cao, giảm áp lực tài chính cho sinh viên.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5 class="fw-bold">Cộng đồng du học sinh</h5>
+            <p class="small text-muted">Tham gia mạng lưới sinh viên quốc tế, kết nối và học hỏi lẫn nhau.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <h5 class="fw-bold">Địa điểm lý tưởng</h5>
+            <p class="small text-muted">Đài Loan – môi trường hiện đại, an toàn, giàu bản sắc văn hóa.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-lightning-fill"></i>
+            </div>
+            <h5 class="fw-bold">Hỗ trợ nhanh chóng</h5>
+            <p class="small text-muted">Đội ngũ tư vấn chuyên nghiệp luôn đồng hành trong suốt hành trình.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JS Parallax -->
+<script>
+window.addEventListener("scroll", function () {
+  const scrolled = window.scrollY;
+  const bg = document.querySelector(".parallax-bg");
+
+  if (bg) {
+    // Parallax + xoay 3D + zoom
+    let offsetY = scrolled * 0.3;        // dịch xuống nhẹ
+    let rotate = scrolled * 0.03;        // xoay 3D rất nhẹ
+    let scale = 1 + scrolled * 0.0005;   // zoom mượt
+
+    bg.style.transform = `
+      translateY(${offsetY}px) 
+      scale(${scale}) 
+      rotateX(${rotate}deg)
+    `;
+
+    // Hiệu ứng ánh sáng overlay động
+    bg.style.background = `
+      linear-gradient(
+        ${45 + scrolled * 0.1}deg, 
+        rgba(255,255,255,0.08), 
+        rgba(0,0,0,0.25)
+      ), 
+      url('your-image.jpg') center/cover no-repeat
+    `;
+  }
+});
+</script>
+
+    <!-- Quy trình du học -->
+    <section class="container my-5">
+        <h3 class="fw-bold text-center mb-4" data-aos="zoom-in">Quy trình du học Đài Loan</h3>
+        <div class="row text-center g-4">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-search display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Tìm hiểu thông tin</h6>
+                    <p class="text-muted small">Khảo sát ngành học, trường học và chính sách tuyển sinh phù hợp.</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-journal-text display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Chuẩn bị hồ sơ</h6>
+                    <p class="text-muted small">Hoàn thiện học bạ, chứng chỉ, hộ chiếu và các giấy tờ cần thiết.</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-envelope-check display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Nộp & phỏng vấn</h6>
+                    <p class="text-muted small">Gửi hồ sơ, tham gia phỏng vấn (nếu có) và nhận thư mời nhập học.</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-airplane display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Làm visa & bay</h6>
+                    <p class="text-muted small">Xin visa, sắp xếp chỗ ở và chuẩn bị hành trang sang Đài Loan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hỗ trợ -->
+    <section class="py-5 text-white" style="background: linear-gradient(90deg,#006699,#00b3b3);" data-aos="fade-up">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3">Bạn cần hỗ trợ thêm?</h3>
+            <p class="mb-4">Đội ngũ tư vấn của Huy Hoàng Edu sẵn sàng đồng hành cùng bạn trên hành trình du học.</p>
+            <a href="contact.html" class="btn btn-warning px-4 py-2 fw-semibold">
+                Liên hệ tư vấn ngay
+            </a>
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Săn học bổng toàn phần Đài Loan 2024-2025. Miễn 100% học phí, trợ cấp sinh hoạt phí. Tư vấn du học Huy Hoàng uy tín, chuyên nghiệp.">
+    <meta name="keywords" content="Học bổng Đài Loan, Du học Đài Loan, Học bổng MOE, Học bổng toàn phần, Du học Huy Hoàng">
+    <title>Học Bổng Toàn Phần Đài Loan — Cơ Hội Vàng 2025 | Du Học Huy Hoàng</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. CORE VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-color: #006699;       /* Xanh dương đậm chủ đạo */
+            --secondary-color: #00b3b3;     /* Xanh ngọc (Teal) */
+            --accent-color: #f9a11b;        /* Cam nhấn */
+            --dark-text: #2c3e50;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+            --gradient-main: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; transition: all 0.3s ease; }
+        ul { list-style: none; padding: 0; }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background: var(--accent-color); z-index: 9999; width: 0%;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff; z-index: 99999;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color);
+            border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* =========================================
+           2. HEADER & NAVIGATION
+           ========================================= */
+        /* Top Bar */
+        .top-bar {
+            background-color: #004a75;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+        .top-bar a { color: #fff; margin-left: 15px; }
+        .top-bar a:hover { color: var(--accent-color); }
+
+        /* Main Navbar */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            transition: all 0.4s;
+            position: sticky; top: 0; z-index: 1020;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .navbar-brand img { height: 50px; }
+        
+        .nav-link {
+            color: #444 !important;
+            font-weight: 600;
+            margin: 0 10px;
+            padding: 10px 0;
+            position: relative;
+        }
+        .nav-link::before {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 0; height: 3px; background: var(--gradient-main);
+            transition: 0.3s;
+        }
+        .nav-link:hover::before, .nav-link.active::before { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
+
+        .btn-consult {
+            background: var(--gradient-main);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,179,179,0.3);
+        }
+        .btn-consult:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,179,179,0.5); }
+
+        /* =========================================
+           3. HERO SECTION (REFINED)
+           ========================================= */
+        .hero-section {
+            /* Background sáng, chuyên nghiệp hơn */
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
+                        url('https://images.unsplash.com/photo-1470723710355-95304d8aece4?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Trang trí nền */
+        .hero-shape {
+            position: absolute;
+            background: var(--gradient-main);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .shape-1 { width: 300px; height: 300px; top: -50px; right: -50px; }
+        .shape-2 { width: 150px; height: 150px; bottom: 50px; left: 50px; }
+
+        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; }
+        
+        /* Title nhỏ hơn, tinh tế hơn */
+        .hero-title {
+            font-size: 2.8rem; /* Giảm từ 4rem xuống */
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+        .stat-item h3 { color: var(--primary-color); font-size: 2rem; margin-bottom: 0; }
+        .stat-item p { font-size: 0.9rem; text-transform: uppercase; color: #777; letter-spacing: 1px; }
+
+        /* =========================================
+           4. CONTENT SECTIONS
+           ========================================= */
+        .section-padding { padding: 80px 0; }
+        .bg-light-custom { background-color: var(--light-bg); }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header .sub-title {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-header h2::after {
+            content: ''; display: block; width: 60px; height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0; border-radius: 2px;
+        }
+
+        /* SCHOLARSHIP TABS */
+        .nav-pills-custom { justify-content: center; margin-bottom: 40px; gap: 15px; }
+        .nav-pills-custom .nav-link {
+            background: #fff;
+            color: #555 !important;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .nav-pills-custom .nav-link.active {
+            background: var(--gradient-main);
+            color: #fff !important;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(0, 102, 153, 0.3);
+            transform: translateY(-2px);
+        }
+        .nav-pills-custom .nav-link::before { display: none; } /* Override navbar style */
+
+        .scholarship-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary-color);
+            height: 100%;
+        }
+        .scholarship-box ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+        .scholarship-box ul li::before {
+            content: '\f00c'; font-family: 'Font Awesome 5 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 2px; color: var(--secondary-color);
+        }
+
+        /* UNIVERSITY TABLE (SEARCHABLE) */
+        .search-box {
+            position: relative; max-width: 500px; margin: 0 auto 30px;
+        }
+        .search-box input {
+            padding: 15px 20px; border-radius: 50px;
+            border: 1px solid #ddd; width: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .search-box i {
+            position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+
+        .table-custom-container {
+            background: #fff; border-radius: 15px;
+            overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .table-custom thead {
+            background: var(--primary-color); color: #fff;
+        }
+        .table-custom th { padding: 18px; font-weight: 600; border: none; }
+        .table-custom td { padding: 18px; border-bottom: 1px solid #eee; vertical-align: middle; }
+        .table-custom tr:hover { background-color: #f9fbff; }
+        .rank-badge {
+            background: var(--accent-color); color: #fff;
+            padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: 700;
+        }
+
+        /* TIMELINE PROCESS */
+        .timeline { position: relative; padding: 20px 0; }
+        .timeline::before {
+            content: ''; position: absolute; top: 0; left: 50%;
+            width: 2px; height: 100%; background: #e9ecef;
+            transform: translateX(-50%);
+        }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-content {
+            width: 45%; padding: 30px; background: #fff;
+            border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+            border-top: 4px solid var(--primary-color);
+        }
+        .timeline-item:nth-child(odd) .timeline-content { margin-left: auto; }
+        .timeline-dot {
+            width: 20px; height: 20px; background: var(--secondary-color);
+            border-radius: 50%; position: absolute; top: 30px; left: 50%;
+            transform: translateX(-50%); border: 4px solid #fff;
+            box-shadow: 0 0 0 4px rgba(0, 179, 179, 0.2); z-index: 10;
+        }
+        .timeline-date {
+            position: absolute; top: 30px; width: 100px; text-align: center;
+            font-weight: 800; color: var(--primary-color);
+        }
+        .timeline-item:nth-child(odd) .timeline-date { left: -120px; }
+        .timeline-item:nth-child(even) .timeline-date { right: -120px; }
+
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-content { width: calc(100% - 60px); margin-left: 60px !important; }
+            .timeline-dot { left: 20px; }
+            .timeline-date { display: none; }
+        }
+
+        /* FAQ ACCORDION */
+        .accordion-item {
+            border: none; margin-bottom: 15px; border-radius: 10px !important;
+            overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+        .accordion-button {
+            background: #fff; color: var(--dark-text); font-weight: 600; padding: 20px;
+        }
+        .accordion-button:not(.collapsed) {
+            background: #f0f9ff; color: var(--primary-color);
+            box-shadow: none;
+        }
+        .accordion-button:focus { box-shadow: none; }
+
+        /* FOOTER (POLISHED) */
+        footer {
+            background-color: #111; color: #bbb;
+            padding: 80px 0 30px; font-size: 0.95rem;
+        }
+        footer h5 { color: #fff; margin-bottom: 25px; font-size: 1.1rem; }
+        footer ul li { margin-bottom: 12px; }
+        footer a { color: #bbb; }
+        footer a:hover { color: var(--accent-color); padding-left: 5px; }
+        .social-link {
+            display: inline-flex; width: 40px; height: 40px;
+            background: #333; color: #fff; border-radius: 50%;
+            justify-content: center; align-items: center; margin-right: 10px;
+        }
+        .social-link:hover { background: var(--primary-color); transform: rotate(360deg); }
+        .footer-bottom {
+            border-top: 1px solid #333; margin-top: 50px; padding-top: 20px;
+            text-align: center; font-size: 0.85rem;
+        }
+
+        /* Back to Top */
+        #backToTop {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--accent-color); color: #fff;
+            width: 45px; height: 45px; border-radius: 5px;
+            text-align: center; line-height: 45px; cursor: pointer;
+            display: none; z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        #backToTop:hover { background: #e69519; transform: translateY(-3px); }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-map-marker-alt me-2"></i> Mỹ Đình 1, Nam Từ Liêm, Hà Nội
+            </div>
+            <div>
+                <a href="mailto:huyhoangvn.ht@gmail.com"><i class="fas fa-envelope me-2"></i> huyhoangvn.ht@gmail.com</a>
+                <a href="tel:0989723000"><i class="fas fa-phone-alt me-2"></i> 0989.723.000</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div style="width:50px; height:50px; background:var(--primary-color);
+            border-radius:50%; display:flex; align-items:center;
+            justify-content:center;">
+    <img src="../images/LOGO.jpg"
+         alt="Logo"
+         style="width:35px; height:35px; object-fit:contain;">
+</div>
+
+                <div class="d-flex flex-col">
+                    <span style="line-height:1; display:block;">DU HỌC <br><small style="font-size:0.8rem; font-weight:400; color:#3e50ee;">HUY HOÀNG</small></span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="scholarship1+4.html">HỆ 1+4</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">HỌC BỔNG TOÀN PHẦN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work-study scholarship.html">VỪA HỌC VỪA LÀM</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Registration procedure.html">THỦ TỤC</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#register" class="btn-consult"><i class="fas fa-paper-plane me-2"></i>Tư Vấn Ngay</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3 shadow-sm">
+                    <i class="fas fa-star me-2"></i>Kỳ nhập học Tháng 2/2026
+                </span>
+                <h1 class="hero-title">Săn Học Bổng Toàn Phần Đài Loan</h1>
+                <p class="hero-subtitle">
+                    Đài Loan không chỉ có nền giáo dục tiên tiến top 4 Châu Á mà còn cung cấp những suất học bổng hào phóng nhất thế giới.
+                    Miễn 100% học phí + trợ cấp lên đến 20.000 NTD/tháng.
+                </p>
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="#types" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow">Xem Loại Học Bổng</a>
+                    <a href="#university-list" class="btn btn-outline-dark btn-lg rounded-pill px-5 fw-bold">Danh Sách Trường</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="100">0</h3><span>%</span>
+                        <p>Miễn Học Phí</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="50">0</h3><span>+</span>
+                        <p>Trường Đại Học</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="20000">0</h3><span>NTD</span>
+                        <p>Trợ Cấp/Tháng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pe-lg-5" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1550596334-7bb40a71b6bc?q=80&w=2070&auto=format&fit=crop" 
+                         class="img-fluid rounded-4 shadow-lg mb-4 mb-lg-0" alt="Taiwan Education">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h5 class="text-primary fw-bold text-uppercase">Tại sao chọn Đài Loan?</h5>
+                    <h2 class="mb-4 fw-bold">Nền Giáo Dục Đẳng Cấp Thế Giới</h2>
+                    <p class="text-secondary mb-4">
+                        Chính phủ Đài Loan đầu tư rất mạnh cho giáo dục đại học nhằm thu hút nhân tài quốc tế.
+                        Với chi phí sinh hoạt hợp lý (tương đương Hà Nội/TP.HCM) nhưng chất lượng đào tạo chuẩn Mỹ/Châu Âu,
+                        đây là điểm đến lý tưởng cho sinh viên Việt Nam.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Hệ thống trang thiết bị nghiên cứu hiện đại.</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Chương trình giảng dạy bằng cả Tiếng Anh và Tiếng Trung.</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Cơ hội việc làm rộng mở sau khi tốt nghiệp.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="types" class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="sub-title">Phân Loại</span>
+                <h2>Các Chương Trình Học Bổng</h2>
+                <p class="text-muted mt-3">Tùy vào năng lực hồ sơ, bạn có thể apply các gói khác nhau</p>
+            </div>
+
+            <ul class="nav nav-pills nav-pills-custom mb-5" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-moe">Học bổng Bộ Giáo Dục (MOE)</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-school">Học bổng Trường (University)</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-icdf">Học bổng ICDF</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                
+                <div class="tab-pane fade show active" id="pills-moe" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="scholarship-box">
+                                <h3 class="text-primary"><i class="fas fa-crown me-2"></i>Quyền Lợi</h3>
+                                <hr>
+                                <ul>
+                                    <li><strong>Miễn 100% học phí:</strong> Chính phủ chi trả tối đa 40.000 NTD/kỳ.</li>
+                                    <li><strong>Trợ cấp sinh hoạt:</strong>
+                                        <ul class="list-unstyled ps-4 mt-2 text-muted small">
+                                            <li>- Hệ Đại học: 15.000 NTD/tháng (~11.5 triệu VNĐ).</li>
+                                            <li>- Thạc sĩ/Tiến sĩ: 20.000 NTD/tháng (~15.3 triệu VNĐ).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="scholarship-box" style="border-left-color: var(--accent-color);">
+                                <h3 class="text-warning"><i class="fas fa-clipboard-check me-2"></i>Điều Kiện</h3>
+                                <hr>
+                                <ul>
+                                    <li>GPA: > 8.0 (Khá Giỏi trở lên).</li>
+                                    <li>Ngoại ngữ:
+                                        <ul class="list-unstyled ps-4 mt-2 text-muted small">
+                                            <li>- Tiếng Hoa: TOCFL Band 3 trở lên.</li>
+                                            <li>- Tiếng Anh: IELTS 6.0 trở lên (nếu học hệ Anh).</li>
+                                        </ul>
+                                    </li>
+                                    <li>Thư giới thiệu và Kế hoạch học tập xuất sắc.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-school" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm border-0">
+                                <div class="card-body text-center p-4">
+                                    <div class="display-4 text-info mb-3"><i class="bi bi-star-fill"></i></div>
+                                    <h4 class="fw-bold">Loại A</h4>
+                                    <p>100% Học phí + Ký túc xá + Trợ cấp tháng (khoảng 6-10.000 NTD).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm border-0">
+                                <div class="card-body text-center p-4">
+                                    <div class="display-4 text-info mb-3"><i class="bi bi-star-half"></i></div>
+                                    <h4 class="fw-bold">Loại B</h4>
+                                    <p>100% Học phí. (Sinh viên tự túc sinh hoạt phí).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm border-0">
+                                <div class="card-body text-center p-4">
+                                    <div class="display-4 text-info mb-3"><i class="bi bi-star"></i></div>
+                                    <h4 class="fw-bold">Loại C</h4>
+                                    <p>50% - 100% Học phí năm đầu tiên (xét lại theo từng năm).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center mt-3 fst-italic">* Học bổng trường thường dễ săn hơn MOE và có số lượng nhiều hơn.</p>
+                </div>
+
+                <div class="tab-pane fade" id="pills-icdf" role="tabpanel">
+                     <div class="scholarship-box text-center">
+                        <h3 class="text-success mb-4">Học Bổng Toàn Phần ICDF</h3>
+                        <p class="lead">Dành cho các ngành học thuộc danh sách ưu tiên phát triển quan hệ ngoại giao.</p>
+                        <div class="row mt-5 text-start">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold">Bao gồm:</h5>
+                                <ul>
+                                    <li>Vé máy bay khứ hồi.</li>
+                                    <li>Nhà ở (Ký túc xá).</li>
+                                    <li>Học phí 100%.</li>
+                                    <li>Bảo hiểm y tế.</li>
+                                    <li>Tiền sách vở.</li>
+                                    <li>Trợ cấp: 12.000 - 17.000 NTD/tháng.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold">Lưu ý:</h5>
+                                <ul>
+                                    <li>Chỉ áp dụng cho một số trường nhất định (khoảng 20 trường).</li>
+                                    <li>Cạnh tranh rất cao.</li>
+                                    <li>Cần nộp hồ sơ qua Văn phòng Kinh tế Văn hóa Đài Bắc.</li>
+                                </ul>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="university-list" class="section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="sub-title">Danh Sách</span>
+                <h2>Các Trường Đại Học Hàng Đầu</h2>
+                <p>Danh sách các trường thường xuyên cấp học bổng cho sinh viên Việt Nam</p>
+            </div>
+
+            <div class="search-box" data-aos="fade-up" data-aos-delay="100">
+                <input type="text" id="uniSearch" placeholder="Tìm kiếm tên trường, thành phố...">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <div class="table-responsive table-custom-container" data-aos="fade-up" data-aos-delay="200">
+                <table class="table table-custom mb-0" id="uniTable">
+                    <thead>
+                        <tr>
+                            <th>Tên Trường</th>
+                            <th>Khu Vực</th>
+                            <th class="text-center">Xếp Hạng (QS)</th>
+                            <th>Loại Học Bổng Chính</th>
+                            <th>Ngành Thế Mạnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary">National Taiwan University (NTU)</div>
+                                <small class="text-muted">Đại học Quốc gia Đài Loan</small>
+                            </td>
+                            <td>Đài Bắc (Taipei)</td>
+                            <td class="text-center"><span class="rank-badge">#1</span></td>
+                            <td>MOE, Trường (Loại A)</td>
+                            <td>Đa ngành, Kinh tế, Kỹ thuật</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary">National Tsing Hua University (NTHU)</div>
+                                <small class="text-muted">Đại học Quốc gia Thanh Hoa</small>
+                            </td>
+                            <td>Tân Trúc (Hsinchu)</td>
+                            <td class="text-center"><span class="rank-badge">#2</span></td>
+                            <td>NTHU Scholarship</td>
+                            <td>Khoa học, Công nghệ, Hóa học</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary">National Cheng Kung University (NCKU)</div>
+                                <small class="text-muted">Đại học Quốc gia Thành Công</small>
+                            </td>
+                            <td>Đài Nam (Tainan)</td>
+                            <td class="text-center"><span class="rank-badge">#3</span></td>
+                            <td>NCKU Distingushed Int'l Student</td>
+                            <td>Y khoa, Kỹ thuật, Hàng không</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary">National Yang Ming Chiao Tung (NYCU)</div>
+                                <small class="text-muted">Đại học Dương Minh Giao Thông</small>
+                            </td>
+                            <td>Tân Trúc</td>
+                            <td class="text-center"><span class="rank-badge">#4</span></td>
+                            <td>NYCU Scholarship</td>
+                            <td>Công nghệ thông tin, Điện tử</td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <div class="fw-bold text-primary">National Taiwan Univ of Science & Tech (NTUST)</div>
+                                <small class="text-muted">Đại học KHKT QG Đài Loan</small>
+                            </td>
+                            <td>Đài Bắc</td>
+                            <td class="text-center"><span class="rank-badge">#5</span></td>
+                            <td>Toàn phần + Trợ cấp</td>
+                            <td>Kiến trúc, Quản trị, Thiết kế</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary">National Sun Yat-sen University (NSYSU)</div>
+                                <small class="text-muted">Đại học Quốc gia Trung Sơn</small>
+                            </td>
+                            <td>Cao Hùng (Kaohsiung)</td>
+                            <td class="text-center"><span class="rank-badge">Top 10</span></td>
+                            <td>Miễn học phí + KTX</td>
+                            <td>Quản trị kinh doanh, Biển</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary">Taipei Medical University (TMU)</div>
+                                <small class="text-muted">Đại học Y Đài Bắc</small>
+                            </td>
+                            <td>Đài Bắc</td>
+                            <td class="text-center"><span class="rank-badge">Y Khoa</span></td>
+                            <td>Học bổng cao cho ngành Y</td>
+                            <td>Y, Dược, Điều dưỡng</td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <div class="fw-bold text-primary">Tamkang University (TKU)</div>
+                                <small class="text-muted">Đại học Đạm Giang</small>
+                            </td>
+                            <td>Tân Bắc</td>
+                            <td class="text-center"><span class="rank-badge">Tư thục Top 1</span></td>
+                            <td>Miễn học phí năm đầu</td>
+                            <td>Ngôn ngữ, Kinh tế</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="p-3 text-center bg-light border-top">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="alert('Liên hệ Huy Hoàng để nhận danh sách đầy đủ 50+ trường!')">Xem thêm...</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">Lộ Trình</span>
+                <h2>Quy Trình 5 Bước Chinh Phục</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Tháng 9 - 12</div>
+                    <div class="timeline-content" data-aos="fade-right">
+                        <h4 class="fw-bold text-primary">1. Chuẩn bị hồ sơ & Ngoại ngữ</h4>
+                        <p class="mb-0">Ôn luyện thi TOCFL/IELTS. Bắt đầu dịch thuật công chứng học bạ, bằng cấp. Chuẩn bị CV và tìm người viết thư giới thiệu.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Tháng 1 - 2</div>
+                    <div class="timeline-content" data-aos="fade-left">
+                        <h4 class="fw-bold text-primary">2. Viết Study Plan & Chọn trường</h4>
+                        <p class="mb-0">Viết kế hoạch học tập chi tiết (Study Plan) là yếu tố quyết định 50% cơ hội. Lên danh sách 3-5 trường phù hợp nhất.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Tháng 2 - 4</div>
+                    <div class="timeline-content" data-aos="fade-right">
+                        <h4 class="fw-bold text-primary">3. Nộp hồ sơ Online</h4>
+                        <p class="mb-0">Mở cổng đăng ký. Upload hồ sơ lên hệ thống của trường hoặc gửi bưu điện sang Đài Loan (tùy yêu cầu).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Tháng 5 - 6</div>
+                    <div class="timeline-content" data-aos="fade-left">
+                        <h4 class="fw-bold text-primary">4. Phỏng vấn & Chờ kết quả</h4>
+                        <p class="mb-0">Một số trường yêu cầu phỏng vấn qua Skype. Kết quả thường có vào tháng 5 hoặc 6.</p>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Tháng 7 - 8</div>
+                    <div class="timeline-content" data-aos="fade-right">
+                        <h4 class="fw-bold text-primary">5. Visa & Nhập học</h4>
+                        <p class="mb-0">Nhận Admission Letter, khám sức khỏe và xin Visa tại Văn phòng Đài Bắc. Bay sang nhập học vào tháng 9.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4" data-aos="fade-right">
+                    <h2 class="fw-bold mb-4">Câu Hỏi Thường Gặp</h2>
+                    <p>Giải đáp những thắc mắc phổ biến nhất của sinh viên khi apply học bổng Đài Loan.</p>
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/students-studying-online-2995843-2503204.png" alt="FAQ" class="img-fluid">
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    1. GPA bao nhiêu thì an toàn để xin học bổng 100%?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Thông thường GPA trên <strong>8.0</strong> (trên thang 10) sẽ có cơ hội cao nhận học bổng loại A (100% + Trợ cấp). Tuy nhiên, nếu GPA của bạn thấp hơn (7.0 - 7.5), bạn vẫn có thể đạt loại B hoặc C nếu có chứng chỉ ngoại ngữ cao và Study Plan ấn tượng.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    2. Tôi chưa biết tiếng Trung có xin được không?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>Được.</strong> Đài Loan có rất nhiều chương trình giảng dạy 100% bằng Tiếng Anh (đặc biệt là Thạc sĩ và Tiến sĩ). Bạn chỉ cần chứng chỉ IELTS/TOEIC là đủ điều kiện nộp hồ sơ.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    3. Du học Huy Hoàng hỗ trợ những gì?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Chúng tôi hỗ trợ trọn gói: Đánh giá hồ sơ, lên danh sách trường tối ưu, viết và sửa Study Plan/CV chuẩn academic, hướng dẫn phỏng vấn, xin Visa và tìm nhà ở tại Đài Loan.
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    4. Có được đi làm thêm không?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sau khi có thẻ cư trú (ARC), sinh viên quốc tế được phép làm thêm tối đa <strong>20 giờ/tuần</strong>. Lương cơ bản khoảng 183 NTD/giờ (năm 2024).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="section-padding bg-dark text-white position-relative" style="background: linear-gradient(rgba(69, 95, 137, 0.401), rgba(74, 68, 68, 0.8)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Taipei_at_night_from_Elephant_Mountain.jpg/1200px-Taipei_at_night_from_Elephant_Mountain.jpg') center/cover;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="text-white fw-bold">Đăng Ký Tư Vấn & Thẩm Định Hồ Sơ Miễn Phí</h2>
+                    <p class="text-light opacity-75">Để lại thông tin, chuyên viên của Huy Hoàng sẽ liên hệ tư vấn chiến lược săn học bổng phù hợp nhất với bạn.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="bg-white p-5 rounded-4 text-dark shadow-lg">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Họ và Tên</label>
+                                <input type="text" class="form-control bg-light border-0 py-3" placeholder="Nguyễn Văn A">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Số điện thoại</label>
+                                <input type="tel" class="form-control bg-light border-0 py-3" placeholder="09xx...">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Email</label>
+                                <input type="email" class="form-control bg-light border-0 py-3" placeholder="email@example.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Trình độ học vấn</label>
+                                <select class="form-select bg-light border-0 py-3">
+                                    <option>Đang học THPT</option>
+                                    <option>Đã tốt nghiệp THPT</option>
+                                    <option>Đang học Đại học</option>
+                                    <option>Đã tốt nghiệp Đại học</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold">Nhu cầu tư vấn</label>
+                                <textarea class="form-control bg-light border-0" rows="3" placeholder="Em muốn xin học bổng thạc sĩ ngành QTKD..."></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-warning btn-lg w-100 fw-bold py-3 text-dark">GỬI ĐĂNG KÝ NGAY</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-white text-uppercase fw-bold mb-4">Du Học Huy Hoàng</h5>
+                    <p>Đơn vị tiên phong trong lĩnh vực tư vấn du học và săn học bổng Đài Loan. Chúng tôi tự hào đã chắp cánh cho hơn 1.000 sinh viên Việt Nam thực hiện giấc mơ du học.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-white text-uppercase fw-bold mb-4">Về Chúng Tôi</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Đội ngũ chuyên gia</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white text-uppercase fw-bold mb-4">Dịch Vụ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Học bổng toàn phần</a></li>
+                        <li><a href="scholarship1+4.html">Hệ 1+4 (Dự bị ĐH)</a></li>
+                        <li><a href="work-study scholarship.html">Hệ Vừa học vừa làm</a></li>
+                        <li><a href="#">Luyện thi TOCFL</a></li>
+                        <li><a href="#">Visa thăm thân</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white text-uppercase fw-bold mb-4">Liên Hệ</h5>
+                    <ul class="list-unstyled">
+                        <li class="d-flex"><i class="fas fa-map-marker-alt mt-1 me-3 text-warning"></i> <span>6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, Hà Nội</span></li>
+                        <li class="d-flex"><i class="fas fa-phone-alt mt-1 me-3 text-warning"></i> <span>0989.723.000</span></li>
+                        <li class="d-flex"><i class="fas fa-envelope mt-1 me-3 text-warning"></i> <span>huyhoangvn.ht@gmail.com</span></li>
+                        <li class="d-flex"><i class="fas fa-clock mt-1 me-3 text-warning"></i> <span>Thứ 2 - Thứ 7: 8:00 - 17:30</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+            
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-chevron-up"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // 1. PRELOADER
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 500);
+        });
+
+        // 2. AOS INIT
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // 3. SCROLL PROGRESS & STICKY HEADER & COUNTER
+        const navbar = document.querySelector('.navbar');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const backToTop = document.getElementById('backToTop');
+        let counted = false;
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.scrollY;
+            let docHeight = document.body.offsetHeight - window.innerHeight;
+            let scrollPercent = (scrollTop / docHeight) * 100;
+            
+            // Update Scroll Bar
+            scrollProgress.style.width = scrollPercent + '%';
+
+            // Sticky Header & Back to Top
+            if (scrollTop > 100) {
+                navbar.style.padding = '10px 0';
+                backToTop.style.display = 'block';
+            } else {
+                navbar.style.padding = '15px 0';
+                backToTop.style.display = 'none';
+            }
+
+            // Counter Animation (Simple Logic)
+            const statsSection = document.querySelector('.hero-stats');
+            if (statsSection && window.scrollY + window.innerHeight > statsSection.offsetTop && !counted) {
+                const counters = document.querySelectorAll('.counter');
+                counters.forEach(c => {
+                    const target = +c.getAttribute('data-target');
+                    const duration = 2000; // ms
+                    const increment = target / (duration / 20);
+                    
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if(current >= target) {
+                            c.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            c.innerText = Math.ceil(current);
+                        }
+                    }, 20);
+                });
+                counted = true;
+            }
+        });
+
+        // Back to Top Action
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 4. TABLE SEARCH FUNCTION
+        const searchInput = document.getElementById('uniSearch');
+        const tableRows = document.querySelectorAll('#uniTable tbody tr');
+
+        searchInput.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            tableRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if(text.includes(term)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            })
+        });
+
+    </script>
+</body>
+</html>

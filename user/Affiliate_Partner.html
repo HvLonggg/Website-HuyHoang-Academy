@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đối tác Liên kết | Huy Hoàng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #006699, #00b3b3);      padding: 25px 45px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.6em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd166;
+    }
+
+    /* Cố định header trên cùng */
+    #main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #006699, #00b3b3);     
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 50px;
+      z-index: 1000;
+      transition: transform 0.4s ease;
+    }
+
+    #main-header.hide {
+      transform: translateY(-100%);
+    }
+
+    #main-header nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #main-header nav ul li {
+      margin-left: 20px;
+    }
+
+    #main-header nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    #main-header nav ul li a:hover {
+      color: #333;
+    }
+
+    /* SECTION PARTNERS */
+    .partners-section {
+      padding: 70px 20px;
+      text-align: center;
+      max-width: 1300px;
+      margin-top: 80px;
+      position: relative;
+      left: 100px;
+    }
+
+    .partners-section h2 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      color: #2b2d42;
+    }
+
+    .partners-section .intro {
+      font-size: 1.05em;
+      color: #555;
+      max-width: 950px;
+      margin: 0 auto 50px;
+      line-height: 1.8;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .partner-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partner-card img {
+      width: 100%;
+      max-height: 120px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .partner-card h3 {
+      font-size: 1.3em;
+      color: #2b2d42;
+      margin-bottom: 10px;
+    }
+
+    .partner-card p {
+      font-size: 0.95em;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .partner-card .btn {
+      background: #ffd166;
+      color: #333;
+      padding: 8px 0;
+      width: 140px;
+      text-align: center;
+      border-radius: 25px;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+      align-self: center;
+    }
+
+    .partner-card .btn:hover {
+      background: #ffb703;
+      transform: scale(1.05);
+    }
+
+    .partner-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .partner-card:hover img {
+      transform: scale(1.08);
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(90deg, #006699, #00b3b3);
+      color: #ffffff;
+      padding: 60px 20px 40px;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ffd166, #00b3b3);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      align-items: start;
+    }
+
+    .footer-content div {
+      padding: 0 15px;
+    }
+
+    .footer-content h4 {
+      margin-bottom: 20px;
+      color: #ffd166;
+      font-size: 1.3em;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-content h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #ffd166, #ffffff);
+      border-radius: 2px;
+    }
+
+    .footer-content p,
+    .footer-content a {
+      color: #e3f2fd;
+      font-size: 1em;
+      line-height: 1.8;
+      margin-bottom: 10px;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-content a:hover {
+      color: #ffd166;
+      transform: translateX(5px);
+    }
+
+    .quick-links {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .link-columns {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .link-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .divider {
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 0 15px;
+    }
+
+    .quick-links a {
+      color: #e3f2fd;
+      transition: all 0.3s ease;
+    }
+
+    .quick-links a:hover {
+      color: #ffd166;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e3f2fd;
+      font-size: 0.95em;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-content h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .link-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="logo">
+      <a href="index.html">Huy Hoàng</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="about_us.html">Giới thiệu</a></li>
+        <li><a href="partners.html" style="color: #ffd166;">Đối tác</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    let lastScroll = 0;
+    const header = document.getElementById("main-header");
+
+    window.addEventListener("scroll", () => {
+      let currentScroll = window.pageYOffset;
+
+      if (currentScroll > lastScroll && currentScroll > 50) {
+        header.classList.add("hide");
+      } else {
+        header.classList.remove("hide");
+      }
+
+      lastScroll = currentScroll;
+    });
+  </script>
+
+  <!-- PARTNERS SECTION -->
+  <section class="partners-section">
+    <h2>Đối tác Liên kết</h2>
+    <p class="intro">
+      Trung tâm Huy Hoàng tự hào hợp tác cùng nhiều trường đại học danh tiếng tại Đài Loan, mang đến cơ hội học tập và
+      nghiên cứu chất lượng cao cho sinh viên Việt Nam.
+    </p>
+
+    <div class="partners-grid">
+      <div class="partner-card">
+        <img src="../images/National_Taiwan_University_seal.svg.png" alt="National Taiwan University">
+        <h3>National Taiwan University</h3>
+        <p>Trường đại học hàng đầu Đài Loan với bề dày lịch sử hơn 90 năm, nổi tiếng về nghiên cứu khoa học, y học, công
+          nghệ và khoa học xã hội.</p>
+        <a href="../user/school/about_quoclap.html" class="btn">Xem
+          chi tiết</a>
+      </div>
+      <div class="partner-card">
+        <img src="../images/National_Chengchi_University_Seal.svg.png" alt="National Chengchi University">
+        <h3>National Chengchi University</h3>
+        <p>Trung tâm đào tạo xuất sắc trong lĩnh vực chính trị, kinh tế, truyền thông và ngoại giao, đào tạo nhiều nhà
+          lãnh đạo trong khu vực.</p>
+        <a href="../user/school/about_quoclap.html" class="btn">Xem chi tiết</a>
+      </div>
+      <div class="partner-card">
+        <img src="../images/NTHU_Round_Seal.svg.png" alt="National Tsing Hua University">
+        <h3>National Tsing Hua University</h3>
+        <p>Nổi bật với thế mạnh về khoa học tự nhiên, kỹ thuật và công nghệ, thường xuyên nằm trong top nghiên cứu trích
+          dẫn nhiều nhất.</p>
+        <a href="../user/school/about_Tsinghua.html" class="btn">Xem chi tiết</a>
+      </div>
+      <div class="partner-card">
+        <img src="../images/du-hoc-dai-loan-ming-chuan-university.png" alt="NYCU">
+        <h3> Ming Chuan University</h3>
+        <p>Nổi bật với môi trường học tập năng động, hiện đại, Trường Minh Chuyền chú trọng phát triển tư duy sáng tạo,
+           kỹ năng thực hành và tinh thần hội nhập quốc tế, đào tạo nhiều học sinh xuất sắc mỗi năm.</p>
+        <a href="./school/about_Mingchuan.html"
+          class="btn">Xem chi tiết</a>
+      </div>
+      <div class="partner-card">
+        <img src="../images/kunsan_logo.jpg" alt="Kun Shan University">
+        <h3>Kun Shan University</h3>
+        <p>Thế mạnh về công nghệ, cơ khí, thiết kế và nghệ thuật sáng tạo, hợp tác chặt chẽ với doanh nghiệp trong và
+          ngoài nước.</p>
+        <a href="../user/school/about_kunshan.html" class="btn">Xem chi tiết</a>
+      </div>
+      
+      <div class="partner-card">
+        <img src="../images/NCUE_seal.svg.png" alt="NCUE">
+        <h3>National Changhua University of Education</h3>
+        <p>Trường sư phạm uy tín, chuyên đào tạo giáo viên, tâm lý học và các nghiên cứu giáo dục chất lượng cao.</p>
+        <a href="https://taiwandiary.vn/dai-hoc-quoc-lap-su-pham-chuong-hoa/" class="btn">Xem chi tiết</a>
+      </div>
+      <div class="partner-card">
+        <img src="../images/Kainan-University.png" alt="Kainan University">
+        <h3>Kainan University</h3>
+        <p>Đào tạo đa lĩnh vực: quản trị, du lịch, truyền thông, thiết kế sáng tạo, với nhiều chương trình liên kết toàn
+          cầu.</p>
+        <a href="../user/school/about_kainan.html" class="btn">Xem chi tiết</a>
+      </div>
+      <div class="partner-card">
+        <img src="../images/hsinchu.png" alt="Hsinchu University">
+        <h3>Hsinchu University</h3>
+        <p>Tọa lạc tại trung tâm công nghệ, nổi bật về kỹ thuật điện, CNTT và khoa học ứng dụng, cung cấp nhân lực chất
+          lượng cao.</p>
+        <a href="https://taiwandiary.vn/dai-hoc-quoc-lap-thanh-hoa-2/" class="btn">Xem chi tiết</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Về chúng tôi</h4>
+        <p>Trung tâm Huy Hoàng cam kết mang đến cho sinh viên Việt Nam cơ hội học tập tại những trường hàng đầu Đài Loan, mở rộng tri thức và tầm nhìn quốc tế.</p>
+      </div>
+
+      <div class="contact">
+        <h4>Liên hệ</h4>
+        <p><a href="https://www.google.com/maps?q=Số+6B7+khu+đô+thị+Mỹ+Đình+1,+Từ+Liêm,+Hà+Nội" target="_blank">📍 Số 6B7 khu đô thị Mỹ Đình 1, Từ Liêm, Hà Nội</a></p>
+        <p><a href="tel:0989723000">📞 0989723000</a></p>
+        <p><a href="mailto:huyhoangvn.ht@gmail.com">✉️ huyhoangvn.ht@gmail.com</a></p>
+      </div>
+
+      <div class="quick-links">
+        <h4>Liên kết nhanh</h4>
+        <div class="link-columns">
+          <div class="link-col">
+            <a href="index.html">Trang chủ</a>
+            <a href="about_us.html">Giới thiệu</a>
+          </div>
+          <div class="divider"></div>
+          <div class="link-col">
+            <a href="partners.html">Đối tác</a>
+            <a href="contact.html">Liên hệ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 Huy Hoàng Study Abroad Center – Đồng hành cùng ước mơ du học của bạn.
+    </div>
+  </footer>
+
+</body>
+
+</html>
