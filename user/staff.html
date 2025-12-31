@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đội Ngũ Nhân Sự</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Đội Ngũ Nhân Sự</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
         /* Reset */
         * {
             margin: 0;
@@ -755,344 +756,432 @@
             }
         }
     </style>
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">
-            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=200&fit=crop" alt="Logo Huy Hoàng">
-            HUY HOÀNG
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="#">Chương trình học</a></li>
-                <li><a href="#">Học bổng</a></li>
-                <li><a href="contact.html">Liên hệ</a></li>
-            </ul>
-        </nav>
-    </header>
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/LOGO.jpg" alt="Logo Huy Hoàng">
+<p style="
+    font-size: 13px;
+    margin-left: -37px;
+    color: #fff;
+    text-decoration: none;
+">
+    HUY HOÀNG ACADEMY
+</p>                </a>
+            </div>
 
-    <!-- TEAM SECTION -->
-    <section class="team-section">
-        <h2>ĐỘI NGŨ NHÂN SỰ</h2>
-        <p class="team-subtitle">Đội ngũ chuyên gia giàu kinh nghiệm, tận tâm đồng hành cùng học viên</p>
-        <div class="team-grid">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="ProgramPage.html">Chương trình học</a></li>
+                    <li><a href="scholarship1+4.html">Học bổng</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            <!-- Nhân sự 1 -->
-            <div class="team-card">
-                <div class="team-card-header" onclick="openModal('modal1')">
-                    <div class="team-img">
-                        <img src="/images/img_Mr.Hoang.jpg" alt="Trần Mạnh Hoàng">
+        <!-- TEAM SECTION -->
+        <section class="team-section">
+            <h2>ĐỘI NGŨ NHÂN SỰ</h2>
+            <p class="team-subtitle">Đội ngũ chuyên gia giàu kinh nghiệm, tận
+                tâm đồng hành cùng học viên</p>
+            <div class="team-grid">
+
+                <!-- Nhân sự 1 -->
+                <div class="team-card">
+                    <div class="team-card-header" onclick="openModal('modal1')">
+                        <div class="team-img">
+                            <img src="../images/img_Mr.Hoang.jpg"
+                                alt="Trần Mạnh Hoàng">
+                        </div>
+                        <h3>Trần Mạnh Hoàng</h3>
+                        <p class="role">Giám đốc trung tâm</p>
                     </div>
+                    <p class="desc">Người sáng lập và điều hành Trung tâm Du học
+                        Đài Loan, anh Hoàng đã hơn 10 năm đồng hành cùng hàng
+                        trăm học viên trên con đường chinh phục tri thức quốc
+                        tế.</p>
+                    <button class="expand-btn" onclick="openModal('modal1')">
+                        <span>Xem thêm</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Nhân sự 2 -->
+                <div class="team-card">
+                    <div class="team-card-header" onclick="openModal('modal2')">
+                        <div class="team-img">
+                            <img src="../images/IMG_MSS.THANH.jpg"
+                                alt="Khổng Thị Ngọc Thành">
+                        </div>
+                        <h3>Khổng Thị Ngọc Thành</h3>
+                        <p class="role">Giám đốc đào tạo</p>
+                    </div>
+                    <p class="desc">Chị Thành là chuyên gia đào tạo giàu kinh
+                        nghiệm, luôn sát cánh cùng học viên từ những bước đầu
+                        học tiếng Trung cho đến khi hòa nhập môi trường mới tại
+                        Đài Loan.</p>
+                    <button class="expand-btn" onclick="openModal('modal2')">
+                        <span>Xem thêm</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Nhân sự 3 -->
+                <div class="team-card">
+                    <div class="team-card-header" onclick="openModal('modal3')">
+                        <div class="team-img">
+                            <img src="../images/img_Ms.Huyen.jpg"
+                                alt="Nguyễn Thị Huyền">
+                        </div>
+                        <h3>Nguyễn Thị Huyền</h3>
+                        <p class="role">Giảng viên đào tạo</p>
+                    </div>
+                    <p class="desc">Giảng viên với nhiều năm kinh nghiệm đào tạo
+                        ngôn ngữ tiếng Trung, cô không chỉ truyền đạt kiến thức
+                        một cách dễ hiểu mà còn tạo cảm hứng học tập cho học
+                        viên.</p>
+                    <button class="expand-btn" onclick="openModal('modal3')">
+                        <span>Xem thêm</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Nhân sự 4 -->
+                <div class="team-card">
+                    <div class="team-card-header" onclick="openModal('modal4')">
+                        <div class="team-img">
+                            <img src="../images/img_Mr.Dung.jpg"
+                                alt="Nguyễn Anh Dũng">
+                        </div>
+                        <h3>ThS. Nguyễn Anh Dũng</h3>
+                        <p class="role">Chuyên gia đào tạo</p>
+                    </div>
+                    <p class="desc">Với kiến thức chuyên sâu và nhiều năm kinh
+                        nghiệm, luôn tận tâm trong việc hướng dẫn và hỗ trợ học
+                        viên với những phương pháp giảng dạy hiện đại.</p>
+                    <button class="expand-btn" onclick="openModal('modal4')">
+                        <span>Xem thêm</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MODAL 1: Trần Mạnh Hoàng -->
+        <div class="modal-overlay" id="modal1"
+            onclick="closeModalOnOutside(event, 'modal1')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <button class="modal-close" onclick="closeModal('modal1')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <img src="../images/img_Mr.Hoang.jpg" alt="Trần Mạnh Hoàng"
+                        class="modal-img">
                     <h3>Trần Mạnh Hoàng</h3>
                     <p class="role">Giám đốc trung tâm</p>
                 </div>
-                <p class="desc">Người sáng lập và điều hành Trung tâm Du học Đài Loan, anh Hoàng đã hơn 10 năm đồng hành cùng hàng trăm học viên trên con đường chinh phục tri thức quốc tế.</p>
-                <button class="expand-btn" onclick="openModal('modal1')">
-                    <span>Xem thêm</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <!-- Nhân sự 2 -->
-            <div class="team-card">
-                <div class="team-card-header" onclick="openModal('modal2')">
-                    <div class="team-img">
-                        <img src="/images/IMG_MSS.THANH.jpg" alt="Khổng Thị Ngọc Thành">
+                <div class="modal-body">
+                    <div class="modal-intro">
+                        <p>Người sáng lập và điều hành Trung tâm Du học Đài
+                            Loan, anh Hoàng đã hơn 10 năm đồng hành cùng hàng
+                            trăm học viên trên con đường chinh phục tri thức
+                            quốc tế. Với tầm nhìn chiến lược và sự tận tâm, anh
+                            luôn định hướng để học viên có lộ trình học tập và
+                            phát triển tốt nhất tại Đài Loan.</p>
                     </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-briefcase"></i>Kinh nghiệm</h4>
+                        <ul>
+                            <li>Hơn 10 năm trong lĩnh vực tư vấn du học Đài
+                                Loan</li>
+                            <li>Đã hỗ trợ thành công hơn 500 học viên du
+                                học</li>
+                            <li>Chuyên gia về các chương trình học bổng Đài
+                                Loan</li>
+                            <li>Mối quan hệ rộng rãi với các trường đại học hàng
+                                đầu</li>
+                            <li>Thành lập và phát triển mạng lưới cựu học sinh
+                                tại Đài Loan</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-award"></i>Thành tựu nổi bật</h4>
+                        <div class="achievement-badges">
+                            <span class="achievement-badge"><i
+                                    class="fas fa-trophy"></i>Top Consultant
+                                2023</span>
+                            <span class="achievement-badge"><i
+                                    class="fas fa-medal"></i>Excellence
+                                Award</span>
+                            <span class="achievement-badge"><i
+                                    class="fas fa-star"></i>100% Success
+                                Rate</span>
+                            <span class="achievement-badge"><i
+                                    class="fas fa-users"></i>500+ Học
+                                viên</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-quote-left"></i>Phương châm làm
+                            việc</h4>
+                        <p>"Thành công của học viên chính là niềm tự hào lớn nhất của chúng tôi. Mỗi hành trình du học là một câu chuyện đặc biệt, và tôi cam kết đồng hành từng bước để biến ước mơ thành hiện thực."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 2: Khổng Thị Ngọc Thành -->
+        <div class="modal-overlay" id="modal2"
+            onclick="closeModalOnOutside(event, 'modal2')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <button class="modal-close" onclick="closeModal('modal2')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <img src="../images/IMG_MSS.THANH.jpg"
+                        alt="Khổng Thị Ngọc Thành" class="modal-img">
                     <h3>Khổng Thị Ngọc Thành</h3>
                     <p class="role">Giám đốc đào tạo</p>
                 </div>
-                <p class="desc">Chị Thành là chuyên gia đào tạo giàu kinh nghiệm, luôn sát cánh cùng học viên từ những bước đầu học tiếng Trung cho đến khi hòa nhập môi trường mới tại Đài Loan.</p>
-                <button class="expand-btn" onclick="openModal('modal2')">
-                    <span>Xem thêm</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <!-- Nhân sự 3 -->
-            <div class="team-card">
-                <div class="team-card-header" onclick="openModal('modal3')">
-                    <div class="team-img">
-                        <img src="/images/img_Ms.Huyen.jpg" alt="Nguyễn Thị Huyền">
+                <div class="modal-body">
+                    <div class="modal-intro">
+                        <p>Chị Thành là chuyên gia đào tạo giàu kinh nghiệm,
+                            luôn sát cánh cùng học viên từ những bước đầu học
+                            tiếng Trung cho đến khi hòa nhập môi trường mới tại
+                            Đài Loan. Với phương pháp giảng dạy linh hoạt và sự
+                            nhiệt huyết, chị đã giúp nhiều thế hệ học viên đạt
+                            kết quả cao và tự tin hội nhập.</p>
                     </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-graduation-cap"></i>Trình độ chuyên
+                            môn</h4>
+                        <ul>
+                            <li>Thạc sĩ Ngôn ngữ Trung Quốc - ĐH Sư phạm Hà
+                                Nội</li>
+                            <li>8 năm giảng dạy tiếng Trung chuyên sâu</li>
+                            <li>Chứng chỉ giảng viên quốc tế HSK, TOCFL</li>
+                            <li>Phương pháp giảng dạy hiện đại, tương tác
+                                cao</li>
+                            <li>Chuyên gia về đào tạo tiếng Trung cho người mới
+                                bắt đầu</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-star"></i>Đặc điểm nổi bật</h4>
+                        <ul>
+                            <li>Tỷ lệ học viên đạt chứng chỉ trên 95%</li>
+                            <li>Lớp học sinh động với công nghệ hiện đại</li>
+                            <li>Tư vấn định hướng học tập cá nhân hóa</li>
+                            <li>Kết nối học viên với cộng đồng du học sinh</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-quote-left"></i>Triết lý giảng
+                            dạy</h4>
+                        <p>"Học ngôn ngữ không chỉ là học từ vựng và ngữ pháp, mà là mở ra cánh cửa văn hóa và cơ hội. Tôi tin rằng mỗi học viên đều có tiềm năng riêng, và nhiệm vụ của tôi là giúp các em khám phá và phát triển nó."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 3: Nguyễn Thị Huyền -->
+        <div class="modal-overlay" id="modal3"
+            onclick="closeModalOnOutside(event, 'modal3')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <button class="modal-close" onclick="closeModal('modal3')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <img src="../images/img_Ms.Huyen.jpg" alt="Nguyễn Thị Huyền"
+                        class="modal-img">
                     <h3>Nguyễn Thị Huyền</h3>
                     <p class="role">Giảng viên đào tạo</p>
                 </div>
-                <p class="desc">Giảng viên với nhiều năm kinh nghiệm đào tạo ngôn ngữ tiếng Trung, cô không chỉ truyền đạt kiến thức một cách dễ hiểu mà còn tạo cảm hứng học tập cho học viên.</p>
-                <button class="expand-btn" onclick="openModal('modal3')">
-                    <span>Xem thêm</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <!-- Nhân sự 4 -->
-            <div class="team-card">
-                <div class="team-card-header" onclick="openModal('modal4')">
-                    <div class="team-img">
-                        <img src="/images/img_Mr.Dung.jpg" alt="Nguyễn Anh Dũng">
+                <div class="modal-body">
+                    <div class="modal-intro">
+                        <p>Giảng viên với nhiều năm kinh nghiệm đào tạo ngôn ngữ
+                            tiếng Trung, cô không chỉ truyền đạt kiến thức một
+                            cách dễ hiểu mà còn tạo cảm hứng học tập cho học
+                            viên. Phương pháp giảng dạy sinh động, gần gũi và
+                            gắn liền với thực tế giúp học viên nhanh chóng nâng
+                            cao kỹ năng giao tiếp, tự tin hội nhập và học tập
+                            tại Đài Loan.</p>
                     </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-book"></i>Năng lực chuyên môn</h4>
+                        <ul>
+                            <li>Cử nhân Ngôn ngữ Trung - ĐH Ngoại ngữ Hà
+                                Nội</li>
+                            <li>6 năm kinh nghiệm giảng dạy</li>
+                            <li>Chứng chỉ HSK 6, TOCFL Level 5</li>
+                            <li>Từng học tập và làm việc tại Đài Loan 3 năm</li>
+                            <li>Chuyên gia về kỹ năng giao tiếp tiếng Trung thực
+                                tế</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-heart"></i>Phong cách giảng
+                            dạy</h4>
+                        <ul>
+                            <li>Lớp học sinh động, tương tác cao</li>
+                            <li>Kết hợp game và hoạt động thực hành</li>
+                            <li>Chia sẻ trải nghiệm thực tế tại Đài Loan</li>
+                            <li>Quan tâm đến từng tiến bộ của học viên</li>
+                            <li>Tạo môi trường học tập thoải mái và thân
+                                thiện</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-quote-left"></i>Thông điệp</h4>
+                        <p>"Học tiếng Trung không khó như các em nghĩ! Với phương pháp đúng và sự kiên trì, mọi người đều có thể chinh phục được ngôn ngữ tuyệt vời này. Hãy để cô đồng hành cùng các em trên hành trình khám phá ngôn ngữ và văn hóa Đài Loan!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 4: Nguyễn Anh Dũng -->
+        <div class="modal-overlay" id="modal4"
+            onclick="closeModalOnOutside(event, 'modal4')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <button class="modal-close" onclick="closeModal('modal4')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <img src="../images/img_Mr.Dung.jpg" alt="Nguyễn Anh Dũng"
+                        class="modal-img">
                     <h3>ThS. Nguyễn Anh Dũng</h3>
                     <p class="role">Chuyên gia đào tạo</p>
                 </div>
-                <p class="desc">Với kiến thức chuyên sâu và nhiều năm kinh nghiệm, luôn tận tâm trong việc hướng dẫn và hỗ trợ học viên với những phương pháp giảng dạy hiện đại.</p>
-                <button class="expand-btn" onclick="openModal('modal4')">
-                    <span>Xem thêm</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- MODAL 1: Trần Mạnh Hoàng -->
-    <div class="modal-overlay" id="modal1" onclick="closeModalOnOutside(event, 'modal1')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal('modal1')">
-                    <i class="fas fa-times"></i>
-                </button>
-                <img src="/images/img_Mr.Hoang.jpg" alt="Trần Mạnh Hoàng" class="modal-img">
-                <h3>Trần Mạnh Hoàng</h3>
-                <p class="role">Giám đốc trung tâm</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-intro">
-                    <p>Người sáng lập và điều hành Trung tâm Du học Đài Loan, anh Hoàng đã hơn 10 năm đồng hành cùng hàng trăm học viên trên con đường chinh phục tri thức quốc tế. Với tầm nhìn chiến lược và sự tận tâm, anh luôn định hướng để học viên có lộ trình học tập và phát triển tốt nhất tại Đài Loan.</p>
-                </div>
-                
-                <div class="detail-section">
-                    <h4><i class="fas fa-briefcase"></i>Kinh nghiệm</h4>
-                    <ul>
-                        <li>Hơn 10 năm trong lĩnh vực tư vấn du học Đài Loan</li>
-                        <li>Đã hỗ trợ thành công hơn 500 học viên du học</li>
-                        <li>Chuyên gia về các chương trình học bổng Đài Loan</li>
-                        <li>Mối quan hệ rộng rãi với các trường đại học hàng đầu</li>
-                        <li>Thành lập và phát triển mạng lưới cựu học sinh tại Đài Loan</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-award"></i>Thành tựu nổi bật</h4>
-                    <div class="achievement-badges">
-                        <span class="achievement-badge"><i class="fas fa-trophy"></i>Top Consultant 2023</span>
-                        <span class="achievement-badge"><i class="fas fa-medal"></i>Excellence Award</span>
-                        <span class="achievement-badge"><i class="fas fa-star"></i>100% Success Rate</span>
-                        <span class="achievement-badge"><i class="fas fa-users"></i>500+ Học viên</span>
-                    </div>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-quote-left"></i>Phương châm làm việc</h4>
-                    <p>"Thành công của học viên chính là niềm tự hào lớn nhất của chúng tôi. Mỗi hành trình du học là một câu chuyện đặc biệt, và tôi cam kết đồng hành từng bước để biến ước mơ thành hiện thực."</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 2: Khổng Thị Ngọc Thành -->
-    <div class="modal-overlay" id="modal2" onclick="closeModalOnOutside(event, 'modal2')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal('modal2')">
-                    <i class="fas fa-times"></i>
-                </button>
-                <img src="/images/IMG_MSS.THANH.jpg" alt="Khổng Thị Ngọc Thành" class="modal-img">
-                <h3>Khổng Thị Ngọc Thành</h3>
-                <p class="role">Giám đốc đào tạo</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-intro">
-                    <p>Chị Thành là chuyên gia đào tạo giàu kinh nghiệm, luôn sát cánh cùng học viên từ những bước đầu học tiếng Trung cho đến khi hòa nhập môi trường mới tại Đài Loan. Với phương pháp giảng dạy linh hoạt và sự nhiệt huyết, chị đã giúp nhiều thế hệ học viên đạt kết quả cao và tự tin hội nhập.</p>
-                </div>
-                
-                <div class="detail-section">
-                    <h4><i class="fas fa-graduation-cap"></i>Trình độ chuyên môn</h4>
-                    <ul>
-                        <li>Thạc sĩ Ngôn ngữ Trung Quốc - ĐH Sư phạm Hà Nội</li>
-                        <li>8 năm giảng dạy tiếng Trung chuyên sâu</li>
-                        <li>Chứng chỉ giảng viên quốc tế HSK, TOCFL</li>
-                        <li>Phương pháp giảng dạy hiện đại, tương tác cao</li>
-                        <li>Chuyên gia về đào tạo tiếng Trung cho người mới bắt đầu</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-star"></i>Đặc điểm nổi bật</h4>
-                    <ul>
-                        <li>Tỷ lệ học viên đạt chứng chỉ trên 95%</li>
-                        <li>Lớp học sinh động với công nghệ hiện đại</li>
-                        <li>Tư vấn định hướng học tập cá nhân hóa</li>
-                        <li>Kết nối học viên với cộng đồng du học sinh</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-quote-left"></i>Triết lý giảng dạy</h4>
-                    <p>"Học ngôn ngữ không chỉ là học từ vựng và ngữ pháp, mà là mở ra cánh cửa văn hóa và cơ hội. Tôi tin rằng mỗi học viên đều có tiềm năng riêng, và nhiệm vụ của tôi là giúp các em khám phá và phát triển nó."</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 3: Nguyễn Thị Huyền -->
-    <div class="modal-overlay" id="modal3" onclick="closeModalOnOutside(event, 'modal3')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal('modal3')">
-                    <i class="fas fa-times"></i>
-                </button>
-                <img src="/images/img_Ms.Huyen.jpg" alt="Nguyễn Thị Huyền" class="modal-img">
-                <h3>Nguyễn Thị Huyền</h3>
-                <p class="role">Giảng viên đào tạo</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-intro">
-                    <p>Giảng viên với nhiều năm kinh nghiệm đào tạo ngôn ngữ tiếng Trung, cô không chỉ truyền đạt kiến thức một cách dễ hiểu mà còn tạo cảm hứng học tập cho học viên. Phương pháp giảng dạy sinh động, gần gũi và gắn liền với thực tế giúp học viên nhanh chóng nâng cao kỹ năng giao tiếp, tự tin hội nhập và học tập tại Đài Loan.</p>
-                </div>
-                
-                <div class="detail-section">
-                    <h4><i class="fas fa-book"></i>Năng lực chuyên môn</h4>
-                    <ul>
-                        <li>Cử nhân Ngôn ngữ Trung - ĐH Ngoại ngữ Hà Nội</li>
-                        <li>6 năm kinh nghiệm giảng dạy</li>
-                        <li>Chứng chỉ HSK 6, TOCFL Level 5</li>
-                        <li>Từng học tập và làm việc tại Đài Loan 3 năm</li>
-                        <li>Chuyên gia về kỹ năng giao tiếp tiếng Trung thực tế</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-heart"></i>Phong cách giảng dạy</h4>
-                    <ul>
-                        <li>Lớp học sinh động, tương tác cao</li>
-                        <li>Kết hợp game và hoạt động thực hành</li>
-                        <li>Chia sẻ trải nghiệm thực tế tại Đài Loan</li>
-                        <li>Quan tâm đến từng tiến bộ của học viên</li>
-                        <li>Tạo môi trường học tập thoải mái và thân thiện</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-quote-left"></i>Thông điệp</h4>
-                    <p>"Học tiếng Trung không khó như các em nghĩ! Với phương pháp đúng và sự kiên trì, mọi người đều có thể chinh phục được ngôn ngữ tuyệt vời này. Hãy để cô đồng hành cùng các em trên hành trình khám phá ngôn ngữ và văn hóa Đài Loan!"</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 4: Nguyễn Anh Dũng -->
-    <div class="modal-overlay" id="modal4" onclick="closeModalOnOutside(event, 'modal4')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal('modal4')">
-                    <i class="fas fa-times"></i>
-                </button>
-                <img src="/images/img_Mr.Dung.jpg" alt="Nguyễn Anh Dũng" class="modal-img">
-                <h3>ThS. Nguyễn Anh Dũng</h3>
-                <p class="role">Chuyên gia đào tạo</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-intro">
-                    <p>Với kiến thức chuyên sâu và nhiều năm kinh nghiệm, luôn tận tâm trong việc hướng dẫn và hỗ trợ học viên. Anh áp dụng những phương pháp giảng dạy hiện đại, giúp học viên nhanh chóng nắm vững kiến thức, kỹ năng cần thiết để tự tin học tập và làm việc tại Đài Loan.</p>
-                </div>
-                
-                <div class="detail-section">
-                    <h4><i class="fas fa-user-graduate"></i>Trình độ học vấn</h4>
-                    <ul>
-                        <li>Thạc sĩ Quản trị Giáo dục - National Taiwan University</li>
-                        <li>Cử nhân Sư phạm Tiếng Trung</li>
-                        <li>Chứng chỉ giảng viên quốc tế TQUK</li>
-                        <li>7 năm sinh sống và làm việc tại Đài Loan</li>
-                        <li>Nghiên cứu về phương pháp giáo dục hiện đại</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-lightbulb"></i>Lĩnh vực chuyên trách</h4>
-                    <ul>
-                        <li>Tư vấn định hướng học tập và nghề nghiệp</li>
-                        <li>Hỗ trợ hồ sơ và phỏng vấn học bổng</li>
-                        <li>Coaching kỹ năng mềm và hội nhập văn hóa</li>
-                        <li>Kết nối cơ hội việc làm tại Đài Loan</li>
-                        <li>Tư vấn lộ trình phát triển cá nhân cho du học sinh</li>
-                    </ul>
-                </div>
-
-                <div class="detail-section">
-                    <h4><i class="fas fa-quote-left"></i>Cam kết</h4>
-                    <p>"Du học không chỉ là đi học ở nước ngoài, mà là hành trình trưởng thành và khám phá bản thân. Tôi sẽ đồng hành với các bạn để biến thời gian du học thành bước đệm vững chắc cho tương lai, giúp các bạn phát triển toàn diện cả về kiến thức lẫn kỹ năng sống."</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-brand">
-                    <img src="/images/LOGO.jpg" alt="Logo Huy Hoàng" class="footer-logo">
-                    <h5>HUY HOÀNG</h5>
-                </div>
-                <p>Trung tâm tư vấn du học Đài Loan uy tín hàng đầu, đồng hành cùng bạn trên hành trình chinh phục ước mơ tri thức và phát triển sự nghiệp quốc tế.</p>
-            </div>
-
-            <div class="footer-section">
-                <h6>Liên kết nhanh</h6>
-                <div class="footer-links">
-                    <a href="#">Trang chủ</a>
-                    <a href="#">Chương trình học</a>
-                    <a href="#">Học bổng</a>
-                    <a href="#">Tin tức</a>
-                    <a href="#">Liên hệ</a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h6>Thông tin liên hệ</h6>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div class="contact-text">
-                            <a href="https://www.google.com/maps/place/Số+6B7+KĐT+Mỹ+Đình+1,+Cầu+Diễn,+Nam+Từ+Liêm,+Hà+Nội" target="_blank">
-                                Số 6B7 KĐT Mỹ Đình 1, Cầu Diễn, Nam Từ Liêm, Hà Nội
-                            </a>
-                        </div>
+                <div class="modal-body">
+                    <div class="modal-intro">
+                        <p>Với kiến thức chuyên sâu và nhiều năm kinh nghiệm,
+                            luôn tận tâm trong việc hướng dẫn và hỗ trợ học
+                            viên. Anh áp dụng những phương pháp giảng dạy hiện
+                            đại, giúp học viên nhanh chóng nắm vững kiến thức,
+                            kỹ năng cần thiết để tự tin học tập và làm việc tại
+                            Đài Loan.</p>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <a href="mailto:huyhoangvn.ht@gmail.com">huyhoangvn.ht@gmail.com</a>
-                        </div>
+                    <div class="detail-section">
+                        <h4><i class="fas fa-user-graduate"></i>Trình độ học
+                            vấn</h4>
+                        <ul>
+                            <li>Thạc sĩ Quản trị Giáo dục - National Taiwan
+                                University</li>
+                            <li>Cử nhân Sư phạm Tiếng Trung</li>
+                            <li>Chứng chỉ giảng viên quốc tế TQUK</li>
+                            <li>7 năm sinh sống và làm việc tại Đài Loan</li>
+                            <li>Nghiên cứu về phương pháp giáo dục hiện đại</li>
+                        </ul>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <a href="tel:0989723000">0989 723 000</a>
-                        </div>
+                    <div class="detail-section">
+                        <h4><i class="fas fa-lightbulb"></i>Lĩnh vực chuyên
+                            trách</h4>
+                        <ul>
+                            <li>Tư vấn định hướng học tập và nghề nghiệp</li>
+                            <li>Hỗ trợ hồ sơ và phỏng vấn học bổng</li>
+                            <li>Coaching kỹ năng mềm và hội nhập văn hóa</li>
+                            <li>Kết nối cơ hội việc làm tại Đài Loan</li>
+                            <li>Tư vấn lộ trình phát triển cá nhân cho du học
+                                sinh</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4><i class="fas fa-quote-left"></i>Cam kết</h4>
+                        <p>"Du học không chỉ là đi học ở nước ngoài, mà là hành trình trưởng thành và khám phá bản thân. Tôi sẽ đồng hành với các bạn để biến thời gian du học thành bước đệm vững chắc cho tương lai, giúp các bạn phát triển toàn diện cả về kiến thức lẫn kỹ năng sống."</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="copyright-bar">
-            &copy; 2025 Huy Hoàng - Du học Đài Loan. All rights reserved.
-        </div>
-    </footer>
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="../images/LOGO.jpg" alt="Logo Huy Hoàng"
+                            class="footer-logo">
+                        <h5>HUY HOÀNG</h5>
+                    </div>
+                    <p>Trung tâm tư vấn du học Đài Loan uy tín hàng đầu, đồng
+                        hành cùng bạn trên hành trình chinh phục ước mơ tri thức
+                        và phát triển sự nghiệp quốc tế.</p>
+                </div>
 
-    <script>
+                <div class="footer-section">
+                    <h6>Liên kết nhanh</h6>
+                    <div class="footer-links">
+                        <a href="#">Trang chủ</a>
+                        <a href="#">Chương trình học</a>
+                        <a href="#">Học bổng</a>
+                        <a href="#">Tin tức</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h6>Thông tin liên hệ</h6>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a
+                                    href="https://www.google.com/maps/place/Số+6B7+KĐT+Mỹ+Đình+1,+Cầu+Diễn,+Nam+Từ+Liêm,+Hà+Nội"
+                                    target="_blank">
+                                    Số 6B7 KĐT Mỹ Đình 1, Cầu Diễn, Nam Từ Liêm,
+                                    Hà Nội
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a
+                                    href="mailto:huyhoangvn.ht@gmail.com">huyhoangvn.ht@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a href="tel:0989723000">0989 723 000</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                &copy; 2025 Huy Hoàng - Du học Đài Loan. All rights reserved.
+            </div>
+        </footer>
+
+        <script>
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
@@ -1127,5 +1216,5 @@
         });
     </script>
 
-</body>
+    </body>
 </html>
