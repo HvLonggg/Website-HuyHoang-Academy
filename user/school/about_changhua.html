@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đại học Sư phạm Quốc gia Chánh Hoa - National Changhua University of Education</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #004a9f;
+            background-color: white;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            transition: top 0.3s ease-in-out;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.hidden {
+            top: -100px;
+        }
+
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f9a11b !important;
+        }
+
+        .brand-color {
+            color: #f9a11b;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 74, 159, 0.95), rgba(0, 123, 255, 0.85)), url('https://images.unsplash.com/photo-1562774053-701939374585?w=1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 74, 159, 0.9), rgba(0, 179, 179, 0.7));
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Info Cards */
+        .info-card {
+            transition: all 0.4s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 123, 255, 0.3);
+        }
+
+        .info-card .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #007bff, #00b3b3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover .card-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .info-card .card-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #f3f9fc, #e8f0fa);
+            padding: 4rem 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #007bff;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Faculty Section */
+        .faculty-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .faculty-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(249, 161, 27, 0.3);
+        }
+
+        .faculty-card .faculty-icon {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #007bff, #00b3b3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faculty-card .faculty-icon::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .faculty-card .faculty-icon i {
+            font-size: 4rem;
+            color: white;
+            z-index: 1;
+        }
+
+        /* Campus Gallery */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            height: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Admission Section */
+        .admission-box {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .admission-box:hover {
+            box-shadow: 0 8px 35px rgba(0, 123, 255, 0.2);
+        }
+
+        .check-item {
+            padding: 0.8rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .check-item:hover {
+            padding-left: 10px;
+            color: #007bff;
+        }
+
+        .check-item i {
+            color: #28a745;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+        }
+
+        /* CTA Button */
+        .btn-cta {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-cta:hover {
+            background: linear-gradient(135deg, #ffc107, #f9a11b);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(249, 161, 27, 0.4);
+            color: white;
+        }
+
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #00b3b3);
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        .footer-custom {
+            background: linear-gradient(90deg, #006699, #00b3b3);
+            color: #ecf0f1;
+        }
+
+        .footer-custom h5,
+        .footer-custom h6 {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer-custom p,
+        .footer-custom a {
+            color: #dcdde1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            display: block;
+            padding: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #f9a11b;
+            padding-left: 6px;
+        }
+
+        /* Alumni Cards */
+        .alumni-card {
+            transition: all 0.3s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Timeline */
+        .timeline-container {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #007bff, #00b3b3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -38px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #007bff, #00b3b3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 0 0 4px white, 0 0 0 6px #007bff;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px white, 0 0 0 8px #00b3b3;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+        }
+
+        /* Accordion */
+        .accordion-button:not(.collapsed) {
+            background-color: #e7f3ff;
+            color: #007bff;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) saturate(100%) invert(33%) sepia(96%) saturate(1686%) hue-rotate(194deg);
+        }
+
+        /* CTA Box Decoration */
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -100px;
+            right: -100px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .hover-btn {
+            transition: all 0.3s ease;
+        }
+
+        .hover-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1rem; }
+            .stat-number { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="border-bottom py-1 bg-white">
+        <div class="container d-flex justify-content-between align-items-center small fw-semibold">
+            <div>
+                Hà Nội: <span class="text-primary">098.972.3000</span> – HẢI DƯƠNG: <span class="text-primary">096.456.1122</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="text-primary text-decoration-none">Tin tức</a> |
+                <a href="#" class="text-primary text-decoration-none">Sự kiện</a> |
+                <a href="#" class="text-primary text-decoration-none">Tuyển dụng</a> |
+                <a href="https://en.ncue.edu.tw/" class="text-primary text-decoration-none">Về NCUE</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md border-bottom py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="../../images/LOGO.jpg" alt="Logo Huy Hoàng" style="width: 75px; height: 75px; object-fit: contain; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); background-color: white; padding: 4px;">
+                <div class="ms-3">
+                    <div class="fs-4 fw-bold">
+                        <span class="brand-color">HUY</span> <span class="text-primary">HOÀNG</span>
+                    </div>
+                    <div class="small text-primary">Chắp cánh ước mơ</div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <ul class="navbar-nav me-3 gap-3 fw-semibold small">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="../index.html"><i class="fas fa-home"></i> HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="../Affiliate_Partner.html"><i class="fas fa-university"></i> TRƯỜNG ĐẠI HỌC</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-primary" href="#" id="hocbongDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-graduation-cap"></i> HỌC BỔNG
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="hocbongDropdown">
+                            <li><a class="dropdown-item" href="../scholarship1+4.html">Học bổng 1+4</a></li>
+                            <li><a class="dropdown-item" href="../work-study scholarship.html">Học bổng toàn phần</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="../contact.html"><i class="fas fa-phone"></i> LIÊN HỆ</a>
+                    </li>
+                </ul>
+                <a href="../register-consultation.html" class="btn btn-success fw-semibold px-4">ĐĂNG KÝ TƯ VẤN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>ĐẠI HỌC SƯ PHẠM QUỐC GIA CHÁNH HOA</h1>
+            <p>National Changhua University of Education</p>
+            <p class="fs-5"><i class="fas fa-globe"></i> Top 10 Đại học Sư phạm Đài Loan</p>
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="info-card card text-center p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">Năm thành lập</h5>
+                    <p class="mb-0 fs-4 text-dark">1971</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-card card text-center p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">Sinh viên</h5>
+                    <p class="mb-0 fs-4 text-dark">8,000+</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-card card text-center p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">Giảng viên</h5>
+                    <p class="mb-0 fs-4 text-dark">400+</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-card card text-center p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">Du học sinh</h5>
+                    <p class="mb-0 fs-4 text-dark">500+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">GIỚI THIỆU TRƯỜNG</h2>
+        <div class="row align-items-center g-4">
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800" alt="NCUE Campus" class="img-fluid rounded shadow" style="width: 100%; height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <p class="fs-5 text-justify">
+                    Đại học Sư phạm Quốc gia Chánh Hoa (National Changhua University of Education - NCUE), được thành lập năm 1971 tại Chánh Hoa, Đài Loan, là một trong những trường sư phạm hàng đầu tại Đài Loan. NCUE nổi tiếng với chất lượng đào tạo giáo viên và nghiên cứu giáo dục, đồng thời cung cấp các chương trình đa ngành từ khoa học, kỹ thuật đến nhân văn.
+                </p>
+                <p>
+                    Với hai khuôn viên chính tại Chánh Hoa, NCUE có hơn 50 chương trình học thuộc các lĩnh vực như giáo dục, khoa học, kỹ thuật, quản lý và nghệ thuật. Trường có mạng lưới hợp tác quốc tế với hơn 100 trường đại học trên toàn cầu, mang đến cơ hội trao đổi học thuật và trải nghiệm toàn cầu cho sinh viên.
+                </p>
+                <div class="mt-4">
+                    <a href="#admission" class="btn btn-cta me-3">
+                        <i class="fas fa-file-alt me-2"></i>Tìm hiểu tuyển sinh
+                    </a>
+                    <a href="#contact" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-phone me-2"></i>Liên hệ tư vấn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">THÀNH TỰU NỔI BẬT</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number"><i class="fas fa-award text-warning"></i> Top 10</div>
+                        <div class="stat-label">Đại học Sư phạm Đài Loan</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number"><i class="fas fa-globe text-primary"></i> 100+</div>
+                        <div class="stat-label">Đối tác quốc tế</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number"><i class="fas fa-book text-success"></i> 50+</div>
+                        <div class="stat-label">Chương trình đào tạo</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number"><i class="fas fa-users text-info"></i> 500+</div>
+                        <div class="stat-label">Du học sinh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculties Section -->
+    <section class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">CÁC KHOA ĐÀO TẠO</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="faculty-card">
+                    <div class="faculty-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-primary">Khoa Giáo dục</h5>
+                        <p class="small">Đào tạo giáo viên, Tâm lý giáo dục, Giáo dục đặc biệt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faculty-card">
+                    <div class="faculty-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-primary">Khoa Kỹ thuật</h5>
+                        <p class="small">Kỹ thuật điện, Kỹ thuật cơ khí, Công nghệ thông tin</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faculty-card">
+                    <div class="faculty-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-primary">Khoa Khoa học</h5>
+                        <p class="small">Vật lý, Hóa học, Sinh học</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faculty-card">
+                    <div class="faculty-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-primary">Khoa Quản lý</h5>
+                        <p class="small">Quản trị kinh doanh, Quản lý công nghiệp</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faculty-card">
+                    <div class="faculty-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-primary">Khoa Nghệ thuật</h5>
+                        <p class="small">Mỹ thuật, Thiết kế, Âm nhạc</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faculty-card">
+                    <div class="faculty-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-primary">Khoa Nhân văn</h5>
+                        <p class="small">Ngôn ngữ Anh, Văn học Trung Quốc, Lịch sử</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Gallery -->
+    <section class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">KHUÔN VIÊN TRƯỜNG</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=600" alt="Thư viện">
+                    <div class="gallery-overlay">
+                        <h5 class="fw-bold">Thư viện NCUE</h5>
+                        <p class="small">Thư viện hiện đại với hơn 300,000 tài liệu học thuật</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600" alt="Giảng đường">
+                    <div class="gallery-overlay">
+                        <h5 class="fw-bold">Giảng đường</h5>
+                        <p class="small">Cơ sở vật chất tiên tiến, hỗ trợ học tập hiệu quả</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600" alt="Phòng lab">
+                    <div class="gallery-overlay">
+                        <h5 class="fw-bold">Phòng thí nghiệm</h5>
+                        <p class="small">Trang bị hiện đại cho nghiên cứu và thực hành</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section id="admission" class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">ĐIỀU KIỆN TUYỂN SINH</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="admission-box h-100">
+                    <h4 class="fw-bold text-primary mb-4"><i class="fas fa-user-graduate me-2"></i>Bậc Cử nhân</h4>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Tốt nghiệp THPT, GPA ≥ 7.0
+                    </div>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Chứng chỉ ngoại ngữ: TOEFL iBT 61+ hoặc IELTS 5.5+ (hoặc TOCFL Band B)
+                    </div>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Bài luận cá nhân (Statement of Purpose)
+                    </div>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Thư giới thiệu (khuyến khích)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="admission-box h-100">
+                    <h4 class="fw-bold text-primary mb-4"><i class="fas fa-graduation-cap me-2"></i>Bậc Thạc sĩ</h4>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Tốt nghiệp đại học, GPA ≥ 2.8/4.0
+                    </div>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Chứng chỉ ngoại ngữ: TOEFL iBT 79+ hoặc IELTS 6.0+ (hoặc TOCFL Band C)
+                    </div>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>2 thư giới thiệu
+                    </div>
+                    <div class="check-item">
+                        <i class="fas fa-check-circle"></i>Kế hoạch nghiên cứu hoặc bài luận cá nhân
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarship Section -->
+    <section class="container py-5" style="background-color: #f8f9fa; border-radius: 15px; padding: 3rem 2rem;">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">HỌC BỔNG TẠI NCUE</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-trophy text-warning" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary">Taiwan Scholarship</h5>
+                        <p class="text-muted">Học bổng Chính phủ Đài Loan</p>
+                        <h4 class="text-success fw-bold">20,000-30,000 NTD/tháng</h4>
+                        <p class="small">Miễn học phí và hỗ trợ sinh hoạt phí</p>
+                        <a href="#" class="btn btn-outline-primary mt-3">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-university text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary">NCUE International Scholarship</h5>
+                        <p class="text-muted">Học bổng dành cho sinh viên quốc tế</p>
+                        <h4 class="text-success fw-bold">10,000-20,000 NTD/tháng</h4>
+                        <p class="small">Hỗ trợ học phí và chi phí sinh hoạt</p>
+                        <a href="#" class="btn btn-outline-primary mt-3">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-hand-holding-usd text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="fw-bold text-primary">Work-Study Program</h5>
+                        <p class="text-muted">Chương trình làm việc tại trường</p>
+                        <h4 class="text-success fw-bold">5,000-10,000 NTD/tháng</h4>
+                        <p class="small">Kết hợp học tập và làm việc part-time</p>
+                        <a href="#" class="btn btn-outline-primary mt-3">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose NCUE -->
+    <section class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">TẠI SAO CHỌN NCUE?</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="text-center p-4 rounded-3 h-100" style="background-color: #f3f9fc;">
+                    <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-graduation-cap fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">CHẤT LƯỢNG GIÁO DỤC</h5>
+                    <p class="small">Top 10 trường sư phạm tại Đài Loan</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center p-4 rounded-3 h-100" style="background-color: #f3f9fc;">
+                    <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-globe fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">QUỐC TẾ HÓA</h5>
+                    <p class="small">Hợp tác với hơn 100 trường đại học toàn cầu</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center p-4 rounded-3 h-100" style="background-color: #f3f9fc;">
+                    <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-rocket fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">NGHIÊN CỨU SÁNG TẠO</h5>
+                    <p class="small">Tập trung vào nghiên cứu giáo dục và khoa học</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center p-4 rounded-3 h-100" style="background-color: #f3f9fc;">
+                    <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                        <i class="fas fa-users fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold text-primary">CỘNG ĐỒNG ĐA DẠNG</h5>
+                    <p class="small">Hơn 500 du học sinh từ nhiều quốc gia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Life -->
+    <section class="container py-5" style="background: linear-gradient(135deg, #e8f0fa, #f3f9fc); border-radius: 15px; padding: 3rem 2rem;">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">ĐỜI SỐNG SINH VIÊN</h2>
+        <div class="row align-items-center g-4">
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800" alt="Student Life" class="img-fluid rounded shadow" style="width: 100%; height: 350px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold text-primary mb-4">Cộng đồng năng động và sáng tạo</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Ký túc xá tiện nghi:</strong> Giá từ 3,000-5,000 NTD/tháng, đầy đủ wifi, điều hòa
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Câu lạc bộ sinh viên:</strong> Hơn 40 CLB về học thuật, văn hóa, thể thao
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Thể thao & giải trí:</strong> Sân bóng, phòng gym, khu hoạt động ngoài trời
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Hỗ trợ du học sinh:</strong> Trung tâm quốc tế hỗ trợ 24/7
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Sự kiện văn hóa:</strong> Lễ hội quốc tế, hội thảo đa văn hóa
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Success Stories -->
+    <section class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">CỰU SINH VIÊN THÀNH CÔNG</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 alumni-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/80" alt="Alumni 1" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                            <div>
+                                <h5 class="fw-bold mb-0">Nguyễn Văn Nam</h5>
+                                <p class="small text-muted mb-0">Khoa Giáo dục - K2019</p>
+                            </div>
+                        </div>
+                        <p class="small text-muted fst-italic">"NCUE đã giúp tôi trở thành một giáo viên xuất sắc, hiện tôi đang giảng dạy tại một trường quốc tế."</p>
+                        <div class="mt-3">
+                            <span class="badge bg-success">Giáo viên</span>
+                            <span class="badge bg-primary">International School</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 alumni-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/80" alt="Alumni 2" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                            <div>
+                                <h5 class="fw-bold mb-0">Trần Thị Lan</h5>
+                                <p class="small text-muted mb-0">Khoa Kỹ thuật - K2020</p>
+                            </div>
+                        </div>
+                        <p class="small text-muted fst-italic">"Chương trình kỹ thuật tại NCUE đã trang bị cho tôi kiến thức và kỹ năng để làm việc tại một công ty công nghệ."</p>
+                        <div class="mt-3">
+                            <span class="badge bg-success">Kỹ sư</span>
+                            <span class="badge bg-primary">Tech Company</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 alumni-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/80" alt="Alumni 3" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                            <div>
+                                <h5 class="fw-bold mb-0">Lê Minh Tâm</h5>
+                                <p class="small text-muted mb-0">Khoa Nghệ thuật - K2021</p>
+                            </div>
+                        </div>
+                        <p class="small text-muted fst-italic">"NCUE đã truyền cảm hứng sáng tạo, giúp tôi trở thành một nghệ sĩ tự do thành công."</p>
+                        <div class="mt-3">
+                            <span class="badge bg-success">Nghệ sĩ</span>
+                            <span class="badge bg-primary">Freelance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Timeline -->
+    <section class="container py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 15px; padding: 3rem 2rem;">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">LỊCH TRÌNH TUYỂN SINH</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-primary">Tháng 10 - 12</h5>
+                            <h6 class="fw-bold">Chuẩn bị hồ sơ</h6>
+                            <p class="small text-muted">Hoàn thiện học bạ, chứng chỉ ngoại ngữ, bài luận cá nhân, thư giới thiệu</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-primary">Tháng 1 - 3</h5>
+                            <h6 class="fw-bold">Nộp đơn đăng ký</h6>
+                            <p class="small text-muted">Nộp hồ sơ qua hệ thống online của NCUE, theo dõi tiến trình xét duyệt</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-primary">Tháng 4 - 5</h5>
+                            <h6 class="fw-bold">Phỏng vấn (nếu có)</h6>
+                            <p class="small text-muted">Tham gia phỏng vấn trực tuyến hoặc trực tiếp theo yêu cầu chương trình</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-primary">Tháng 6</h5>
+                            <h6 class="fw-bold">Nhận kết quả</h6>
+                            <p class="small text-muted">Nhận thông báo trúng tuyển và thư mời nhập học chính thức</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-primary">Tháng 7 - 8</h5>
+                            <h6 class="fw-bold">Xin visa & chuẩn bị</h6>
+                            <p class="small text-muted">Làm thủ tục visa du học, đặt vé máy bay, sắp xếp chỗ ở</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-primary">Tháng 9</h5>
+                            <h6 class="fw-bold">Nhập học</h6>
+                            <p class="small text-muted">Bay sang Đài Loan và bắt đầu hành trình du học tại NCUE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container py-5">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">CÂU HỎI THƯỜNG GẶP</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                Chi phí học tại NCUE là bao nhiêu?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>Học phí tại NCUE dao động từ <strong>45,000-60,000 NTD/học kỳ</strong> (khoảng 36-48 triệu VNĐ/học kỳ) tùy ngành học. Sinh hoạt phí khoảng <strong>8,000-12,000 NTD/tháng</strong> (6.4-9.6 triệu VNĐ/tháng).</p>
+                                <p class="mb-0">Học bổng như Taiwan Scholarship hoặc NCUE International Scholarship có thể miễn học phí và hỗ trợ sinh hoạt phí.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                Yêu cầu tiếng Anh/Trung như thế nào?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Chương trình tiếng Anh:</strong> IELTS 5.5+ hoặc TOEFL iBT 61+ (Cử nhân), IELTS 6.0+ hoặc TOEFL iBT 79+ (Thạc sĩ).</p>
+                                <p class="mb-0"><strong>Chương trình tiếng Trung:</strong> TOCFL Band B (Cử nhân) hoặc TOCFL Band C (Thạc sĩ).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                Có được làm thêm khi du học tại NCUE không?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>Sinh viên quốc tế được phép làm thêm tối đa <strong>20 giờ/tuần</strong> trong học kỳ với giấy phép lao động. Mức lương part-time khoảng <strong>160-200 NTD/giờ</strong> (130-160k VNĐ/giờ).</p>
+                                <p class="mb-0">Công việc phổ biến: trợ giảng, phục vụ quán cà phê, hỗ trợ sự kiện.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                Thời gian xét duyệt hồ sơ mất bao lâu?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p class="mb-0">Thời gian xét duyệt hồ sơ tại NCUE thường mất <strong>1-2 tháng</strong>. Kết quả sẽ được thông báo qua email, kèm theo thư mời nhập học nếu trúng tuyển.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                Hỗ trợ chỗ ở cho sinh viên quốc tế ra sao?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>NCUE cung cấp ký túc xá với giá từ <strong>3,000-5,000 NTD/tháng</strong> (2.4-4 triệu VNĐ/tháng), đầy đủ tiện nghi như giường, bàn học, wifi, máy lạnh.</p>
+                                <p class="mb-0">Sinh viên cũng có thể thuê nhà ngoài với giá <strong>6,000-10,000 NTD/tháng</strong> gần khuôn viên trường.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                <i class="fas fa-question-circle text-primary me-2"></i>
+                                Sau khi tốt nghiệp có được ở lại làm việc không?
+                            </button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p class="mb-0">Có! Sinh viên tốt nghiệp được cấp <strong>visa tìm việc 6 tháng</strong>. Nếu tìm được việc làm, bạn có thể xin giấy phép lao động và ở lại Đài Loan dài hạn. NCUE hỗ trợ kết nối với các nhà tuyển dụng trong ngành giáo dục và công nghệ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tour -->
+    <section class="container py-5" style="background: linear-gradient(135deg, #e8f0fa, #f3f9fc); border-radius: 15px; padding: 3rem 2rem;">
+        <h2 class="text-center text-primary fw-bold fs-2 mb-5 section-title">KHÁM PHÁ KHUÔN VIÊN NCUE</h2>
+        <div class="row align-items-center g-4">
+            <div class="col-md-6">
+                <div class="ratio ratio-16x9 rounded shadow-lg overflow-hidden">
+                    <iframe src="https://www.youtube.com/embed/xyz123" title="NCUE Virtual Tour" allowfullscreen style="border: none;"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold text-primary mb-4">Tham quan ảo khuôn viên NCUE</h4>
+                <p>Khám phá khuôn viên hiện đại và thân thiện của NCUE qua video tour 360°. Bạn sẽ được trải nghiệm:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Thư viện với hơn 300,000 đầu sách</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Giảng đường và phòng thực hành tiên tiến</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Ký túc xá tiện nghi và khu ăn uống</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Sân thể thao và khu vực ngoài trời</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Khuôn viên xanh tại Chánh Hoa</li>
+                </ul>
+                <a href="https://en.ncue.edu.tw/" class="btn btn-outline-primary mt-3">
+                    <i class="fas fa-play-circle me-2"></i>Xem thêm video
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="container py-5 text-center">
+        <div class="p-5 rounded-3 cta-box" style="background: linear-gradient(135deg, #007bff, #00b3b3); color: white; position: relative; overflow: hidden;">
+            <div class="cta-decoration"></div>
+            <h2 class="fw-bold mb-4" style="position: relative; z-index: 2;">BẠN MUỐN HỌC TẠI NCUE?</h2>
+            <p class="fs-5 mb-4" style="position: relative; z-index: 2;">Huy Hoàng sẵn sàng hỗ trợ bạn từ tư vấn, chuẩn bị hồ sơ đến nhập học thành công!</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap" style="position: relative; z-index: 2;">
+                <a href="tel:0989723000" class="btn btn-cta btn-lg">
+                    <i class="fas fa-phone-alt me-2"></i>Tư vấn miễn phí
+                </a>
+                <a href="#" class="btn btn-light btn-lg hover-btn">
+                    <i class="fas fa-download me-2"></i>Tải hồ sơ mẫu
+                </a>
+                <a href="#" class="btn btn-outline-light btn-lg hover-btn">
+                    <i class="fas fa-calendar-check me-2"></i>Đặt lịch hẹn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom text-white pt-5 pb-4">
+        <div class="container-fluid px-5">
+            <div class="row gy-4 justify-content-between">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="d-flex align-items-center mb-3">
+                        <img src="../../images/LOGO.jpg" alt="Logo Huy Hoàng" class="me-2" style="width: 60px; height: 60px; border-radius: 50%; background: white; padding: 4px;">
+                        HUY HOÀNG
+                    </h5>
+                    <p class="small">
+                        Trung tâm tư vấn du học Đài Loan uy tín, đồng hành cùng bạn trên hành trình chinh phục ước mơ tri thức.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Liên kết</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="footer-link">Trang chủ</a></li>
+                        <li><a href="../ProgramPage.html" class="footer-link">Chương trình học</a></li>
+                        <li><a href="../scholarship1+4.html" class="footer-link">Học bổng</a></li>
+                        <li><a href="../contact.html" class="footer-link">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Thông tin liên hệ</h6>
+                    <p class="small mb-2">
+                        <i class="bi bi-geo-alt-fill me-2"></i>
+                        <a href="https://www.google.com/maps?q=Số+6B7+KĐT+Mỹ+Đình+1,+P.+Cầu+Diễn,+Q.+Nam+Từ+Liêm,+Hà+Nội" target="_blank" class="footer-link d-inline">
+                            Số 6B7 KĐT Mỹ Đình 1, P. Cầu Diễn, Q. Nam Từ Liêm, Hà Nội
+                        </a>
+                    </p>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope-fill me-2"></i>
+                        <a href="mailto:huyhoangvn.ht@gmail.com" class="footer-link d-inline">huyhoangvn.ht@gmail.com</a>
+                    </p>
+                    <p class="small">
+                        <i class="bi bi-telephone-fill me-2"></i>
+                        <a href="tel:0989723000" class="footer-link d-inline">0989723000</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Hide navbar on scroll down, show on scroll up
+        let prevScrollPos = window.pageYOffset;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            const currentScrollPos = window.pageYOffset;
+            if (prevScrollPos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+            prevScrollPos = currentScrollPos;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
