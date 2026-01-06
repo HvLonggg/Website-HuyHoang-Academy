@@ -1,1044 +1,675 @@
 <!DOCTYPE html>
 <html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Điều kiện & Quy trình Du học Đài Loan</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-            content="Tư vấn du học Đài Loan trọn gói - Huy Hoang Edu. Cam kết Visa, săn học bổng 100%, hỗ trợ việc làm.">
-        <title>Huy Hoang Edu | Giải Pháp Du Học Đài Loan Toàn Diện 2025</title>
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet">
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-            rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap"
-            rel="stylesheet">
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdfdfd;
+    color: #333;
+    scroll-behavior: smooth;
+  }
 
-        <style>
-        /* =========================================
-           1. CORE VARIABLES & SETUP
-           ========================================= */
-        :root {
-            --primary: #006699;
-            --primary-dark: #004d73;
-            --teal: #00b3b3;
-            --teal-light: #e0f7f7;
-            --orange: #f9a11b;
-            --dark: #0f172a; /* Darker navy */
-            --light: #f8fafc;
-            --white: #ffffff;
-            --text-gray: #64748b;
-            --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
-            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.1);
-            --radius-md: 12px;
-            --radius-lg: 20px;
-        }
+  /* Header */
+  header {
+    background: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b') center/cover fixed;
+    color: #fff;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 87, 183, 0.65);
+  }
+  header .content {
+    position: relative;
+    z-index: 2;
+  }
+  header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  header p {
+    font-size: 1.2rem;
+  }
 
-        body { font-family: 'Roboto', sans-serif; color: #334155; overflow-x: hidden; background: #fff; line-height: 1.6; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+  /* Tabs control */
+  .switch-tabs {
+    text-align: center;
+    margin: 50px 0 40px;
+  }
+  .switch-tabs button {
+    border: none;
+    background: #0057b7;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 30px;
+    border: 2px solid transparent;
+    margin: 0 10px;
+    transition: all 0.4s ease;
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+  .switch-tabs button.active { 
+    background: #ff6600;
+    border-color: #ff6600;
+    transform: scale(1.08);
+  }
+  .switch-tabs button:hover {
+    background: #ff6600;
+    border-color: #ff6600;
+    transform: scale(1.08);
+  }
 
-        /* Loader */
-        #loader {
-            position: fixed; inset: 0; background: #fff; z-index: 99999;
-            display: flex; justify-content: center; align-items: center; flex-direction: column;
-        }
-        .loader-spin {
-            width: 50px; height: 50px; border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--orange); border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  /* Slide container */
+  .slide-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+  }
+  .slide-panel {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.8s ease;
+  }
+  .slide-panel.active {
+    left: 0;
+    opacity: 1;
+  }
 
-        /* =========================================
-           2. HEADER & LOGO PROFESSIONAL
-           ========================================= */
-        .top-header { background: var(--dark); color: #cbd5e1; font-size: 0.85rem; padding: 10px 0; }
-        .top-header a { color: #cbd5e1; text-decoration: none; transition: 0.3s; margin-left: 20px; font-size: 0.85rem; }
-        .top-header a:hover { color: var(--orange); }
+  /* Cards */
+  .condition-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: 100%;
+    min-height: 420px; /* tăng chiều cao */
+  }
+  .condition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+  }
+  .condition-card img {
+    width: 100%;
+    height: 270px; /* ảnh cao hơn */
+    object-fit: cover;
+    filter: brightness(75%);
+    transition: transform 0.5s ease;
+  }
+  .condition-card:hover img {
+    transform: scale(1.08);
+  }
+  .condition-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.3));
+  }
+  .condition-body {
+    position: absolute;
+    bottom: 25px; left: 20px; right: 20px;
+    color: #fff;
+    z-index: 2;
+  }
+  .condition-body i {
+    font-size: 40px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+  }
+  .condition-body h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
+  .condition-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
-        .navbar {
-            padding: 15px 0; transition: all 0.4s ease; background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .navbar.scrolled { padding: 10px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #fff; }
-        
-        /* LOGO STYLING */
-        .navbar-brand { gap: 10px; }
-        .logo-icon {
-            width: 42px; height: 42px; 
-            background: var(--gradient-brand); 
-            color: white; border-radius: 10px; 
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 22px;
-            box-shadow: 0 4px 10px rgba(0, 102, 153, 0.3);
-        }
-        .logo-text-group { line-height: 1; display: flex; flex-direction: column; justify-content: center; }
-        .logo-main { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; margin-bottom: 2px; }
-        .logo-sub { font-size: 0.65rem; font-weight: 600; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; }
+  /* Timeline */
+  .timeline-horizontal {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 20px 0;
+  }
+  .timeline-step {
+    flex: 1;
+    min-width: 260px; /* to hơn */
+    background: #fff;
+    border-radius: 14px;
+    padding: 35px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .timeline-step:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  }
+  .timeline-step i {
+    font-size: 50px;
+    color: #0057b7;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .timeline-step:hover i {
+    color: #ff6600;
+    transform: scale(1.1);
+  }
+  .timeline-step h6 {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #ff6600;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  .timeline-step:hover h6 {
+    color: #0057b7;
+  }
+  .timeline-step p {
+    font-size: 1rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+  .timeline-step:hover p {
+    color: #333;
+  }
 
-        .nav-link {
-            font-weight: 600; color: #475569 !important; margin: 0 5px; padding: 8px 16px !important;
-            border-radius: 30px; transition: 0.3s; font-size: 0.95rem;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--primary) !important; background: var(--teal-light); }
-        
-        .btn-consult {
-            background: var(--gradient-brand); color: #fff !important; padding: 10px 25px !important;
-            border-radius: 50px; box-shadow: 0 4px 15px rgba(0, 179, 179, 0.3);
-            font-weight: 600; font-size: 0.9rem; transition: transform 0.3s;
-        }
-        .btn-consult:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 179, 179, 0.4); }
+  /* New Section: Work Conditions */
+  .work-section {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
+    padding: 60px 0;
+    margin-top: 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .work-section::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(0,87,183,0.2);
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  .work-section::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,102,0,0.2);
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  .work-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0057b7;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease;
+  }
+  .work-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    height: 100%;
+  }
+  .work-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  }
+  .work-card i {
+    font-size: 50px;
+    color: #ff6600;
+    margin-bottom: 20px;
+    display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .work-card:hover i {
+    color: #0057b7;
+    transform: rotate(10deg) scale(1.1);
+  }
+  .work-card h5 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+  }
+  .work-card:hover h5 {
+    color: #ff6600;
+  }
+  .work-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  .work-card:hover p {
+    color: #333;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-        /* =========================================
-           3. HERO SECTION
-           ========================================= */
-        .hero-section {
-            position: relative; height: 85vh; min-height: 650px;
-            background: url('https://images.unsplash.com/photo-1496442226666-8d4a0e62e6e9?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            display: flex; align-items: center; overflow: hidden;
-        }
-        .hero-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(0, 102, 153, 0.75) 100%);
-        }
-        
-        /* Shapes */
-        .shape { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.4; animation: float 8s infinite alternate; }
-        .shape-1 { width: 350px; height: 350px; background: var(--orange); top: -100px; left: -50px; }
-        .shape-2 { width: 400px; height: 400px; background: var(--teal); bottom: -100px; right: -100px; animation-delay: 2s; }
-        @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 30px); } }
+  /* Footer */
+  footer {
+    background: linear-gradient(90deg, #006699, #00b3b3);
+    color: #ffffff;
+    padding: 60px 20px 40px;
+    margin-top: 80px;
+    position: relative;
+  }
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd166, #00b3b3);
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    align-items: start;
+  }
+  .footer-content div {
+    padding: 0 15px;
+  }
+  .footer-content h4 {
+    margin-bottom: 20px;
+    color: #ffd166;
+    font-size: 1.3em;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+  }
+  .footer-content h4:hover {
+    color: #ffffff;
+  }
+  .footer-content h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #ffd166, #ffffff);
+    border-radius: 2px;
+  }
+  .footer-content p,
+  .footer-content a {
+    color: #e3f2fd;
+    font-size: 1em;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    display: block;
+    transition: all 0.3s ease;
+    text-decoration: none; 
+  }
+  .footer-content a:hover {
+    color: #ffd166;
+    transform: translateX(5px);
+  }
+  .quick-links {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .link-columns {
+    text-decoration: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .link-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 15px;
+  }
+  .footer-social {
+    margin-top: 20px;
+  }
+  .footer-social a {
+    margin: 0 12px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .footer-social a:hover {
+    color: #ffd166;
+    transform: scale(1.2) rotate(15deg);
+  }
+  .footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e3f2fd;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+    transition: transform 0.4s ease;
+  }
+  .footer-bottom:hover {
+    transform: translateY(-5px);
+  }
+  @media (max-width: 768px) {
+    .footer-content {
+      gap: 30px;
+      text-align: center;
+    }
+    .footer-content h4::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .link-columns {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 10px 0;
+    }
+  }
 
-        .hero-content { position: relative; z-index: 2; color: #fff; }
-        .hero-title { font-size: 3.2rem; line-height: 1.2; font-weight: 800; margin-bottom: 20px; }
-        .hero-title span { color: var(--orange); }
-        
-        .hero-form {
-            background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 35px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        }
-        .form-control-glass {
-            background: rgba(255,255,255,0.9); border: none; padding: 12px 20px; border-radius: 10px; font-size: 0.9rem;
-        }
+  /* Nút Quay lại ban đầu */
+  .btn-back {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    max-width: fit-content;
+    padding: 8px 14px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.6);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    user-select: none;
+    white-space: nowrap;
+    opacity: 1;
+  }
+  .btn-back.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+  .btn-back i {
+    margin-right: 8px;
+    font-size: 1.1em;
+  }
+  .btn-back:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    color: #fff;
+  }
+</style>
 
-        /* =========================================
-           4. SECTIONS (General)
-           ========================================= */
-        .problem-solution { background: #fff; padding: 90px 0; }
-        .comparison-card {
-            border: 1px solid #e2e8f0; border-radius: var(--radius-lg); overflow: hidden;
-            display: flex; transition: 0.3s; height: 100%; box-shadow: var(--shadow-card);
-        }
-        .comparison-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .comp-side { padding: 40px 30px; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .comp-bad { background: #fff1f2; color: #e11d48; border-right: 1px dashed #cbd5e1; }
-        .comp-good { background: #f0fdf4; color: #16a34a; }
-        .comp-icon { font-size: 2.2rem; margin-bottom: 15px; }
+</head>
+<body>
 
-        /* Pricing */
-        .pricing-section { background: var(--light); padding: 100px 0; }
-        .price-card {
-            background: #fff; border-radius: var(--radius-lg); padding: 40px;
-            position: relative; transition: 0.3s; border: 1px solid #f1f5f9;
-            height: 100%; display: flex; flex-direction: column;
-            box-shadow: var(--shadow-card);
-        }
-        .price-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.1); transform: translateY(-8px); }
-        .price-card.popular { border: 2px solid var(--orange); transform: scale(1.05); z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-        .price-card.popular:hover { transform: scale(1.07); }
-        .badge-popular {
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--orange); color: #fff; padding: 6px 20px;
-            border-radius: 20px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;
-        }
-        .price-amount { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
-        .btn-price { width: 100%; margin-top: auto; border-radius: 10px; padding: 12px; font-weight: 700; }
+ <!-- Nút Quay lại -->
+  <a href="../index.html" class="btn-back" title="Quay lại">
+    <span class="icon-circle">
+      <i class="fas fa-arrow-left"></i>
+    </span>
+    <span class="text">Trang chủ</span>
+  </a>
 
-        /* Calculator */
-        .calculator-section {
-            background: var(--dark); color: #fff; padding: 100px 0; position: relative; overflow: hidden;
-        }
-        .calc-wrapper {
-            background: #fff; color: #333; border-radius: var(--radius-lg); padding: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-        .calc-result {
-            background: var(--teal-light); padding: 30px; border-radius: var(--radius-md);
-            text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;
-        }
-        .total-amount { font-size: 2.8rem; font-weight: 800; color: var(--orange); line-height: 1; margin: 15px 0; }
+  <script>
+    let lastScrollTop = 0;
+    const btnBack = document.querySelector('.btn-back');
 
-        /* Timeline */
-        .timeline-steps { position: relative; display: flex; justify-content: space-between; margin-top: 60px; }
-        .timeline-steps::before {
-            content: ''; position: absolute; top: 30px; left: 0; width: 100%; height: 3px;
-            background: #e2e8f0; z-index: -1;
-        }
-        .step-node { text-align: center; width: 18%; position: relative; }
-        .step-icon {
-            width: 64px; height: 64px; background: #fff; border: 3px solid #cbd5e1;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px; font-size: 1.5rem; color: #cbd5e1; transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .step-node.active .step-icon { border-color: var(--orange); color: #fff; background: var(--orange); transform: scale(1.15); box-shadow: 0 0 20px rgba(249, 161, 27, 0.4); }
-        .step-node.active h6 { color: var(--primary); font-weight: 800; }
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-        /* Testimonials */
-        .testimonial-section { background: #f8fafc; padding: 90px 0; }
-        .testi-card {
-            background: #fff; padding: 40px 30px; border-radius: var(--radius-md);
-            box-shadow: var(--shadow-card); height: 100%; border: 1px solid #f1f5f9;
-        }
-        .testi-user img { width: 55px; height: 55px; border-radius: 50%; margin-right: 15px; object-fit: cover; border: 2px solid var(--orange); }
-        .quote-icon { font-size: 2.5rem; color: var(--teal); opacity: 0.15; position: absolute; top: 25px; right: 25px; }
+      if (scrollTop > lastScrollTop) {
+        // Cuộn xuống -> Ẩn nút
+        btnBack.classList.add('hidden');
+      } else {
+        // Cuộn lên -> Hiện nút
+        btnBack.classList.remove('hidden');
+      }
 
-        /* =========================================
-           5. FOOTER PREMIUM (White Text)
-           ========================================= */
-        footer {
-            background: #020617; /* Màu nền tối nhất (Very Dark Slate) */
-            color: #f1f5f9; /* Chữ trắng sáng */
-            padding-top: 80px;
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // tránh giá trị âm
+    });
+  </script>
 
-        .footer-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 1.8rem; letter-spacing: -0.5px; }
-        
-        .footer-title {
-            color: #ffffff; 
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-        .footer-title::after {
-            content: ''; position: absolute; bottom: 0; left: 0; 
-            width: 40px; height: 3px; background: var(--orange); border-radius: 2px;
-        }
+  <!-- Header -->
+  <header>
+    <div class="content">
+      <h1><i class="fa-solid fa-graduation-cap"></i> Điều kiện & Quy trình Du học Đài Loan</h1>
+      <p>Khám phá các yêu cầu cơ bản và lộ trình chuẩn bị hành trang du học Đài Loan cùng Huy Hoàng Edu</p>
+    </div>
+  </header>
 
-        .footer-links a {
-            display: block;
-            color: rgb(255, 255, 255); 
-            margin-bottom: 12px;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-        .footer-links a:hover {
-            color: var(--orange); 
-            padding-left: 8px;
-            text-shadow: 0 0 10px rgba(249, 161, 27, 0.4);
-        }
+  <!-- Tabs -->
+  <div class="switch-tabs">
+    <button id="btn-conditions" class="active">Điều kiện cần thiết</button>
+    <button id="btn-timeline">Quy trình chuẩn bị</button>
+  </div>
 
-        .social-circle {
-            width: 42px; height: 42px; border-radius: 50%;
-            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
-            display: inline-flex; justify-content: center; align-items: center;
-            color: #fff; margin-right: 12px; transition: 0.3s;
-        }
-        .social-circle:hover { background: var(--orange); border-color: var(--orange); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(249, 161, 27, 0.3); }
+  <!-- Slide Panels -->
+  <div class="container slide-container">
 
-        .newsletter-input {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
-            color: #fff; padding: 12px; border-radius: 8px 0 0 8px;
-        }
-        .newsletter-input:focus { background: rgba(255,255,255,0.1); outline: none; border-color: var(--orange); color: white; }
-        .btn-newsletter { border-radius: 0 8px 8px 0; background: var(--orange); color: white; border: none; padding: 0 20px; transition: 0.3s; }
-        .btn-newsletter:hover { background: #e69519; }
-
-        .contact-list li { margin-bottom: 15px; color: rgba(255,255,255,0.8); display: flex; align-items: start; }
-        .contact-list i { color: var(--orange); margin-right: 15px; margin-top: 5px; }
-
-        /* Responsive */
-        @media (max-width: 991px) {
-            .hero-title { font-size: 2.5rem; }
-            .price-card.popular { transform: none; margin: 30px 0; }
-            .timeline-steps { flex-direction: column; }
-            .timeline-steps::before { width: 4px; height: 100%; left: 32px; top: 0; }
-            .step-node { width: 100%; display: flex; align-items: center; margin-bottom: 40px; text-align: left; }
-            .step-icon { margin: 0 20px 0 0; }
-        }
-    </style>
-    </head>
-
-    <body>
-
-        <div id="loader">
-            <div class="loader-spin"></div>
-            <h5 class="mt-3 text-primary fw-bold"
-                style="letter-spacing: 2px;">HUY HOANG EDU</h5>
-            <p class="text-muted small">Loading Resources...</p>
+    <!-- Conditions -->
+    <div class="slide-panel active" id="panel-conditions">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="condition-card">
+            <img src="https://images.unsplash.com/photo-1581090700227-4c4dcd3467d3" alt="">
+            <div class="condition-overlay"></div>
+            <div class="condition-body">
+              <i class="fa-solid fa-school"></i>
+              <h5>Trình độ học vấn</h5>
+              <p>Ứng viên cần tốt nghiệp THPT trở lên. Một số chương trình yêu cầu thêm bằng cao đẳng/đại học cùng bảng điểm chính thức.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="top-header d-none d-lg-block">
-            <div
-                class="container d-flex justify-content-between align-items-center">
-                <div>
-                    <span><i
-                            class="fas fa-map-marker-alt me-2 text-warning"></i>
-                        6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, HN</span>
-                    <span class="mx-3 text-secondary">|</span>
-                    <span><i class="fas fa-phone-alt me-2 text-warning"></i>
-                        0989.723.000</span>
-                </div>
-                <div>
-                    <a href="#"><i class="fas fa-newspaper me-1"></i> Tin
-                        tức</a>
-                    <a href="#"><i class="fas fa-images me-1"></i> Thư viện</a>
-                    <a href="#"><i class="fas fa-users me-1"></i> Tuyển dụng</a>
-                </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="">
+            <div class="condition-overlay"></div>
+            <div class="condition-body">
+              <i class="fa-solid fa-language"></i>
+              <h5>Ngoại ngữ</h5>
+              <p>Cần chứng chỉ IELTS, TOEFL hoặc TOCFL theo yêu cầu. Trình độ ngoại ngữ tốt giúp sinh viên dễ hòa nhập và tiếp thu kiến thức.</p>
             </div>
+          </div>
         </div>
-
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center"
-                    href="index.html">
-                    <div class="logo-icon">H</div>
-                    <div class="logo-text-group ms-2">
-                        <span class="logo-main">HUY HOANG</span>
-                        <span class="logo-sub">EDUCATION</span>
-                    </div>
-                </a>
-
-                <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navbarMain">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarMain">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link"
-                                href="index.html">Trang chủ</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown">Chương trình</a>
-                            <ul
-                                class="dropdown-menu border-0 shadow-lg p-3 rounded-3 mt-2 animate__animated animate__fadeIn">
-                                <li><a class="dropdown-item py-2 rounded"
-                                        href="scholarship1+4.html">Hệ 1+4 (Dự
-                                        bị)</a></li>
-                                <li><a class="dropdown-item py-2 rounded"
-                                        href="Taiwan full scholarship.html">Học bổng
-                                        Toàn phần</a></li>
-                                <li><a class="dropdown-item py-2 rounded"
-                                        href="work-study scholarship.html">Hệ
-                                        Vừa học vừa làm</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link active"
-                                href="#">Tư vấn Du học</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="Registration procedure.html">Thủ tục &
-                                Visa</a></li>
-                        <li class="nav-item ms-lg-3">
-                            <a href="#register" class="btn-consult">Đăng Ký
-                                Ngay</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216" alt="">
+            <div class="condition-overlay"></div>
+            <div class="condition-body">
+              <i class="fa-solid fa-file-circle-check"></i>
+              <h5>Hồ sơ & giấy tờ</h5>
+              <p>Hộ chiếu còn hạn, học bạ, giấy khám sức khỏe, lý lịch tư pháp, thư giới thiệu, cùng đơn nhập học từ trường Đài Loan.</p>
             </div>
-        </nav>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <section class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
+    <!-- Timeline -->
+    <div class="slide-panel" id="panel-timeline">
+      <div class="timeline-horizontal">
+        <div class="timeline-step">
+          <i class="fa-solid fa-folder-open"></i>
+          <h6>Bước 1: Chuẩn bị hồ sơ</h6>
+          <p>Thu thập bằng cấp, bảng điểm, hộ chiếu, và các giấy tờ cần thiết khác theo hướng dẫn của trường.</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-piggy-bank"></i>
+          <h6>Bước 2: Chứng minh tài chính</h6>
+          <p>Chứng minh khả năng tài chính bằng sổ tiết kiệm, bảo lãnh ngân hàng hoặc giấy chứng nhận thu nhập.</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-laptop"></i>
+          <h6>Bước 3: Nộp đơn trực tuyến</h6>
+          <p>Đăng ký học trực tuyến tại website trường Đài Loan. Điền đầy đủ thông tin và upload hồ sơ.</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-passport"></i>
+          <h6>Bước 4: Xin visa</h6>
+          <p>Liên hệ Văn phòng Kinh tế & Văn hóa Đài Bắc tại Việt Nam để làm thủ tục xin visa du học.</p>
+        </div>
+        <div class="timeline-step">
+          <i class="fa-solid fa-plane-departure"></i>
+          <h6>Bước 5: Nhập học</h6>
+          <p>Lên đường sang Đài Loan, tham dự buổi định hướng, làm quen với môi trường học tập & sinh hoạt mới.</p>
+        </div>
+      </div>
+    </div>
 
-            <div class="container position-relative z-2">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 text-white" data-aos="fade-right">
-                        <div
-                            class="d-inline-flex align-items-center px-3 py-1 border border-light rounded-pill mb-4"
-                            style="background: rgba(255,255,255,0.1);">
-                            <span
-                                class="badge bg-warning text-dark me-2">HOT</span>
-                            <small class="fw-bold">Tuyển sinh kỳ Thu
-                                02/2026</small>
-                        </div>
-                        <h1 class="hero-title">Kiến Tạo Tương Lai <br>
-                            <span>Vững Bước Du Học</span></h1>
-                        <p class="lead mb-5 opacity-75 pe-lg-5">
-                            Hơn 10 năm kinh nghiệm, Huy Hoang Edu mang đến giải
-                            pháp du học Đài Loan toàn diện:
-                            Tối ưu chi phí, cam kết Visa và hỗ trợ việc làm trọn
-                            đời.
-                        </p>
-                        <div class="d-flex gap-3">
-                            <a href="#packages"
-                                class="btn btn-warning btn-lg rounded-pill fw-bold px-5 shadow">Xem
-                                Báo Giá</a>
-                            <a href="#calculator"
-                                class="btn btn-outline-light btn-lg rounded-pill fw-bold px-4"><i
-                                    class="fas fa-calculator me-2"></i> Tính Chi
-                                Phí</a>
-                        </div>
+  </div>
 
-                        <div
-                            class="row mt-5 pt-4 border-top border-white border-opacity-10">
-                            <div class="col-4">
-                                <h2 class="fw-bold text-white mb-0">1,200+</h2>
-                                <small class="opacity-75">Học sinh thành
-                                    công</small>
-                            </div>
-                            <div class="col-4">
-                                <h2 class="fw-bold text-white mb-0">99%</h2>
-                                <small class="opacity-75">Tỷ lệ đậu Visa</small>
-                            </div>
-                            <div class="col-4">
-                                <h2 class="fw-bold text-white mb-0">TOP 1</h2>
-                                <small class="opacity-75">Uy tín miền
-                                    Bắc</small>
-                            </div>
-                        </div>
-                    </div>
+  <!-- New Section: Work Conditions -->
+  <section class="work-section">
+    <div class="container">
+      <h2><i class="fa-solid fa-briefcase me-2"></i>Điều kiện & Quy trình đi làm tại Đài Loan</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="work-card">
+            <i class="fa-solid fa-certificate"></i>
+            <h5>Điều kiện cơ bản</h5>
+            <p>Ứng viên cần có bằng cấp chuyên môn, chứng chỉ ngoại ngữ TOCFL cấp 2 trở lên, và sức khỏe tốt. Kinh nghiệm làm việc là lợi thế lớn.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <i class="fa-solid fa-file-contract"></i>
+            <h5>Hồ sơ xin việc</h5>
+            <p>Chuẩn bị CV, thư xin việc, giấy tờ cá nhân, và thư giới thiệu. Hầu hết công việc yêu cầu phỏng vấn trực tiếp hoặc online.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <i class="fa-solid fa-handshake"></i>
+            <h5>Quy trình tuyển dụng</h5>
+            <p>Nộp đơn qua các nền tảng việc làm, phỏng vấn, kiểm tra kỹ năng, và ký hợp đồng. Thời gian xử lý visa làm việc khoảng 1-2 tháng.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <i class="fa-solid fa-money-check"></i>
+            <h5>Mức lương & Lợi ích</h5>
+            <p>Lương khởi điểm từ 25.000-35.000 TWD/tháng, tùy ngành nghề. Bao gồm bảo hiểm, nghỉ phép, và hỗ trợ nhà ở cho lao động nước ngoài.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <i class="fa-solid fa-globe-asia"></i>
+            <h5>Ngành nghề phổ biến</h5>
+            <p>CNTT, sản xuất, dịch vụ khách hàng, và chăm sóc sức khỏe là các lĩnh vực có nhu cầu cao đối với lao động Việt Nam.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-card">
+            <i class="fa-solid fa-exclamation-triangle"></i>
+            <h5>Lưu ý quan trọng</h5>
+            <p>Tuân thủ luật lao động Đài Loan, tránh làm việc chui. Cập nhật thông tin từ Bộ Lao động Đài Loan và Đại sứ quán Việt Nam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="col-lg-4 offset-lg-1 d-none d-lg-block"
-                        data-aos="fade-left" data-aos-delay="200">
-                        <div class="hero-form text-white">
-                            <h4 class="text-white text-center mb-4 fw-bold">Nhận
-                                Lộ Trình Miễn Phí</h4>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text"
-                                        class="form-control form-control-glass"
-                                        placeholder="Họ và tên học sinh">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="tel"
-                                        class="form-control form-control-glass"
-                                        placeholder="Số điện thoại (Zalo)">
-                                </div>
-                                <div class="mb-3">
-                                    <select
-                                        class="form-select form-control-glass text-secondary">
-                                        <option>Hệ bạn quan tâm?</option>
-                                        <option>Hệ Ngôn ngữ</option>
-                                        <option>Hệ Đại học</option>
-                                        <option>Hệ Thạc sĩ</option>
-                                        <option>Vừa học vừa làm</option>
-                                    </select>
-                                </div>
-                                <button
-                                    class="btn btn-primary w-100 fw-bold py-3 rounded-3 mt-2 shadow-lg"
-                                    type="button"
-                                    onclick="alert('Đăng ký thành công!')">
-                                    GỬI YÊU CẦU NGAY
-                                </button>
-                                <p class="text-center small mt-3 opacity-50"><i
-                                        class="fas fa-shield-alt me-1"></i>
-                                    Thông tin bảo mật 100%</p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Về chúng tôi</h4>
+        <p>Trung tâm Huy Hoàng cam kết mang đến cho sinh viên Việt Nam cơ hội học tập tại những trường hàng đầu Đài Loan, mở rộng tri thức và tầm nhìn quốc tế.</p>
+      </div>
+      <div class="contact">
+        <h4>Liên hệ</h4>
+        <p><a href="https://www.google.com/maps?q=Số+6B7+khu+đô+thị+Mỹ+Đình+1,+Từ+Liêm,+Hà+Nội" target="_blank"><i class="fas fa-map-marker-alt me-2"></i>Số 6B7 khu đô thị Mỹ Đình 1, Từ Liêm, Hà Nội</a></p>
+        <p><a href="tel:0989723000"><i class="fas fa-phone me-2"></i>0989723000</a></p>
+        <p><a href="mailto:huyhoangvn.ht@gmail.com"><i class="fas fa-envelope me-2"></i>huyhoangvn.ht@gmail.com</a></p>
+      </div>
+      <div class="quick-links">
+        <h4>Liên kết nhanh</h4>
+        <div class="link-columns">
+          <div class="link-col">
+            <a href="../index.html">Trang chủ</a>
+            <a href="about_us.html">Giới thiệu</a>
+          </div>
+          <div class="divider"></div>
+          <div class="link-col">
+            <a href="Affiliate_Partner.html">Đối tác</a>
+            <a href="contact.html">Liên hệ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Huy Hoàng Edu | All Rights Reserved
+    </div>
+  </footer>
 
-        <section class="problem-solution">
-            <div class="container">
-                <div class="text-center mb-5" data-aos="fade-up">
-                    <span
-                        class="text-primary fw-bold text-uppercase small letter-spacing-2">Sự
-                        Khác Biệt</span>
-                    <h2 class="fw-bold display-6">Tại Sao Chọn Huy Hoàng
-                        Edu?</h2>
-                </div>
+  <script>
+    const btnConditions = document.getElementById('btn-conditions');
+    const btnTimeline = document.getElementById('btn-timeline');
+    const panelConditions = document.getElementById('panel-conditions');
+    const panelTimeline = document.getElementById('panel-timeline');
 
-                <div class="row g-4">
-                    <div class="col-lg-6" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="comparison-card">
-                            <div class="comp-side comp-bad">
-                                <i class="fas fa-file-excel comp-icon"></i>
-                                <h5 class="fw-bold">Tự làm hồ sơ</h5>
-                                <p class="small text-muted mb-0">Dễ sai sót giấy
-                                    tờ, không biết giải trình tài chính, rủi ro
-                                    trượt Visa cao, lỡ kỳ nhập học.</p>
-                            </div>
-                            <div class="comp-side comp-good">
-                                <i class="fas fa-file-signature comp-icon"></i>
-                                <h5 class="fw-bold">Chúng tôi hỗ trợ</h5>
-                                <p class="small text-muted mb-0">Hồ sơ chuẩn hóa
-                                    100%, chuyên gia Visa xử lý ca khó, cam kết
-                                    đậu Visa bằng văn bản.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="comparison-card">
-                            <div class="comp-side comp-bad">
-                                <i class="fas fa-user-slash comp-icon"></i>
-                                <h5 class="fw-bold">Trung tâm giá rẻ</h5>
-                                <p class="small text-muted mb-0">Phát sinh chi
-                                    phí ẩn, bỏ bê học sinh sau khi bay, không hỗ
-                                    trợ tìm việc làm và nhà ở.</p>
-                            </div>
-                            <div class="comp-side comp-good">
-                                <i
-                                    class="fas fa-hand-holding-heart comp-icon"></i>
-                                <h5 class="fw-bold">Dịch vụ Trọn gói</h5>
-                                <p class="small text-muted mb-0">Minh bạch tài
-                                    chính. Đồng hành suốt 4 năm: Tìm việc, đổi
-                                    Visa, hỗ trợ gia đình thăm thân.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    btnConditions.addEventListener('click', () => {
+      btnConditions.classList.add('active');
+      btnTimeline.classList.remove('active');
+      panelConditions.classList.add('active');
+      panelTimeline.classList.remove('active');
+    });
 
-        <section id="packages" class="pricing-section">
-            <div class="container">
-                <div class="text-center mb-5" data-aos="fade-up">
-                    <span
-                        class="text-secondary fw-bold text-uppercase small">Bảng
-                        giá minh bạch</span>
-                    <h2 class="fw-bold">Gói Dịch Vụ Du Học</h2>
-                    <p class="text-muted">Chọn gói phù hợp với nhu cầu của
-                        bạn</p>
-                </div>
-
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <div class="price-card">
-                            <div class="text-center mb-4 pb-3 border-bottom">
-                                <h4 class="text-secondary">CƠ BẢN</h4>
-                                <div class="price-amount">25tr <span
-                                        class="fs-6 text-muted fw-normal">VNĐ</span></div>
-                                <p class="text-muted small mb-0">Dành cho bạn đã
-                                    có hồ sơ</p>
-                            </div>
-                            <ul class="list-unstyled mb-4 small text-secondary">
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-success me-2"></i>
-                                    Tư vấn chọn trường</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-success me-2"></i>
-                                    Dịch thuật công chứng</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-success me-2"></i>
-                                    Nộp hồ sơ xin thư mời</li>
-                                <li
-                                    class="mb-2 text-muted text-decoration-line-through"><i
-                                        class="fas fa-times me-2"></i> Đào tạo
-                                    tiếng Trung</li>
-                            </ul>
-                            <button
-                                class="btn btn-outline-secondary btn-price">Đăng
-                                Ký Gói Cơ Bản</button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4" data-aos="zoom-in">
-                        <div class="price-card popular">
-                            <div class="badge-popular">ĐƯỢC CHỌN NHIỀU
-                                NHẤT</div>
-                            <div class="text-center mb-4 pb-3 border-bottom">
-                                <h4 class="text-primary">TRỌN GÓI (VIP)</h4>
-                                <div class="price-amount">45tr <span
-                                        class="fs-6 text-muted fw-normal">VNĐ</span></div>
-                                <p class="text-muted small mb-0">Giải pháp toàn
-                                    diện nhất</p>
-                            </div>
-                            <ul class="list-unstyled mb-4 small text-secondary">
-                                <li class="mb-2 fw-bold text-dark"><i
-                                        class="fas fa-check-circle text-primary me-2"></i>
-                                    Tất cả quyền lợi gói Cơ bản</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check-circle text-primary me-2"></i>
-                                    Đào tạo tiếng (3-6 tháng)</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check-circle text-primary me-2"></i>
-                                    Luyện phỏng vấn Visa 1:1</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check-circle text-primary me-2"></i>
-                                    Săn học bổng 50% - 100%</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check-circle text-primary me-2"></i>
-                                    Tặng vé máy bay</li>
-                            </ul>
-                            <button
-                                class="btn btn-primary btn-price text-white shadow">Đăng
-                                Ký Gói VIP</button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4" data-aos="fade-left">
-                        <div class="price-card">
-                            <div class="text-center mb-4 pb-3 border-bottom">
-                                <h4 class="text-warning">PREMIUM</h4>
-                                <div class="price-amount">Liên hệ</div>
-                                <p class="text-muted small mb-0">Hồ sơ khó / đặc
-                                    biệt</p>
-                            </div>
-                            <ul class="list-unstyled mb-4 small text-secondary">
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-warning me-2"></i>
-                                    Xử lý hồ sơ trượt Visa</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-warning me-2"></i>
-                                    Hồ sơ tuổi cao, GPA thấp</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-warning me-2"></i>
-                                    Bảo lãnh tài chính khó</li>
-                                <li class="mb-2"><i
-                                        class="fas fa-check text-warning me-2"></i>
-                                    Cam kết hoàn tiền 100%</li>
-                            </ul>
-                            <button
-                                class="btn btn-outline-warning text-dark btn-price">Tư
-                                Vấn Gói Premium</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="calculator" class="calculator-section">
-            <div
-                style="position: absolute; width: 400px; height: 400px; background: var(--orange); border-radius: 50%; top: -150px; left: -150px; opacity: 0.15; filter: blur(60px);"></div>
-            <div
-                style="position: absolute; width: 400px; height: 400px; background: var(--teal); border-radius: 50%; bottom: -150px; right: -150px; opacity: 0.15; filter: blur(60px);"></div>
-
-            <div class="container position-relative z-2">
-                <div class="text-center mb-5" data-aos="fade-down">
-                    <h2 class="text-white fw-bold">Công Cụ Dự Tính Chi Phí</h2>
-                    <p class="text-white-50">Lập kế hoạch tài chính chính xác
-                        cho gia đình</p>
-                </div>
-
-                <div class="calc-wrapper" data-aos="zoom-in">
-                    <div class="row g-4">
-                        <div class="col-lg-7">
-                            <h4 class="mb-4 text-primary fw-bold"><i
-                                    class="fas fa-sliders-h me-2"></i>Nhập thông
-                                tin</h4>
-                            <form id="costForm">
-                                <div class="mb-3">
-                                    <label
-                                        class="fw-bold small mb-2 text-secondary">Hệ
-                                        đào tạo</label>
-                                    <select
-                                        class="form-select p-3 bg-light border-0"
-                                        id="programSelect">
-                                        <option value="0">-- Chọn hệ học
-                                            --</option>
-                                        <option value="he_ngon_ngu">Hệ Ngôn ngữ
-                                            (Học tiếng)</option>
-                                        <option value="he_dai_hoc">Hệ Đại học
-                                            Chính quy</option>
-                                        <option value="he_vhvl">Hệ Vừa học vừa
-                                            làm</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label
-                                        class="fw-bold small mb-2 text-secondary">Khu
-                                        vực sinh sống</label>
-                                    <select
-                                        class="form-select p-3 bg-light border-0"
-                                        id="citySelect">
-                                        <option value="0">-- Chọn khu vực
-                                            --</option>
-                                        <option value="bac">Đài Bắc (Chi phí
-                                            cao)</option>
-                                        <option value="trung_nam">Đài Trung /
-                                            Đài Nam / Cao Hùng</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label
-                                        class="fw-bold small mb-2 text-secondary">Loại
-                                        hình nhà ở</label>
-                                    <select
-                                        class="form-select p-3 bg-light border-0"
-                                        id="houseSelect">
-                                        <option value="0">-- Chọn nhà ở
-                                            --</option>
-                                        <option value="ktx">Ký túc xá (Tiết
-                                            kiệm)</option>
-                                        <option value="thue_ngoai">Thuê
-                                            ngoài</option>
-                                    </select>
-                                </div>
-                                <button type="button"
-                                    class="btn btn-primary w-100 py-3 fw-bold mt-2 shadow-sm"
-                                    onclick="calculateCost()">TÍNH TOÁN
-                                    NGAY</button>
-                            </form>
-                        </div>
-
-                        <div class="col-lg-5">
-                            <div class="calc-result">
-                                <h5
-                                    class="text-secondary fw-bold text-uppercase small">Tổng
-                                    chi phí ước tính (1 năm)</h5>
-                                <div class="total-amount" id="resultDisplay">0
-                                    VNĐ</div>
-                                <div
-                                    class="w-100 bg-white p-3 rounded-3 mt-3 shadow-sm">
-                                    <ul
-                                        class="list-unstyled text-start small mb-0 text-muted">
-                                        <li
-                                            class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Học
-                                                phí:</span> <strong
-                                                id="tuitionCost"
-                                                class="text-dark">0</strong></li>
-                                        <li
-                                            class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Nhà
-                                                ở:</span> <strong
-                                                id="housingCost"
-                                                class="text-dark">0</strong></li>
-                                        <li
-                                            class="d-flex justify-content-between"><span>Sinh
-                                                hoạt:</span> <strong
-                                                id="livingCost"
-                                                class="text-dark">0</strong></li>
-                                    </ul>
-                                </div>
-                                <p
-                                    class="fst-italic text-danger small mt-3 mb-0">*
-                                    Chưa bao gồm học bổng và thu nhập làm
-                                    thêm.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ecosystem-section container my-5 py-5">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Lộ Trình Du Học 5 Sao</h2>
-                <p class="text-muted">Đồng hành cùng bạn trên mọi chặng
-                    đường</p>
-            </div>
-
-            <div class="timeline-steps" data-aos="fade-up" data-aos-delay="100">
-                <div class="step-node active">
-                    <div class="step-icon"><i
-                            class="fas fa-file-contract"></i></div>
-                    <h6 class="mt-3">Giai đoạn 1</h6>
-                    <p class="small text-muted">Ký HĐ & Xử lý hồ sơ</p>
-                </div>
-                <div class="step-node active">
-                    <div class="step-icon"><i
-                            class="fas fa-book-reader"></i></div>
-                    <h6 class="mt-3">Giai đoạn 2</h6>
-                    <p class="small text-muted">Học tiếng & Phỏng vấn</p>
-                </div>
-                <div class="step-node">
-                    <div class="step-icon"><i
-                            class="fas fa-plane-departure"></i></div>
-                    <h6 class="mt-3">Giai đoạn 3</h6>
-                    <p class="small text-muted">Visa & Xuất cảnh</p>
-                </div>
-                <div class="step-node">
-                    <div class="step-icon"><i
-                            class="fas fa-university"></i></div>
-                    <h6 class="mt-3">Giai đoạn 4</h6>
-                    <p class="small text-muted">Nhập học & Ổn định</p>
-                </div>
-                <div class="step-node">
-                    <div class="step-icon"><i
-                            class="fas fa-briefcase"></i></div>
-                    <h6 class="mt-3">Giai đoạn 5</h6>
-                    <p class="small text-muted">Việc làm & Định cư</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonial-section">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span
-                        class="text-primary fw-bold text-uppercase small">Người
-                        thật việc thật</span>
-                    <h2 class="fw-bold">Học Viên Nói Gì?</h2>
-                </div>
-
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testi-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <div
-                                    class="testi-user d-flex align-items-center mb-3">
-                                    <img
-                                        src="https://randomuser.me/api/portraits/women/44.jpg"
-                                        alt="Student">
-                                    <div>
-                                        <h6
-                                            class="fw-bold mb-0 text-primary">Nguyễn
-                                            Thu Hà</h6>
-                                        <small class="text-muted">ĐH Quốc gia
-                                            Đài Loan (NTU)</small>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-secondary fst-italic small">"Em từng trượt Visa ở trung tâm khác. Huy Hoàng Edu đã giúp em làm lại hồ sơ, luyện phỏng vấn kỹ càng. Kết quả em đậu Visa thẳng và có học bổng 100%."</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testi-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <div
-                                    class="testi-user d-flex align-items-center mb-3">
-                                    <img
-                                        src="https://randomuser.me/api/portraits/men/32.jpg"
-                                        alt="Student">
-                                    <div>
-                                        <h6
-                                            class="fw-bold mb-0 text-primary">Trần
-                                            Văn Nam</h6>
-                                        <small class="text-muted">Hệ Vừa học vừa
-                                            làm</small>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-secondary fst-italic small">"Chương trình VHVL rất hợp với em. Sang đây nhà trường bố trí việc ngay, lương khoảng 20 triệu, đủ chi trả sinh hoạt và gửi về nhà."</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testi-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <div
-                                    class="testi-user d-flex align-items-center mb-3">
-                                    <img
-                                        src="https://randomuser.me/api/portraits/women/68.jpg"
-                                        alt="Student">
-                                    <div>
-                                        <h6 class="fw-bold mb-0 text-primary">Lê
-                                            Bảo Ngọc</h6>
-                                        <small class="text-muted">ĐH Sư phạm Đài
-                                            Loan</small>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-secondary fst-italic small">"Các anh chị hỗ trợ rất nhiệt tình, ngay cả khi em đã sang Đài. Từ việc đổi sim, tìm nhà đều được giúp đỡ."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination mt-4"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="register"
-            class="py-5 bg-primary position-relative overflow-hidden">
-            <div
-                style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-            <div class="container position-relative z-2">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div
-                            class="bg-white p-5 rounded-4 shadow-lg text-center"
-                            data-aos="zoom-in">
-                            <h2 class="fw-bold text-primary mb-3">Đăng Ký Tư Vấn
-                                1:1</h2>
-                            <p class="text-muted mb-4">Để lại thông tin, chúng
-                                tôi sẽ xây dựng lộ trình du học tối ưu nhất cho
-                                riêng bạn.</p>
-
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <input type="text"
-                                            class="form-control bg-light p-3 border-0 rounded-3"
-                                            placeholder="Họ và tên">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="tel"
-                                            class="form-control bg-light p-3 border-0 rounded-3"
-                                            placeholder="Số điện thoại">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea
-                                            class="form-control bg-light p-3 border-0 rounded-3"
-                                            rows="3"
-                                            placeholder="Nội dung cần tư vấn..."></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button
-                                            class="btn btn-warning w-100 py-3 fw-bold rounded-3 fs-5 shadow-sm">GỬI
-                                            ĐĂNG KÝ NGAY</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-logo-text mb-3">HUY HOANG EDU</div>
-                        <p class="mb-4 text-white-50 small"
-                            style="line-height: 1.8;">
-                            Công ty tư vấn du học uy tín hàng đầu Việt Nam.
-                            Chúng tôi cam kết mang lại tương lai rạng ngời cho
-                            thế hệ trẻ thông qua con đường giáo dục quốc tế chất
-                            lượng cao.
-                        </p>
-                        <div class="d-flex mb-4">
-                            <a href="#" class="social-circle"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-circle"><i
-                                    class="fab fa-youtube"></i></a>
-                            <a href="#" class="social-circle"><i
-                                    class="fab fa-tiktok"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-md-6">
-                        <h5 class="footer-title">Về Chúng Tôi</h5>
-                        <div class="footer-links">
-                            <a href="#">Câu chuyện thương hiệu</a>
-                            <a href="#">Đội ngũ chuyên gia</a>
-                            <a href="#">Đối tác chiến lược</a>
-                            <a href="#">Thư viện hình ảnh</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title">Dịch Vụ</h5>
-                        <div class="footer-links">
-                            <a href="#">Săn học bổng toàn phần</a>
-                            <a href="#">Visa du học & Thăm thân</a>
-                            <a href="#">Đào tạo tiếng Trung</a>
-                            <a href="#">Vé máy bay & KTX</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title">Liên Hệ</h5>
-                        <ul class="list-unstyled contact-list small">
-                            <li><i class="fas fa-map-marker-alt"></i> <span>Số
-                                    6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, Hà
-                                    Nội</span></li>
-                            <li><i class="fas fa-phone-alt"></i>
-                                <span>0989.723.000 (Zalo 24/7)</span></li>
-                            <li><i class="fas fa-envelope"></i>
-                                <span>huyhoangvn.ht@gmail.com</span></li>
-                        </ul>
-
-                        <div class="mt-4">
-                            <div class="input-group">
-                                <input type="email"
-                                    class="form-control newsletter-input"
-                                    placeholder="Email của bạn...">
-                                <button class="btn btn-newsletter"><i
-                                        class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="text-center py-4 mt-5 border-top border-white border-opacity-10"
-                style="background: rgba(0,0,0,0.2);">
-                <p class="mb-0 small text-white-50">© 2025 Huy Hoang Education.
-                    All rights reserved.</p>
-            </div>
-        </footer>
-
-        <a href="#"
-            class="btn btn-warning position-fixed bottom-0 end-0 m-4 p-3 rounded-circle shadow-lg text-white"
-            id="backToTop" style="display: none; z-index: 1000;"><i
-                class="fas fa-arrow-up"></i></a>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-        <script>
-        // Init
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
-            AOS.init({ duration: 800, once: true });
-        });
-
-        // Sticky Navbar
-        const navbar = document.querySelector('.navbar');
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-                backToTop.style.display = 'block';
-            } else {
-                navbar.classList.remove('scrolled');
-                backToTop.style.display = 'none';
-            }
-        });
-
-        // Calculator
-        function calculateCost() {
-            const program = document.getElementById('programSelect').value;
-            const city = document.getElementById('citySelect').value;
-            const house = document.getElementById('houseSelect').value;
-            
-            if(program === '0' || city === '0' || house === '0') {
-                alert("Vui lòng chọn đầy đủ thông tin!");
-                return;
-            }
-
-            let tuition = 0, living = 0, housing = 0;
-            if(program === 'he_ngon_ngu') tuition = 60000000;
-            if(program === 'he_dai_hoc') tuition = 80000000;
-            if(program === 'he_vhvl') tuition = 50000000;
-
-            if(city === 'bac') living = 8000000 * 12; else living = 6000000 * 12;
-            if(house === 'ktx') housing = 3000000 * 12; else housing = 6000000 * 12;
-
-            const total = tuition + living + housing;
-            const formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
-
-            document.getElementById('tuitionCost').innerText = formatter.format(tuition);
-            document.getElementById('housingCost').innerText = formatter.format(housing);
-            document.getElementById('livingCost').innerText = formatter.format(living);
-            document.getElementById('resultDisplay').innerText = formatter.format(total);
-        }
-
-        // Swiper
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            pagination: { el: ".swiper-pagination", clickable: true },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-            },
-            autoplay: { delay: 5000 }
-        });
-    </script>
-    </body>
+    btnTimeline.addEventListener('click', () => {
+      btnTimeline.classList.add('active');
+      btnConditions.classList.remove('active');
+      panelTimeline.classList.add('active');
+      panelConditions.classList.remove('active');
+    });
+  </script>
+</body>
 </html>
