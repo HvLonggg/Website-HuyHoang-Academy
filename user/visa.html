@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visa & Giấy tờ Du học Đài Loan</title>
 
-  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <!-- AOS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <style>
@@ -180,39 +179,39 @@
     }
 
     .faq-section h3 {
-  font-weight: 700;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-.accordion-button {
-  transition: all 0.3s ease;
-  background: #f8faff;
-}
-.accordion-button:hover {
-  background: #eaf3ff;
-  color: #007bff;
-  transform: translateX(5px);
-}
-.accordion-button:focus {
-  box-shadow: none;
-}
-.accordion-item {
-  border-radius: 12px !important;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.accordion-item:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transform: translateY(-3px);
-}
-.accordion-body {
-  background: #fff;
-  padding: 18px 20px;
-  color: #444;
-  line-height: 1.6;
-}
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .accordion-button {
+      transition: all 0.3s ease;
+      background: #f8faff;
+    }
+    .accordion-button:hover {
+      background: #eaf3ff;
+      color: #007bff;
+      transform: translateX(5px);
+    }
+    .accordion-button:focus {
+      box-shadow: none;
+    }
+    .accordion-item {
+      border-radius: 12px !important;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .accordion-item:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+    .accordion-body {
+      background: #fff;
+      padding: 18px 20px;
+      color: #444;
+      line-height: 1.6;
+    }
 
-/* Nút Quay lại ban đầu */
+    /* Nút Quay lại ban đầu */
     .btn-back {
       position: fixed;
       top: 30px;
@@ -229,7 +228,6 @@
       color: white;
       box-shadow: 0 4px 12px rgba(52, 152, 219, 0.6);
       transition: all 0.3s ease;
-      /* mượt hơn */
       z-index: 1000;
       user-select: none;
       white-space: nowrap;
@@ -253,13 +251,145 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
       color: #fff;
     }
-    
+
+    /* =========================================
+       FOOTER STYLES (From Study Abroad Page)
+       ========================================= */
+    footer {
+      background: linear-gradient(90deg, #006699, #00b3b3);
+      color: #ffffff;
+      padding: 90px 20px 40px;
+      margin-top: 80px;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ffd166, #00b3b3);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-content div {
+      padding: 0 15px;
+    }
+    .footer-content h4 {
+      margin-bottom: 20px;
+      color: #ffd166;
+      font-size: 1.3em;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+    .footer-content h4:hover {
+      color: #ffffff;
+    }
+    .footer-content h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #ffd166, #ffffff);
+      border-radius: 2px;
+    }
+    .footer-content p,
+    .footer-content a {
+      color: #e3f2fd;
+      font-size: 1em;
+      line-height: 1.8;
+      margin-bottom: 10px;
+      display: block;
+      transition: all 0.3s ease;
+      text-decoration: none; 
+    }
+    .footer-content a:hover {
+      color: #ffd166;
+      transform: translateX(5px);
+    }
+    .quick-links {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .link-columns {
+      text-decoration: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .link-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .divider {
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 0 15px;
+    }
+    .footer-social {
+      margin-top: 20px;
+    }
+    .footer-social a {
+      margin: 0 12px;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      color: #ffd166;
+      transform: scale(1.2) rotate(15deg);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e3f2fd;
+      font-size: 0.95em;
+      letter-spacing: 0.5px;
+      transition: transform 0.4s ease;
+    }
+    .footer-bottom:hover {
+      transform: translateY(-5px);
+    }
+    /* Media queries for Footer */
+    @media (max-width: 768px) {
+      .footer-content {
+        gap: 30px;
+        text-align: center;
+      }
+      .footer-content h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .link-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      .divider {
+        width: 100%;
+        height: 1px;
+        margin: 10px 0;
+      }
+    }
   </style>
 </head>
 <body>
 
-    <!-- Nút Quay lại -->
-  <a href="../user/index.html" class="btn-back" title="Quay lại">
+  <a href="../index.html" class="btn-back" title="Quay lại">
     <span class="icon-circle">
       <i class="fas fa-arrow-left"></i>
     </span>
@@ -285,12 +415,10 @@
     });
   </script>
 
-  <!-- Hero -->
   <section class="visa-hero">
     <h1>Visa & Giấy tờ Du học Đài Loan</h1>
   </section>
 
-  <!-- Steps -->
   <section class="steps-container container">
     <div class="step" data-aos="fade-up">
       <div class="step-line"></div>
@@ -319,7 +447,6 @@
     </div>
   </section>
 
-  <!-- Cards -->
   <section class="docs-section">
     <div class="container">
       <div class="row g-4">
@@ -362,7 +489,6 @@
     </div>
   </section>
 
-  <!-- Infographic -->
   <section class="infographic" data-aos="fade-up">
     <h3>Quy trình xin visa du học</h3>
     <div class="infographic-steps">
@@ -374,98 +500,122 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
-<section class="faq-section py-5">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h3 class="fw-bold text-primary">Câu hỏi thường gặp về Visa du học Đài Loan</h3>
-      <p class="text-muted">Dưới đây là những thắc mắc phổ biến mà học sinh, phụ huynh hay hỏi trước khi chuẩn bị hồ sơ visa. Hãy tham khảo để nắm rõ quy trình.</p>
+  <section class="faq-section py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h3 class="fw-bold text-primary">Câu hỏi thường gặp về Visa du học Đài Loan</h3>
+        <p class="text-muted">Dưới đây là những thắc mắc phổ biến mà học sinh, phụ huynh hay hỏi trước khi chuẩn bị hồ sơ visa. Hãy tham khảo để nắm rõ quy trình.</p>
+      </div>
+
+      <div class="accordion shadow-lg rounded" id="faqAccordion">
+
+        <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+              ⏳ Thời gian xét duyệt visa mất bao lâu?
+            </button>
+          </h2>
+          <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Trung bình từ <b>2–4 tuần</b>, tùy vào từng trường hợp hồ sơ.  
+              <ul>
+                <li>Nộp vào mùa cao điểm (tháng 6–9) có thể kéo dài hơn.</li>
+                <li>Nếu hồ sơ thiếu sót, bạn sẽ cần bổ sung giấy tờ → thời gian duyệt lâu hơn.</li>
+                <li>Nên nộp trước ít nhất <b>2 tháng</b> để tránh trễ kế hoạch nhập học.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+              📄 Có cần dịch thuật giấy tờ không?
+            </button>
+          </h2>
+          <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Có. Tất cả giấy tờ quan trọng đều phải dịch sang <b>tiếng Anh hoặc tiếng Trung</b> và có công chứng hợp pháp.  
+              <ul>
+                <li>Bằng tốt nghiệp, học bạ, bảng điểm.</li>
+                <li>Giấy khai sinh, chứng minh tài chính.</li>
+                <li>Giấy khám sức khỏe.</li>
+              </ul>
+              Lưu ý: Dịch tại các đơn vị được cơ quan lãnh sự chấp nhận để tránh phải dịch lại.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+              💰 Phí làm visa du học Đài Loan là bao nhiêu?
+            </button>
+          </h2>
+          <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Mức phí xin visa dao động khoảng <b>50 – 70 USD</b> tùy loại visa và thời hạn.  
+              <ul>
+                <li>Visa ngắn hạn thường rẻ hơn visa dài hạn.</li>
+                <li>Chi phí dịch thuật, công chứng giấy tờ: khoảng 1 – 2 triệu VNĐ.</li>
+                <li>Ngoài ra, nên dự trù thêm chi phí di chuyển, gửi hồ sơ, bảo hiểm y tế.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+              🏥 Có cần giấy khám sức khỏe để xin visa không?
+            </button>
+          </h2>
+          <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Có. Giấy khám sức khỏe là bắt buộc.  
+              <ul>
+                <li>Phải khám tại bệnh viện được chỉ định bởi Văn phòng Kinh tế Văn hóa Đài Bắc (TECO).</li>
+                <li>Kết quả gồm: xét nghiệm lao phổi, viêm gan, HIV…</li>
+                <li>Thời hạn giấy khám: <b>6 tháng</b> kể từ ngày cấp.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Về chúng tôi</h4>
+        <p>Trung tâm Huy Hoàng cam kết mang đến cho sinh viên Việt Nam cơ hội học tập tại những trường hàng đầu Đài Loan, mở rộng tri thức và tầm nhìn quốc tế.</p>
+      </div>
+      <div class="contact">
+        <h4>Liên hệ</h4>
+        <p><a href="https://www.google.com/maps?q=Số+6B7+khu+đô+thị+Mỹ+Đình+1,+Từ+Liêm,+Hà+Nội" target="_blank"><i class="fas fa-map-marker-alt me-2"></i>Số 6B7 khu đô thị Mỹ Đình 1, Từ Liêm, Hà Nội</a></p>
+        <p><a href="tel:0989723000"><i class="fas fa-phone me-2"></i>0989723000</a></p>
+        <p><a href="mailto:huyhoangvn.ht@gmail.com"><i class="fas fa-envelope me-2"></i>huyhoangvn.ht@gmail.com</a></p>
+      </div>
+      <div class="quick-links">
+        <h4>Liên kết nhanh</h4>
+        <div class="link-columns">
+          <div class="link-col">
+            <a href="../index.html">Trang chủ</a>
+            <a href="about_us.html">Giới thiệu</a>
+          </div>
+          <div class="divider"></div>
+          <div class="link-col">
+            <a href="Affiliate_Partner.html">Đối tác</a>
+            <a href="contact.html">Liên hệ</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="accordion shadow-lg rounded" id="faqAccordion">
+  </footer>
 
-      <!-- Q1 -->
-      <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
-            ⏳ Thời gian xét duyệt visa mất bao lâu?
-          </button>
-        </h2>
-        <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Trung bình từ <b>2–4 tuần</b>, tùy vào từng trường hợp hồ sơ.  
-            <ul>
-              <li>Nộp vào mùa cao điểm (tháng 6–9) có thể kéo dài hơn.</li>
-              <li>Nếu hồ sơ thiếu sót, bạn sẽ cần bổ sung giấy tờ → thời gian duyệt lâu hơn.</li>
-              <li>Nên nộp trước ít nhất <b>2 tháng</b> để tránh trễ kế hoạch nhập học.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Q2 -->
-      <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
-            📄 Có cần dịch thuật giấy tờ không?
-          </button>
-        </h2>
-        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Có. Tất cả giấy tờ quan trọng đều phải dịch sang <b>tiếng Anh hoặc tiếng Trung</b> và có công chứng hợp pháp.  
-            <ul>
-              <li>Bằng tốt nghiệp, học bạ, bảng điểm.</li>
-              <li>Giấy khai sinh, chứng minh tài chính.</li>
-              <li>Giấy khám sức khỏe.</li>
-            </ul>
-            Lưu ý: Dịch tại các đơn vị được cơ quan lãnh sự chấp nhận để tránh phải dịch lại.
-          </div>
-        </div>
-      </div>
-
-      <!-- Q3 -->
-      <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
-            💰 Phí làm visa du học Đài Loan là bao nhiêu?
-          </button>
-        </h2>
-        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Mức phí xin visa dao động khoảng <b>50 – 70 USD</b> tùy loại visa và thời hạn.  
-            <ul>
-              <li>Visa ngắn hạn thường rẻ hơn visa dài hạn.</li>
-              <li>Chi phí dịch thuật, công chứng giấy tờ: khoảng 1 – 2 triệu VNĐ.</li>
-              <li>Ngoài ra, nên dự trù thêm chi phí di chuyển, gửi hồ sơ, bảo hiểm y tế.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Q4 -->
-      <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
-            🏥 Có cần giấy khám sức khỏe để xin visa không?
-          </button>
-        </h2>
-        <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Có. Giấy khám sức khỏe là bắt buộc.  
-            <ul>
-              <li>Phải khám tại bệnh viện được chỉ định bởi Văn phòng Kinh tế Văn hóa Đài Bắc (TECO).</li>
-              <li>Kết quả gồm: xét nghiệm lao phổi, viêm gan, HIV…</li>
-              <li>Thời hạn giấy khám: <b>6 tháng</b> kể từ ngày cấp.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
