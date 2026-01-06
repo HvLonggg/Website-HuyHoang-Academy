@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Học Bổng 1+4 & Các Trường Đại Học Hỗ Trợ — Đài Loan</title>
 
-    <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- AOS Animation -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
     <style>
@@ -155,7 +154,6 @@
 
         .detail-list li::before {
             content: "\f2d0";
-            /* bootstrap icon code; adjust if needed */
             font-family: 'bootstrap-icons';
             position: absolute;
             left: 0;
@@ -234,11 +232,164 @@
                 margin-bottom: 20px;
             }
         }
+
+        /* =========================================
+           FOOTER STYLES (Compact Version)
+           ========================================= */
+        footer {
+            background: linear-gradient(90deg, #006699, #00b3b3);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 80px; /* Tạo khoảng cách với phần trên */
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd166, #00b3b3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .footer-content div {
+            padding: 0 10px;
+        }
+
+        .footer-content h4 {
+            margin-bottom: 15px;
+            color: #ffd166;
+            font-size: 1.2em;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content h4:hover {
+            color: #ffffff;
+        }
+
+        .footer-content h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd166, #ffffff);
+            border-radius: 2px;
+        }
+
+        .footer-content p,
+        .footer-content a {
+            color: #e3f2fd;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            display: block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            color: #ffd166;
+            transform: translateX(5px);
+        }
+
+        .quick-links {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .link-columns {
+            text-decoration: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .link-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .divider {
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px;
+        }
+
+        .footer-social {
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #ffd166;
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e3f2fd;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            transition: transform 0.4s ease;
+        }
+
+        .footer-bottom:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-content h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .link-columns {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .divider {
+                width: 100%;
+                height: 1px;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- HEADER -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark container">
             <a class="navbar-brand" href="#">Huy Hoàng Edu</a>
@@ -256,11 +407,9 @@
         </nav>
     </header>
 
-    <!-- Universities Offering -->
     <section class="container uni-offers mt-5">
         <div class="section-title" data-aos="fade-up">Các trường hỗ trợ chương trình 1+4 & học bổng nổi bật</div>
         <div class="row uni-cards g-4">
-            <!-- Trường 1 -->
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1605902711622-cfb43c443f67?auto=format&fit=crop&w=800&q=80"
@@ -273,7 +422,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Trường 2 -->
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1581090700227-4c4dcd3467d3?auto=format&fit=crop&w=800&q=80"
@@ -286,7 +434,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Trường 3 -->
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
@@ -299,7 +446,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Trường 4 -->
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80"
@@ -312,7 +458,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Trường 5 -->
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1477995975002-998a6a7c9d4c?auto=format&fit=crop&w=800&q=80"
@@ -325,7 +470,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Trường 6 -->
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
@@ -341,21 +485,20 @@
         </div>
     </section>
 
-    <!-- Scholarship Detail & Requirements -->
     <section class="container scholar-detail" data-aos="fade-up">
         <h3>Thông tin chung về học bổng MOE & MOFA</h3>
         <ul class="detail-list">
             <li>Hỗ trợ học phí lên đến <b>NTD 40,000 / học kỳ</b> & trợ cấp sinh hoạt khoảng <b>NTD 15,000–20,000 /
-                    tháng</b>. :contentReference[oaicite:0]{index=0}</li>
+                    tháng</b>.</li>
             <li>Chương trình 1+4 có 1 năm dự bị + 4 năm đại học chính thức. (Tùy trường có thể khác nhau)</li>
             <li>Tốt nghiệp THPT với học lực tốt; có GPA cao; hoạt động ngoại khóa & thư giới thiệu được xem xét.
-                :contentReference[oaicite:1]{index=1}</li>
+            </li>
             <li>Yêu cầu ngoại ngữ: TOEFL / IELTS hoặc TOCFL nếu chương trình mà yêu cầu tiếng Trung.
-                :contentReference[oaicite:2]{index=2}</li>
+            </li>
             <li>Hồ sơ: bao gồm hộ chiếu, bằng tốt nghiệp, bảng điểm công chứng, thư giới thiệu, đơn nhập học, chứng chỉ
                 ngoại ngữ, chứng minh tài chính, ảnh thẻ, giấy khám sức khỏe nếu cần. </li>
             <li>Thời hạn đăng ký học bổng Taiwan Scholarship thường từ tháng 2 đến tháng 3 mỗi năm.
-                :contentReference[oaicite:3]{index=3}</li>
+            </li>
         </ul>
 
         <div class="requirements-box" data-aos="fade-right">
@@ -372,12 +515,10 @@
         </div>
     </section>
 
-    <!-- FAQ về học bổng & lựa chọn trường -->
     <section class="container faq-section" data-aos="fade-up">
         <h3 class="fw-bold text-primary">Câu hỏi thường gặp về học bổng 1+4</h3>
         <div class="accordion" id="faqExtra">
 
-            <!-- Q1 -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
@@ -394,7 +535,6 @@
                 </div>
             </div>
 
-            <!-- Q2 -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
@@ -412,7 +552,6 @@
                 </div>
             </div>
 
-            <!-- Q3 -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
@@ -429,7 +568,6 @@
                 </div>
             </div>
 
-            <!-- Q4 -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
@@ -447,7 +585,6 @@
                 </div>
             </div>
 
-            <!-- Q5 -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
@@ -465,7 +602,6 @@
                 </div>
             </div>
 
-            <!-- Q6 -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
@@ -485,9 +621,38 @@
         </div>
     </section>
 
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Về chúng tôi</h4>
+                <p>Trung tâm Huy Hoàng cam kết mang đến cho sinh viên Việt Nam cơ hội học tập tại những trường hàng đầu
+                    Đài Loan, mở rộng tri thức và tầm nhìn quốc tế.</p>
+            </div>
+            <div class="contact">
+                <h4>Liên hệ</h4>
+                <p><a href="https://www.google.com/maps?q=Số+6B7+khu+đô+thị+Mỹ+Đình+1,+Từ+Liêm,+Hà+Nội" target="_blank"><i
+                            class="fas fa-map-marker-alt me-2"></i>Số 6B7 khu đô thị Mỹ Đình 1, Từ Liêm, Hà Nội</a></p>
+                <p><a href="tel:0989723000"><i class="fas fa-phone me-2"></i>0989723000</a></p>
+                <p><a href="mailto:huyhoangvn.ht@gmail.com"><i
+                            class="fas fa-envelope me-2"></i>huyhoangvn.ht@gmail.com</a></p>
+            </div>
+            <div class="quick-links">
+                <h4>Liên kết nhanh</h4>
+                <div class="link-columns">
+                    <div class="link-col">
+                        <a href="../index.html">Trang chủ</a>
+                        <a href="about_us.html">Giới thiệu</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="link-col">
+                        <a href="Affiliate_Partner.html">Đối tác</a>
+                        <a href="contact.html">Liên hệ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
