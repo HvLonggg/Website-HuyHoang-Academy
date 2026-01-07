@@ -11,85 +11,115 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           1. CORE VARIABLES & SETUP
-           ========================================= */
         :root {
             --primary: #006699;
-            --primary-dark: #004d73;
-            --teal: #00b3b3;
-            --teal-light: #e0f7f7;
-            --orange: #f9a11b;
-            --dark: #0f172a;
+            --secondary: #00b3b3;
+            --accent: #f9a11b;
+            --dark: #1e293b;
+            --gray: #64748b;
             --light: #f8fafc;
             --white: #ffffff;
-            --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
-            --gradient-warm: linear-gradient(45deg, #f9a11b, #ff7e5f);
-            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.1);
+            --gradient-brand: linear-gradient(90deg, var(--primary), var(--secondary));
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 102, 153, 0.15);
+            --radius-card: 16px;
             --radius-lg: 20px;
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.1);
         }
 
-        body { font-family: 'Roboto', sans-serif; color: #334155; overflow-x: hidden; background: #fff; line-height: 1.6; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            color: #334155; 
+            overflow-x: hidden; 
+            background: #fff; 
+            line-height: 1.6; 
+        }
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700; 
+            color: var(--primary); 
+        }
         
-        ::-webkit-scrollbar { width: 8px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-        /* Loader */
-        #loader {
-            position: fixed; inset: 0; background: #fff; z-index: 99999;
-            display: flex; justify-content: center; align-items: center; flex-direction: column;
+
+        .top-bar { 
+            background-color: #004a75; 
+            color: #fff; 
+            padding: 8px 0; 
+            font-size: 0.85rem; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
         }
-        .loader-icon { font-size: 3rem; color: var(--orange); animation: bounce 1s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        /* =========================================
-           2. HEADER (Synced with Consulting Page)
-           ========================================= */
-        .top-header { background: var(--dark); color: #cbd5e1; font-size: 0.85rem; padding: 10px 0; }
-        .top-header a { color: #cbd5e1; text-decoration: none; transition: 0.3s; margin-left: 20px; }
-        .top-header a:hover { color: var(--orange); }
+        .top-bar a { 
+            color: rgba(255,255,255,0.9); 
+            margin-left: 15px; 
+            text-decoration: none;
+        }
+        .top-bar a:hover { color: var(--accent); }
 
         .navbar {
-            padding: 15px 0; transition: all 0.4s ease; background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: var(--gradient-brand);
+            padding: 9px 0; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky; 
+            top: 0; 
+            z-index: 1050;
         }
-        .navbar.scrolled { padding: 10px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #fff; }
         
-        .navbar-brand { gap: 10px; }
-        .logo-icon {
-            width: 42px; height: 42px; 
-            background: var(--gradient-brand); 
-            color: white; border-radius: 10px; 
+        .logo-box {
+            width: 50px; height: 50px; 
+            background: #fff; 
+            border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 22px;
-            box-shadow: 0 4px 10px rgba(0, 102, 153, 0.3);
+            overflow: hidden; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            margin-right: 12px;
         }
-        .logo-text-group { line-height: 1; display: flex; flex-direction: column; justify-content: center; }
-        .logo-main { font-size: 1.25rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; margin-bottom: 2px; }
-        .logo-sub { font-size: 0.65rem; font-weight: 600; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; }
-
-        .nav-link {
-            font-weight: 600; color: #475569 !important; margin: 0 5px; padding: 8px 16px !important;
-            border-radius: 30px; transition: 0.3s; font-size: 0.95rem;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--primary) !important; background: var(--teal-light); }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .btn-consult {
-            background: var(--gradient-brand); color: #fff !important; padding: 10px 25px !important;
-            border-radius: 50px; box-shadow: 0 4px 15px rgba(0, 179, 179, 0.3);
-            font-weight: 600; font-size: 0.9rem; transition: transform 0.3s;
+        .brand-title { 
+            font-weight: 800; 
+            font-size: 1rem; 
+            color: #fff; 
+            display: block; 
+            position: relative; 
+            right: 45px; 
+            top: 5px;
         }
-        .btn-consult:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 179, 179, 0.4); }
 
-        /* =========================================
-           3. HERO SECTION (Career Theme)
-           ========================================= */
+        .nav-link { 
+            color: rgba(255,255,255,0.9) !important; 
+            font-weight: 600; 
+            margin: 0 10px; 
+            font-size: 0.95rem; 
+            position: relative; 
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 5px; left: 0;
+            background-color: var(--accent); transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: #ffdd57 !important; }
+
+        .btn-header-cta {
+            background: #fff; color: var(--primary) !important; padding: 10px 25px;
+            border-radius: 50px; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-header-cta:hover { 
+            background: var(--accent); 
+            color: #fff !important; 
+            transform: translateY(-2px); 
+        }
+
+       
         .hero-career {
             position: relative; height: 80vh; min-height: 600px;
             background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
@@ -101,11 +131,11 @@
         }
         .career-badge {
             background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 20px; border-radius: 50px; color: var(--orange); font-weight: 600;
+            padding: 8px 20px; border-radius: 50px; color: var(--accent); font-weight: 600;
             margin-bottom: 20px; display: inline-block; backdrop-filter: blur(5px);
         }
         .hero-title { font-size: 3.5rem; color: white; margin-bottom: 20px; line-height: 1.2; }
-        
+
         /* Floating Icons */
         .float-icon {
             position: absolute; width: 80px; height: 80px; background: white;
@@ -113,35 +143,29 @@
             font-size: 2rem; color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             animation: float 6s infinite ease-in-out;
         }
-        .icon-chip { top: 20%; right: 10%; color: var(--orange); animation-delay: 0s; } /* Bán dẫn */
-        .icon-chart { bottom: 20%; right: 20%; color: var(--teal); animation-delay: 2s; } /* Kinh tế */
-        .icon-global { top: 30%; right: 30%; color: var(--primary); animation-delay: 1s; } /* Ngôn ngữ */
+        .icon-chip { top: 20%; right: 10%; color: var(--accent); }
+        .icon-chart { bottom: 20%; right: 20%; color: var(--secondary); animation-delay: 2s; }
+        .icon-global { top: 30%; right: 30%; color: var(--primary); animation-delay: 1s; }
         
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-        /* =========================================
-           4. WHY IT MATTERS
-           ========================================= */
+        /* Reality Section */
         .reality-section { padding: 80px 0; background: #fff; }
         .stat-card {
             text-align: center; padding: 30px; border-radius: var(--radius-lg);
             background: var(--light); transition: 0.3s; height: 100%;
         }
         .stat-card:hover { transform: translateY(-10px); background: #fff; box-shadow: var(--shadow-card); }
-        .stat-num { font-size: 3rem; font-weight: 800; color: var(--orange); line-height: 1; }
-        
-        /* =========================================
-           5. HOT MAJORS (Interactive Cards)
-           ========================================= */
+        .stat-num { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+
+        /* Hot Majors */
         .majors-section { padding: 100px 0; background: #f0f9ff; }
         .major-card {
             background: white; border-radius: var(--radius-lg); overflow: hidden;
             box-shadow: var(--shadow-card); transition: 0.4s; position: relative;
-            height: 420px; group; cursor: pointer;
+            height: 420px; cursor: pointer;
         }
-        .major-img {
-            height: 200px; width: 100%; object-fit: cover; transition: 0.4s;
-        }
+        .major-img { height: 200px; width: 100%; object-fit: cover; transition: 0.4s; }
         .major-content { padding: 25px; position: relative; background: white; height: 100%; transition: 0.4s; }
         .major-icon {
             width: 60px; height: 60px; background: var(--gradient-brand); color: white;
@@ -149,8 +173,6 @@
             font-size: 1.5rem; position: absolute; top: -30px; right: 25px;
             box-shadow: 0 5px 15px rgba(0, 102, 153, 0.3);
         }
-        
-        /* Hover Effect: Slide up content */
         .major-card:hover .major-content { transform: translateY(-100px); }
         .major-card:hover .major-img { filter: brightness(0.7); }
         .major-details {
@@ -158,12 +180,10 @@
             margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;
         }
         .major-card:hover .major-details { opacity: 1; transform: translateY(0); }
-        
-        /* =========================================
-           6. HOLLAND CODE TEST (Mini)
-           ========================================= */
+
+        /* Holland Test */
         .career-test-section {
-            background: var(--dark); color: white; padding: 100px 0; position: relative; overflow: hidden;
+            background: var(--dark); color: white; padding: 100px 0; position: relative;
         }
         .holland-circle {
             width: 150px; height: 150px; border-radius: 50%;
@@ -172,13 +192,11 @@
             margin: 0 auto; transition: 0.3s; cursor: pointer;
         }
         .holland-circle:hover, .holland-circle.active {
-            background: var(--orange); border-color: var(--orange); transform: scale(1.1); box-shadow: 0 0 30px rgba(249, 161, 27, 0.4);
+            background: var(--accent); border-color: var(--accent); transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(249, 161, 27, 0.4);
         }
-        .holland-icon { font-size: 2rem; margin-bottom: 10px; }
-        
-        /* =========================================
-           7. SALARY CHART (CSS Only)
-           ========================================= */
+
+        /* Salary Chart */
         .trend-section { padding: 80px 0; background: white; }
         .chart-bar-wrapper { margin-bottom: 25px; }
         .chart-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
@@ -189,124 +207,141 @@
         }
         @keyframes grow { from { width: 0; } }
 
-        /* =========================================
-           8. FOOTER PREMIUM (Copy from Final)
-           ========================================= */
+        /* Booking Section */
+        #booking {
+            padding: 100px 0;
+            background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+        }
+
+        /* Footer (đã cải tiến: bỏ gạch chân mặc định, hover mượt hơn) */
         footer {
-            background: #020617; color: #f1f5f9; padding-top: 80px;
-            font-size: 0.95rem; font-weight: 300;
+            background: var(--gradient-brand); 
+            color: #fff; 
+            padding: 60px 0 20px;
+            position: relative; 
+            overflow: hidden;
         }
-        .footer-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 1.4rem; letter-spacing: -0.5px; }
-        .footer-title {
-            color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 25px;
-            position: relative; padding-bottom: 12px; letter-spacing: 0.5px;
+        footer::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 5px;
+            background: linear-gradient(90deg, #ffd166, #00b3b3);
         }
-        .footer-title::after {
-            content: ''; position: absolute; bottom: 0; left: 0; 
-            width: 40px; height: 3px; background: var(--orange); border-radius: 2px;
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            color: #ffd166; 
+            font-size: 1.2rem; 
+            margin-bottom: 25px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            position: relative; 
+            padding-bottom: 10px;
+        }
+        .footer-col h4::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 40px; 
+            height: 3px; 
+            background: #fff;
         }
         .footer-links a {
-            display: block; color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 12px; transition: 0.3s; text-decoration: none;
+            color: #e3f2fd; 
+            display: block; 
+            margin-bottom: 12px; 
+            font-size: 0.95rem;
+            text-decoration: none;               /* Bỏ gạch chân mặc định */
+            transition: all 0.3s ease;          /* Hover mượt */
+            position: relative;
         }
         .footer-links a:hover {
-            color: var(--orange); padding-left: 8px; text-shadow: 0 0 10px rgba(249, 161, 27, 0.4);
+            color: #ffd166;
+            padding-left: 8px;                  /* Dịch sang phải nhẹ */
+            transform: translateX(5px);         /* Hiệu ứng dịch chuyển */
         }
-        .social-circle {
-            width: 42px; height: 42px; border-radius: 50%;
-            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
-            display: inline-flex; justify-content: center; align-items: center;
-            color: #fff; margin-right: 12px; transition: 0.3s;
+        .footer-links a::after {
+            content: ''; 
+            position: absolute; 
+            width: 0; 
+            height: 2px; 
+            bottom: -4px; 
+            left: 0;
+            background: #ffd166; 
+            transition: width 0.3s ease;
         }
-        .social-circle:hover { background: var(--orange); border-color: var(--orange); transform: translateY(-5px); }
-        .newsletter-input {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
-            color: #fff; padding: 12px; border-radius: 8px 0 0 8px;
+        .footer-links a:hover::after {
+            width: 100%;                        /* Gạch chân hiện dần khi hover */
         }
-        .btn-newsletter { border-radius: 0 8px 8px 0; background: var(--orange); color: white; border: none; padding: 0 20px; transition: 0.3s; }
-        .contact-list li { margin-bottom: 15px; color: rgba(255,255,255,0.8); display: flex; align-items: start; }
-        .contact-list i { color: var(--orange); margin-right: 15px; margin-top: 5px; }
+        .footer-contact p {
+            color: #e3f2fd; 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px;
+        }
+        .copyright {
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            padding-top: 20px;
+            font-size: 0.9rem; 
+            opacity: 0.8;
+        }
 
-        /* Responsive */
         @media (max-width: 991px) {
             .hero-title { font-size: 2.5rem; }
             .major-card { height: auto; }
             .major-card:hover .major-content { transform: none; }
             .major-details { opacity: 1; transform: none; display: block; }
-            .holland-circle { width: 100px; height: 100px; font-size: 0.8rem; margin-bottom: 20px; }
-            .holland-icon { font-size: 1.5rem; }
         }
     </style>
 </head>
 
 <body>
 
-    <div id="loader">
-        <i class="fas fa-compass loader-icon"></i>
-<img src="../images/LOGO.jpg"
-     alt="Logo Huy Hoang"
-     class="mt-3"
-     style="height:40px; letter-spacing:2px;">       
-      <p class="text-muted small">Định hướng tương lai...</p>
-    </div>
+  
 
-    <div class="top-header d-none d-lg-block">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div>
-                <span><i class="fas fa-map-marker-alt me-2 text-warning"></i> 6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, HN</span>
-                <span class="mx-3 text-secondary">|</span>
-                <span><i class="fas fa-phone-alt me-2 text-warning"></i> 0989.723.000</span>
-            </div>
-            <div>
-                <a href="#"><i class="fas fa-book me-1"></i> Cẩm nang chọn ngành</a>
-                <a href="#"><i class="fas fa-users me-1"></i> Cộng đồng du học sinh</a>
-            </div>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <img src="../images/LOGO.jpg"
-         alt="Huy Hoang Education"
-         style="
-            height:68px;
-            width:68px;
-            border-radius:70%;
-            object-fit:cover;
-         ">
-</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo-box"><img src="../images/LOGO.jpg" alt="Logo"></div>
+                <div class="d-flex flex-column text-start">
+                    <span class="brand-title">DU HỌC HUY HOÀNG</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarMain">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Chương trình</a>
-                        <ul class="dropdown-menu border-0 shadow-lg p-3 rounded-3 mt-2">
-                            <li><a class="dropdown-item py-2 rounded" href="scholarship1+4.html">Hệ 1+4</a></li>
-                            <li><a class="dropdown-item py-2 rounded" href="Taiwan full scholarship.html">Học bổng Toàn phần</a></li>
-                            <li><a class="dropdown-item py-2 rounded" href="work-study scholarship.html">Hệ Vừa học vừa làm</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="study abroad consulting.html">Tư vấn Du học</a></li>
-                    <li class="nav-item"><a class="nav-link active text-primary" href="#">Chọn Ngành HOT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="scholarship1+4.html">Học bổng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work-study scholarship.html">Hệ VHVL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news-events.html">Tin tức</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a href="#test" class="btn-consult">Trắc Nghiệm Nghề</a>
+                        <a href="contact.html" class="btn btn-header-cta">Liên Hệ</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="hero-career">
         <div class="hero-overlay"></div>
         
-        <div class="float-icon icon-chip d-none d-md-flex"><i class="fas fa-microchip"></i></div>
-        <div class="float-icon icon-chart d-none d-md-flex"><i class="fas fa-chart-line"></i></div>
-        <div class="float-icon icon-global d-none d-md-flex"><i class="fas fa-globe-asia"></i></div>
+        <div class="float-icon icon-chip"><i class="fas fa-microchip"></i></div>
+        <div class="float-icon icon-chart"><i class="fas fa-chart-line"></i></div>
+        <div class="float-icon icon-global"><i class="fas fa-globe-asia"></i></div>
 
         <div class="container position-relative z-2">
             <div class="row">
@@ -326,6 +361,7 @@
         </div>
     </section>
 
+    <!-- Reality Section -->
     <section class="reality-section">
         <div class="container">
             <div class="row align-items-center">
@@ -363,6 +399,7 @@
         </div>
     </section>
 
+    <!-- Hot Majors -->
     <section id="hot-majors" class="majors-section">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -447,9 +484,8 @@
         </div>
     </section>
 
+    <!-- Holland Test -->
     <section id="test" class="career-test-section">
-        <div style="position: absolute; width: 400px; height: 400px; background: var(--teal); border-radius: 50%; top: -100px; right: -100px; opacity: 0.1; filter: blur(60px);"></div>
-        
         <div class="container position-relative z-2">
             <div class="text-center mb-5">
                 <h5 class="text-warning fw-bold text-uppercase">Trắc nghiệm nhanh</h5>
@@ -512,6 +548,7 @@
         </div>
     </section>
 
+    <!-- Salary Trend -->
     <section id="salary" class="trend-section">
         <div class="container">
             <div class="row align-items-center">
@@ -563,6 +600,7 @@
         </div>
     </section>
 
+    <!-- Booking -->
     <section id="booking" class="py-5" style="background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop') center/cover fixed;">
         <div class="container">
             <div class="row justify-content-center">
@@ -604,90 +642,54 @@
 
     <footer>
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-logo-text mb-3">HUY HOANG EDU</div>
-                    <p class="mb-4 text-white-50 small" style="line-height: 1.8;">
-                        Công ty tư vấn du học uy tín hàng đầu Việt Nam. Chúng tôi cam kết mang lại tương lai rạng ngời cho thế hệ trẻ thông qua con đường giáo dục quốc tế chất lượng cao.
-                    </p>
-                    <div class="d-flex mb-4">
-                        <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-circle"><i class="fab fa-tiktok"></i></a>
-                    </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Về Chúng Tôi</h4>
+                    <p class="text-white-50">Trung tâm Huy Hoàng cam kết mang đến cơ hội học tập tốt nhất tại Đài Loan cho sinh viên Việt Nam với chi phí hợp lý và hỗ trợ tận tâm.</p>
                 </div>
-
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="footer-title">Về Chúng Tôi</h5>
-                    <div class="footer-links">
-                        <a href="#">Câu chuyện thương hiệu</a>
-                        <a href="#">Đội ngũ chuyên gia</a>
-                        <a href="#">Đối tác chiến lược</a>
-                        <a href="#">Thư viện hình ảnh</a>
-                    </div>
+                <div class="footer-col footer-contact">
+                    <h4>Liên Hệ</h4>
+                    <p><i class="fas fa-map-marker-alt mt-1 text-warning"></i> Số 6B7 khu đô thị Mỹ Đình 1, Nam Từ Liêm, Hà Nội</p>
+                    <p><i class="fas fa-phone mt-1 text-warning"></i> 0989.723.000</p>
+                    <p><i class="fas fa-envelope mt-1 text-warning"></i> huyhoangvn.ht@gmail.com</p>
                 </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-title">Dịch Vụ</h5>
-                    <div class="footer-links">
-                        <a href="#">Săn học bổng toàn phần</a>
-                        <a href="#">Visa du học & Thăm thân</a>
-                        <a href="#">Đào tạo tiếng Trung</a>
-                        <a href="#">Vé máy bay & KTX</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-title">Liên Hệ</h5>
-                    <ul class="list-unstyled contact-list small">
-                        <li><i class="fas fa-map-marker-alt"></i> <span>Số 6B7 KĐT Mỹ Đình 1, Nam Từ Liêm, Hà Nội</span></li>
-                        <li><i class="fas fa-phone-alt"></i> <span>0989.723.000 (Zalo 24/7)</span></li>
-                        <li><i class="fas fa-envelope"></i> <span>huyhoangvn.ht@gmail.com</span></li>
-                    </ul>
-                    
-                    <div class="mt-4">
-                        <div class="input-group">
-                            <input type="email" class="form-control newsletter-input" placeholder="Email của bạn...">
-                            <button class="btn btn-newsletter"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </div>
+                <div class="footer-col footer-links">
+                    <h4>Liên Kết Nhanh</h4>
+                    <a href="../index.html">Trang Chủ</a>
+                    <a href="scholarship1+4.html">Hệ 1+4</a>
+                    <a href="Taiwan full scholarship.html">Học Bổng Toàn Phần</a>
+                    <a href="contact.html">Đăng Ký Tư Vấn</a>
                 </div>
             </div>
-        </div>
-        
-        <div class="text-center py-4 mt-5 border-top border-white border-opacity-10" style="background: rgba(0,0,0,0.2);">
-            <p class="mb-0 small text-white-50">© 2025 Huy Hoang Education. All rights reserved.</p>
+            <div class="copyright">
+                © 2026 Huy Hoang Education. All rights reserved.
+            </div>
         </div>
     </footer>
 
-    <a href="#" class="btn btn-warning position-fixed bottom-0 end-0 m-4 p-3 rounded-circle shadow-lg text-white" id="backToTop" style="display: none; z-index: 1000;"><i class="fas fa-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-warning position-fixed bottom-0 end-0 m-4 p-3 rounded-circle shadow-lg text-white" id="backToTop" style="display: none; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    
-    <script>
-        // Init
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
-            AOS.init({ duration: 800, once: true });
-        });
 
-        // Sticky Navbar
-        const navbar = document.querySelector('.navbar');
+    <script>
+        // AOS init
+        AOS.init({ duration: 800, once: true });
+
+        // Back to Top
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-                backToTop.style.display = 'block';
-            } else {
-                navbar.classList.remove('scrolled');
-                backToTop.style.display = 'none';
-            }
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Simple Holland Code Logic
+        // Holland Code Result
         function showResult(type) {
             const box = document.getElementById('testResult');
             const title = document.getElementById('resultTitle');
@@ -695,36 +697,58 @@
             const majors = document.getElementById('resultMajors');
             
             box.style.display = 'block';
-            box.classList.add('animate__animated', 'animate__fadeInUp');
 
-            if(type === 'R') {
-                title.innerText = "Bạn thuộc nhóm KỸ THUẬT (Realistic)";
-                desc.innerText = "Bạn thực tế, thích làm việc với máy móc, công cụ và các vật thể cụ thể.";
-                majors.innerText = "Công nghệ thông tin, Cơ khí, Điện tử, Kiến trúc, Xây dựng.";
-            } else if(type === 'I') {
-                title.innerText = "Bạn thuộc nhóm NGHIÊN CỨU (Investigative)";
-                desc.innerText = "Bạn thích quan sát, tìm tòi, phân tích và giải quyết các vấn đề.";
-                majors.innerText = "Khoa học máy tính, Y dược, Công nghệ sinh học, Kinh tế học.";
-            } else if(type === 'A') {
-                title.innerText = "Bạn thuộc nhóm NGHỆ THUẬT (Artistic)";
-                desc.innerText = "Bạn giàu trí tưởng tượng, sáng tạo và thích tự do.";
-                majors.innerText = "Thiết kế đồ họa, Truyền thông đa phương tiện, Kiến trúc, Ngôn ngữ.";
-            } else if(type === 'S') {
-                title.innerText = "Bạn thuộc nhóm XÃ HỘI (Social)";
-                desc.innerText = "Bạn thích làm việc với con người, giúp đỡ và truyền đạt thông tin.";
-                majors.innerText = "Sư phạm, Du lịch khách sạn, Tâm lý học, Điều dưỡng.";
-            } else if(type === 'E') {
-                title.innerText = "Bạn thuộc nhóm QUẢN LÝ (Enterprising)";
-                desc.innerText = "Bạn mạnh mẽ, thích lãnh đạo và thuyết phục người khác.";
-                majors.innerText = "Quản trị kinh doanh, Marketing, Thương mại quốc tế, Luật.";
-            } else if(type === 'C') {
-                title.innerText = "Bạn thuộc nhóm NGHIỆP VỤ (Conventional)";
-                desc.innerText = "Bạn thích sự ngăn nắp, làm việc với số liệu và quy trình rõ ràng.";
-                majors.innerText = "Kế toán, Tài chính ngân hàng, Thư viện, Quản trị văn phòng.";
+            let result = {};
+            switch(type) {
+                case 'R':
+                    result = {
+                        title: "Bạn thuộc nhóm KỸ THUẬT (Realistic)",
+                        desc: "Bạn thực tế, thích làm việc với máy móc, công cụ và các vật thể cụ thể.",
+                        majors: "Công nghệ thông tin, Cơ khí, Điện tử, Kiến trúc, Xây dựng."
+                    };
+                    break;
+                case 'I':
+                    result = {
+                        title: "Bạn thuộc nhóm NGHIÊN CỨU (Investigative)",
+                        desc: "Bạn thích quan sát, tìm tòi, phân tích và giải quyết các vấn đề.",
+                        majors: "Khoa học máy tính, Y dược, Công nghệ sinh học, Kinh tế học."
+                    };
+                    break;
+                case 'A':
+                    result = {
+                        title: "Bạn thuộc nhóm NGHỆ THUẬT (Artistic)",
+                        desc: "Bạn giàu trí tưởng tượng, sáng tạo và thích tự do.",
+                        majors: "Thiết kế đồ họa, Truyền thông đa phương tiện, Kiến trúc, Ngôn ngữ."
+                    };
+                    break;
+                case 'S':
+                    result = {
+                        title: "Bạn thuộc nhóm XÃ HỘI (Social)",
+                        desc: "Bạn thích làm việc với con người, giúp đỡ và truyền đạt thông tin.",
+                        majors: "Sư phạm, Du lịch khách sạn, Tâm lý học, Điều dưỡng."
+                    };
+                    break;
+                case 'E':
+                    result = {
+                        title: "Bạn thuộc nhóm QUẢN LÝ (Enterprising)",
+                        desc: "Bạn mạnh mẽ, thích lãnh đạo và thuyết phục người khác.",
+                        majors: "Quản trị kinh doanh, Marketing, Thương mại quốc tế, Luật."
+                    };
+                    break;
+                case 'C':
+                    result = {
+                        title: "Bạn thuộc nhóm NGHIỆP VỤ (Conventional)",
+                        desc: "Bạn thích sự ngăn nắp, làm việc với số liệu và quy trình rõ ràng.",
+                        majors: "Kế toán, Tài chính ngân hàng, Thư viện, Quản trị văn phòng."
+                    };
+                    break;
             }
-            
-            // Scroll to result
-            box.scrollIntoView({behavior: "smooth", block: "center"});
+
+            title.innerText = result.title;
+            desc.innerText = result.desc;
+            majors.innerText = result.majors;
+
+            box.scrollIntoView({ behavior: "smooth", block: "center" });
         }
     </script>
 </body>
