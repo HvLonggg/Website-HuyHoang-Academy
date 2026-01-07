@@ -1,675 +1,773 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Điều kiện & Quy trình Du học Đài Loan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tư vấn du học Đài Loan trọn gói - Huy Hoang Edu. Cam kết Visa, săn học bổng 100%, hỗ trợ việc làm.">
+    <title>Huy Hoang Edu | Giải Pháp Du Học Đài Loan Toàn Diện 2025</title>
 
-  <!-- Bootstrap & FontAwesome -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fdfdfd;
-    color: #333;
-    scroll-behavior: smooth;
-  }
+    <style>
+       
+        :root {
+            --primary: #006699;
+            --secondary: #00b3b3;
+            --accent: #f9a11b;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gradient-brand: linear-gradient(90deg, var(--primary), var(--secondary));
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 102, 153, 0.15);
+            --radius-card: 16px;
+            --radius-lg: 20px;
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.1);
+        }
 
-  /* Header */
-  header {
-    background: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b') center/cover fixed;
-    color: #fff;
-    padding: 120px 20px;
-    text-align: center;
-    position: relative;
-  }
-  header::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 87, 183, 0.65);
-  }
-  header .content {
-    position: relative;
-    z-index: 2;
-  }
-  header h1 {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  header p {
-    font-size: 1.2rem;
-  }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            color: #334155; 
+            overflow-x: hidden; 
+            background: #fff; 
+            line-height: 1.6; 
+        }
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700; 
+            color: var(--primary); 
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-  /* Tabs control */
-  .switch-tabs {
-    text-align: center;
-    margin: 50px 0 40px;
-  }
-  .switch-tabs button {
-    border: none;
-    background: #0057b7;
-    color: #fff;
-    padding: 14px 30px;
-    border-radius: 30px;
-    border: 2px solid transparent;
-    margin: 0 10px;
-    transition: all 0.4s ease;
-    font-weight: 500;
-    font-size: 1.05rem;
-  }
-  .switch-tabs button.active { 
-    background: #ff6600;
-    border-color: #ff6600;
-    transform: scale(1.08);
-  }
-  .switch-tabs button:hover {
-    background: #ff6600;
-    border-color: #ff6600;
-    transform: scale(1.08);
-  }
+        /* =========================================
+           HEADER & NAVIGATION (Đồng bộ với news-events.html)
+           ========================================= */
+        .top-bar { 
+            background-color: #004a75; 
+            color: #fff; 
+            padding: 8px 0; 
+            font-size: 0.85rem; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+        }
+        .top-bar a { 
+            color: rgba(255,255,255,0.9); 
+            margin-left: 15px; 
+            text-decoration: none;
+        }
+        .top-bar a:hover { color: var(--accent); }
 
-  /* Slide container */
-  .slide-container {
-    position: relative;
-    overflow: hidden;
-    min-height: 600px;
-  }
-  .slide-panel {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: all 0.8s ease;
-  }
-  .slide-panel.active {
-    left: 0;
-    opacity: 1;
-  }
+        .navbar {
+            background: var(--gradient-brand);
+            padding: 9px 0; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky; 
+            top: 0; 
+            z-index: 1050;
+        }
+        
+        .logo-box {
+            width: 50px; height: 50px; 
+            background: #fff; 
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            margin-right: 12px;
+        }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .brand-title { 
+            font-weight: 800; 
+            font-size: 1rem; 
+            color: #fff; 
+            display: block; 
+            position: relative; 
+            right: 45px; 
+            top: 5px;
+        }
 
-  /* Cards */
-  .condition-card {
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    height: 100%;
-    min-height: 420px; /* tăng chiều cao */
-  }
-  .condition-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
-  }
-  .condition-card img {
-    width: 100%;
-    height: 270px; /* ảnh cao hơn */
-    object-fit: cover;
-    filter: brightness(75%);
-    transition: transform 0.5s ease;
-  }
-  .condition-card:hover img {
-    transform: scale(1.08);
-  }
-  .condition-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.3));
-  }
-  .condition-body {
-    position: absolute;
-    bottom: 25px; left: 20px; right: 20px;
-    color: #fff;
-    z-index: 2;
-  }
-  .condition-body i {
-    font-size: 40px;
-    color: #ffcc00;
-    margin-bottom: 10px;
-  }
-  .condition-body h5 {
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-  .condition-body p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
+        .nav-link { 
+            color: rgba(255,255,255,0.9) !important; 
+            font-weight: 600; 
+            margin: 0 10px; 
+            font-size: 0.95rem; 
+            position: relative; 
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 5px; left: 0;
+            background-color: var(--accent); transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: #ffdd57 !important; }
 
-  /* Timeline */
-  .timeline-horizontal {
-    display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    overflow-x: auto;
-    padding: 20px 0;
-  }
-  .timeline-step {
-    flex: 1;
-    min-width: 260px; /* to hơn */
-    background: #fff;
-    border-radius: 14px;
-    padding: 35px 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .timeline-step:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
-  }
-  .timeline-step i {
-    font-size: 50px;
-    color: #0057b7;
-    margin-bottom: 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .timeline-step:hover i {
-    color: #ff6600;
-    transform: scale(1.1);
-  }
-  .timeline-step h6 {
-    font-weight: bold;
-    margin-bottom: 12px;
-    color: #ff6600;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-  }
-  .timeline-step:hover h6 {
-    color: #0057b7;
-  }
-  .timeline-step p {
-    font-size: 1rem;
-    line-height: 1.6;
-    transition: color 0.3s ease;
-  }
-  .timeline-step:hover p {
-    color: #333;
-  }
+        .btn-header-cta {
+            background: #fff; color: var(--primary) !important; padding: 10px 25px;
+            border-radius: 50px; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-header-cta:hover { 
+            background: var(--accent); 
+            color: #fff !important; 
+            transform: translateY(-2px); 
+        }
 
-  /* New Section: Work Conditions */
-  .work-section {
-    background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
-    padding: 60px 0;
-    margin-top: 60px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-  }
-  .work-section::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(0,87,183,0.2);
-    border-radius: 50%;
-    filter: blur(100px);
-  }
-  .work-section::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(255,102,0,0.2);
-    border-radius: 50%;
-    filter: blur(100px);
-  }
-  .work-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #0057b7;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-    animation: fadeInDown 1s ease;
-  }
-  .work-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-    height: 100%;
-  }
-  .work-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-  }
-  .work-card i {
-    font-size: 50px;
-    color: #ff6600;
-    margin-bottom: 20px;
-    display: block;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .work-card:hover i {
-    color: #0057b7;
-    transform: rotate(10deg) scale(1.1);
-  }
-  .work-card h5 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
-  }
-  .work-card:hover h5 {
-    color: #ff6600;
-  }
-  .work-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-    transition: color 0.3s ease;
-  }
-  .work-card:hover p {
-    color: #333;
-  }
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero-section {
+            position: relative; height: 85vh; min-height: 650px;
+            background: url('https://images.unsplash.com/photo-1496442226666-8d4a0e62e6e9?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            display: flex; align-items: center; overflow: hidden;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(0, 102, 153, 0.75) 100%);
+        }
+        
+        /* Shapes */
+        .shape { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.4; animation: float 8s infinite alternate; }
+        .shape-1 { width: 350px; height: 350px; background: var(--accent); top: -100px; left: -50px; }
+        .shape-2 { width: 400px; height: 400px; background: var(--secondary); bottom: -100px; right: -100px; animation-delay: 2s; }
+        @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 30px); } }
 
-  /* Footer */
-  footer {
-    background: linear-gradient(90deg, #006699, #00b3b3);
-    color: #ffffff;
-    padding: 60px 20px 40px;
-    margin-top: 80px;
-    position: relative;
-  }
-  footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ffd166, #00b3b3);
-  }
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    align-items: start;
-  }
-  .footer-content div {
-    padding: 0 15px;
-  }
-  .footer-content h4 {
-    margin-bottom: 20px;
-    color: #ffd166;
-    font-size: 1.3em;
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease;
-  }
-  .footer-content h4:hover {
-    color: #ffffff;
-  }
-  .footer-content h4::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, #ffd166, #ffffff);
-    border-radius: 2px;
-  }
-  .footer-content p,
-  .footer-content a {
-    color: #e3f2fd;
-    font-size: 1em;
-    line-height: 1.8;
-    margin-bottom: 10px;
-    display: block;
-    transition: all 0.3s ease;
-    text-decoration: none; 
-  }
-  .footer-content a:hover {
-    color: #ffd166;
-    transform: translateX(5px);
-  }
-  .quick-links {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .link-columns {
-    text-decoration: none;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .link-col {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .divider {
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 15px;
-  }
-  .footer-social {
-    margin-top: 20px;
-  }
-  .footer-social a {
-    margin: 0 12px;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-  }
-  .footer-social a:hover {
-    color: #ffd166;
-    transform: scale(1.2) rotate(15deg);
-  }
-  .footer-bottom {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    color: #e3f2fd;
-    font-size: 0.95em;
-    letter-spacing: 0.5px;
-    transition: transform 0.4s ease;
-  }
-  .footer-bottom:hover {
-    transform: translateY(-5px);
-  }
-  @media (max-width: 768px) {
-    .footer-content {
-      gap: 30px;
-      text-align: center;
-    }
-    .footer-content h4::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .link-columns {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-    .divider {
-      width: 100%;
-      height: 1px;
-      margin: 10px 0;
-    }
-  }
+        .hero-content { position: relative; z-index: 2; color: #fff; }
+        .hero-title { font-size: 3.2rem; line-height: 1.2; font-weight: 800; margin-bottom: 20px; }
+        .hero-title span { color: var(--accent); }
+        
+        .hero-form {
+            background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+        .form-control-glass {
+            background: rgba(255,255,255,0.9); border: none; padding: 12px 20px; border-radius: 10px; font-size: 0.9rem;
+        }
 
-  /* Nút Quay lại ban đầu */
-  .btn-back {
-    position: fixed;
-    top: 30px;
-    left: 20px;
-    display: inline-flex;
-    align-items: center;
-    max-width: fit-content;
-    padding: 8px 14px;
-    font-size: 1em;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.6);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    user-select: none;
-    white-space: nowrap;
-    opacity: 1;
-  }
-  .btn-back.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-  }
-  .btn-back i {
-    margin-right: 8px;
-    font-size: 1.1em;
-  }
-  .btn-back:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    color: #fff;
-  }
-</style>
+        /* =========================================
+           4. SECTIONS (General)
+           ========================================= */
+        .problem-solution { background: #fff; padding: 90px 0; }
+        .comparison-card {
+            border: 1px solid #e2e8f0; border-radius: var(--radius-lg); overflow: hidden;
+            display: flex; transition: 0.3s; height: 100%; box-shadow: var(--shadow-card);
+        }
+        .comparison-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .comp-side { padding: 40px 30px; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .comp-bad { background: #fff1f2; color: #e11d48; border-right: 1px dashed #cbd5e1; }
+        .comp-good { background: #f0fdf4; color: #16a34a; }
+        .comp-icon { font-size: 2.2rem; margin-bottom: 15px; }
 
+        /* Pricing */
+        .pricing-section { background: var(--light); padding: 100px 0; }
+        .price-card {
+            background: #fff; border-radius: var(--radius-lg); padding: 40px;
+            position: relative; transition: 0.3s; border: 1px solid #f1f5f9;
+            height: 100%; display: flex; flex-direction: column;
+            box-shadow: var(--shadow-card);
+        }
+        .price-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.1); transform: translateY(-8px); }
+        .price-card.popular { border: 2px solid var(--accent); transform: scale(1.05); z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .price-card.popular:hover { transform: scale(1.07); }
+        .badge-popular {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: #fff; padding: 6px 20px;
+            border-radius: 20px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;
+        }
+        .price-amount { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
+        .btn-price { width: 100%; margin-top: auto; border-radius: 10px; padding: 12px; font-weight: 700; }
+
+        /* Calculator */
+        .calculator-section {
+            background: var(--dark); color: #fff; padding: 100px 0; position: relative; overflow: hidden;
+        }
+        .calc-wrapper {
+            background: #fff; color: #333; border-radius: var(--radius-lg); padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+        .calc-result {
+            background: var(--teal-light); padding: 30px; border-radius: var(--radius-md);
+            text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;
+        }
+        .total-amount { font-size: 2.8rem; font-weight: 800; color: var(--accent); line-height: 1; margin: 15px 0; }
+
+        /* Timeline */
+        .ecosystem-section { padding: 100px 0; background: #f8fafc; }
+        .timeline-steps { position: relative; display: flex; justify-content: space-between; margin-top: 60px; }
+        .timeline-steps::before {
+            content: ''; position: absolute; top: 30px; left: 0; width: 100%; height: 3px;
+            background: #e2e8f0; z-index: -1;
+        }
+        .step-node { text-align: center; width: 18%; position: relative; }
+        .step-icon {
+            width: 64px; height: 64px; background: #fff; border: 3px solid #cbd5e1;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 1.5rem; color: #cbd5e1; transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .step-node.active .step-icon { border-color: var(--accent); color: #fff; background: var(--accent); transform: scale(1.15); box-shadow: 0 0 20px rgba(249, 161, 27, 0.4); }
+        .step-node.active h6 { color: var(--primary); font-weight: 800; }
+
+        /* Testimonials */
+        .testimonial-section { background: #f8fafc; padding: 90px 0; }
+        .testi-card {
+            background: #fff; padding: 40px 30px; border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card); height: 100%; border: 1px solid #f1f5f9;
+        }
+        .testi-user img { width: 55px; height: 55px; border-radius: 50%; margin-right: 15px; object-fit: cover; border: 2px solid var(--accent); }
+        .quote-icon { font-size: 2.5rem; color: var(--secondary); opacity: 0.15; position: absolute; top: 25px; right: 25px; }
+
+        /* Register */
+        #register {
+            padding: 100px 0;
+            background: var(--gradient-brand);
+        }
+
+        /* Footer (cải tiến hoàn thiện) */
+        footer {
+            background: var(--gradient-brand); 
+            color: #fff; 
+            padding: 60px 0 20px;
+            position: relative; 
+            overflow: hidden;
+        }
+        footer::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 5px;
+            background: linear-gradient(90deg, #ffd166, #00b3b3);
+        }
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            color: #ffd166; 
+            font-size: 1.2rem; 
+            margin-bottom: 25px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            position: relative; 
+            padding-bottom: 10px;
+        }
+        .footer-col h4::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 40px; 
+            height: 3px; 
+            background: #fff;
+        }
+        .footer-links a {
+            color: #e3f2fd; 
+            display: block; 
+            margin-bottom: 12px; 
+            font-size: 0.95rem;
+            text-decoration: none;               /* Bỏ gạch chân mặc định */
+            transition: all 0.3s ease;          /* Hover mượt */
+            position: relative;
+        }
+        .footer-links a:hover {
+            color: #ffd166;
+            padding-left: 8px;                  /* Dịch sang phải nhẹ */
+            transform: translateX(5px);         /* Hiệu ứng dịch chuyển */
+        }
+        .footer-links a::after {
+            content: ''; 
+            position: absolute; 
+            width: 0; 
+            height: 2px; 
+            bottom: -4px; 
+            left: 0;
+            background: #ffd166; 
+            transition: width 0.3s ease;
+        }
+        .footer-links a:hover::after {
+            width: 100%;                        /* Gạch chân hiện dần khi hover */
+        }
+        .footer-contact p {
+            color: #e3f2fd; 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px;
+        }
+        .copyright {
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            padding-top: 20px;
+            font-size: 0.9rem; 
+            opacity: 0.8;
+        }
+
+        @media (max-width: 991px) {
+            .hero-title { font-size: 2.5rem; }
+            .price-card.popular { transform: none; margin: 30px 0; }
+            .timeline-steps { flex-direction: column; }
+            .timeline-steps::before { width: 4px; height: 100%; left: 32px; top: 0; }
+            .step-node { width: 100%; display: flex; align-items: center; margin-bottom: 40px; text-align: left; }
+            .step-icon { margin: 0 20px 0 0; }
+        }
+    </style>
 </head>
+
 <body>
 
- <!-- Nút Quay lại -->
-  <a href="../index.html" class="btn-back" title="Quay lại">
-    <span class="icon-circle">
-      <i class="fas fa-arrow-left"></i>
-    </span>
-    <span class="text">Trang chủ</span>
-  </a>
 
-  <script>
-    let lastScrollTop = 0;
-    const btnBack = document.querySelector('.btn-back');
-
-    window.addEventListener('scroll', () => {
-      let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
-        // Cuộn xuống -> Ẩn nút
-        btnBack.classList.add('hidden');
-      } else {
-        // Cuộn lên -> Hiện nút
-        btnBack.classList.remove('hidden');
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // tránh giá trị âm
-    });
-  </script>
-
-  <!-- Header -->
-  <header>
-    <div class="content">
-      <h1><i class="fa-solid fa-graduation-cap"></i> Điều kiện & Quy trình Du học Đài Loan</h1>
-      <p>Khám phá các yêu cầu cơ bản và lộ trình chuẩn bị hành trang du học Đài Loan cùng Huy Hoàng Edu</p>
-    </div>
-  </header>
-
-  <!-- Tabs -->
-  <div class="switch-tabs">
-    <button id="btn-conditions" class="active">Điều kiện cần thiết</button>
-    <button id="btn-timeline">Quy trình chuẩn bị</button>
-  </div>
-
-  <!-- Slide Panels -->
-  <div class="container slide-container">
-
-    <!-- Conditions -->
-    <div class="slide-panel active" id="panel-conditions">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="condition-card">
-            <img src="https://images.unsplash.com/photo-1581090700227-4c4dcd3467d3" alt="">
-            <div class="condition-overlay"></div>
-            <div class="condition-body">
-              <i class="fa-solid fa-school"></i>
-              <h5>Trình độ học vấn</h5>
-              <p>Ứng viên cần tốt nghiệp THPT trở lên. Một số chương trình yêu cầu thêm bằng cao đẳng/đại học cùng bảng điểm chính thức.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo-box"><img src="../images/LOGO.jpg" alt="Logo"></div>
+                <div class="d-flex flex-column text-start">
+                    <span class="brand-title">DU HỌC HUY HOÀNG</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="scholarship1+4.html">Học bổng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work-study scholarship.html">Hệ VHVL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news-events.html">Tin tức</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="contact.html" class="btn btn-header-cta">Liên Hệ</a>
+                    </li>
+                </ul>
             </div>
-          </div>
         </div>
-        <div class="col-md-4">
-          <div class="condition-card">
-            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="">
-            <div class="condition-overlay"></div>
-            <div class="condition-body">
-              <i class="fa-solid fa-language"></i>
-              <h5>Ngoại ngữ</h5>
-              <p>Cần chứng chỉ IELTS, TOEFL hoặc TOCFL theo yêu cầu. Trình độ ngoại ngữ tốt giúp sinh viên dễ hòa nhập và tiếp thu kiến thức.</p>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <h1 class="hero-title">Du Học Đài Loan 2025 <br> <span class="text-warning">Cam Kết Thành Công 100%</span></h1>
+                    <p class="lead text-light opacity-75 mb-4">Tư vấn trọn gói: Săn học bổng, Visa, Việc làm thêm. Hỗ trợ từ A - Z bởi chuyên gia 10+ năm kinh nghiệm.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#pricing" class="btn btn-warning btn-lg rounded-pill fw-bold px-5 shadow">Báo Giá Dịch Vụ</a>
+                        <a href="#calculator" class="btn btn-outline-light btn-lg rounded-pill fw-bold px-4">Tính Chi Phí</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-form">
+                        <h4 class="text-primary fw-bold mb-4">Đăng Ký Tư Vấn Miễn Phí</h4>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control-glass" placeholder="Họ và tên">
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control-glass" placeholder="Số điện thoại">
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-control-glass">
+                                    <option>Chọn chương trình</option>
+                                    <option>Hệ Ngôn Ngữ</option>
+                                    <option>Hệ Đại Học</option>
+                                    <option>Hệ Vừa Học Vừa Làm</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow-sm">GỬI YÊU CẦU</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-md-4">
-          <div class="condition-card">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216" alt="">
-            <div class="condition-overlay"></div>
-            <div class="condition-body">
-              <i class="fa-solid fa-file-circle-check"></i>
-              <h5>Hồ sơ & giấy tờ</h5>
-              <p>Hộ chiếu còn hạn, học bạ, giấy khám sức khỏe, lý lịch tư pháp, thư giới thiệu, cùng đơn nhập học từ trường Đài Loan.</p>
+    </section>
+
+    <!-- Problem-Solution -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold text-uppercase small">Tại Sao Chọn Huy Hoàng Edu?</span>
+                <h2 class="fw-bold display-6">Vấn Đề Bạn Gặp Phải <br> <span class="text-primary">Chúng Tôi Giải Quyết</span></h2>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Timeline -->
-    <div class="slide-panel" id="panel-timeline">
-      <div class="timeline-horizontal">
-        <div class="timeline-step">
-          <i class="fa-solid fa-folder-open"></i>
-          <h6>Bước 1: Chuẩn bị hồ sơ</h6>
-          <p>Thu thập bằng cấp, bảng điểm, hộ chiếu, và các giấy tờ cần thiết khác theo hướng dẫn của trường.</p>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="comparison-card">
+                        <div class="comp-side comp-bad">
+                            <i class="fas fa-times-circle comp-icon fs-1 mb-3"></i>
+                            <h5 class="fw-bold mb-3">Du Học Tự Túc</h5>
+                            <p class="text-muted small">Hồ sơ lộn xộn, Visa bị từ chối nhiều lần, chi phí cao, lạc lõng khi sang.</p>
+                        </div>
+                        <div class="comp-side comp-good">
+                            <i class="fas fa-check-circle comp-icon fs-1 mb-3"></i>
+                            <h5 class="fw-bold mb-3">Với Huy Hoàng Edu</h5>
+                            <p class="text-muted small">Cam kết Visa, học bổng lên tới 100%, hỗ trợ việc làm, cộng đồng alumni mạnh mẽ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="comparison-card">
+                        <div class="comp-side comp-bad">
+                            <i class="fas fa-times-circle comp-icon fs-1 mb-3"></i>
+                            <h5 class="fw-bold mb-3">Tư Vấn Phổ Thông</h5>
+                            <p class="text-muted small">Thông tin chung chung, thiếu cập nhật, không hỗ trợ sau du học.</p>
+                        </div>
+                        <div class="comp-side comp-good">
+                            <i class="fas fa-check-circle comp-icon fs-1 mb-3"></i>
+                            <h5 class="fw-bold mb-3">Với Huy Hoàng Edu</h5>
+                            <p class="text-muted small">Cập nhật chính sách mới nhất, lộ trình cá nhân hóa, hỗ trợ trọn đời.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="timeline-step">
-          <i class="fa-solid fa-piggy-bank"></i>
-          <h6>Bước 2: Chứng minh tài chính</h6>
-          <p>Chứng minh khả năng tài chính bằng sổ tiết kiệm, bảo lãnh ngân hàng hoặc giấy chứng nhận thu nhập.</p>
-        </div>
-        <div class="timeline-step">
-          <i class="fa-solid fa-laptop"></i>
-          <h6>Bước 3: Nộp đơn trực tuyến</h6>
-          <p>Đăng ký học trực tuyến tại website trường Đài Loan. Điền đầy đủ thông tin và upload hồ sơ.</p>
-        </div>
-        <div class="timeline-step">
-          <i class="fa-solid fa-passport"></i>
-          <h6>Bước 4: Xin visa</h6>
-          <p>Liên hệ Văn phòng Kinh tế & Văn hóa Đài Bắc tại Việt Nam để làm thủ tục xin visa du học.</p>
-        </div>
-        <div class="timeline-step">
-          <i class="fa-solid fa-plane-departure"></i>
-          <h6>Bước 5: Nhập học</h6>
-          <p>Lên đường sang Đài Loan, tham dự buổi định hướng, làm quen với môi trường học tập & sinh hoạt mới.</p>
-        </div>
-      </div>
-    </div>
+    </section>
 
-  </div>
+    <!-- Pricing -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold text-uppercase small">Gói Dịch Vụ Linh Hoạt</span>
+                <h2 class="fw-bold display-6">Chọn Gói Tư Vấn Phù Hợp Với Bạn</h2>
+                <p class="text-muted">Chúng tôi cam kết hoàn tiền nếu không đạt kết quả.</p>
+            </div>
 
-  <!-- New Section: Work Conditions -->
-  <section class="work-section">
-    <div class="container">
-      <h2><i class="fa-solid fa-briefcase me-2"></i>Điều kiện & Quy trình đi làm tại Đài Loan</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="work-card">
-            <i class="fa-solid fa-certificate"></i>
-            <h5>Điều kiện cơ bản</h5>
-            <p>Ứng viên cần có bằng cấp chuyên môn, chứng chỉ ngoại ngữ TOCFL cấp 2 trở lên, và sức khỏe tốt. Kinh nghiệm làm việc là lợi thế lớn.</p>
-          </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="price-card">
+                        <h4 class="fw-bold text-primary mb-3">Gói Cơ Bản</h4>
+                        <p class="text-muted small mb-4">Phù hợp cho học sinh có hồ sơ sẵn.</p>
+                        <div class="price-amount mb-4">15.000.000 VNĐ</div>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tư vấn chương trình học</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Xử lý hồ sơ Visa</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Hỗ trợ nhập cảnh</li>
+                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Săn học bổng</li>
+                            <li><i class="fas fa-times text-danger me-2"></i> Hỗ trợ việc làm</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline-primary btn-price">Chọn Gói</a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="price-card popular">
+                        <span class="badge-popular">PHỔ BIẾN NHẤT</span>
+                        <h4 class="fw-bold text-primary mb-3">Gói Chuẩn</h4>
+                        <p class="text-muted small mb-4">Lựa chọn tối ưu cho hầu hết học sinh.</p>
+                        <div class="price-amount mb-4">25.000.000 VNĐ</div>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tư vấn chương trình học</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Xử lý hồ sơ Visa</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Hỗ trợ nhập cảnh</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Săn học bổng trường</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Giới thiệu việc làm thêm</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-warning btn-price">Chọn Gói</a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="price-card">
+                        <h4 class="fw-bold text-primary mb-3">Gói VIP</h4>
+                        <p class="text-muted small mb-4">Dành cho học sinh muốn tối ưu hóa mọi thứ.</p>
+                        <div class="price-amount mb-4">40.000.000 VNĐ</div>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tư vấn 1:1 VIP</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Xử lý hồ sơ Visa nhanh</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Đón sân bay + KTX</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Săn học bổng toàn phần</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Hỗ trợ việc làm sau tốt nghiệp</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline-primary btn-price">Chọn Gói</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="work-card">
-            <i class="fa-solid fa-file-contract"></i>
-            <h5>Hồ sơ xin việc</h5>
-            <p>Chuẩn bị CV, thư xin việc, giấy tờ cá nhân, và thư giới thiệu. Hầu hết công việc yêu cầu phỏng vấn trực tiếp hoặc online.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-card">
-            <i class="fa-solid fa-handshake"></i>
-            <h5>Quy trình tuyển dụng</h5>
-            <p>Nộp đơn qua các nền tảng việc làm, phỏng vấn, kiểm tra kỹ năng, và ký hợp đồng. Thời gian xử lý visa làm việc khoảng 1-2 tháng.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-card">
-            <i class="fa-solid fa-money-check"></i>
-            <h5>Mức lương & Lợi ích</h5>
-            <p>Lương khởi điểm từ 25.000-35.000 TWD/tháng, tùy ngành nghề. Bao gồm bảo hiểm, nghỉ phép, và hỗ trợ nhà ở cho lao động nước ngoài.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-card">
-            <i class="fa-solid fa-globe-asia"></i>
-            <h5>Ngành nghề phổ biến</h5>
-            <p>CNTT, sản xuất, dịch vụ khách hàng, và chăm sóc sức khỏe là các lĩnh vực có nhu cầu cao đối với lao động Việt Nam.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-card">
-            <i class="fa-solid fa-exclamation-triangle"></i>
-            <h5>Lưu ý quan trọng</h5>
-            <p>Tuân thủ luật lao động Đài Loan, tránh làm việc chui. Cập nhật thông tin từ Bộ Lao động Đài Loan và Đại sứ quán Việt Nam.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div>
-        <h4>Về chúng tôi</h4>
-        <p>Trung tâm Huy Hoàng cam kết mang đến cho sinh viên Việt Nam cơ hội học tập tại những trường hàng đầu Đài Loan, mở rộng tri thức và tầm nhìn quốc tế.</p>
-      </div>
-      <div class="contact">
-        <h4>Liên hệ</h4>
-        <p><a href="https://www.google.com/maps?q=Số+6B7+khu+đô+thị+Mỹ+Đình+1,+Từ+Liêm,+Hà+Nội" target="_blank"><i class="fas fa-map-marker-alt me-2"></i>Số 6B7 khu đô thị Mỹ Đình 1, Từ Liêm, Hà Nội</a></p>
-        <p><a href="tel:0989723000"><i class="fas fa-phone me-2"></i>0989723000</a></p>
-        <p><a href="mailto:huyhoangvn.ht@gmail.com"><i class="fas fa-envelope me-2"></i>huyhoangvn.ht@gmail.com</a></p>
-      </div>
-      <div class="quick-links">
-        <h4>Liên kết nhanh</h4>
-        <div class="link-columns">
-          <div class="link-col">
-            <a href="../index.html">Trang chủ</a>
-            <a href="about_us.html">Giới thiệu</a>
-          </div>
-          <div class="divider"></div>
-          <div class="link-col">
-            <a href="Affiliate_Partner.html">Đối tác</a>
-            <a href="contact.html">Liên hệ</a>
-          </div>
+    <!-- Calculator -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h5 class="text-warning fw-bold text-uppercase small">Công cụ thông minh</h5>
+                    <h2 class="fw-bold display-6 text-white mb-4">Ước Tính Chi Phí Du Học Đài Loan</h2>
+                    <p class="text-white-50 mb-4">Nhập thông tin để tính toán chi phí 1 năm đầu tiên (học phí, ăn ở, sinh hoạt). Kết quả chỉ mang tính tham khảo.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <select class="form-control bg-light p-3 border-0 rounded-3" id="programSelect">
+                                    <option value="0">Chọn chương trình</option>
+                                    <option value="he_ngon_ngu">Hệ Ngôn ngữ</option>
+                                    <option value="he_dai_hoc">Hệ Đại học</option>
+                                    <option value="he_vhvl">Hệ Vừa học vừa làm</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-control bg-light p-3 border-0 rounded-3" id="citySelect">
+                                    <option value="0">Chọn khu vực</option>
+                                    <option value="bac">Đài Bắc (Bắc)</option>
+                                    <option value="nam">Cao Hùng (Nam)</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-control bg-light p-3 border-0 rounded-3" id="houseSelect">
+                                    <option value="0">Chọn loại nhà ở</option>
+                                    <option value="ktx">Ký túc xá</option>
+                                    <option value="thue_ngoai">Thuê ngoài</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary w-100 py-3 fw-bold mt-2 shadow-sm" onclick="calculateCost()">TÍNH TOÁN NGAY</button>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-5" data-aos="fade-left">
+                        <div class="calc-result">
+                            <h5 class="text-secondary fw-bold text-uppercase small">Tổng chi phí ước tính (1 năm)</h5>
+                            <div class="total-amount" id="resultDisplay">0 VNĐ</div>
+                            <div class="w-100 bg-white p-3 rounded-3 mt-3 shadow-sm">
+                                <ul class="list-unstyled text-start small mb-0 text-muted">
+                                    <li class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Học phí:</span> <strong id="tuitionCost" class="text-dark">0</strong></li>
+                                    <li class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Nhà ở:</span> <strong id="housingCost" class="text-dark">0</strong></li>
+                                    <li class="d-flex justify-content-between"><span>Sinh hoạt:</span> <strong id="livingCost" class="text-dark">0</strong></li>
+                                </ul>
+                            </div>
+                            <p class="fst-italic text-danger small mt-3 mb-0">* Chưa bao gồm học bổng và thu nhập làm thêm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 Huy Hoàng Edu | All Rights Reserved
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    const btnConditions = document.getElementById('btn-conditions');
-    const btnTimeline = document.getElementById('btn-timeline');
-    const panelConditions = document.getElementById('panel-conditions');
-    const panelTimeline = document.getElementById('panel-timeline');
+    <!-- Ecosystem -->
+    <section class="ecosystem-section container my-5 py-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold">Lộ Trình Du Học 5 Sao</h2>
+            <p class="text-muted">Đồng hành cùng bạn trên mọi chặng đường</p>
+        </div>
 
-    btnConditions.addEventListener('click', () => {
-      btnConditions.classList.add('active');
-      btnTimeline.classList.remove('active');
-      panelConditions.classList.add('active');
-      panelTimeline.classList.remove('active');
-    });
+        <div class="timeline-steps" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-node active">
+                <div class="step-icon"><i class="fas fa-file-contract"></i></div>
+                <h6 class="mt-3">Giai đoạn 1</h6>
+                <p class="small text-muted">Ký HĐ & Xử lý hồ sơ</p>
+            </div>
+            <div class="step-node active">
+                <div class="step-icon"><i class="fas fa-book-reader"></i></div>
+                <h6 class="mt-3">Giai đoạn 2</h6>
+                <p class="small text-muted">Học tiếng & Phỏng vấn</p>
+            </div>
+            <div class="step-node">
+                <div class="step-icon"><i class="fas fa-plane-departure"></i></div>
+                <h6 class="mt-3">Giai đoạn 3</h6>
+                <p class="small text-muted">Visa & Xuất cảnh</p>
+            </div>
+            <div class="step-node">
+                <div class="step-icon"><i class="fas fa-university"></i></div>
+                <h6 class="mt-3">Giai đoạn 4</h6>
+                <p class="small text-muted">Nhập học & Ổn định</p>
+            </div>
+            <div class="step-node">
+                <div class="step-icon"><i class="fas fa-briefcase"></i></div>
+                <h6 class="mt-3">Giai đoạn 5</h6>
+                <p class="small text-muted">Việc làm & Định cư</p>
+            </div>
+        </div>
+    </section>
 
-    btnTimeline.addEventListener('click', () => {
-      btnTimeline.classList.add('active');
-      btnConditions.classList.remove('active');
-      panelTimeline.classList.add('active');
-      panelConditions.classList.remove('active');
-    });
-  </script>
+    <!-- Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase small">Người thật việc thật</span>
+                <h2 class="fw-bold">Học Viên Nói Gì?</h2>
+            </div>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <div class="testi-user d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student">
+                                <div>
+                                    <h6 class="fw-bold mb-0 text-primary">Nguyễn Thu Hà</h6>
+                                    <small class="text-muted">ĐH Quốc gia Đài Loan (NTU)</small>
+                                </div>
+                            </div>
+                            <p class="text-secondary fst-italic small">"Em từng trượt Visa ở trung tâm khác. Huy Hoàng Edu đã giúp em làm lại hồ sơ, luyện phỏng vấn kỹ càng. Kết quả em đậu Visa thẳng và có học bổng 100%."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <div class="testi-user d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student">
+                                <div>
+                                    <h6 class="fw-bold mb-0 text-primary">Trần Văn Nam</h6>
+                                    <small class="text-muted">Hệ Vừa học vừa làm</small>
+                                </div>
+                            </div>
+                            <p class="text-secondary fst-italic small">"Chương trình VHVL rất hợp với em. Sang đây nhà trường bố trí việc ngay, lương khoảng 20 triệu, đủ chi trả sinh hoạt và gửi về nhà."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <div class="testi-user d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student">
+                                <div>
+                                    <h6 class="fw-bold mb-0 text-primary">Lê Bảo Ngọc</h6>
+                                    <small class="text-muted">ĐH Sư phạm Đài Loan</small>
+                                </div>
+                            </div>
+                            <p class="text-secondary fst-italic small">"Các anh chị hỗ trợ rất nhiệt tình, ngay cả khi em đã sang Đài. Từ việc đổi sim, tìm nhà đều được giúp đỡ."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register -->
+    <section id="register" class="py-5 bg-primary position-relative overflow-hidden">
+        <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        <div class="container position-relative z-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white p-5 rounded-4 shadow-lg text-center" data-aos="zoom-in">
+                        <h2 class="fw-bold text-primary mb-3">Đăng Ký Tư Vấn 1:1</h2>
+                        <p class="text-muted mb-4">Để lại thông tin, chúng tôi sẽ xây dựng lộ trình du học tối ưu nhất cho riêng bạn.</p>
+
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control bg-light p-3 border-0 rounded-3" placeholder="Họ và tên">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control bg-light p-3 border-0 rounded-3" placeholder="Số điện thoại">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control bg-light p-3 border-0 rounded-3" rows="3" placeholder="Nội dung cần tư vấn..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn btn-warning w-100 py-3 fw-bold rounded-3 fs-5 shadow-sm">GỬI ĐĂNG KÝ NGAY</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Về Chúng Tôi</h4>
+                    <p class="text-white-50">Trung tâm Huy Hoàng cam kết mang đến cơ hội học tập tốt nhất tại Đài Loan cho sinh viên Việt Nam với chi phí hợp lý và hỗ trợ tận tâm.</p>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Liên Hệ</h4>
+                    <p><i class="fas fa-map-marker-alt mt-1 text-warning"></i> Số 6B7 khu đô thị Mỹ Đình 1, Nam Từ Liêm, Hà Nội</p>
+                    <p><i class="fas fa-phone mt-1 text-warning"></i> 0989.723.000</p>
+                    <p><i class="fas fa-envelope mt-1 text-warning"></i> huyhoangvn.ht@gmail.com</p>
+                </div>
+                <div class="footer-col footer-links">
+                    <h4>Liên Kết Nhanh</h4>
+                    <a href="../index.html"><i class="fas fa-angle-right me-2"></i> Trang Chủ</a>
+                    <a href="scholarship1+4.html"><i class="fas fa-angle-right me-2"></i> Hệ 1+4</a>
+                    <a href="Taiwan full scholarship.html"><i class="fas fa-angle-right me-2"></i> Học Bổng Toàn Phần</a>
+                    <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Đăng Ký Tư Vấn</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 Huy Hoang Education. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-warning position-fixed bottom-0 end-0 m-4 p-3 rounded-circle shadow-lg text-white" id="backToTop" style="display: none; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // AOS init
+        AOS.init({ duration: 800, once: true });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Calculator
+        function calculateCost() {
+            const program = document.getElementById('programSelect').value;
+            const city = document.getElementById('citySelect').value;
+            const house = document.getElementById('houseSelect').value;
+            
+            if(program === '0' || city === '0' || house === '0') {
+                alert("Vui lòng chọn đầy đủ thông tin!");
+                return;
+            }
+
+            let tuition = 0, living = 0, housing = 0;
+            if(program === 'he_ngon_ngu') tuition = 60000000;
+            if(program === 'he_dai_hoc') tuition = 80000000;
+            if(program === 'he_vhvl') tuition = 50000000;
+
+            if(city === 'bac') living = 8000000 * 12; else living = 6000000 * 12;
+            if(house === 'ktx') housing = 3000000 * 12; else housing = 6000000 * 12;
+
+            const total = tuition + living + housing;
+            const formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+
+            document.getElementById('tuitionCost').innerText = formatter.format(tuition);
+            document.getElementById('housingCost').innerText = formatter.format(housing);
+            document.getElementById('livingCost').innerText = formatter.format(living);
+            document.getElementById('resultDisplay').innerText = formatter.format(total);
+        }
+
+        // Swiper for Testimonials
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+            autoplay: { delay: 5000 }
+        });
+    </script>
 </body>
 </html>
