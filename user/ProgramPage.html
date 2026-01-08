@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root{
-      --brand: linear-gradient(90deg, #006699, #00b3b3); /* Green gradient matching previous page */
+      --brand: linear-gradient(90deg, #006699, #00b3b3);
       --accent: #ffd166;
-      --bg: #f0f4f8; /* Lighter, more vibrant background */
+      --bg: #f0f4f8;
       --text: #2b2d42;
       --muted: #555;
       --card: #ffffff;
@@ -29,20 +29,19 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* ===== HEADER (fixed + hide-on-scroll) ===== */
     header#main-header{
       position:fixed;
       inset:0 0 auto 0;
       z-index:1000;
-      background: var(--brand); /* Updated to match footer and previous page */
+      background: var(--brand);
       color:#fff;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:20px 48px;
+      padding:30px 48px;
       box-shadow:0 3px 10px rgba(0,0,0,.12);
       transform:translateY(0);
-      transition:transform .45s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease); /* Smoother transitions */
+      transition:transform .45s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
     }
     header#main-header.hide{transform:translateY(-100%)}
     .logo a{
@@ -50,57 +49,89 @@
       font-size:1.6rem;
       font-weight:700;
       letter-spacing:.5px;
-      transition:color .3s var(--ease); /* Smooth color transition on hover */
+      transition:color .3s var(--ease);
     }
-    .logo a:hover{color:#ffdc6d} /* Slightly brighter hover effect */
+    .logo a:hover{color:#ffdc6d}
     nav ul{list-style:none;display:flex;gap:26px;flex-wrap:wrap}
     nav a{
       color:#fff;
       font-weight:600;
       opacity:.95;
-      transition:opacity .3s var(--ease), color .3s var(--ease); /* Smoother transitions */
+      transition:opacity .3s var(--ease), color .3s var(--ease);
     }
     nav a:hover{
       color:var(--accent);
       opacity:1;
-      transform:scale(1.05); /* Subtle scale effect for liveliness */
+      transform:scale(1.05);
     }
 
-    /* Push body content below fixed header */
     main{padding-top:92px}
 
-    /* ===== HERO ===== */
     .hero{
       position:relative;
       border-radius:0 0 28px 28px;
       overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35)),
-        url('images/hero-study.jpg') center/cover no-repeat;
-      min-height:340px;
+      min-height:400px; /* Tăng nhẹ chiều cao */
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       color:#fff;
       box-shadow:var(--shadow);
-      transition:transform .5s var(--ease); /* Smooth transition for potential hover effects */
     }
+
+    /* Container chứa các slide ảnh */
+    .hero-slider {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; /* Nằm dưới nội dung chữ */
+    }
+
+    /* Bản thân từng slide ảnh */
+    .hero-slide {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0; /* Ẩn mặc định */
+      transition: opacity 1.5s ease-in-out; /* Hiệu ứng fade mượt mà */
+    }
+
+    /* Lớp phủ tối trên mỗi ảnh để làm nổi bật chữ */
+    .hero-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5); /* Độ tối 50% */
+    }
+
+    /* Class kích hoạt slide hiện tại */
+    .hero-slide.active {
+      opacity: 1;
+      /* Thêm hiệu ứng zoom nhẹ khi ảnh hiện (Ken Burns effect) */
+      animation: zoomSlow 8s linear infinite alternate;
+    }
+    @keyframes zoomSlow {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
     .hero .inner{
       max-width:980px;
       padding:56px 20px;
+      position: relative; z-index: 2; /* Đảm bảo chữ nằm trên ảnh */
       animation:fadeUp .8s var(--ease) both .05s;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Thêm bóng chữ cho dễ đọc */
     }
     .hero h1{font-size:2.4rem;margin-bottom:10px}
     .hero p{opacity:.95;max-width:820px;margin:0 auto}
     @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-    /* ===== SECTION INTRO ===== */
     .section{
       max-width:1200px;
       margin:40px auto;
       padding:0 20px;
-      transition:opacity .4s var(--ease); /* Smooth fade for section changes */
+      transition:opacity .4s var(--ease);
     }
     .section .intro{
       text-align:center;
@@ -109,7 +140,6 @@
       color:var(--muted);
     }
 
-    /* ===== PROGRAM GRID ===== */
     .grid{
       display:grid;
       gap:28px;
@@ -120,45 +150,79 @@
       border-radius:var(--radius);
       overflow:hidden;
       box-shadow:0 6px 18px rgba(0,0,0,.08);
-      transition:transform .35s var(--ease), box-shadow .35s var(--ease), opacity .3s var(--ease); /* Enhanced transitions */
+      transition:transform .35s var(--ease), box-shadow .35s var(--ease), opacity .3s var(--ease);
+      display: flex; flex-direction: column; /* Để canh đều nút bấm */
     }
     .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 14px 32px rgba(0,0,0,.16);
+      transform:translateY(-8px); /* Di chuyển lên cao hơn chút */
+      box-shadow:0 18px 40px rgba(0,0,0,.18);
     }
+
+    /* Container ảnh */
     .card-img{
-      height:180px;
+      height:200px; /* Tăng chiều cao ảnh một chút cho đẹp */
       background:#e9ecef;
       overflow:hidden;
+      position: relative; /* Để chứa hiệu ứng shine */
     }
+
+    .card-img::before {
+      position: absolute;
+      top: 0;
+      left: -75%; 
+      z-index: 2;
+      display: block;
+      content: '';
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+      transform: skewX(-25deg); 
+    }
+    .card:hover .card-img::before {
+      animation: shine .75s; /* Chạy trong 0.75s */
+    }
+    @keyframes shine {
+      100% { left: 125%; } 
+    }
+
+    /* Ảnh bên trong */
     .card-img img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
       transform:scale(1);
-      transition:transform .6s var(--ease);
+      transition:transform .8s var(--ease), filter .5s ease;
     }
-    .card:hover .card-img img{transform:scale(1.06)}
-    .card-body{padding:18px 18px 20px}
-    .card h3{font-size:1.1rem;margin-bottom:8px}
-    .meta{font-size:.9rem;color:var(--muted);margin-bottom:10px}
-    .card p{color:#444;font-size:.95rem}
+    .card:hover .card-img img{
+      transform:scale(1.12); /* Zoom lớn hơn nữa */
+      filter: brightness(1.1); /* Ảnh sáng lên một chút */
+    }
+
+    .card-body{
+      padding:18px 18px 24px;
+      flex-grow: 1; display: flex; flex-direction: column; /* Canh đều */
+    }
+    .card h3{font-size:1.15rem;margin-bottom:8px}
+    .meta{font-size:.9rem;color:var(--muted);margin-bottom:12px; font-weight: 600;}
+    .card p{color:#444;font-size:.95rem; margin-bottom: 16px; flex-grow: 1;}
     .btn{
       display:inline-block;
-      margin-top:14px;
+      /* margin-top:14px; Xóa margin top cố định */
       background:var(--accent);
       color:#333;
       font-weight:700;
-      padding:10px 16px;
+      padding:10px 20px; /* Nút to hơn xíu */
       border-radius:999px;
-      transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), color .25s var(--ease); /* Smoother button transitions */
+      text-align: center;
+      align-self: start; /* Nút nằm gọn bên trái */
+      transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), color .25s var(--ease);
     }
     .btn:hover{
-      transform:translateY(-1px);
+      transform:translateY(-2px);
       background:#ffb703;
-      box-shadow:0 8px 18px rgba(0,0,0,.12);
-      color:#222; /* Slightly darker text for contrast */
+      box-shadow:0 8px 18px rgba(0,0,0,.15);
+      color:#222;
     }
 
     /* ===== HIGHLIGHTS / USP ===== */
@@ -166,15 +230,15 @@
       display:grid;
       gap:16px;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      margin-top:18px;
-      transition:opacity .4s var(--ease); /* Smooth fade effect */
+      margin-top:40px;
+      transition:opacity .4s var(--ease);
     }
     .usp-item{
       background:#fff;
       border-radius:14px;
       padding:18px;
       box-shadow:0 4px 14px rgba(0,0,0,.06);
-      transition:transform .3s var(--ease), box-shadow .3s var(--ease); /* Smooth hover effect */
+      transition:transform .3s var(--ease), box-shadow .3s var(--ease);
     }
     .usp-item:hover{
       transform:translateY(-4px);
@@ -185,16 +249,16 @@
     /* ===== CTA STRIP ===== */
     .cta{
       margin:52px auto 24px;
-      background:linear-gradient(90deg, #6e6f75, #7b7c82);
+      background:linear-gradient(90deg, #6dabf1, #c3c3c9);
       color:#fff;
       border-radius:18px;
-      padding:26px;
+      padding:32px 26px;
       display:flex;
       gap:18px;
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
-      transition:transform .4s var(--ease), box-shadow .4s var(--ease); /* Smooth hover effect */
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease);
     }
     .cta:hover{
       transform:translateY(-3px);
@@ -204,12 +268,12 @@
     .cta .btn{
       background:#fff;
       color:#222;
-      transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease); /* Smoother button transitions */
+      transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease);
     }
     .cta .btn:hover{
       background:var(--accent);
       color:#222;
-      transform:translateY(-1px);
+      transform:translateY(-2px);
       box-shadow:0 6px 15px rgba(0,0,0,.1);
     }
 
@@ -219,10 +283,10 @@
       border-radius:16px;
       padding:22px;
       box-shadow:var(--shadow);
-      transition:transform .4s var(--ease), box-shadow .4s var(--ease); /* Smooth hover effect */
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease);
     }
     .form:hover{
-      transform:translateY(-5px);
+      transform:translateY(-4px);
       box-shadow:0 12px 35px rgba(0,0,0,.15);
     }
     .form h3{margin-bottom:10px}
@@ -236,13 +300,13 @@
       margin-top:8px;
       font-family:inherit;
       outline:none;
-      transition:border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease); /* Enhanced input transitions */
+      transition:border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
     }
     .form textarea{min-height:110px;resize:vertical}
     .form input:focus,.form select:focus,.form textarea:focus{
       border-color:#a0aec0;
       box-shadow:0 0 0 3px rgba(160,174,192,.2);
-      transform:scale(1.01); /* Subtle focus effect */
+      transform:scale(1.01);
     }
     .form .actions{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
     .note{font-size:.9rem;color:var(--muted)}
@@ -253,9 +317,9 @@
       border-radius:14px;
       overflow:hidden;
       box-shadow:0 4px 16px rgba(0,0,0,.08);
-      transition:transform .4s var(--ease); /* Smooth hover effect */
+      transition:transform .4s var(--ease);
     }
-    .accordion:hover{transform:translateY(-3px)}
+    .accordion:hover{transform:translateY(-2px)}
     .acc-item + .acc-item{border-top:1px solid #eee}
     .acc-head{
       background:#fff;
@@ -265,7 +329,7 @@
       justify-content:space-between;
       align-items:center;
       font-weight:600;
-      transition:background .3s var(--ease), color .3s var(--ease); /* Smooth hover effect */
+      transition:background .3s var(--ease), color .3s var(--ease);
     }
     .acc-head:hover{background:#f8fafc}
     .acc-head span{transition:transform .25s var(--ease)}
@@ -284,11 +348,11 @@
 
     /* ===== FOOTER ===== */
     footer{
-      background: var(--brand); /* Updated to match header and previous page */
+      background: var(--brand);
       color:#fff;
       margin-top:56px;
       padding:48px 20px 30px;
-      transition:background .4s var(--ease); /* Smooth transition for potential dynamic changes */
+      transition:background .4s var(--ease);
     }
     .footer-content{
       max-width:1200px;
@@ -304,25 +368,25 @@
       margin-bottom:14px;
       padding-bottom:6px;
       border-bottom:2px solid rgba(255,255,255,.15);
-      transition:color .3s var(--ease); /* Smooth color transition */
+      transition:color .3s var(--ease);
     }
-    .footer-content h4:hover{color:#ffdc6d} /* Brighter hover effect */
+    .footer-content h4:hover{color:#ffdc6d}
     .footer-content p,.footer-content a{
       color:#e9ecef;
       display:block;
       font-size:.95rem;
       margin-bottom:8px;
-      transition:color .3s var(--ease), transform .3s var(--ease); /* Smoother transitions */
+      transition:color .3s var(--ease), transform .3s var(--ease);
     }
     .footer-content a:hover{
       color:var(--accent);
-      transform:translateX(4px); /* Subtle movement for liveliness */
+      transform:translateX(4px);
     }
     .contact a{
       display:inline-flex;
       gap:8px;
       align-items:center;
-      transition:transform .3s var(--ease); /* Smooth hover effect */
+      transition:transform .3s var(--ease);
     }
     .contact a:hover{transform:translateX(4px)}
     .quick-links .link-columns{display:flex;align-items:flex-start}
@@ -335,7 +399,7 @@
       color:#d1d5db;
       border-top:1px solid rgba(255,255,255,.12);
       padding-top:16px;
-      transition:transform .4s var(--ease); /* Smooth hover effect */
+      transition:transform .4s var(--ease);
     }
     .footer-bottom:hover{transform:translateY(-2px)}
 
@@ -348,7 +412,8 @@
       border-radius:999px;
       padding:6px 10px;
       font-weight:700;
-      transition:transform .3s var(--ease); /* Smooth hover effect */
+      transition:transform .3s var(--ease);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .pill:hover{transform:scale(1.05)}
 
@@ -362,7 +427,7 @@
       justify-content:center;
       padding:20px;
       z-index:2000;
-      transition:opacity .4s var(--ease); /* Smooth fade in/out */
+      transition:opacity .4s var(--ease);
     }
     .modal.open{display:flex}
     .modal-card{
@@ -373,9 +438,9 @@
       overflow:hidden;
       box-shadow:0 20px 60px rgba(0,0,0,.25);
       animation:pop .25s var(--ease);
-      transition:transform .4s var(--ease); /* Smooth transition */
+      transition:transform .4s var(--ease);
     }
-    .modal-card:hover{transform:scale(1.02)}
+    .modal-card:hover{transform:scale(1.01)}
     @keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
     .modal-head{
       padding:16px 18px;
@@ -383,7 +448,7 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      transition:background .3s var(--ease); /* Smooth hover effect */
+      transition:background .3s var(--ease);
     }
     .modal-head:hover{background:#f0f4f8}
     .modal-head h3{font-size:1.15rem}
@@ -393,7 +458,7 @@
       font-size:22px;
       cursor:pointer;
       line-height:1;
-      transition:transform .3s var(--ease); /* Smooth hover effect */
+      transition:transform .3s var(--ease);
     }
     .modal-close:hover{transform:rotate(90deg)}
     .modal-body{padding:18px}
@@ -405,17 +470,17 @@
     @media (max-width:480px){
       header#main-header{padding:16px 18px}
       .hero h1{font-size:1.9rem}
+      .cta{padding: 24px 20px;}
     }
   </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header id="main-header">
-  <div class="logo"><a href="index.html" aria-label="Về trang chủ">Huy Hoàng</a></div>
+  <div class="logo"><a href="../index.html" aria-label="Về trang chủ">Huy Hoàng</a></div>
   <nav aria-label="Điều hướng chính">
     <ul>
-      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="../index.html">Trang chủ</a></li>
       <li><a href="about_us.html">Giới thiệu</a></li>
       <li><a href="Affiliate_Partner.html">Đối tác</a></li>
       <li><a href="programs.html" style="color: var(--accent)">Chương trình học</a></li>
@@ -425,27 +490,31 @@
 </header>
 
 <main>
-  <!-- ===== HERO ===== -->
   <section class="hero" role="banner" aria-label="Chương trình học">
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1920&auto=format&fit=crop');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1920&auto=format&fit=crop');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop');"></div>
+    </div>
+
     <div class="inner">
       <span class="pill">Programs 2025</span>
       <h1>Chương Trình Học – Lộ trình rõ ràng, kết quả bền vững</h1>
-      <p class="muted">Được thiết kế cùng các trường đối tác tại Đài Loan & quốc tế, chú trọng ngoại ngữ, chuyên môn và kỹ năng hội nhập toàn cầu.</p>
+      <p class="muted" style="color: #eee;">Được thiết kế cùng các trường đối tác tại Đài Loan & quốc tế, chú trọng ngoại ngữ, chuyên môn và kỹ năng hội nhập toàn cầu.</p>
     </div>
   </section>
 
-  <!-- ===== INTRO ===== -->
   <section class="section">
     <p class="intro">
       Tại Huy Hoàng, mỗi chương trình là một lộ trình “từ A–Z” gồm định hướng, rèn luyện ngoại ngữ, học thuật và kỹ năng nghề nghiệp.
       Học viên được đồng hành 1–1 trong suốt quá trình: tư vấn chọn ngành, chuẩn bị hồ sơ, săn học bổng, luyện phỏng vấn và kết nối thực tập.
     </p>
 
-    <!-- ===== PROGRAM GRID ===== -->
     <div class="grid" id="program-grid">
-      <!-- 1 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-chinese.jpg" alt="Tiếng Trung dự bị"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1535294720248-66c28535b76e?q=80&w=600&auto=format&fit=crop" alt="Tiếng Trung dự bị"/>
+        </div>
         <div class="card-body">
           <h3>Tiếng Trung – Dự bị Đại học (Đài Loan)</h3>
           <div class="meta">6–12 tháng • Mục tiêu TOCFL 2–3 • Nhập học kỳ 9/2</div>
@@ -453,9 +522,10 @@
           <a href="#" class="btn" data-modal="m1">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 2 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-english.jpg" alt="Tiếng Anh học thuật"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?q=80&w=600&auto=format&fit=crop" alt="Tiếng Anh học thuật"/>
+        </div>
         <div class="card-body">
           <h3>Tiếng Anh – Du học Mỹ/Canada</h3>
           <div class="meta">3–9 tháng • IELTS 5.5–7.0 • Foundation/Pathway</div>
@@ -463,9 +533,10 @@
           <a href="#" class="btn" data-modal="m2">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 3 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-it.jpg" alt="CNTT"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="CNTT"/>
+        </div>
         <div class="card-body">
           <h3>Kỹ thuật & CNTT – Đài Loan</h3>
           <div class="meta">3–4 năm • Thực tập doanh nghiệp • Cơ hội việc làm</div>
@@ -473,9 +544,10 @@
           <a href="#" class="btn" data-modal="m3">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 4 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-hospitality.jpg" alt="Du lịch - Khách sạn"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop" alt="Du lịch - Khách sạn"/>
+        </div>
         <div class="card-body">
           <h3>Du lịch & Khách sạn – Đài Loan</h3>
           <div class="meta">2–4 năm • Thực hành tại khách sạn 4–5★ • Lương thực tập</div>
@@ -483,9 +555,10 @@
           <a href="#" class="btn" data-modal="m4">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 5 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-business.jpg" alt="Kinh doanh - Marketing"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" alt="Kinh doanh - Marketing"/>
+        </div>
         <div class="card-body">
           <h3>Kinh doanh & Marketing – Đài Loan</h3>
           <div class="meta">3–4 năm • Dự án thực tế • Liên kết doanh nghiệp</div>
@@ -493,9 +566,10 @@
           <a href="#" class="btn" data-modal="m5">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 6 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-design.jpg" alt="Thiết kế - Truyền thông số"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=600&auto=format&fit=crop" alt="Thiết kế - Truyền thông số"/>
+        </div>
         <div class="card-body">
           <h3>Thiết kế & Truyền thông số</h3>
           <div class="meta">2–4 năm • Portfolio • Sản phẩm thực tế</div>
@@ -503,9 +577,10 @@
           <a href="#" class="btn" data-modal="m6">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 7 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-nursing.jpg" alt="Điều dưỡng"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop" alt="Điều dưỡng"/>
+        </div>
         <div class="card-body">
           <h3>Điều dưỡng & Chăm sóc sức khoẻ</h3>
           <div class="meta">3–4 năm • Lâm sàng • Cơ hội việc làm cao</div>
@@ -513,9 +588,10 @@
           <a href="#" class="btn" data-modal="m7">Xem chi tiết</a>
         </div>
       </article>
-      <!-- 8 -->
       <article class="card">
-        <div class="card-img"><img src="images/program-master.jpg" alt="Thạc sĩ Quốc tế"/></div>
+        <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop" alt="Thạc sĩ Quốc tế"/>
+        </div>
         <div class="card-body">
           <h3>Thạc sĩ Quốc tế (Kỹ thuật/Kinh tế)</h3>
           <div class="meta">1–2 năm • Học bổng 30–100% • Nghiên cứu/Industry</div>
@@ -525,7 +601,6 @@
       </article>
     </div>
 
-    <!-- ===== USP ===== -->
     <div class="usp">
       <div class="usp-item"><b>Tư vấn 1–1:</b> Chọn ngành, lộ trình, hồ sơ cá nhân hoá.</div>
       <div class="usp-item"><b>Học bổng:</b> Lộ trình điểm số + kỹ năng săn học bổng hiệu quả.</div>
@@ -533,13 +608,11 @@
       <div class="usp-item"><b>Hậu du học:</b> Cộng đồng cựu du học sinh, mentor nghề nghiệp.</div>
     </div>
 
-    <!-- ===== CTA STRIP ===== -->
     <div class="cta" aria-label="Đăng ký tư vấn">
       <h3>Không biết chương trình nào phù hợp? Để chúng tôi đề xuất lộ trình tốt nhất cho bạn.</h3>
       <a href="#form-dang-ky" class="btn">Đăng ký tư vấn miễn phí</a>
     </div>
 
-    <!-- ===== FORM ===== -->
     <div class="form" id="form-dang-ky">
       <h3>Đăng ký tư vấn</h3>
       <p class="muted" style="margin-bottom:12px">Điền thông tin dưới đây, đội ngũ Huy Hoàng sẽ liên hệ trong 24h.</p>
@@ -583,7 +656,6 @@
       </form>
     </div>
 
-    <!-- ===== FAQ ===== -->
     <div class="faq">
       <h3 style="margin:14px 0 10px">Câu hỏi thường gặp</h3>
       <div class="accordion" id="faq">
@@ -608,12 +680,11 @@
   </section>
 </main>
 
-<!-- ===== MODALS (chi tiết 8 chương trình) ===== -->
 <div class="modal" id="m1" role="dialog" aria-modal="true" aria-labelledby="m1-title">
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m1-title">Tiếng Trung – Dự bị Đại học (Đài Loan)</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -652,7 +723,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m2-title">Tiếng Anh – Du học Mỹ/Canada</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -689,7 +760,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m3-title">Kỹ thuật & CNTT – Đài Loan</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -721,7 +792,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m4-title">Du lịch & Khách sạn – Đài Loan</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -753,7 +824,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m5-title">Kinh doanh & Marketing – Đài Loan</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -785,7 +856,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m6-title">Thiết kế & Truyền thông số</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -817,7 +888,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m7-title">Điều dưỡng & Chăm sóc sức khoẻ</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -849,7 +920,7 @@
   <div class="modal-card">
     <div class="modal-head">
       <h3 id="m8-title">Thạc sĩ Quốc tế (Kỹ thuật/Kinh tế)</h3>
-      <button class="modal-close" data-close>&times;</button>
+      <button class="modal-close" data-close>×</button>
     </div>
     <div class="modal-body">
       <div class="modal-grid">
@@ -877,7 +948,6 @@
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-content">
     <div>
@@ -896,7 +966,7 @@
       <h4>Liên kết nhanh</h4>
       <div class="link-columns">
         <div class="link-col">
-          <a href="index.html">Trang chủ</a>
+          <a href="../index.html">Trang chủ</a>
           <a href="about_us.html">Giới thiệu</a>
         </div>
         <div class="divider"></div>
@@ -907,14 +977,10 @@
       </div>
     </div>
   </div>
-  <div class="footer-bottom" style="background: var(--brand);" data-aos="fade-up">
-    © 2025 Huy Hoàng Study Abroad Center — Đồng hành cùng ước mơ du học của bạn.
-  </div>
 </footer>
 
 
 
-<!-- ===== SCRIPTS ===== -->
 <script>
   // Header hide/show on scroll
   (function(){
@@ -925,6 +991,22 @@
       else{header.classList.remove('hide');}
       last=cur<=0?0:cur;
     }, {passive:true});
+  })();
+
+  // ===== HERO SLIDER SCRIPT (MỚI) =====
+  (function(){
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length === 0) return;
+    let currentSlide = 0;
+    const slideInterval = 5000; // Chuyển ảnh mỗi 5 giây
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length; // Loop back to 0 at the end
+      slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(nextSlide, slideInterval);
   })();
 
   // Modal open/close
@@ -968,3 +1050,5 @@
     form.reset();
   });
 </script>
+</body>
+</html>
