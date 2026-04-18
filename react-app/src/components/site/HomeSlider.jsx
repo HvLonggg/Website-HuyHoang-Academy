@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
+import { assetUrl } from "../../utils/assetUrl";
 
-const SLIDE_IMAGES = [
-  "/images/SLIDE4.jpg",
-  "/images/SLIDE1.jpg",
-  "/images/SLIDE2.jpg",
-  "/images/SLIDE3.jpg",
-  "/images/SLIDE4.jpg",
-  "/images/SLIDE1.jpg",
+const SLIDE_PATHS = [
+  "images/SLIDE4.jpg",
+  "images/SLIDE1.jpg",
+  "images/SLIDE2.jpg",
+  "images/SLIDE3.jpg",
+  "images/SLIDE4.jpg",
+  "images/SLIDE1.jpg",
 ];
 
 function HomeSlider() {
@@ -15,7 +16,8 @@ function HomeSlider() {
   const nextBtnRef = useRef(null);
   const indexRef = useRef(1);
   const intervalRef = useRef(null);
-  const totalSlides = SLIDE_IMAGES.length;
+  const slideImages = useMemo(() => SLIDE_PATHS.map((p) => assetUrl(`/${p}`)), []);
+  const totalSlides = slideImages.length;
 
   useEffect(() => {
     const slides = slidesRef.current;
@@ -88,7 +90,7 @@ function HomeSlider() {
         style={{ height: "550px" }}
       >
         <div ref={slidesRef} className="slides">
-          {SLIDE_IMAGES.map((src, i) => (
+          {slideImages.map((src, i) => (
             <div
               key={`${src}-${i}`}
               className="slide"

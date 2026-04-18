@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { assetUrl } from "../../utils/assetUrl";
 
 function SiteFooter() {
   return (
@@ -10,7 +11,7 @@ function SiteFooter() {
         <div className="row gy-4 justify-content-between">
           <div className="col-lg-4 col-md-6">
             <h5 className="d-flex align-items-center mb-3">
-              <img src="/images/LOGO.jpg" alt="Logo Huy Hoàng" className="footer-logo me-2" />
+              <img src={assetUrl("/images/LOGO.jpg")} alt="Logo Huy Hoàng" className="footer-logo me-2" />
               HUY HOÀNG
             </h5>
             <p className="small">

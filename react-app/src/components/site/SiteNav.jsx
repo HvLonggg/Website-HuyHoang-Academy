@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "../../utils/assetUrl";
 
 function SiteNav() {
   const navbarRef = useRef(null);
@@ -48,7 +49,7 @@ function SiteNav() {
       <div className="container d-flex justify-content-between align-items-center">
         <Link to="/" className="d-flex align-items-center text-decoration-none">
           <img
-            src="/images/LOGO.jpg"
+            src={assetUrl("/images/LOGO.jpg")}
             alt="Logo Huy Hoàng"
             style={{
               width: "75px",

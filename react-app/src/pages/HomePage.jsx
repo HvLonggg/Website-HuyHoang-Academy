@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import HomeSlider from "../components/site/HomeSlider";
+import { assetUrl } from "../utils/assetUrl";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -129,7 +130,7 @@ function HomePage() {
           <div className="row align-items-center">
             <div className="col-md-6 mb-4 mb-md-0">
               <img
-                src="/images/KHHT.jpg"
+                src={assetUrl("/images/KHHT.jpg")}
                 className="img-fluid rounded shadow"
                 style={{ marginLeft: "-40px" }}
                 alt="Kế hoạch du học"
@@ -186,7 +187,7 @@ function HomePage() {
                   >
                     <div className="image-box small-box">
                       <img
-                        src="/images/dai-hoc-ngo-phung-3-1.jpg"
+                        src={assetUrl("/images/dai-hoc-ngo-phung-3-1.jpg")}
                         alt="WuFeng University"
                         className="img-fluid rounded shadow-sm hover-zoom"
                       />
@@ -203,7 +204,7 @@ function HomePage() {
                   >
                     <div className="image-box tall-box">
                       <img
-                        src="/images/dai-hoc-cong-nghe-trung-quoc-6.jpg"
+                        src={assetUrl("/images/dai-hoc-cong-nghe-trung-quoc-6.jpg")}
                         alt="China University of Technology"
                         className="img-fluid rounded shadow-sm hover-zoom"
                       />
@@ -220,7 +221,7 @@ function HomePage() {
                   >
                     <div className="image-box tall-box">
                       <img
-                        src="/images/namkhai1.jpeg"
+                        src={assetUrl("/images/namkhai1.jpeg")}
                         alt="Nan Kai University of Technology"
                         className="img-fluid rounded shadow-sm hover-zoom"
                       />
@@ -237,7 +238,7 @@ function HomePage() {
                   >
                     <div className="image-box small-box">
                       <img
-                        src="/images/kunsan.jpeg"
+                        src={assetUrl("/images/kunsan.jpeg")}
                         alt="Kun Shan University"
                         className="img-fluid rounded shadow-sm hover-zoom"
                       />

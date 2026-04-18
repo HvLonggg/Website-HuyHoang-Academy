@@ -14,7 +14,10 @@ function LegacyHtmlPage({ bodyHtml, cssText, pageKey, mode }) {
   const rootRef = useRef(null);
   const styleId = `legacy-css-${pageKey}`;
 
-  const html = useMemo(() => prepareLegacyHtml(bodyHtml || "", pageKey || ""), [bodyHtml, pageKey]);
+  const html = useMemo(
+    () => prepareLegacyHtml(bodyHtml || "", pageKey || "", import.meta.env.BASE_URL),
+    [bodyHtml, pageKey]
+  );
   const scopedCss = useMemo(() => scopeLegacyCss(cssText || ""), [cssText]);
 
   useEffect(() => {

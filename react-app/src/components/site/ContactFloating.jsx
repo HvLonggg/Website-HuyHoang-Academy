@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { assetUrl } from "../../utils/assetUrl";
 
 function ContactFloating() {
   const ref = useRef(null);
@@ -26,10 +27,10 @@ function ContactFloating() {
   return (
     <div ref={ref} className="contact-icons">
       <a href="tel:0989723000" target="_blank" rel="noreferrer">
-        <img src="/images/whatsapp-48.png" alt="WhatsApp" />
+        <img src={assetUrl("/images/whatsapp-48.png")} alt="WhatsApp" />
       </a>
       <a href="https://www.facebook.com/messages/t/100850988083090" target="_blank" rel="noreferrer">
-        <img src="/images/messenger_logo.png" alt="Messenger" />
+        <img src={assetUrl("/images/messenger_logo.png")} alt="Messenger" />
       </a>
     </div>
   );

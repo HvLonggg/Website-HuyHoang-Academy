@@ -44,7 +44,7 @@ const LEGACY_VIRTUAL_TOUR_EMBED_ID = {
   school_quoclap: "Kb3ZEnuimJI",
 };
 
-export function prepareLegacyHtml(html, pageKey = "") {
+export function prepareLegacyHtml(html, pageKey = "", baseUrl = "/") {
   if (!html) return "";
   let s = html;
 
@@ -83,6 +83,15 @@ export function prepareLegacyHtml(html, pageKey = "") {
     s = s.split(`href='${file}'`).join(`href='/schools/${slug}'`);
     s = s.split(`href="./school/${file}"`).join(`href="/schools/${slug}"`);
     s = s.split(`href="school/${file}"`).join(`href="/schools/${slug}"`);
+  }
+
+  /* GitHub Pages: mọi link / ảnh gốc phải có tiền tố /tên-repo/ */
+  const b = typeof baseUrl === "string" && baseUrl !== "/" ? baseUrl.replace(/\/$/, "") : "";
+  if (b) {
+    s = s.replace(/href="\//g, `href="${b}/`);
+    s = s.replace(/href='\//g, `href='${b}/`);
+    s = s.replace(/src="\//g, `src="${b}/`);
+    s = s.replace(/src='\//g, `src='${b}/`);
   }
 
   return s;
