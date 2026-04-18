@@ -1,0 +1,167 @@
+body {
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      
+    }
+
+    
+    
+    .contact-section {
+      padding: 80px 0;
+    }
+
+    .contact-card {
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      background-color: #ffffff;
+    }
+
+    .contact-info i {
+      font-size: 1.5rem;
+      color: #0d6efd;
+    }
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 60px;
+  margin-top: 0px;       /* Đẩy xuống dưới nhẹ nhàng */
+  /* margin-bottom: 2px; */
+  font-size: 17px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+
+.contact-info .contact-icon {
+  font-size: 20px;
+  color: #007bff;
+  margin-right: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover rung sinh động */
+.contact-info p:hover .contact-icon {
+  animation: shake 0.4s ease-in-out;
+  color: #0056b3;
+}
+
+/* Hover nhẹ cho cả dòng */
+.contact-info p:hover {
+  color: #0056b3;
+  transform: translateX(2px);
+}
+
+/* Hiệu ứng rung */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    position: relative;
+    top: 10px;
+  }
+
+  .btn-primary:hover {
+    background-color: #28a745; 
+    border-color: #28a745;
+    transform: scale(1.1); /* to lên nhẹ */
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4); /* đổ bóng nhẹ màu lá */
+  }
+
+  .btn-primary:active {
+    transform: scale(1.05);
+    transition: all 0.15s ease-in-out;
+  }
+  
+ .floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.floating-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  width: 58px;
+  height: 58px;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Rung khi hover */
+.floating-buttons a:hover {
+  animation: soft-wiggle 0.4s ease-in-out;
+  transform: scale(1.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.floating-buttons a:active {
+  transform: scale(1.1);
+}
+
+/* Màu nút */
+.zalo-btn {
+  background-color: #0068ff;
+}
+
+.fb-btn {
+  background-color: #1877f2;
+}
+
+.phone-btn {
+  background-color: #28a745;
+}
+
+/* Hiệu ứng rung nhẹ kiểu lắc */
+@keyframes soft-wiggle {
+  0% { transform: scale(1.15) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(-4deg); }
+  50% { transform: scale(1.15) rotate(4deg); }
+  75% { transform: scale(1.15) rotate(-2deg); }
+  100% { transform: scale(1.15) rotate(0deg); }
+}
+
+.btn-back {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    display: inline-block;
+    max-width: fit-content; /* Giới hạn chiều ngang đúng với nội dung */
+    padding: 8px 14px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.6);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    user-select: none;
+    white-space: nowrap; /* Ngăn chữ xuống dòng */
+}
+.btn-back:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    color: #fff;
+}

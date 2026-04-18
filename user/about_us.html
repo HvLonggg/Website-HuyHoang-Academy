@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Về Chúng Tôi – Trung tâm Du học Huy Hoàng</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #006699;
+      --secondary: #00b3b3;
+      --accent: #f9a11b;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --gradient-brand: linear-gradient(90deg, var(--primary), var(--secondary));
+      --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08);
+      --shadow-hover: 0 20px 25px -5px rgba(0, 102, 153, 0.15);
+      --radius-card: 16px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    p, li {
+      font-size: 0.98rem; /* Nhỏ hơn nữa để cân đối với ảnh và màn hình */
+      line-height: 1.9;
+    }
+
+    .fs-5 {
+      font-size: 1.02rem !important; /* Giảm thêm để vừa mắt */
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--gray);
+    }
+
+    .hero-title {
+      font-size: 3.4rem; /* Nhỏ hơn nữa cho hero */
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+    }
+
+    .timeline-year {
+      font-size: 1.5rem;
+    }
+
+    .story-name {
+      font-size: 1.1rem;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #004a75;
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .top-bar a {
+      color: rgba(255,255,255,0.9);
+      margin-left: 15px;
+      text-decoration: none;
+    }
+    .top-bar a:hover { color: var(--accent); }
+
+    /* Navbar */
+    .navbar {
+      background: var(--gradient-brand);
+      padding: 9px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+    }
+
+    .logo-box {
+      width: 50px; height: 50px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.3);
+      margin-right: 12px;
+    }
+    .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      display: block;
+      position: relative;
+      right: 45px;
+      top: 5px;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.9) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      font-size: 0.95rem;
+      position: relative;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 5px; left: 0;
+      background-color: var(--accent); transition: width 0.3s;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: #ffdd57 !important; }
+
+    .btn-header-cta {
+      background: #fff; color: var(--primary) !important; padding: 10px 25px;
+      border-radius: 50px; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .btn-header-cta:hover {
+      background: var(--accent);
+      color: #fff !important;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(239, 211, 167, 0.85), rgba(0, 179, 179, 0.75)),
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 140px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(249, 161, 27, 0.15), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-title {
+      font-size: 3.4rem;
+      font-weight: 800;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      margin-bottom: 18px;
+    }
+    .hero-subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      max-width: 800px;
+      margin: 0 auto 35px;
+      opacity: 0.95;
+    }
+    .btn-cta {
+      padding: 12px 35px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      background: var(--accent);
+      border: none;
+      box-shadow: 0 8px 24px rgba(249, 161, 27, 0.4);
+      transition: all 0.4s ease;
+    }
+    .btn-cta:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 16px 40px rgba(249, 161, 27, 0.5);
+      background: #ff9f1a;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+
+    /* Icon Boxes */
+    .icon-box {
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .icon-box:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    .icon-box i {
+      font-size: 2.8rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* Image with overlay effect */
+    .img-overlay {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-md);
+    }
+    .img-overlay img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .img-overlay:hover img {
+      transform: scale(1.06);
+    }
+    .img-overlay .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,102,153,0.75), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      color: white;
+    }
+    .img-overlay:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Value Cards */
+    .value-card {
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      border-radius: var(--radius-card);
+      padding: 30px 25px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      background: white;
+    }
+    .value-card i {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      color: var(--accent);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--gradient-brand);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background: inherit;
+      width: 50%;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: #fff;
+      border: 4px solid var(--primary);
+      top: 45px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .left { left: 0; }
+    .right { left: 50%; }
+    .left::after { right: -16px; }
+    .right::after { left: -16px; }
+    .timeline-content {
+      padding: 25px 35px;
+      background: #fff;
+      position: relative;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-md);
+      transition: all 0.4s ease;
+    }
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    .timeline-year {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    /* Partners & Success Stories */
+    .partner-logo {
+      max-width: 160px;
+      height: auto;
+      object-fit: contain;
+      transition: all 0.4s ease;
+    }
+    .partner-logo:hover {
+      transform: scale(1.08);
+    }
+    .success-story {
+      background: #fff;
+      padding: 25px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+    }
+    .success-story:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .story-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .story-name {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    /* Solution Cards */
+    .solution-card {
+      background: #fff;
+      padding: 35px 25px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+    }
+    .solution-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+    .solution-icon {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 18px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient-brand);
+      color: #fff;
+      padding: 60px 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #ffd166, #00b3b3);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      color: #ffd166;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: #fff;
+    }
+    .footer-links a {
+      color: #e3f2fd;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .footer-links a:hover {
+      color: #ffd166;
+      padding-left: 8px;
+      transform: translateX(5px);
+    }
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: #ffd166;
+      transition: width 0.3s ease;
+    }
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+    .footer-contact p {
+      color: #e3f2fd;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 991px) {
+      .hero-title { font-size: 3rem; }
+      .hero-subtitle { font-size: 1.2rem; }
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item.right { left: 0%; }
+      .timeline-item.left::after, .timeline-item.right::after { left: 15px; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section { padding: 120px 0 80px; }
+      .hero-title { font-size: 2.6rem; }
+      .section-title { font-size: 2.1rem; }
+      p, li { font-size: 0.95rem; }
+      .fs-5 { font-size: 1rem !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+       <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo-box"><img src="../images/LOGO.jpg" alt="Logo"></div>
+                <div class="d-flex flex-column text-start">
+                    <span class="brand-title">DU HỌC HUY HOÀNG</span>
+                </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Trang chủ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about_us.html">Về chúng tôi</a></li>
+          <li class="nav-item"><a class="nav-link" href="scholarship1+4.html">Học bổng</a></li>
+          <li class="nav-item"><a class="nav-link" href="work-study scholarship.html">Hệ VHVL</a></li>
+          <li class="nav-item"><a class="nav-link" href="news-events.html">Tin tức</a></li>
+          <li class="nav-item ms-lg-3">
+            <a href="contact.html" class="btn btn-header-cta">Liên Hệ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container" data-aos="fade-up">
+      <h1 class="hero-title">VỀ <span class="text-warning">HUY HOÀNG</span></h1>
+      <p class="hero-subtitle">Chắp cánh ước mơ – Vươn xa toàn cầu</p>
+      <a href="contact.html" class="btn btn-cta">Liên hệ tư vấn ngay</a>
+    </div>
+  </section>
+
+  <!-- Giới thiệu -->
+  <section class="py-5" id="about">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Giới thiệu về Huy Hoàng</h2>
+        <p class="section-subtitle">Trung tâm Du học Huy Hoàng là đơn vị tiên phong trong lĩnh vực tư vấn du học Đài Loan tại Việt Nam. Với sứ mệnh mang đến cơ hội học tập chất lượng cao, chúng tôi đã đồng hành cùng hàng nghìn học viên chinh phục giấc mơ du học.</p>
+      </div>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+          <div class="img-overlay">
+            <img src="../images/vechungtoi.jpg" class="img-fluid" alt="Du học Đài Loan">
+            <div class="overlay">
+              <h4 class="mb-0">Hơn 10 năm kinh nghiệm đồng hành cùng học viên</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <p class="fs-5 mb-4">Thành lập từ năm 2014, Huy Hoàng đã phát triển từ một văn phòng nhỏ tại Hà Nội thành mạng lưới tư vấn chuyên nghiệp, với chi nhánh tại TP. Hồ Chí Minh và đối tác tại Đài Loan. Chúng tôi chuyên sâu về du học Đài Loan, giúp học viên tiếp cận giáo dục tiên tiến với chi phí hợp lý.</p>
+          <h4 class="text-primary fw-bold mb-4">Lý do chọn Huy Hoàng</h4>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-3"></i> Chuyên sâu về thị trường Đài Loan</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-3"></i> Liên kết trực tiếp với 50+ trường đại học danh tiếng</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-3"></i> Hỗ trợ toàn diện: học bổng, visa, nhà ở, việc làm</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-3"></i> Tỷ lệ visa thành công lên đến 98%</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-3"></i> Đội ngũ tư vấn viên giàu kinh nghiệm, tận tâm</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lịch sử thành lập -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Lịch sử thành lập & Phát triển</h2>
+        <p class="section-subtitle">Từ một ý tưởng đến hành trình đồng hành cùng hàng nghìn học viên Việt Nam vươn ra thế giới.</p>
+      </div>
+
+      <div class="timeline" data-aos="fade-up">
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <div class="timeline-year">2014</div>
+            <h5 class="fw-bold">Thành lập trung tâm</h5>
+            <p>Trung tâm Du học Huy Hoàng chính thức được thành lập tại Hà Nội, với sứ mệnh mang cơ hội du học Đài Loan đến gần hơn với học viên Việt Nam. Ban đầu, trung tâm tập trung vào tư vấn visa và hồ sơ du học cơ bản.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+          <div class="timeline-content">
+            <div class="timeline-year">2016</div>
+            <h5 class="fw-bold">Mở rộng đối tác</h5>
+            <p>Hợp tác với 20 trường đại học đầu tiên tại Đài Loan, bao gồm các trường top như National Taiwan University (NTU) và National Cheng Kung University (NCKU). Số lượng học viên tăng gấp đôi, đạt 500 người.</p>
+          </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <div class="timeline-year">2018</div>
+            <h5 class="fw-bold">Mở chi nhánh TP. Hồ Chí Minh</h5>
+            <p>Mở rộng mạng lưới với chi nhánh tại TP. Hồ Chí Minh, giúp tiếp cận thêm học viên miền Nam. Giới thiệu chương trình hỗ trợ học bổng và việc làm thêm, tăng tỷ lệ visa thành công lên 95%.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+          <div class="timeline-content">
+            <div class="timeline-year">2020</div>
+            <h5 class="fw-bold">Vượt qua đại dịch</h5>
+            <p>Chuyển đổi số hóa quy trình tư vấn trực tuyến, hỗ trợ học viên trong đại dịch COVID-19. Hợp tác với thêm 30 trường, đạt mốc 2.000 học viên thành công du học Đài Loan.</p>
+          </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <div class="timeline-year">2023</div>
+            <h5 class="fw-bold">Đạt giải thưởng xuất sắc</h5>
+            <p>Nhận giải "Trung tâm Tư vấn Du học Xuất sắc" từ Hiệp hội Du học Việt Nam. Mở rộng dịch vụ hỗ trợ định cư sau tốt nghiệp, với tỷ lệ học viên nhận học bổng toàn phần đạt 80%.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+          <div class="timeline-content">
+            <div class="timeline-year">2026 Hiện tại</div>
+            <h5 class="fw-bold">Tương lai phát triển</h5>
+            <p>Tiếp tục mở rộng với hơn 50 đối tác trường đại học, hỗ trợ hơn 4.000 học viên. Tập trung vào giải pháp du học tối ưu, tích hợp công nghệ AI trong tư vấn cá nhân hóa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hợp tác & Thành công -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Hợp tác & Thành công</h2>
+        <p class="section-subtitle">Chúng tôi tự hào về các đối tác chiến lược và những câu chuyện thành công của học viên.</p>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-lg-6 mb-4" data-aos="fade-right">
+          <h4 class="text-primary fw-bold mb-4">Đối tác chiến lược</h4>
+          <p class="mb-4">Huy Hoàng đã hợp tác với các trường đại học hàng đầu Đài Loan, mang đến cơ hội học tập đa dạng:</p>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> National Taiwan University (NTU) - Top 1 Đài Loan</li>
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> National Cheng Kung University (NCKU) - Kỹ thuật xuất sắc</li>
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> National Tsing Hua University (NTHU) - Khoa học công nghệ</li>
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> National Yang Ming Chiao Tung University (NYCU) - Y khoa & Công nghệ</li>
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> National Taiwan Normal University (NTNU) - Sư phạm & Ngôn ngữ</li>
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> National Taipei University of Technology (NTUT) - Công nghệ ứng dụng</li>
+            <li class="mb-3"><i class="bi bi-building text-secondary me-3"></i> Ming Chuan University - Quản trị kinh doanh</li>
+          </ul>
+          <p>Những hợp tác này giúp học viên tiếp cận học bổng và chương trình học chất lượng cao.</p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="img-overlay">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="img-fluid" alt="Đối tác trường Đài Loan">
+            <div class="overlay">
+              <h4 class="mb-0">Hợp tác với top trường Đài Loan</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="text-primary fw-bold text-center mb-5" data-aos="fade-up">Câu chuyện thành công</h4>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="success-story text-center">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="story-img" alt="Học viên 1">
+            <h6 class="story-name mt-3">Nguyễn Thu Hà</h6>
+            <p class="text-muted small">"Nhờ Huy Hoàng, em nhận học bổng toàn phần NTU. Visa đậu lần đầu, hỗ trợ tận tình!"</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="success-story text-center">
+            <img src="https://images.unsplash.com/photo-1500648762-4d4c79a2d8d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="story-img" alt="Học viên 2">
+            <h6 class="story-name mt-3">Trần Văn Nam</h6>
+            <p class="text-muted small">"Hệ VHVL tại NCKU giúp em vừa học vừa kiếm 20 triệu/tháng. Cảm ơn đội ngũ!"</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="success-story text-center">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="story-img" alt="Học viên 3">
+            <h6 class="story-name mt-3">Lê Bảo Ngọc</h6>
+            <p class="text-muted small">"Từ tư vấn đến định cư sau tốt nghiệp, Huy Hoàng luôn đồng hành. Rất tin cậy!"</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="success-story text-center">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="story-img" alt="Học viên 4">
+            <h6 class="story-name mt-3">Phạm Thị Lan</h6>
+            <p class="text-muted small">"Học bổng MOE 100% nhờ hỗ trợ hồ sơ chuyên nghiệp. Cảm ơn Huy Hoàng rất nhiều!"</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="success-story text-center">
+            <img src="https://images.unsplash.com/photo-1500648762-4d4c79a2d8d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="story-img" alt="Học viên 5">
+            <h6 class="story-name mt-3">Hoàng Minh Quân</h6>
+            <p class="text-muted small">"Việc làm sau tốt nghiệp tại TSMC. Hỗ trợ từ Huy Hoàng giúp em thành công."</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="success-story text-center">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="story-img" alt="Học viên 6">
+            <h6 class="story-name mt-3">Vũ Thị Hương</h6>
+            <p class="text-muted small">"Du học Đài Loan dễ dàng hơn nhờ kế hoạch tài chính tối ưu từ trung tâm."</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-5 fs-4 fw-bold text-primary" data-aos="fade-up">Với hơn 4.000 học viên thành công, tỷ lệ visa 98%, và học bổng trị giá hàng tỷ đồng, Huy Hoàng tiếp tục là đối tác tin cậy cho giấc mơ du học Đài Loan.</p>
+    </div>
+  </section>
+
+  <!-- Sứ Mệnh -->
+  <section class="bg-white py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Sứ mệnh của chúng tôi</h2>
+        <p class="section-subtitle">Mang đến cơ hội giáo dục chất lượng cao, giúp thế hệ trẻ Việt Nam vươn ra thế giới và đóng góp cho sự phát triển đất nước.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon-box">
+            <i class="bi bi-globe"></i>
+            <h5 class="mt-4">Kết nối toàn cầu</h5>
+            <p class="text-muted">Liên kết với hơn 100 trường đại học, cao đẳng trên toàn thế giới, tập trung vào Đài Loan – trung tâm giáo dục châu Á.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon-box">
+            <i class="bi bi-people"></i>
+            <h5 class="mt-4">Tận tâm & Chuyên nghiệp</h5>
+            <p class="text-muted">Đội ngũ chuyên viên tư vấn dày dặn kinh nghiệm, sẵn sàng hỗ trợ 24/7 từ hồ sơ đến định cư.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-box">
+            <i class="bi bi-award"></i>
+            <h5 class="mt-4">Tỷ lệ thành công cao</h5>
+            <p class="text-muted">Tỷ lệ đậu visa trên 98% với quy trình xử lý hồ sơ tối ưu, minh bạch và hiệu quả.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon-box">
+            <i class="bi bi-rocket-takeoff"></i>
+            <h5 class="mt-4">Phát triển toàn diện</h5>
+            <p class="text-muted">Không chỉ du học, chúng tôi còn hỗ trợ kỹ năng mềm, ngôn ngữ và định hướng nghề nghiệp.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="icon-box">
+            <i class="bi bi-graph-up"></i>
+            <h5 class="mt-4">Cập nhật xu hướng</h5>
+            <p class="text-muted">Liên tục cập nhật chính sách du học mới nhất từ Đài Loan, đảm bảo thông tin chính xác.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="icon-box">
+            <i class="bi bi-people-fill"></i>
+            <h5 class="mt-4">Cộng đồng hỗ trợ</h5>
+            <p class="text-muted">Xây dựng cộng đồng cựu học viên để chia sẻ kinh nghiệm và hỗ trợ lẫn nhau.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tầm nhìn -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Tầm nhìn của chúng tôi</h2>
+        <p class="section-subtitle">Trở thành trung tâm du học hàng đầu Việt Nam, giúp 10.000 học viên chinh phục giấc mơ du học Đài Loan vào năm 2030.</p>
+      </div>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+          <div class="img-overlay">
+            <img src="../images/dieu-kien-du-hoc-dai-loan-cap-nhat-moi-nhat.jpg" class="img-fluid" alt="Tầm nhìn Huy Hoàng">
+            <div class="overlay">
+              <h4 class="mb-0">Vươn tầm quốc tế</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <p class="fs-5 mb-4">Với tầm nhìn dài hạn, Huy Hoàng không ngừng mở rộng dịch vụ, từ tư vấn du học đến hỗ trợ định cư và việc làm sau tốt nghiệp. Chúng tôi cam kết mang đến giải pháp toàn diện, giúp học viên không chỉ học tập mà còn phát triển sự nghiệp bền vững.</p>
+          <h4 class="text-primary fw-bold mb-4">Mục tiêu đến năm 2030</h4>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-3"><i class="bi bi-target-lock text-primary me-3"></i> Hỗ trợ 10.000 học viên du học Đài Loan</li>
+            <li class="mb-3"><i class="bi bi-graph-up-arrow text-success me-3"></i> Tăng tỷ lệ học bổng toàn phần lên 90%</li>
+            <li class="mb-3"><i class="bi bi-globe-asia-australia text-warning me-3"></i> Mở rộng đối tác sang các nước châu Á khác</li>
+            <li class="mb-3"><i class="bi bi-people-fill text-danger me-3"></i> Xây dựng cộng đồng alumni mạnh mẽ với 5.000 thành viên</li>
+            <li class="mb-3"><i class="bi bi-lightning-charge-fill text-secondary me-3"></i> Áp dụng công nghệ AI trong tư vấn cá nhân hóa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giá trị cốt lõi -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Giá trị cốt lõi</h2>
+        <p class="section-subtitle">Những giá trị cốt lõi định hình nên văn hóa và hoạt động của Huy Hoàng.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
+          <div class="value-card">
+            <i class="bi bi-heart-fill"></i>
+            <h5 class="mt-4">Tận tâm</h5>
+            <p class="text-muted">Chúng tôi luôn đặt lợi ích và cảm nhận của học viên lên hàng đầu, đồng hành như người thân.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="200">
+          <div class="value-card">
+            <i class="bi bi-lightning-charge-fill"></i>
+            <h5 class="mt-4">Hiệu quả</h5>
+            <p class="text-muted">Cam kết xử lý nhanh chóng, chính xác và đạt kết quả cao nhất cho mọi hồ sơ.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="300">
+          <div class="value-card">
+            <i class="bi bi-shield-lock-fill"></i>
+            <h5 class="mt-4">Minh bạch</h5>
+            <p class="text-muted">Thông tin rõ ràng, quy trình công khai, không phát sinh chi phí ẩn.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="400">
+          <div class="value-card">
+            <i class="bi bi-rocket-takeoff-fill"></i>
+            <h5 class="mt-4">Đổi mới</h5>
+            <p class="text-muted">Không ngừng sáng tạo vì trải nghiệm học viên tốt nhất, áp dụng công nghệ mới.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="500">
+          <div class="value-card">
+            <i class="bi bi-people-fill"></i>
+            <h5 class="mt-4">Hợp tác</h5>
+            <p class="text-muted">Xây dựng mối quan hệ lâu dài với đối tác và học viên dựa trên lòng tin.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="600">
+          <div class="value-card">
+            <i class="bi bi-graph-up-arrow"></i>
+            <h5 class="mt-4">Phát triển bền vững</h5>
+            <p class="text-muted">Hỗ trợ học viên không chỉ du học mà còn phát triển sự nghiệp lâu dài.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="700">
+          <div class="value-card">
+            <i class="bi bi-globe"></i>
+            <h5 class="mt-4">Toàn cầu hóa</h5>
+            <p class="text-muted">Mang đến góc nhìn toàn cầu, giúp học viên hội nhập quốc tế thành công.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="800">
+          <div class="value-card">
+            <i class="bi bi-award-fill"></i>
+            <h5 class="mt-4">Chất lượng vượt trội</h5>
+            <p class="text-muted">Cam kết dịch vụ chất lượng cao, đạt chuẩn quốc tế.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giải pháp tối ưu du học Đài Loan -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Giải pháp tối ưu du học Đài Loan</h2>
+        <p class="section-subtitle">Với kinh nghiệm phong phú, Huy Hoàng mang đến các giải pháp toàn diện, cá nhân hóa cho du học Đài Loan năm 2025-2026.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="solution-card">
+            <i class="bi bi-check2-all solution-icon"></i>
+            <h5 class="mt-4">Tư vấn hồ sơ & Visa</h5>
+            <p class="text-muted">Hỗ trợ chuẩn bị hồ sơ hoàn chỉnh, luyện phỏng vấn visa, chứng minh tài chính hiệu quả. Tỷ lệ thành công 98% (theo thống kê 2025).</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="solution-card">
+            <i class="bi bi-trophy-fill solution-icon"></i>
+            <h5 class="mt-4">Săn học bổng</h5>
+            <p class="text-muted">Hỗ trợ apply học bổng MOE, học bổng trường, lên đến 100% học phí + sinh hoạt phí. Đã hỗ trợ hàng trăm học viên nhận học bổng toàn phần (dữ liệu 2025).</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="solution-card">
+            <i class="bi bi-briefcase-fill solution-icon"></i>
+            <h5 class="mt-4">Hỗ trợ việc làm & Định cư</h5>
+            <p class="text-muted">Giới thiệu việc làm thêm hợp pháp, lương trung bình 15-25 triệu/tháng. Tư vấn định cư sau tốt nghiệp cho học viên xuất sắc (theo chính sách mới 2026).</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="solution-card">
+            <i class="bi bi-house-door-fill solution-icon"></i>
+            <h5 class="mt-4">Nhà ở & Cuộc sống</h5>
+            <p class="text-muted">Hỗ trợ tìm ký túc xá, nhà thuê an toàn, chi phí hợp lý. Hướng dẫn thích nghi văn hóa, sinh hoạt tại Đài Loan (dựa trên kinh nghiệm thực tế).</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="solution-card">
+            <i class="bi bi-translate solution-icon"></i>
+            <h5 class="mt-4">Đào tạo ngôn ngữ</h5>
+            <p class="text-muted">Khóa học tiếng Trung TOCFL cấp tốc, giúp học viên đạt chứng chỉ Band 3-4 trước khi du học (theo yêu cầu trường Đài Loan 2025).</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="solution-card">
+            <i class="bi bi-people-fill solution-icon"></i>
+            <h5 class="mt-4">Cộng đồng hỗ trợ</h5>
+            <p class="text-muted">Kết nối với cộng đồng du học sinh Việt Nam tại Đài Loan, tổ chức sự kiện giao lưu thường xuyên (hơn 5.000 thành viên alumni).</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center mt-5 fs-4 fw-bold text-primary" data-aos="fade-up">Với giải pháp tối ưu, Huy Hoàng giúp bạn tiết kiệm chi phí lên đến 50%, tăng cơ hội thành công gấp đôi.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Về Chúng Tôi</h4>
+          <p class="text-white-50">Trung tâm Huy Hoàng cam kết mang đến cơ hội học tập tốt nhất tại Đài Loan cho sinh viên Việt Nam với chi phí hợp lý và hỗ trợ tận tâm.</p>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Liên Hệ</h4>
+          <p><i class="fas fa-map-marker-alt mt-1 text-warning"></i> Số 6B7 khu đô thị Mỹ Đình 1, Nam Từ Liêm, Hà Nội</p>
+          <p><i class="fas fa-phone mt-1 text-warning"></i> 0989.723.000</p>
+          <p><i class="fas fa-envelope mt-1 text-warning"></i> huyhoangvn.ht@gmail.com</p>
+        </div>
+        <div class="footer-col footer-links">
+          <h4>Liên Kết Nhanh</h4>
+          <a href="../index.html">Trang Chủ</a>
+          <a href="scholarship1+4.html">Hệ 1+4</a>
+          <a href="Taiwan full scholarship.html">Học Bổng Toàn Phần</a>
+          <a href="contact.html">Đăng Ký Tư Vấn</a>
+        </div>
+      </div>
+ 
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<div class="container text-center my-4" data-aos="fade-down">
+        <h2 class="fw-bold">Thủ tục đăng ký du học Đài Loan</h2>
+        <p class="text-muted">Hoàn thành các bước dưới đây để gửi hồ sơ du học</p>
+    </div>
+
+    <div class="container progress-container d-flex justify-content-between position-relative">
+        <div class="progress-line" id="progressLine"></div>
+        <div class="progress-step active" data-step="1"><span>Thông tin cá nhân</span></div>
+        <div class="progress-step" data-step="2"><span>Học vấn & Chương trình</span></div>
+        <div class="progress-step" data-step="3"><span>Hồ sơ tải lên</span></div>
+        <div class="progress-step" data-step="4"><span>Xác nhận</span></div>
+    </div>
+
+    <div class="container">
+        <form id="registrationForm" novalidate>
+            <div class="panel active" data-panel="1" data-aos="fade-up">
+                <h4 class="mb-3">1. Thông tin cá nhân</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Họ và tên *</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày sinh *</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Số điện thoại *</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Địa chỉ thường trú *</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mt-4 text-end">
+                    <button type="button" class="btn-custom" id="to2">Tiếp theo <i
+                            class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="panel" data-panel="2" data-aos="fade-up">
+                <h4 class="mb-3">2. Học vấn & Chọn chương trình</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Trình độ học vấn *</label>
+                        <select class="form-select" required>
+                            <option value="">-- Chọn trình độ --</option>
+                            <option>THPT</option>
+                            <option>Cao đẳng</option>
+                            <option>Đại học</option>
+                            <option>Sau đại học</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngành dự định học *</label>
+                        <select class="form-select" required>
+                            <option value="" selected disabled>-- Chọn ngành --</option>
+                            <option>Công nghệ thông tin</option>
+                            <option>Kinh tế</option>
+                            <option>Điện tử - Viễn thông</option>
+                            <option>Y khoa</option>
+                            <option>Ngôn ngữ Trung</option>
+                            <option>Quản trị kinh doanh</option>
+                            <option>Kỹ thuật</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Trường dự định nộp</label>
+                        <input type="text" class="form-control" placeholder="Ví dụ: ĐH Quốc gia Đài Loan">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngôn ngữ mong muốn *</label>
+                        <select class="form-select" required>
+                            <option value="">-- Chọn ngôn ngữ --</option>
+                            <option>Tiếng Trung</option>
+                            <option>Tiếng Anh</option>
+                            <option>Song ngữ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="back1"><i class="bi bi-arrow-left"></i>
+                        Trở lại</button>
+                    <button type="button" class="btn-custom" id="to3">Tiếp theo <i
+                            class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="panel" data-panel="3" data-aos="fade-up">
+                <h4 class="mb-3">3. Hồ sơ tải lên</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Học bạ / Bằng tốt nghiệp *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Chứng chỉ ngoại ngữ *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Hộ chiếu *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="file-upload mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <p class="mt-2">Ảnh thẻ *</p>
+                            <input type="file" class="form-control mt-2" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="back2"><i class="bi bi-arrow-left"></i>
+                        Trở lại</button>
+                    <button type="button" class="btn-custom" id="to4">Tiếp theo <i
+                            class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="panel" data-panel="4" data-aos="fade-up">
+                <h4 class="mb-3">4. Xác nhận & Gửi hồ sơ</h4>
+                <p>Vui lòng kiểm tra lại thông tin trước khi gửi. Sau khi gửi, chúng tôi sẽ liên hệ qua Email/SĐT để tư
+                    vấn chi tiết.</p>
+                <div class="form-check my-3">
+                    <input class="form-check-input" type="checkbox" id="agree" required>
+                    <label class="form-check-label" for="agree">Tôi cam kết thông tin trên là chính xác.</label>
+                </div>
+                <div class="mt-4 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="back3"><i class="bi bi-arrow-left"></i>
+                        Trở lại</button>
+                    <button type="submit" class="btn-custom">Gửi hồ sơ <i class="bi bi-check-circle"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <i class="bi bi-check-circle-fill text-success display-3"></i>
+                <h5 class="mt-3">Hồ sơ đã gửi thành công!</h5>
+                <p>Chúng tôi sẽ liên hệ qua Email/SĐT trong thời gian sớm nhất.</p>
+                <button class="btn btn-custom mt-2" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+
+<section class="reasons-section py-5 position-relative overflow-hidden">
+  <div class="parallax-bg"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-gradient">Quyền lợi khi đăng ký du học tại Huy Hoàng?</h2>
+      <p class="text-muted">Chúng tôi mang đến hành trình học tập trọn vẹn và khác biệt</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h5 class="fw-bold">Học bổng đa dạng</h5>
+            <p class="small text-muted">Cơ hội nhận học bổng giá trị cao, giảm áp lực tài chính cho sinh viên.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5 class="fw-bold">Cộng đồng du học sinh</h5>
+            <p class="small text-muted">Tham gia mạng lưới sinh viên quốc tế, kết nối và học hỏi lẫn nhau.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <h5 class="fw-bold">Địa điểm lý tưởng</h5>
+            <p class="small text-muted">Đài Loan – môi trường hiện đại, an toàn, giàu bản sắc văn hóa.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="card reason-card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle mb-3">
+              <i class="bi bi-lightning-fill"></i>
+            </div>
+            <h5 class="fw-bold">Hỗ trợ nhanh chóng</h5>
+            <p class="small text-muted">Đội ngũ tư vấn chuyên nghiệp luôn đồng hành trong suốt hành trình.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <section class="container my-5">
+        <h3 class="fw-bold text-center mb-4" data-aos="zoom-in">Quy trình du học Đài Loan</h3>
+        <div class="row text-center g-4">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-search display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Tìm hiểu thông tin</h6>
+                    <p class="text-muted small">Khảo sát ngành học, trường học và chính sách tuyển sinh phù hợp.</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-journal-text display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Chuẩn bị hồ sơ</h6>
+                    <p class="text-muted small">Hoàn thiện học bạ, chứng chỉ, hộ chiếu và các giấy tờ cần thiết.</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-envelope-check display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Nộp & phỏng vấn</h6>
+                    <p class="text-muted small">Gửi hồ sơ, tham gia phỏng vấn (nếu có) và nhận thư mời nhập học.</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 border rounded shadow-sm h-100 hover-shadow bg-white">
+                    <i class="bi bi-airplane display-5 text-primary"></i>
+                    <h6 class="mt-3 fw-bold">Làm visa & bay</h6>
+                    <p class="text-muted small">Xin visa, sắp xếp chỗ ở và chuẩn bị hành trang sang Đài Loan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" data-aos="fade-up">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3 text-primary">Bạn cần hỗ trợ thêm?</h3>
+            <p class="mb-4 text-muted">Đội ngũ tư vấn của Huy Hoàng Edu sẵn sàng đồng hành cùng bạn trên hành trình du học.</p>
+            <a href="contact.html" class="btn btn-warning px-4 py-2 fw-semibold">
+                Liên hệ tư vấn ngay
+            </a>
+        </div>
+    </section>

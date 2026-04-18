@@ -1,0 +1,373 @@
+body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, #006699, #00b3b3);
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header .navbar-brand {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #fff !important;
+        }
+
+        header .nav-link {
+            color: #f8f9fa !important;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color .3s;
+        }
+
+        header .nav-link:hover {
+            color: #ffdd57 !important;
+        }
+
+        /* Giữ màu vàng cho tab active */
+        header .nav-link.active {
+            color: #ffdd57 !important;
+            font-weight: 600;
+            position: relative;
+        }
+
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0057b8;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ff7e00;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* University Cards Grid */
+        .uni-cards .card {
+            overflow: hidden;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform .4s ease, box-shadow .4s ease;
+            background: #fff;
+        }
+
+        .uni-cards .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+        }
+
+        .uni-cards .card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform .5s ease, filter .5s ease;
+        }
+
+        .uni-cards .card:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.85);
+        }
+
+        .uni-cards .card-body {
+            padding: 24px;
+        }
+
+        .uni-cards .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0057b8;
+            min-height: 3em;
+        }
+
+        .uni-cards .card-text {
+            color: #555;
+            margin-top: 12px;
+            min-height: 4em;
+        }
+
+        .uni-cards .btn-primary {
+            background: #0057b8;
+            border: none;
+            transition: background .3s ease;
+        }
+
+        .uni-cards .btn-primary:hover {
+            background: #003f7f;
+        }
+
+        /* Scholarship Detail */
+        .scholar-detail {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .scholar-detail h3 {
+            color: #0057b8;
+            margin-bottom: 20px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-list li {
+            margin-bottom: 14px;
+            padding-left: 40px;
+            position: relative;
+            transition: color .3s ease;
+        }
+
+        .detail-list li::before {
+            content: "\f2d0";
+            font-family: 'bootstrap-icons';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ff7e00;
+            font-size: 24px;
+        }
+
+        .detail-list li:hover {
+            color: #0057b8;
+        }
+
+        .requirements-box {
+            background: #eaf4ff;
+            border-left: 6px solid #0057b8;
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .requirements-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .requirements-box ul li {
+            margin-bottom: 8px;
+        }
+
+        /* FAQ Styling */
+        .faq-section {
+            padding: 60px 20px;
+        }
+
+        .faq-section h3 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+            color: #0057b8;
+        }
+
+        .accordion .accordion-button {
+            transition: all .3s ease;
+            background: #f8faff;
+        }
+
+        .accordion .accordion-button:hover {
+            background: #eaf3ff;
+            color: #0057b8;
+            transform: translateX(5px);
+        }
+
+        .accordion-item {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-body {
+            background: #fff;
+            padding: 20px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .uni-cards .card {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* =========================================
+           FOOTER STYLES (Compact Version)
+           ========================================= */
+        footer {
+            background: linear-gradient(90deg, #006699, #00b3b3);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 80px; /* Tạo khoảng cách với phần trên */
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd166, #00b3b3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .footer-content div {
+            padding: 0 10px;
+        }
+
+        .footer-content h4 {
+            margin-bottom: 15px;
+            color: #ffd166;
+            font-size: 1.2em;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content h4:hover {
+            color: #ffffff;
+        }
+
+        .footer-content h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd166, #ffffff);
+            border-radius: 2px;
+        }
+
+        .footer-content p,
+        .footer-content a {
+            color: #e3f2fd;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            display: block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            color: #ffd166;
+            transform: translateX(5px);
+        }
+
+        .quick-links {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .link-columns {
+            text-decoration: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .link-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .divider {
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px;
+        }
+
+        .footer-social {
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #ffd166;
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e3f2fd;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            transition: transform 0.4s ease;
+        }
+
+        .footer-bottom:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-content h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .link-columns {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .divider {
+                width: 100%;
+                height: 1px;
+                margin: 10px 0;
+            }
+        }

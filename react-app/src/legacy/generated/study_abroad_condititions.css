@@ -1,0 +1,249 @@
+/* =========================================
+           1. CORE VARIABLES & SETUP
+           ========================================= */
+        :root {
+            --primary: #006699;
+            --secondary: #00b3b3;
+            --orange: #f9a11b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gradient-main: linear-gradient(90deg, var(--primary), var(--secondary));
+            --shadow-card: 0 10px 30px -5px rgba(0,0,0,0.1);
+            --radius-lg: 20px;
+        }
+
+        body { font-family: 'Roboto', sans-serif; color: #334155; overflow-x: hidden; background: #fff; line-height: 1.6; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 10px; }
+
+        a { text-decoration: none; transition: all 0.3s ease; }
+
+        /* =========================================
+           2. HEADER (UPDATED TO MATCH OTHERS)
+           ========================================= */
+        .top-bar {
+            background-color: #004a75;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+        .top-bar a { color: #fff; margin-left: 15px; }
+        .top-bar a:hover { color: var(--orange); }
+
+        /* Navbar with Gradient */
+        .navbar {
+            background: var(--gradient-main);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            position: sticky; top: 0; z-index: 1020;
+        }
+        
+        /* Logo Styles (Circle) */
+        .logo-container {
+            width: 50px; height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-right: 12px;
+        }
+        .logo-container img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            color: #fff !important;
+            font-size: 1.4rem;
+            display: flex; align-items: center;
+        }
+
+        /* Nav Links */
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #ffdd57 !important;
+        }
+        
+        .btn-consult {
+            background: #fff;
+            color: var(--primary) !important;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .btn-consult:hover {
+            background: var(--orange);
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           3. HERO SECTION (Career Theme)
+           ========================================= */
+        .hero-career {
+            position: relative; height: 80vh; min-height: 600px;
+            background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            display: flex; align-items: center; overflow: hidden;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%);
+        }
+        .career-badge {
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 20px; border-radius: 50px; color: var(--orange); font-weight: 600;
+            margin-bottom: 20px; display: inline-block; backdrop-filter: blur(5px);
+        }
+        .hero-title { font-size: 3.5rem; color: white; margin-bottom: 20px; line-height: 1.2; }
+        
+        /* Floating Icons */
+        .float-icon {
+            position: absolute; width: 80px; height: 80px; background: white;
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 6s infinite ease-in-out;
+        }
+        .icon-chip { top: 20%; right: 10%; color: var(--orange); animation-delay: 0s; }
+        .icon-chart { bottom: 20%; right: 20%; color: var(--secondary); animation-delay: 2s; }
+        .icon-global { top: 30%; right: 30%; color: var(--primary); animation-delay: 1s; }
+        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* =========================================
+           4. SECTIONS & CONTENT
+           ========================================= */
+        .reality-section { padding: 80px 0; background: #fff; }
+        .stat-card {
+            text-align: center; padding: 30px; border-radius: var(--radius-lg);
+            background: var(--light); transition: 0.3s; height: 100%;
+        }
+        .stat-card:hover { transform: translateY(-10px); background: #fff; box-shadow: var(--shadow-card); }
+        .stat-num { font-size: 3rem; font-weight: 800; color: var(--orange); line-height: 1; }
+        
+        /* Majors */
+        .majors-section { padding: 100px 0; background: #f0f9ff; }
+        .major-card {
+            background: white; border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-card); transition: 0.4s; position: relative;
+            height: 420px; group; cursor: pointer;
+        }
+        .major-img { height: 200px; width: 100%; object-fit: cover; transition: 0.4s; }
+        .major-content { padding: 25px; position: relative; background: white; height: 100%; transition: 0.4s; }
+        .major-icon {
+            width: 60px; height: 60px; background: var(--gradient-main); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; position: absolute; top: -30px; right: 25px;
+            box-shadow: 0 5px 15px rgba(0, 102, 153, 0.3);
+        }
+        .major-card:hover .major-content { transform: translateY(-100px); }
+        .major-card:hover .major-img { filter: brightness(0.7); }
+        .major-details {
+            opacity: 0; transform: translateY(20px); transition: 0.4s;
+            margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;
+        }
+        .major-card:hover .major-details { opacity: 1; transform: translateY(0); }
+        
+        /* Holland Test */
+        .career-test-section {
+            background: var(--dark); color: white; padding: 100px 0; position: relative; overflow: hidden;
+        }
+        .holland-circle {
+            width: 150px; height: 150px; border-radius: 50%;
+            background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            margin: 0 auto; transition: 0.3s; cursor: pointer;
+        }
+        .holland-circle:hover, .holland-circle.active {
+            background: var(--orange); border-color: var(--orange); transform: scale(1.1); box-shadow: 0 0 30px rgba(249, 161, 27, 0.4);
+        }
+        .holland-icon { font-size: 2rem; margin-bottom: 10px; }
+        
+        /* Salary Chart */
+        .trend-section { padding: 80px 0; background: white; }
+        .chart-bar-wrapper { margin-bottom: 25px; }
+        .chart-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
+        .progress { height: 25px; border-radius: 15px; background: #e2e8f0; overflow: hidden; }
+        .progress-bar {
+            background: var(--gradient-main); text-align: right; padding-right: 15px;
+            font-weight: bold; line-height: 25px; animation: grow 2s ease-out forwards; width: 0;
+        }
+        @keyframes grow { from { width: 0; } }
+
+        /* =========================================
+           5. FOOTER (UPDATED COMPACT STYLE)
+           ========================================= */
+        footer {
+            background: linear-gradient(90deg, #006699, #00b3b3);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 0;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #ffd166, #00b3b3);
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; align-items: start;
+        }
+        .footer-content h4 {
+            margin-bottom: 15px; color: #ffd166;
+            font-size: 1.2em; font-weight: 700;
+            position: relative; padding-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .footer-content h4::after {
+            content: ''; position: absolute; left: 0; bottom: 0;
+            width: 40px; height: 3px;
+            background: linear-gradient(90deg, #ffd166, #ffffff);
+            border-radius: 2px;
+        }
+        .footer-content p, .footer-content a {
+            color: #e3f2fd; font-size: 0.95em; line-height: 1.6;
+            margin-bottom: 8px; display: block;
+            transition: all 0.3s ease;
+        }
+        .footer-content a:hover { color: #ffd166; transform: translateX(5px); }
+        
+        .link-columns { display: flex; align-items: flex-start; gap: 20px; }
+        .link-col { display: flex; flex-direction: column; gap: 8px; }
+        .divider { width: 1px; background-color: rgba(255, 255, 255, 0.2); margin: 0 10px; }
+        
+        .footer-bottom {
+            text-align: center; margin-top: 30px; padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e3f2fd; font-size: 0.85em;
+        }
+        .footer-bottom:hover { transform: translateY(-2px); }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-title { font-size: 2.5rem; }
+            .major-card { height: auto; }
+            .major-card:hover .major-content { transform: none; }
+            .major-details { opacity: 1; transform: none; display: block; }
+            .holland-circle { width: 100px; height: 100px; font-size: 0.8rem; margin-bottom: 20px; }
+            .holland-icon { font-size: 1.5rem; }
+            .footer-content { text-align: center; }
+            .footer-content h4::after { left: 50%; transform: translateX(-50%); }
+            .link-columns { justify-content: center; }
+        }

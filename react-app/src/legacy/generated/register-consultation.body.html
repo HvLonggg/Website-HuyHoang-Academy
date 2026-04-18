@@ -1,0 +1,528 @@
+<!-- Hero -->
+  <section class="hero">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <span class="badge bg-primary-gradient text-white shadow-soft mb-3">DU HỌC ĐÀI LOAN</span>
+          <h1 class="display-5 fw-bold">Đăng Ký Tư Vấn <br> <span class="text-primary">Miễn Phí Ngay Hôm Nay</span></h1>
+          <p class="lead mb-4">Chuyên gia giàu kinh nghiệm sẽ đồng hành cùng bạn xây dựng lộ trình du học tối ưu nhất. Cam kết 100% minh bạch, không phí ẩn.</p>
+          <div class="hero-cta">
+            <a href="#form" class="btn btn-primary-gradient text-white me-2">Bắt đầu ngay</a>
+            <a href="tel:0989.723.000" class="btn btn-outline-dark">Gọi hotline</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section container">
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="feature p-3 text-center">
+          <i class="fas fa-trophy i-1"></i>
+          <div class="fw-bold mt-3">Học bổng lên tới 100%</div>
+          <p class="small text-muted">Hỗ trợ săn học bổng từ trường và chính phủ Đài Loan.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="feature p-3 text-center">
+          <i class="fas fa-plane-departure i-2"></i>
+          <div class="fw-bold mt-3">Visa cam kết</div>
+          <p class="small text-muted">Xử lý hồ sơ chuyên nghiệp, tỷ lệ đậu 99%.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="feature p-3 text-center">
+          <i class="fas fa-briefcase i-3"></i>
+          <div class="fw-bold mt-3">Việc làm thêm</div>
+          <p class="small text-muted">Giới thiệu công việc hợp pháp, lương cao.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="feature p-3 text-center">
+          <i class="fas fa-headset i-4"></i>
+          <div class="fw-bold mt-3">Hỗ trợ 24/7</div>
+          <p class="small text-muted">Đồng hành trước, trong và sau du học.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-step Form -->
+  <section id="form" class="section container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <div class="kicker mb-2">ĐĂNG KÝ TƯ VẤN</div>
+          <h2 class="fw-bold">Xây Dựng Lộ Trình Du Học Cá Nhân Hóa</h2>
+          <p class="text-muted">Chỉ mất 2 phút để cung cấp thông tin. Chúng tôi sẽ liên hệ ngay!</p>
+        </div>
+
+        <div class="form-card">
+          <div class="form-head">
+            <div class="step active" data-step="1">
+              <span class="dot">1</span>
+              <span class="label">Thông tin cơ bản</span>
+            </div>
+            <div class="step" data-step="2">
+              <span class="dot">2</span>
+              <span class="label">Hồ sơ học tập</span>
+            </div>
+            <div class="step" data-step="3">
+              <span class="dot">3</span>
+              <span class="label">Xác nhận</span>
+            </div>
+          </div>
+
+          <form id="consultForm" class="form-body">
+            <!-- Step 1 -->
+            <div class="step-pane" data-step="1">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="fullname" placeholder="Họ tên đầy đủ" required>
+                <label for="fullname">Họ tên đầy đủ</label>
+                <div class="invalid-feedback">Vui lòng nhập họ tên (ít nhất 3 ký tự).</div>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" placeholder="Số điện thoại" required>
+                <label for="phone">Số điện thoại</label>
+                <div class="invalid-feedback">Số điện thoại không hợp lệ (9-11 số).</div>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+                <div class="invalid-feedback">Email không hợp lệ.</div>
+              </div>
+              <div class="form-floating mb-4">
+                <select class="form-select" id="city">
+                  <option value="">Chọn tỉnh/thành</option>
+                  <option value="hanoi">Hà Nội</option>
+                  <option value="hcm">TP. Hồ Chí Minh</option>
+                  <option value="danang">Đà Nẵng</option>
+                  <option value="other">Tỉnh khác</option>
+                </select>
+                <label for="city">Bạn đang ở đâu?</label>
+              </div>
+              <div class="form-check mb-4">
+                <input type="checkbox" class="form-check-input" id="consent" required>
+                <label for="consent" class="form-check-label small">Tôi đồng ý nhận tư vấn qua email/sđt theo <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">chính sách bảo mật</a>.</label>
+              </div>
+              <button type="button" class="btn-next w-100">Tiếp tục</button>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-pane d-none" data-step="2">
+              <div class="form-floating mb-3">
+                <select class="form-select" id="level" required>
+                  <option value="">Chọn bậc học</option>
+                  <option value="thpt">THPT (lớp 10-12)</option>
+                  <option value="daotao">Đang học đại học</option>
+                  <option value="totnghiep">Đã tốt nghiệp đại học</option>
+                  <option value="other">Khác</option>
+                </select>
+                <label for="level">Bạn đang ở bậc học nào?</label>
+                <div class="invalid-feedback">Vui lòng chọn bậc học.</div>
+              </div>
+              <div class="form-floating mb-3">
+                <select class="form-select" id="program" required>
+                  <option value="">Chọn chương trình quan tâm</option>
+                  <option value="ngonngu">Học ngôn ngữ (Hệ ngắn hạn)</option>
+                  <option value="daihoc">Đại học (4 năm)</option>
+                  <option value="thacsi">Thạc sĩ</option>
+                  <option value="vhvl">Vừa học vừa làm</option>
+                </select>
+                <label for="program">Chương trình quan tâm</label>
+                <div class="invalid-feedback">Vui lòng chọn chương trình.</div>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="gpa" placeholder="GPA">
+                <label for="gpa">Điểm trung bình (GPA) gần nhất</label>
+                <div class="helper">Ví dụ: 8.5/10 hoặc 3.2/4.0</div>
+                <div class="invalid-feedback">Định dạng GPA không hợp lệ.</div>
+              </div>
+              <div class="form-floating mb-3">
+                <select class="form-select" id="english">
+                  <option value="">Trình độ ngoại ngữ</option>
+                  <option value="toeic">TOEIC 600+</option>
+                  <option value="ielts">IELTS 5.5+</option>
+                  <option value="tocfl">TOCFL Band 2+</option>
+                  <option value="none">Chưa có chứng chỉ</option>
+                </select>
+                <label for="english">Trình độ ngoại ngữ</label>
+              </div>
+              <div class="form-floating mb-4">
+                <select class="form-select" id="budget">
+                  <option value="">Ngân sách dự kiến</option>
+                  <option value="100">Dưới 100 triệu</option>
+                  <option value="200">100 - 200 triệu</option>
+                  <option value="300">200 - 300 triệu</option>
+                  <option value="300+">Trên 300 triệu</option>
+                </select>
+                <label for="budget">Ngân sách dự kiến (năm đầu)</label>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn-prev px-4">Quay lại</button>
+                <button type="button" class="btn-next px-4">Tiếp tục</button>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-pane d-none" data-step="3">
+              <h5 class="fw-bold mb-4">Tóm tắt thông tin</h5>
+              <div id="summary" class="bg-light rounded-3 p-3 mb-4"></div>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="note" rows="3" placeholder="Ghi chú thêm"></textarea>
+                <label for="note">Ghi chú thêm (nếu có)</label>
+              </div>
+              <div class="form-check mb-4">
+                <input type="checkbox" class="form-check-input" id="agree" required>
+                <label for="agree" class="form-check-label small">Tôi xác nhận thông tin chính xác và đồng ý <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">điều khoản</a>.</label>
+                <div id="agreeError" class="invalid-feedback" style="display:none">Vui lòng xác nhận thông tin.</div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn-prev px-4">Quay lại</button>
+                <button type="submit" class="btn-submit px-4">Gửi Đăng Ký</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section container">
+    <div class="stats p-4">
+      <div class="row g-3">
+        <div class="col-6 col-md-3 stat">
+          <h3 data-counter="1200">1200+</h3>
+          <p>Học viên thành công</p>
+        </div>
+        <div class="col-6 col-md-3 stat">
+          <h3 data-counter="99">%</h3>
+          <p>Tỷ lệ Visa</p>
+        </div>
+        <div class="col-6 col-md-3 stat">
+          <h3 data-counter="80">80%</h3>
+          <p>Nhận học bổng</p>
+        </div>
+        <div class="col-6 col-md-3 stat">
+          <h3 data-counter="10">10+</h3>
+          <p>Năm kinh nghiệm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section container">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">QUY TRÌNH</div>
+      <h2 class="fw-bold">Từ Đăng Ký Đến Thành Công</h2>
+      <p class="text-muted">Chúng tôi đồng hành từng bước, đảm bảo hành trình suôn sẻ.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="fw-bold mb-1">Tư vấn & Ký hợp đồng</div>
+        <p class="small text-muted">Phân tích hồ sơ, chọn chương trình phù hợp. Ký hợp đồng minh bạch.</p>
+      </div>
+      <div class="tl-item">
+        <div class="fw-bold mb-1">Hoàn thiện hồ sơ</div>
+        <p class="small text-muted">Dịch thuật, công chứng, chuẩn bị tài chính. Hỗ trợ viết SOP.</p>
+      </div>
+      <div class="tl-item">
+        <div class="fw-bold mb-1">Nộp đơn & Phỏng vấn</div>
+        <p class="small text-muted">Nộp hồ sơ trường, luyện phỏng vấn Visa. Đảm bảo tỷ lệ đậu cao.</p>
+      </div>
+      <div class="tl-item">
+        <div class="fw-bold mb-1">Nhận Visa & Xuất cảnh</div>
+        <p class="small text-muted">Đặt vé, hướng dẫn nhập cảnh. Đón sân bay tại Đài Loan.</p>
+      </div>
+      <div class="tl-item">
+        <div class="fw-bold mb-1">Hỗ trợ sau du học</div>
+        <p class="small text-muted">Giới thiệu việc làm, gia hạn Visa, tư vấn định cư.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section container bg-white py-5 shadow-soft">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">LỢI ÍCH</div>
+      <h2 class="fw-bold">Tại Sao Chọn Huy Hoàng?</h2>
+      <p class="text-muted">Chúng tôi không chỉ tư vấn, mà còn đồng hành như người thân.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="benefit text-center">
+          <i class="fas fa-star text-warning"></i>
+          <div class="fw-bold mt-3">Cam kết kết quả</div>
+          <p class="small text-muted">Hoàn tiền nếu không đạt Visa hoặc học bổng như hợp đồng.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="benefit text-center">
+          <i class="fas fa-user-shield text-primary"></i>
+          <div class="fw-bold mt-3">Bảo mật thông tin</div>
+          <p class="small text-muted">Dữ liệu cá nhân được bảo vệ nghiêm ngặt theo luật.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="benefit text-center">
+          <i class="fas fa-handshake text-success"></i>
+          <div class="fw-bold mt-3">Đối tác uy tín</div>
+          <p class="small text-muted">Hợp tác trực tiếp với 50+ trường đại học Đài Loan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scholarship -->
+  <section class="section container">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">HỌC BỔNG</div>
+      <h2 class="fw-bold">Cơ Hội Học Bổng Đặc Biệt</h2>
+      <p class="text-muted">Chúng tôi hỗ trợ nộp đơn học bổng từ các trường đối tác.</p>
+    </div>
+
+    <div class="scholar p-4">
+      <div class="row align-items-center">
+        <div class="col-md-3 mb-3 mb-md-0 text-center">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=400&fit=crop" class="rounded-circle shadow" alt="Học bổng du học Đài Loan" style="width:180px;height:180px;object-fit:cover;">
+        </div>
+        <div class="col-md-6 mb-3 mb-md-0">
+          <h4 class="fw-bold">Học bổng MOE 2025</h4>
+          <p class="small text-muted">Miễn 100% học phí + sinh hoạt phí 15.000 NTD/tháng.</p>
+          <span class="badge bg-primary-gradient text-white me-2">Hạn chót: 31/03/2025</span>
+          <span class="badge badge-save text-white">Tiết kiệm 200 triệu/năm</span>
+        </div>
+        <div class="col-md-3 text-center">
+          <a href="#" class="btn btn-primary-gradient text-white">Apply ngay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section container bg-white py-5 shadow-soft">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">BẢNG GIÁ</div>
+      <h2 class="fw-bold">Gói Tư Vấn Linh Hoạt</h2>
+      <p class="text-muted">Chọn gói phù hợp với nhu cầu của bạn.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="price-card p-3 text-center">
+          <div class="price-tag mb-3">15 triệu</div>
+          <div class="fw-bold mb-2">Gói Cơ Bản</div>
+          <p class="small text-muted mb-4">Tư vấn Visa & Hồ sơ</p>
+          <a href="#" class="btn btn-outline-dark w-100">Chọn</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="price-card p-3 text-center">
+          <div class="price-tag mb-3">25 triệu</div>
+          <div class="fw-bold mb-2">Gói Tiêu Chuẩn</div>
+          <p class="small text-muted mb-4">Toàn diện + Học bổng</p>
+          <a href="#" class="btn btn-primary-gradient text-white w-100">Chọn</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="price-card p-3 text-center">
+          <div class="price-tag mb-3">35 triệu</div>
+          <div class="fw-bold mb-2">Gói VIP</div>
+          <p class="small text-muted mb-4">VIP + Hỗ trợ định cư</p>
+          <a href="#" class="btn btn-outline-dark w-100">Chọn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">FAQ</div>
+      <h2 class="fw-bold">Câu Hỏi Thường Gặp</h2>
+      <p class="text-muted">Giải đáp thắc mắc phổ biến về du học Đài Loan.</p>
+    </div>
+
+    <div class="accordion accordion-flush" id="faq">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            Chi phí du học Đài Loan khoảng bao nhiêu?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Năm đầu tiên khoảng 150-250 triệu tùy chương trình. Từ năm thứ 2 giảm nhờ học bổng và làm thêm.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Cần chứng chỉ gì để apply Visa?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Chứng minh tài chính, thư mời học, giấy khám sức khỏe. Chúng tôi hỗ trợ chuẩn bị đầy đủ.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            Có được làm thêm khi du học?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Có, tối đa 20h/tuần. Thu nhập trung bình 15-25 triệu/tháng.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners - Đã chỉnh sửa hoàn thiện -->
+  <section class="partners-section container">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">ĐỐI TÁC</div>
+      <h2 class="fw-bold">Hợp Tác Với Các Trường Top Đài Loan</h2>
+      <p class="text-muted">Chúng tôi làm việc trực tiếp với các trường đại học hàng đầu Đài Loan.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center align-items-stretch">
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_nationalTaiwan.html">
+          <div class="partner-logo-inner">
+            <img src="../images/National_Taiwan_University_seal.svg.png" alt="Đại học Quốc gia Đài Loan (NTU)">
+          </div>
+          <span class="partner-caption">Đại học Quốc gia Đài Loan (NTU)</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_Tsinghua.html">
+          <div class="partner-logo-inner">
+            <img src="../images/NTHU_Round_Seal.svg.png" alt="Đại học Thanh Hoa (NTHU)">
+          </div>
+          <span class="partner-caption">Đại học Thanh Hoa (NTHU)</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_changhua.html">
+          <div class="partner-logo-inner">
+            <img src="../images/NCUE_seal.svg.png" alt="ĐH Sư phạm Quốc gia Chương Hóa (NCUE)">
+          </div>
+          <span class="partner-caption">NCUE · Chương Hóa</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_kunshan.html">
+          <div class="partner-logo-inner">
+            <img src="../images/kunsan_logo.jpg" alt="Đại học Côn Sơn (KSU)">
+          </div>
+          <span class="partner-caption">Đại học Côn Sơn (KSU)</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_Mingchuan.html">
+          <div class="partner-logo-inner">
+            <img src="../images/du-hoc-dai-loan-ming-chuan-university.png" alt="Đại học Minh Truyền (MCU)">
+          </div>
+          <span class="partner-caption">Đại học Minh Truyền (MCU)</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_kainan.html">
+          <div class="partner-logo-inner">
+            <img src="../images/Kainan-University.png" alt="Đại học Khai Nam">
+          </div>
+          <span class="partner-caption">Đại học Khai Nam (KNU)</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 partner-col">
+        <a class="partner-logo-card" href="school/about_quoclap.html">
+          <div class="partner-logo-inner">
+            <img src="../images/National_Taiwan_University_seal.svg.png" alt="Đại học Quốc lập Đài Loan">
+          </div>
+          <span class="partner-caption">Đại học Quốc lập Đài Loan</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA -->
+  <div class="cta-sticky p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="fw-bold">Sẵn sàng cho hành trình du học?</div>
+      <button class="btn btn-primary-gradient text-white">Đăng ký ngay</button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <div class="back-to-top">
+    <button class="btn btn-primary-gradient text-white"><i class="fas fa-arrow-up"></i></button>
+  </div>
+
+  <!-- Float Chat -->
+  <div class="chat-fab">
+    <button class="chat-btn"><i class="fas fa-comment-dots"></i></button>
+  </div>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-head">Chat với Huy Hoàng</div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg">Chào bạn! Bạn cần tư vấn gì về du học Đài Loan?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Nhập tin nhắn..." id="chatInput">
+      <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Điều khoản & Bảo mật</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body small">
+          <p><b>1. Thu thập dữ liệu:</b> Họ tên, email, số điện thoại, nhu cầu học tập… chỉ dùng cho mục đích tư vấn.</p>
+          <p><b>2. Lưu trữ:</b> Dữ liệu được lưu trên hệ thống bảo mật; bạn có quyền yêu cầu chỉnh sửa/xoá.</p>
+          <p><b>3. Chia sẻ:</b> Chỉ chia sẻ với đối tác trường/ký túc xá khi có sự đồng ý của bạn.</p>
+          <p><b>4. Cookies:</b> Dùng để lưu bản nháp form nhằm giúp bạn không bị mất dữ liệu khi reload.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Đã hiểu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title"><i class="fa-solid fa-circle-check text-success me-2"></i>Gửi đăng ký thành công</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Cảm ơn bạn đã tin tưởng Huy Hoàng. Cố vấn sẽ liên hệ trong <b>2–6 giờ làm việc</b>.</p>
+          <div class="bg-light rounded-3 p-3">
+            <div class="kicker mb-1">Tóm tắt</div>
+            <div id="successSummary" class="small"></div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <a href="programs.html" class="btn btn-outline-dark">Xem chương trình</a>
+          <button class="btn btn-primary-gradient text-white" data-bs-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
